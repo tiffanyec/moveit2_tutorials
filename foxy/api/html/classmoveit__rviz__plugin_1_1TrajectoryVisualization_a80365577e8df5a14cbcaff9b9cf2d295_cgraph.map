@@ -1,0 +1,5 @@
+<map id="moveit_rviz_plugin::TrajectoryVisualization::incomingDisplayTrajectory" name="moveit_rviz_plugin::TrajectoryVisualization::incomingDisplayTrajectory">
+<area shape="rect" id="node1" title="ROS callback for an incoming path message." alt="" coords="5,43,208,99"/>
+<area shape="rect" id="node2" href="$classmoveit__rviz__plugin_1_1TrajectoryVisualization.html#acb1491abea2702e89fec5b6c85ec29ac" title=" " alt="" coords="282,5,465,61"/>
+<area shape="rect" id="node3" href="$classrobot__trajectory_1_1RobotTrajectory.html#a4556a5245c841731bce178c0d235a721" title="Copy the content of the trajectory message into this class. The trajectory message itself is not requ..." alt="" coords="256,86,491,127"/>
+</map>
