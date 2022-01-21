@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/override.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="canonical" href="https://moveit.picknik.ai/rolling//galactic/doc/examples/realtime_servo/realtime_servo_tutorial.html" />
+    <link rel="canonical" href="https://moveit.picknik.ai/foxy//galactic/doc/examples/realtime_servo/realtime_servo_tutorial.html" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -46,9 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../how_to_guides/how_to_guides.html">How-To Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../how_to_contribute/how_to_contribute.html">Contributing</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../examples.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../examples.html#movegroup-ros-wrappers-in-c">MoveGroup - ROS Wrappers in C++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples.html#using-moveit-directly-through-the-c-api">Using MoveIt Directly Through the C++ API</a></li>
@@ -87,7 +84,10 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to_guides/how_to_guides.html">How-To Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to_contribute/how_to_contribute.html">Contributing</a></li>
 </ul>
 
         </div>
@@ -161,7 +161,7 @@
 <p>Here are some tips for inspecting and/or debugging the system.</p>
 <ol class="arabic simple">
 <li><p>View the <code class="code docutils literal notranslate"><span class="pre">ros2_controllers</span></code> that are currently active with <code class="code docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">control</span> <span class="pre">list_controllers</span></code>. You will see a <a class="reference external" href="https://github.com/ros-controls/ros2_controllers/tree/master/joint_trajectory_controller">JointTrajectoryController</a> that receives the joint position commands from Servo and handles them in the simulated robot driver. The JointTrajectoryController is very flexible; it can handle any combination of position/velocity/(position-and-velocity) input. Servo is also compatible with <a class="reference external" href="https://github.com/ros-controls/ros2_controllers/tree/master/position_controllers">JointGroupPosition</a> or <a class="reference external" href="https://github.com/ros-controls/ros2_controllers/tree/master/velocity_controllers">JointGroupVelocity</a>-type controllers.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">echo</span> <span class="pre">/servo_node/status</span></code> shows the current state of the Servo node. If <code class="code docutils literal notranslate"><span class="pre">0</span></code> is published, all is well. The definition for all enums can be seen <a class="reference external" href="https://github.com/ros-planning/moveit2/blob/main/moveit_ros/moveit_servo/include/moveit_servo/status_codes.h">here.</a></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">topic</span> <span class="pre">echo</span> <span class="pre">/servo_node/status</span></code> shows the current state of the Servo node. If <code class="code docutils literal notranslate"><span class="pre">0</span></code> is published, all is well. The definition for all enums can be seen <a class="reference external" href="https://github.com/ros-planning/moveit2/blob/foxy/moveit_ros/moveit_servo/include/moveit_servo/status_codes.h">here.</a></p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">list</span></code> shows the following. <code class="code docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">node</span> <span class="pre">info</span></code> can be used to get more information about any of these nodes.</p>
 <ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">/joy_node</span></code> handles commands from the XBox controller</p></li>
@@ -188,7 +188,7 @@
 </video></div>
 <div class="section" id="entire-code">
 <h2>Entire Code<a class="headerlink" href="#entire-code" title="Permalink to this headline"></a></h2>
-<p>The entire code is available <a class="reference external" href="https://github.com/ros-planning/moveit2_tutorials/blob/main/doc/examples/realtime_servo/src/servo_cpp_interface_demo.cpp">here</a></p>
+<p>The entire code is available <a class="reference external" href="https://github.com/ros-planning/moveit2_tutorials/blob/foxy/doc/examples/realtime_servo/src/servo_cpp_interface_demo.cpp">here</a></p>
 <div class="section" id="setup">
 <h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline"></a></h3>
 <p>First we declare pointers to the node and publisher that will publish commands to Servo</p>

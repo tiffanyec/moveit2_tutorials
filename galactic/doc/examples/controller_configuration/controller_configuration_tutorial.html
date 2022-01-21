@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/override.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="canonical" href="https://moveit.picknik.ai/rolling//galactic/doc/examples/controller_configuration/controller_configuration_tutorial.html" />
+    <link rel="canonical" href="https://moveit.picknik.ai/foxy//galactic/doc/examples/controller_configuration/controller_configuration_tutorial.html" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -46,9 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../how_to_guides/how_to_guides.html">How-To Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../how_to_contribute/how_to_contribute.html">Contributing</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../examples.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../examples.html#movegroup-ros-wrappers-in-c">MoveGroup - ROS Wrappers in C++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples.html#using-moveit-directly-through-the-c-api">Using MoveIt Directly Through the C++ API</a></li>
@@ -78,7 +75,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples.html#miscellaneous">Miscellaneous</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to_guides/how_to_guides.html">How-To Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/api.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_to_contribute/how_to_contribute.html">Contributing</a></li>
 </ul>
 
         </div>
@@ -206,8 +206,8 @@
 </div>
 <div class="section" id="example-controller-manager">
 <h2>Example Controller Manager<a class="headerlink" href="#example-controller-manager" title="Permalink to this headline"></a></h2>
-<p>MoveIt controller managers, somewhat a misnomer, are the interfaces to your custom low level controllers. A better way to think of them are <em>controller interfaces</em>. For most use cases, the included <a class="reference external" href="https://github.com/ros-planning/moveit2/blob/main/moveit_plugins/moveit_simple_controller_manager">MoveItSimpleControllerManager</a> is sufficient if your robot controllers already provide ROS actions for FollowJointTrajectory. If you use <em>ros_control</em>, the included <a class="reference external" href="https://github.com/ros-planning/moveit2/blob/main/moveit_plugins/moveit_ros_control_interface">MoveItRosControlInterface</a> is also ideal.</p>
-<p>However, for some applications you might desire a more custom controller manager. An example template for starting your custom controller manager is provided <a class="reference external" href="https://github.com/ros-planning/moveit2_tutorials/blob/main/doc/examples/controller_configuration/src/moveit_controller_manager_example.cpp">here</a>.</p>
+<p>MoveIt controller managers, somewhat a misnomer, are the interfaces to your custom low level controllers. A better way to think of them are <em>controller interfaces</em>. For most use cases, the included <a class="reference external" href="https://github.com/ros-planning/moveit2/blob/foxy/moveit_plugins/moveit_simple_controller_manager">MoveItSimpleControllerManager</a> is sufficient if your robot controllers already provide ROS actions for FollowJointTrajectory. If you use <em>ros_control</em>, the included <a class="reference external" href="https://github.com/ros-planning/moveit2/blob/foxy/moveit_plugins/moveit_ros_control_interface">MoveItRosControlInterface</a> is also ideal.</p>
+<p>However, for some applications you might desire a more custom controller manager. An example template for starting your custom controller manager is provided <a class="reference external" href="https://github.com/ros-planning/moveit2_tutorials/blob/foxy/doc/examples/controller_configuration/src/moveit_controller_manager_example.cpp">here</a>.</p>
 </div>
 <div class="section" id="simulation">
 <h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline"></a></h2>
