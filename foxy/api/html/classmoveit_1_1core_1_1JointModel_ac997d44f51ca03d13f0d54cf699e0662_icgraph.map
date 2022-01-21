@@ -1,0 +1,4 @@
+<map id="moveit::core::JointModel::enforcePositionBounds" name="moveit::core::JointModel::enforcePositionBounds">
+<area shape="rect" id="node1" title="Force the specified values to be inside bounds and normalized. Quaternions are normalized,..." alt="" coords="235,5,416,47"/>
+<area shape="rect" id="node2" href="$classmoveit_1_1core_1_1JointModel.html#a51f806bb2ef0336e3a49a1dfc3b0a848" title="Set the index of this joint within the robot model." alt="" coords="5,5,187,47"/>
+</map>
