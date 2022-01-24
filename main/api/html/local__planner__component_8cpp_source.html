@@ -295,7 +295,7 @@ $(function() {
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="comment">// Wait for global solution to be published</span></div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacemoveit_1_1hybrid__planning.html#a25f37262c36c67d3619b459d9a0fd695aa877093d775693d211348b8b417bf15d">LocalPlannerState::AWAIT_GLOBAL_TRAJECTORY</a>:</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      <span class="comment">// Do nothing</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="comment">// Notify action client that local planning failed</span></div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacemoveit_1_1hybrid__planning.html#a25f37262c36c67d3619b459d9a0fd695a8d12a2ca7e5a64036d7251a3eda51a38">LocalPlannerState::ABORT</a>:</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    {</div>
@@ -303,7 +303,7 @@ $(function() {
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;      result-&gt;error_message = <span class="stringliteral">&quot;Local planner is in an aborted state. Resetting.&quot;</span>;</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      local_planning_goal_handle_-&gt;abort(result);</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      reset();</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    }</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="comment">// If the planner received an action request and a global solution it starts to plan locally</span></div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacemoveit_1_1hybrid__planning.html#a25f37262c36c67d3619b459d9a0fd695ab4d5a285fd83da6271fe97b711e9915b">LocalPlannerState::LOCAL_PLANNING_ACTIVE</a>:</div>
@@ -322,7 +322,7 @@ $(function() {
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      {</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        local_planning_goal_handle_-&gt;succeed(result);</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        reset();</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      }</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      <span class="comment">// Get local goal trajectory to follow</span></div>
@@ -336,77 +336,80 @@ $(function() {
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;      <span class="keywordflow">if</span> (!local_planner_feedback_-&gt;feedback.empty())</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;      {</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        local_planning_goal_handle_-&gt;publish_feedback(local_planner_feedback_);</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      }</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;      <span class="comment">// Solve local planning problem</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      trajectory_msgs::msg::JointTrajectory local_solution;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;Local planner somehow failed&quot;</span>);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        reset();</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      }</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;      <span class="comment">// Feedback is only send when the hybrid planning architecture should react to a discrete event that occurred</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      <span class="comment">// while computing a local solution</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;      *local_planner_feedback_ = local_constraint_solver_instance_-&gt;solve(</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;          local_trajectory, local_planning_goal_handle_-&gt;get_goal(), local_solution);</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      <span class="comment">// Feedback is only send when the hybrid planning architecture should react to a discrete event</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      <span class="keywordflow">if</span> (!local_planner_feedback_-&gt;feedback.empty())</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      {</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        local_planning_goal_handle_-&gt;publish_feedback(local_planner_feedback_);</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      }</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="comment">// Use a configurable message interface like MoveIt servo</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;      <span class="comment">// (See https://github.com/ros-planning/moveit2/blob/main/moveit_ros/moveit_servo/src/servo_calcs.cpp)</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      <span class="comment">// Format outgoing msg in the right format</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      <span class="comment">// (trajectory_msgs/JointTrajectory or joint positions/velocities in form of std_msgs/Float64MultiArray).</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      <span class="keywordflow">if</span> (config_.<a class="code" href="structmoveit_1_1hybrid__planning_1_1LocalPlannerComponent_1_1LocalPlannerConfig.html#a837b642c9ff75ba124b56e5a416f8536">local_solution_topic_type</a> == <span class="stringliteral">&quot;trajectory_msgs/JointTrajectory&quot;</span>)</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      {</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        local_trajectory_publisher_-&gt;publish(local_solution);</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      }</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (config_.<a class="code" href="structmoveit_1_1hybrid__planning_1_1LocalPlannerComponent_1_1LocalPlannerConfig.html#a837b642c9ff75ba124b56e5a416f8536">local_solution_topic_type</a> == <span class="stringliteral">&quot;std_msgs/Float64MultiArray&quot;</span>)</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      {</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="comment">// Transform &quot;trajectory_msgs/JointTrajectory&quot; to &quot;std_msgs/Float64MultiArray&quot;</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keyword">auto</span> joints = std::make_unique&lt;std_msgs::msg::Float64MultiArray&gt;();</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordflow">if</span> (!local_solution.points.empty())</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        {</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;          <span class="keywordflow">if</span> (config_.<a class="code" href="structmoveit_1_1hybrid__planning_1_1LocalPlannerComponent_1_1LocalPlannerConfig.html#af885b1eb55e286e6cf3ce485b9e42583">publish_joint_positions</a>)</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;          {</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            joints-&gt;data = local_solution.points[0].positions;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;          }</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;          <span class="keywordflow">else</span> <span class="keywordflow">if</span> (config_.<a class="code" href="structmoveit_1_1hybrid__planning_1_1LocalPlannerComponent_1_1LocalPlannerConfig.html#af315ffd66afe095010e494ee9a3b97ac">publish_joint_velocities</a>)</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;          {</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            joints-&gt;data = local_solution.points[0].velocities;</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;          }</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        }</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        local_solution_publisher_-&gt;publish(std::move(joints));</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      }</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (config_.<a class="code" href="structmoveit_1_1hybrid__planning_1_1LocalPlannerComponent_1_1LocalPlannerConfig.html#a837b642c9ff75ba124b56e5a416f8536">local_solution_topic_type</a> == <span class="stringliteral">&quot;CUSTOM&quot;</span>)</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      {</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <span class="comment">// Local solution publisher is defined by the local constraint solver plugin</span></div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      }</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;      <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    }</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    {</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      result-&gt;error_code.val = moveit_msgs::msg::MoveItErrorCodes::FAILURE;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      result-&gt;error_message = <span class="stringliteral">&quot;Unexpected failure.&quot;</span>;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      local_planning_goal_handle_-&gt;abort(result);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;Local planner somehow failed&quot;</span>);  <span class="comment">// TODO(sjahr) Add more detailed failure information</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      reset();</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    }</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  }</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;};</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="keywordtype">void</span> LocalPlannerComponent::reset()</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;{</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  local_constraint_solver_instance_-&gt;reset();</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  trajectory_operator_instance_-&gt;reset();</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  timer_-&gt;cancel();</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  state_ = <a class="code" href="namespacemoveit_1_1hybrid__planning.html#a25f37262c36c67d3619b459d9a0fd695aa877093d775693d211348b8b417bf15d">LocalPlannerState::AWAIT_GLOBAL_TRAJECTORY</a>;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;}</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;}  <span class="comment">// namespace moveit::hybrid_planning</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="comment">// Register the component with class_loader</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="preprocessor">#include &lt;rclcpp_components/register_node_macro.hpp&gt;</span></div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;RCLCPP_COMPONENTS_REGISTER_NODE(<a class="code" href="classmoveit_1_1hybrid__planning_1_1LocalPlannerComponent.html">moveit::hybrid_planning::LocalPlannerComponent</a>)</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;      <span class="comment">// Solve local planning problem</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      trajectory_msgs::msg::JointTrajectory local_solution;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      <span class="comment">// Feedback is only send when the hybrid planning architecture should react to a discrete event that occurred</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      <span class="comment">// while computing a local solution</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      *local_planner_feedback_ = local_constraint_solver_instance_-&gt;solve(</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;          local_trajectory, local_planning_goal_handle_-&gt;get_goal(), local_solution);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;      <span class="comment">// Feedback is only send when the hybrid planning architecture should react to a discrete event</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      <span class="keywordflow">if</span> (!local_planner_feedback_-&gt;feedback.empty())</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      {</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        local_planning_goal_handle_-&gt;publish_feedback(local_planner_feedback_);</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;      }</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      <span class="comment">// Use a configurable message interface like MoveIt servo</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      <span class="comment">// (See https://github.com/ros-planning/moveit2/blob/main/moveit_ros/moveit_servo/src/servo_calcs.cpp)</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      <span class="comment">// Format outgoing msg in the right format</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      <span class="comment">// (trajectory_msgs/JointTrajectory or joint positions/velocities in form of std_msgs/Float64MultiArray).</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="keywordflow">if</span> (config_.<a class="code" href="structmoveit_1_1hybrid__planning_1_1LocalPlannerComponent_1_1LocalPlannerConfig.html#a837b642c9ff75ba124b56e5a416f8536">local_solution_topic_type</a> == <span class="stringliteral">&quot;trajectory_msgs/JointTrajectory&quot;</span>)</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      {</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        local_trajectory_publisher_-&gt;publish(local_solution);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      }</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (config_.<a class="code" href="structmoveit_1_1hybrid__planning_1_1LocalPlannerComponent_1_1LocalPlannerConfig.html#a837b642c9ff75ba124b56e5a416f8536">local_solution_topic_type</a> == <span class="stringliteral">&quot;std_msgs/Float64MultiArray&quot;</span>)</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      {</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="comment">// Transform &quot;trajectory_msgs/JointTrajectory&quot; to &quot;std_msgs/Float64MultiArray&quot;</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keyword">auto</span> joints = std::make_unique&lt;std_msgs::msg::Float64MultiArray&gt;();</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        <span class="keywordflow">if</span> (!local_solution.points.empty())</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        {</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;          <span class="keywordflow">if</span> (config_.<a class="code" href="structmoveit_1_1hybrid__planning_1_1LocalPlannerComponent_1_1LocalPlannerConfig.html#af885b1eb55e286e6cf3ce485b9e42583">publish_joint_positions</a>)</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;          {</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            joints-&gt;data = local_solution.points[0].positions;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;          }</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;          <span class="keywordflow">else</span> <span class="keywordflow">if</span> (config_.<a class="code" href="structmoveit_1_1hybrid__planning_1_1LocalPlannerComponent_1_1LocalPlannerConfig.html#af315ffd66afe095010e494ee9a3b97ac">publish_joint_velocities</a>)</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;          {</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            joints-&gt;data = local_solution.points[0].velocities;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;          }</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        }</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        local_solution_publisher_-&gt;publish(std::move(joints));</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      }</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (config_.<a class="code" href="structmoveit_1_1hybrid__planning_1_1LocalPlannerComponent_1_1LocalPlannerConfig.html#a837b642c9ff75ba124b56e5a416f8536">local_solution_topic_type</a> == <span class="stringliteral">&quot;CUSTOM&quot;</span>)</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;      {</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <span class="comment">// Local solution publisher is defined by the local constraint solver plugin</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      }</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    }</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    {</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      result-&gt;error_code.val = moveit_msgs::msg::MoveItErrorCodes::FAILURE;</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      result-&gt;error_message = <span class="stringliteral">&quot;Unexpected failure.&quot;</span>;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      local_planning_goal_handle_-&gt;abort(result);</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;      RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;Local planner somehow failed&quot;</span>);  <span class="comment">// TODO(sjahr) Add more detailed failure information</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      reset();</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;      <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  }</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;};</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="keywordtype">void</span> LocalPlannerComponent::reset()</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;{</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  local_constraint_solver_instance_-&gt;reset();</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  trajectory_operator_instance_-&gt;reset();</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  timer_-&gt;cancel();</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  state_ = <a class="code" href="namespacemoveit_1_1hybrid__planning.html#a25f37262c36c67d3619b459d9a0fd695aa877093d775693d211348b8b417bf15d">LocalPlannerState::AWAIT_GLOBAL_TRAJECTORY</a>;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;}</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;}  <span class="comment">// namespace moveit::hybrid_planning</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="comment">// Register the component with class_loader</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="preprocessor">#include &lt;rclcpp_components/register_node_macro.hpp&gt;</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;RCLCPP_COMPONENTS_REGISTER_NODE(<a class="code" href="classmoveit_1_1hybrid__planning_1_1LocalPlannerComponent.html">moveit::hybrid_planning::LocalPlannerComponent</a>)</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassmoveit_1_1hybrid__planning_1_1LocalPlannerComponent_html_a3971ef4163183fbf7a64dcdbd8a23581"><div class="ttname"><a href="classmoveit_1_1hybrid__planning_1_1LocalPlannerComponent.html#a3971ef4163183fbf7a64dcdbd8a23581">moveit::hybrid_planning::LocalPlannerComponent::initialize</a></div><div class="ttdeci">bool initialize()</div><div class="ttdef"><b>Definition:</b> <a href="local__planner__component_8cpp_source.html#l00100">local_planner_component.cpp:100</a></div></div>
 <div class="ttc" id="aclassmoveit_1_1hybrid__planning_1_1LocalPlannerComponent_html"><div class="ttname"><a href="classmoveit_1_1hybrid__planning_1_1LocalPlannerComponent.html">moveit::hybrid_planning::LocalPlannerComponent</a></div><div class="ttdef"><b>Definition:</b> <a href="local__planner__component_8h_source.html#l00132">local_planner_component.h:132</a></div></div>

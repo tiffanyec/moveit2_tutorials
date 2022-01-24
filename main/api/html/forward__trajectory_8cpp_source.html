@@ -121,7 +121,7 @@ $(function() {
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classmoveit_1_1hybrid__planning_1_1ForwardTrajectory.html#aa4ddc56c2c4df806a6625399b6150210">   49</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classmoveit_1_1hybrid__planning_1_1ForwardTrajectory.html#aa4ddc56c2c4df806a6625399b6150210">ForwardTrajectory::initialize</a>(<span class="keyword">const</span> rclcpp::Node::SharedPtr&amp; node,</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                   <span class="keyword">const</span> planning_scene_monitor::PlanningSceneMonitorPtr&amp; <a class="code" href="namespaceplanning__scene__monitor.html">planning_scene_monitor</a>,</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                   <span class="keyword">const</span> std::string&amp; group_name)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                   <span class="keyword">const</span> std::string&amp; <span class="comment">/* unused */</span>)</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="comment">// Load parameter &amp; initialize member variables</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordflow">if</span> (node-&gt;has_parameter(<span class="stringliteral">&quot;stop_before_collision&quot;</span>))</div>
@@ -145,7 +145,7 @@ $(function() {
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;moveit_msgs::action::LocalPlanner::Feedback</div>
 <div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classmoveit_1_1hybrid__planning_1_1ForwardTrajectory.html#a49dba1b9183969a92b7a8c9c23cb2fed">   74</a></span>&#160;<a class="code" href="classmoveit_1_1hybrid__planning_1_1ForwardTrajectory.html#a49dba1b9183969a92b7a8c9c23cb2fed">ForwardTrajectory::solve</a>(<span class="keyword">const</span> <a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a>&amp; local_trajectory,</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                         <span class="keyword">const</span> std::shared_ptr&lt;const moveit_msgs::action::LocalPlanner::Goal&gt; local_goal,</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                         <span class="keyword">const</span> std::shared_ptr&lt;const moveit_msgs::action::LocalPlanner::Goal&gt; <span class="comment">/* unused */</span>,</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                         trajectory_msgs::msg::JointTrajectory&amp; local_solution)</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="comment">// A message every once in awhile is useful in case the local planner gets stuck</span></div>

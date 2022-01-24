@@ -182,8 +182,8 @@ $(function() {
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  private_executor_thread_ = std::thread([<span class="keyword">this</span>]() { private_executor_-&gt;spin(); });</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keyword">auto</span> frame_transformer = context_-&gt;getFrameManager()-&gt;getTransformer();</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="comment">//  rclcpp::Node::SharedPtr node = ros_node_abstraction-&gt;get_raw_node();</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  interactive_marker_client_.reset(</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="keyword">new</span> interactive_markers::InteractiveMarkerClient(pnode_, frame_transformer, fixed_frame_.toStdString()));</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  interactive_marker_client_ = std::make_unique&lt;interactive_markers::InteractiveMarkerClient&gt;(</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      pnode_, frame_transformer, fixed_frame_.toStdString());</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  interactive_marker_client_-&gt;setInitializeCallback(</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      std::bind(&amp;InteractiveMarkerDisplay::initializeCallback, <span class="keyword">this</span>, std::placeholders::_1));</div>
