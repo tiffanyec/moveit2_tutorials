@@ -116,7 +116,7 @@ $(function() {
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
 <div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classmoveit_1_1hybrid__planning_1_1ReplanInvalidatedTrajectory.html#a33a05ac37b0f7c7bc2af60be3e577321">   44</a></span>&#160;<a class="code" href="structmoveit_1_1hybrid__planning_1_1ReactionResult.html">ReactionResult</a> <a class="code" href="classmoveit_1_1hybrid__planning_1_1ReplanInvalidatedTrajectory.html#a33a05ac37b0f7c7bc2af60be3e577321">ReplanInvalidatedTrajectory::react</a>(<span class="keyword">const</span> std::string&amp; event)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">if</span> (event == <span class="stringliteral">&quot;collision_ahead&quot;</span>)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">if</span> ((event == <span class="stringliteral">&quot;collision_ahead&quot;</span>) || (event == <span class="stringliteral">&quot;local_planner_stuck&quot;</span>))</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classmoveit_1_1hybrid__planning_1_1PlannerLogicInterface.html#a2a065f17b5a68b061ef836eb0d385250">hybrid_planning_manager_</a>-&gt;sendGlobalPlannerAction())  <span class="comment">// Start global planning</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
@@ -124,26 +124,18 @@ $(function() {
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="structmoveit_1_1hybrid__planning_1_1ReactionResult.html">ReactionResult</a>(event, <span class="stringliteral">&quot;&quot;</span>, moveit_msgs::msg::MoveItErrorCodes::SUCCESS);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordflow">if</span> (event == <span class="stringliteral">&quot;local_planner_stuck&quot;</span>)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classmoveit_1_1hybrid__planning_1_1PlannerLogicInterface.html#a2a065f17b5a68b061ef836eb0d385250">hybrid_planning_manager_</a>-&gt;sendGlobalPlannerAction())  <span class="comment">// Start global planning</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <a class="code" href="classmoveit_1_1hybrid__planning_1_1PlannerLogicInterface.html#a2a065f17b5a68b061ef836eb0d385250">hybrid_planning_manager_</a>-&gt;sendHybridPlanningResponse(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="structmoveit_1_1hybrid__planning_1_1ReactionResult.html">ReactionResult</a>(event, <span class="stringliteral">&quot;&quot;</span>, moveit_msgs::msg::MoveItErrorCodes::SUCCESS);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="structmoveit_1_1hybrid__planning_1_1ReactionResult.html">ReactionResult</a>(event, <span class="stringliteral">&quot;&#39;ReplanInvalidatedTrajectory&#39; plugin cannot handle this event.&quot;</span>,</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                          moveit_msgs::msg::MoveItErrorCodes::FAILURE);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}  <span class="comment">// namespace moveit::hybrid_planning</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#include &lt;pluginlib/class_list_macros.hpp&gt;</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<a class="code" href="cached__ik__kinematics__plugin_8cpp.html#a884b04add2682e16aefe27c649c9bee1">PLUGINLIB_EXPORT_CLASS</a>(<a class="code" href="classmoveit_1_1hybrid__planning_1_1ReplanInvalidatedTrajectory.html">moveit::hybrid_planning::ReplanInvalidatedTrajectory</a>,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                       <a class="code" href="classmoveit_1_1hybrid__planning_1_1PlannerLogicInterface.html">moveit::hybrid_planning::PlannerLogicInterface</a>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="structmoveit_1_1hybrid__planning_1_1ReactionResult.html">ReactionResult</a>(event, <span class="stringliteral">&quot;&#39;ReplanInvalidatedTrajectory&#39; plugin cannot handle this event.&quot;</span>,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                          moveit_msgs::msg::MoveItErrorCodes::FAILURE);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}  <span class="comment">// namespace moveit::hybrid_planning</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#include &lt;pluginlib/class_list_macros.hpp&gt;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<a class="code" href="cached__ik__kinematics__plugin_8cpp.html#a884b04add2682e16aefe27c649c9bee1">PLUGINLIB_EXPORT_CLASS</a>(<a class="code" href="classmoveit_1_1hybrid__planning_1_1ReplanInvalidatedTrajectory.html">moveit::hybrid_planning::ReplanInvalidatedTrajectory</a>,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                       <a class="code" href="classmoveit_1_1hybrid__planning_1_1PlannerLogicInterface.html">moveit::hybrid_planning::PlannerLogicInterface</a>)</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="areplan__invalidated__trajectory_8h_html"><div class="ttname"><a href="replan__invalidated__trajectory_8h.html">replan_invalidated_trajectory.h</a></div></div>
 <div class="ttc" id="acached__ik__kinematics__plugin_8cpp_html_a884b04add2682e16aefe27c649c9bee1"><div class="ttname"><a href="cached__ik__kinematics__plugin_8cpp.html#a884b04add2682e16aefe27c649c9bee1">PLUGINLIB_EXPORT_CLASS</a></div><div class="ttdeci">PLUGINLIB_EXPORT_CLASS(cached_ik_kinematics_plugin::CachedIKKinematicsPlugin&lt; kdl_kinematics_plugin::KDLKinematicsPlugin &gt;, kinematics::KinematicsBase)</div></div>

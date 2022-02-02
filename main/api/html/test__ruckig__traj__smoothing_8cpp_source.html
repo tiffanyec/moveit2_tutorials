@@ -142,49 +142,52 @@ $(function() {
 <div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="test__ruckig__traj__smoothing_8cpp.html#a05f12297edd2957875384bca958b7301">   69</a></span>&#160;<a class="code" href="test__ruckig__traj__smoothing_8cpp.html#af896e6396f639cbe8fe26e5260a8a968">TEST_F</a>(RuckigTests, not_enough_waypoints)</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a> robot_state(robot_model_);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="comment">// First waypoint is default joint positions</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  trajectory_-&gt;addSuffixWayPoint(robot_state, DEFAULT_TIMESTEP);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  robot_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#aaec5557d55b862d9dd832b3d4c221836">update</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="comment">// Fails due to not enough waypoints</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  EXPECT_FALSE(</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      smoother_.applySmoothing(*trajectory_, 1.0 <span class="comment">/* max vel scaling factor */</span>, 1.0 <span class="comment">/* max accel scaling factor */</span>));</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="test__ruckig__traj__smoothing_8cpp.html#a29cf0c74e39ba3205e60e7a268c93536">   82</a></span>&#160;<a class="code" href="test__ruckig__traj__smoothing_8cpp.html#af896e6396f639cbe8fe26e5260a8a968">TEST_F</a>(RuckigTests, basic_trajectory)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a> robot_state(robot_model_);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="comment">// First waypoint is default joint positions</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  trajectory_-&gt;addSuffixWayPoint(robot_state, DEFAULT_TIMESTEP);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="comment">// Second waypoint has slightly-different joint positions</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  std::vector&lt;double&gt; joint_positions;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  robot_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a5902793ed7f64dfc073e37c91154c497">copyJointGroupPositions</a>(JOINT_GROUP, joint_positions);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  joint_positions.at(0) += 0.05;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  robot_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a564140d144754d149b292e70c4c59b55">setJointGroupPositions</a>(JOINT_GROUP, joint_positions);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  trajectory_-&gt;addSuffixWayPoint(robot_state, DEFAULT_TIMESTEP);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  joint_positions.at(0) += 0.05;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  robot_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a564140d144754d149b292e70c4c59b55">setJointGroupPositions</a>(JOINT_GROUP, joint_positions);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  trajectory_-&gt;addSuffixWayPoint(robot_state, DEFAULT_TIMESTEP);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  robot_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#aaec5557d55b862d9dd832b3d4c221836">update</a>();</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  EXPECT_TRUE(</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      smoother_.applySmoothing(*trajectory_, 1.0 <span class="comment">/* max vel scaling factor */</span>, 1.0 <span class="comment">/* max accel scaling factor */</span>));</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="test__ruckig__traj__smoothing_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">  104</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="test__ruckig__traj__smoothing_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  testing::InitGoogleTest(&amp;argc, argv);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordflow">return</span> RUN_ALL_TESTS();</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  robot_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#aba31c6f758e3dabd32c1acbd069e189e">setToDefaultValues</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="comment">// First waypoint is default joint positions</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  trajectory_-&gt;addSuffixWayPoint(robot_state, DEFAULT_TIMESTEP);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  robot_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#aaec5557d55b862d9dd832b3d4c221836">update</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="comment">// Fails due to not enough waypoints</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  EXPECT_FALSE(</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      smoother_.applySmoothing(*trajectory_, 1.0 <span class="comment">/* max vel scaling factor */</span>, 1.0 <span class="comment">/* max accel scaling factor */</span>));</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="test__ruckig__traj__smoothing_8cpp.html#a29cf0c74e39ba3205e60e7a268c93536">   83</a></span>&#160;<a class="code" href="test__ruckig__traj__smoothing_8cpp.html#af896e6396f639cbe8fe26e5260a8a968">TEST_F</a>(RuckigTests, basic_trajectory)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a> robot_state(robot_model_);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  robot_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#aba31c6f758e3dabd32c1acbd069e189e">setToDefaultValues</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="comment">// First waypoint is default joint positions</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  trajectory_-&gt;addSuffixWayPoint(robot_state, DEFAULT_TIMESTEP);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="comment">// Second waypoint has slightly-different joint positions</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  std::vector&lt;double&gt; joint_positions;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  robot_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a5902793ed7f64dfc073e37c91154c497">copyJointGroupPositions</a>(JOINT_GROUP, joint_positions);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  joint_positions.at(0) += 0.05;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  robot_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a564140d144754d149b292e70c4c59b55">setJointGroupPositions</a>(JOINT_GROUP, joint_positions);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  trajectory_-&gt;addSuffixWayPoint(robot_state, DEFAULT_TIMESTEP);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  joint_positions.at(0) += 0.05;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  robot_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a564140d144754d149b292e70c4c59b55">setJointGroupPositions</a>(JOINT_GROUP, joint_positions);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  trajectory_-&gt;addSuffixWayPoint(robot_state, DEFAULT_TIMESTEP);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  robot_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#aaec5557d55b862d9dd832b3d4c221836">update</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  EXPECT_TRUE(</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      smoother_.applySmoothing(*trajectory_, 1.0 <span class="comment">/* max vel scaling factor */</span>, 1.0 <span class="comment">/* max accel scaling factor */</span>));</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="test__ruckig__traj__smoothing_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">  106</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="test__ruckig__traj__smoothing_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  testing::InitGoogleTest(&amp;argc, argv);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordflow">return</span> RUN_ALL_TESTS();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassmoveit_1_1core_1_1RobotState_html"><div class="ttname"><a href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a></div><div class="ttdoc">Representation of a robot's state. This includes position, velocity, acceleration and effort.</div><div class="ttdef"><b>Definition:</b> <a href="robot__state_8h_source.html#l00155">robot_state.h:155</a></div></div>
 <div class="ttc" id="aclassmoveit_1_1core_1_1RobotState_html_a5902793ed7f64dfc073e37c91154c497"><div class="ttname"><a href="classmoveit_1_1core_1_1RobotState.html#a5902793ed7f64dfc073e37c91154c497">moveit::core::RobotState::copyJointGroupPositions</a></div><div class="ttdeci">void copyJointGroupPositions(const std::string &amp;joint_group_name, std::vector&lt; double &gt; &amp;gstate) const</div><div class="ttdoc">For a given group, copy the position values of the variables that make up the group into another loca...</div><div class="ttdef"><b>Definition:</b> <a href="robot__state_8h_source.html#l00757">robot_state.h:757</a></div></div>
 <div class="ttc" id="aclasstrajectory__processing_1_1RuckigSmoothing_html"><div class="ttname"><a href="classtrajectory__processing_1_1RuckigSmoothing.html">trajectory_processing::RuckigSmoothing</a></div><div class="ttdef"><b>Definition:</b> <a href="ruckig__traj__smoothing_8h_source.html#l00076">ruckig_traj_smoothing.h:76</a></div></div>
-<div class="ttc" id="atest__ruckig__traj__smoothing_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="test__ruckig__traj__smoothing_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="test__ruckig__traj__smoothing_8cpp_source.html#l00104">test_ruckig_traj_smoothing.cpp:104</a></div></div>
+<div class="ttc" id="atest__ruckig__traj__smoothing_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="test__ruckig__traj__smoothing_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="test__ruckig__traj__smoothing_8cpp_source.html#l00106">test_ruckig_traj_smoothing.cpp:106</a></div></div>
 <div class="ttc" id="aclassmoveit_1_1core_1_1RobotState_html_aaec5557d55b862d9dd832b3d4c221836"><div class="ttname"><a href="classmoveit_1_1core_1_1RobotState.html#aaec5557d55b862d9dd832b3d4c221836">moveit::core::RobotState::update</a></div><div class="ttdeci">void update(bool force=false)</div><div class="ttdoc">Update all transforms.</div><div class="ttdef"><b>Definition:</b> <a href="robot__state_8cpp_source.html#l00722">robot_state.cpp:722</a></div></div>
+<div class="ttc" id="aclassmoveit_1_1core_1_1RobotState_html_aba31c6f758e3dabd32c1acbd069e189e"><div class="ttname"><a href="classmoveit_1_1core_1_1RobotState.html#aba31c6f758e3dabd32c1acbd069e189e">moveit::core::RobotState::setToDefaultValues</a></div><div class="ttdeci">void setToDefaultValues()</div><div class="ttdoc">Set all joints to their default positions. The default position is 0, or if that is not within bounds...</div><div class="ttdef"><b>Definition:</b> <a href="robot__state_8cpp_source.html#l00427">robot_state.cpp:427</a></div></div>
 <div class="ttc" id="arobot__model__test__utils_8h_html"><div class="ttname"><a href="robot__model__test__utils_8h.html">robot_model_test_utils.h</a></div></div>
 <div class="ttc" id="aruckig__traj__smoothing_8h_html"><div class="ttname"><a href="ruckig__traj__smoothing_8h.html">ruckig_traj_smoothing.h</a></div></div>
 <div class="ttc" id="atest__ruckig__traj__smoothing_8cpp_html_af896e6396f639cbe8fe26e5260a8a968"><div class="ttname"><a href="test__ruckig__traj__smoothing_8cpp.html#af896e6396f639cbe8fe26e5260a8a968">TEST_F</a></div><div class="ttdeci">TEST_F(RuckigTests, empty_trajectory)</div><div class="ttdef"><b>Definition:</b> <a href="test__ruckig__traj__smoothing_8cpp_source.html#l00062">test_ruckig_traj_smoothing.cpp:62</a></div></div>

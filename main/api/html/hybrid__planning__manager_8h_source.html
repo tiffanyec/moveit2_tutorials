@@ -136,55 +136,54 @@ $(function() {
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#af201473cb4ac808776875614361b4e61">initialize</a>();</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#a1c862b0f471a2389c146efa1af2be7e3">hybridPlanningRequestCallback</a>(</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      std::shared_ptr&lt;rclcpp_action::ServerGoalHandle&lt;moveit_msgs::action::HybridPlanner&gt;&gt; goal_handle);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html">   89</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#ac84eff794ec9d9836ed8ff751118ffe6">sendGlobalPlannerAction</a>();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#ab256ee65edd76ffb5cc6f00c31f79c83">sendLocalPlannerAction</a>();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#a8f99c0b7fd6d1da98183b4bafdd9f21f">sendHybridPlanningResponse</a>(<span class="keywordtype">bool</span> success);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#ac84eff794ec9d9836ed8ff751118ffe6">sendGlobalPlannerAction</a>();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#ab256ee65edd76ffb5cc6f00c31f79c83">sendLocalPlannerAction</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html">   89</a></span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#a8f99c0b7fd6d1da98183b4bafdd9f21f">sendHybridPlanningResponse</a>(<span class="keywordtype">bool</span> success);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="comment">// Planner logic plugin loader</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  std::unique_ptr&lt;pluginlib::ClassLoader&lt;PlannerLogicInterface&gt;&gt; planner_logic_plugin_loader_;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="comment">// Planner logic instance to implement reactive behavior</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  std::shared_ptr&lt;PlannerLogicInterface&gt; planner_logic_instance_;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="comment">// Planner logic plugin loader</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  std::unique_ptr&lt;pluginlib::ClassLoader&lt;PlannerLogicInterface&gt;&gt; planner_logic_plugin_loader_;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="comment">// Planner logic instance to implement reactive behavior</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  std::shared_ptr&lt;PlannerLogicInterface&gt; planner_logic_instance_;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="comment">// Timer to trigger events periodically</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  rclcpp::TimerBase::SharedPtr timer_;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="comment">// Flag that indicates whether the manager is initialized</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordtype">bool</span> initialized_;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="comment">// Shared hybrid planning goal handle</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  std::shared_ptr&lt;rclcpp_action::ServerGoalHandle&lt;moveit_msgs::action::HybridPlanner&gt;&gt; hybrid_planning_goal_handle_;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="comment">// Frequently updated feedback for the hybrid planning action requester</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  std::shared_ptr&lt;moveit_msgs::action::HybridPlanner_Feedback&gt; hybrid_planning_progess_;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="comment">// Timer to trigger events periodically</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  rclcpp::TimerBase::SharedPtr timer_;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="comment">// Flag that indicates whether the manager is initialized</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordtype">bool</span> initialized_;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="comment">// Flag that indicates hybrid planning has been canceled</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  std::atomic&lt;bool&gt; stop_hybrid_planning_;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="comment">// Shared hybrid planning goal handle</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  std::shared_ptr&lt;rclcpp_action::ServerGoalHandle&lt;moveit_msgs::action::HybridPlanner&gt;&gt; hybrid_planning_goal_handle_;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="comment">// Frequently updated feedback for the hybrid planning action requester</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  std::shared_ptr&lt;moveit_msgs::action::HybridPlanner_Feedback&gt; hybrid_planning_progess_;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="comment">// Planning request action clients</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  rclcpp_action::Client&lt;moveit_msgs::action::LocalPlanner&gt;::SharedPtr local_planner_action_client_;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  rclcpp_action::Client&lt;moveit_msgs::action::GlobalPlanner&gt;::SharedPtr global_planner_action_client_;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="comment">// Planning request action clients</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  rclcpp_action::Client&lt;moveit_msgs::action::LocalPlanner&gt;::SharedPtr local_planner_action_client_;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  rclcpp_action::Client&lt;moveit_msgs::action::GlobalPlanner&gt;::SharedPtr global_planner_action_client_;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="comment">// Hybrid planning request action server</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  rclcpp_action::Server&lt;moveit_msgs::action::HybridPlanner&gt;::SharedPtr hybrid_planning_request_server_;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="comment">// Global solution subscriber</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  rclcpp::Subscription&lt;moveit_msgs::msg::MotionPlanResponse&gt;::SharedPtr global_solution_sub_;</div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#a7922293731770dd4f9053da9f0f374ec">  131</a></span>&#160;};</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;}  <span class="comment">// namespace moveit::hybrid_planning</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="comment">// Hybrid planning request action server</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  rclcpp_action::Server&lt;moveit_msgs::action::HybridPlanner&gt;::SharedPtr hybrid_planning_request_server_;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="comment">// Global solution subscriber</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  rclcpp::Subscription&lt;moveit_msgs::msg::MotionPlanResponse&gt;::SharedPtr global_solution_sub_;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;};</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}  <span class="comment">// namespace moveit::hybrid_planning</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassmoveit_1_1hybrid__planning_1_1HybridPlanningManager_html_a7922293731770dd4f9053da9f0f374ec"><div class="ttname"><a href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#a7922293731770dd4f9053da9f0f374ec">moveit::hybrid_planning::HybridPlanningManager::shared_from_this</a></div><div class="ttdeci">std::shared_ptr&lt; HybridPlanningManager &gt; shared_from_this()</div><div class="ttdef"><b>Definition:</b> <a href="hybrid__planning__manager_8h_source.html#l00131">hybrid_planning_manager.h:131</a></div></div>
-<div class="ttc" id="aclassmoveit_1_1hybrid__planning_1_1HybridPlanningManager_html_ac84eff794ec9d9836ed8ff751118ffe6"><div class="ttname"><a href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#ac84eff794ec9d9836ed8ff751118ffe6">moveit::hybrid_planning::HybridPlanningManager::sendGlobalPlannerAction</a></div><div class="ttdeci">bool sendGlobalPlannerAction()</div><div class="ttdef"><b>Definition:</b> <a href="hybrid__planning__manager_8cpp_source.html#l00179">hybrid_planning_manager.cpp:179</a></div></div>
+<div class="ttc" id="aclassmoveit_1_1hybrid__planning_1_1HybridPlanningManager_html_ac84eff794ec9d9836ed8ff751118ffe6"><div class="ttname"><a href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#ac84eff794ec9d9836ed8ff751118ffe6">moveit::hybrid_planning::HybridPlanningManager::sendGlobalPlannerAction</a></div><div class="ttdeci">bool sendGlobalPlannerAction()</div><div class="ttdef"><b>Definition:</b> <a href="hybrid__planning__manager_8cpp_source.html#l00209">hybrid_planning_manager.cpp:209</a></div></div>
 <div class="ttc" id="aplanner__logic__interface_8h_html"><div class="ttname"><a href="planner__logic__interface_8h.html">planner_logic_interface.h</a></div></div>
 <div class="ttc" id="anamespacemoveit_1_1hybrid__planning_html"><div class="ttname"><a href="namespacemoveit_1_1hybrid__planning.html">moveit::hybrid_planning</a></div><div class="ttdef"><b>Definition:</b> <a href="global__planner__component_8h_source.html#l00052">global_planner_component.h:52</a></div></div>
 <div class="ttc" id="aclassmoveit_1_1hybrid__planning_1_1HybridPlanningManager_html_af201473cb4ac808776875614361b4e61"><div class="ttname"><a href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#af201473cb4ac808776875614361b4e61">moveit::hybrid_planning::HybridPlanningManager::initialize</a></div><div class="ttdeci">bool initialize()</div><div class="ttdef"><b>Definition:</b> <a href="hybrid__planning__manager_8cpp_source.html#l00070">hybrid_planning_manager.cpp:70</a></div></div>
-<div class="ttc" id="aclassmoveit_1_1hybrid__planning_1_1HybridPlanningManager_html_a1c862b0f471a2389c146efa1af2be7e3"><div class="ttname"><a href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#a1c862b0f471a2389c146efa1af2be7e3">moveit::hybrid_planning::HybridPlanningManager::hybridPlanningRequestCallback</a></div><div class="ttdeci">void hybridPlanningRequestCallback(std::shared_ptr&lt; rclcpp_action::ServerGoalHandle&lt; moveit_msgs::action::HybridPlanner &gt;&gt; goal_handle)</div><div class="ttdef"><b>Definition:</b> <a href="hybrid__planning__manager_8cpp_source.html#l00318">hybrid_planning_manager.cpp:318</a></div></div>
-<div class="ttc" id="aclassmoveit_1_1hybrid__planning_1_1HybridPlanningManager_html_ab256ee65edd76ffb5cc6f00c31f79c83"><div class="ttname"><a href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#ab256ee65edd76ffb5cc6f00c31f79c83">moveit::hybrid_planning::HybridPlanningManager::sendLocalPlannerAction</a></div><div class="ttdeci">bool sendLocalPlannerAction()</div><div class="ttdef"><b>Definition:</b> <a href="hybrid__planning__manager_8cpp_source.html#l00241">hybrid_planning_manager.cpp:241</a></div></div>
+<div class="ttc" id="aclassmoveit_1_1hybrid__planning_1_1HybridPlanningManager_html_ab256ee65edd76ffb5cc6f00c31f79c83"><div class="ttname"><a href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#ab256ee65edd76ffb5cc6f00c31f79c83">moveit::hybrid_planning::HybridPlanningManager::sendLocalPlannerAction</a></div><div class="ttdeci">bool sendLocalPlannerAction()</div><div class="ttdef"><b>Definition:</b> <a href="hybrid__planning__manager_8cpp_source.html#l00277">hybrid_planning_manager.cpp:277</a></div></div>
 <div class="ttc" id="anamespacemoveit__benchmark__statistics_html_ae22bb8022508842c27a92bd715ef205e"><div class="ttname"><a href="namespacemoveit__benchmark__statistics.html#ae22bb8022508842c27a92bd715ef205e">moveit_benchmark_statistics.options</a></div><div class="ttdeci">options</div><div class="ttdef"><b>Definition:</b> <a href="moveit__benchmark__statistics_8py_source.html#l00769">moveit_benchmark_statistics.py:769</a></div></div>
-<div class="ttc" id="aclassmoveit_1_1hybrid__planning_1_1HybridPlanningManager_html_a8f99c0b7fd6d1da98183b4bafdd9f21f"><div class="ttname"><a href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#a8f99c0b7fd6d1da98183b4bafdd9f21f">moveit::hybrid_planning::HybridPlanningManager::sendHybridPlanningResponse</a></div><div class="ttdeci">void sendHybridPlanningResponse(bool success)</div><div class="ttdef"><b>Definition:</b> <a href="hybrid__planning__manager_8cpp_source.html#l00337">hybrid_planning_manager.cpp:337</a></div></div>
+<div class="ttc" id="aclassmoveit_1_1hybrid__planning_1_1HybridPlanningManager_html_a8f99c0b7fd6d1da98183b4bafdd9f21f"><div class="ttname"><a href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#a8f99c0b7fd6d1da98183b4bafdd9f21f">moveit::hybrid_planning::HybridPlanningManager::sendHybridPlanningResponse</a></div><div class="ttdeci">void sendHybridPlanningResponse(bool success)</div><div class="ttdef"><b>Definition:</b> <a href="hybrid__planning__manager_8cpp_source.html#l00361">hybrid_planning_manager.cpp:361</a></div></div>
 <div class="ttc" id="aclassmoveit_1_1hybrid__planning_1_1HybridPlanningManager_html_a563c9736a6f8428f1f8603df1188276e"><div class="ttname"><a href="classmoveit_1_1hybrid__planning_1_1HybridPlanningManager.html#a563c9736a6f8428f1f8603df1188276e">moveit::hybrid_planning::HybridPlanningManager::HybridPlanningManager</a></div><div class="ttdeci">HybridPlanningManager(const rclcpp::NodeOptions &amp;options)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="hybrid__planning__manager_8cpp_source.html#l00047">hybrid_planning_manager.cpp:47</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
