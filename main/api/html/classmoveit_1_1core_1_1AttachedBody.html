@@ -82,9 +82,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aabba37049256d5259e89516785777d61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1core_1_1AttachedBody.html#aabba37049256d5259e89516785777d61">AttachedBody</a> (const <a class="el" href="classmoveit_1_1core_1_1LinkModel.html">LinkModel</a> *link, const std::string &amp;id, const Eigen::Isometry3d &amp;pose, const std::vector&lt; shapes::ShapeConstPtr &gt; &amp;shapes, const EigenSTL::vector_Isometry3d &amp;shape_poses, const <a class="el" href="ros_2warehouse_2warehouse_2CMakeLists_8txt.html#af4423e580afb68aec7c40fb0bce7d5d4">std::set</a>&lt; std::string &gt; &amp;touch_links, const trajectory_msgs::msg::JointTrajectory &amp;attach_posture, const <a class="el" href="namespacemoveit_1_1core.html#aaed75968b346de18defad60f19fc2545">moveit::core::FixedTransformsMap</a> &amp;subframe_poses=<a class="el" href="namespacemoveit_1_1core.html#aaed75968b346de18defad60f19fc2545">moveit::core::FixedTransformsMap</a>())</td></tr>
-<tr class="memdesc:aabba37049256d5259e89516785777d61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an attached body for a specified <em>link</em>.  <a href="classmoveit_1_1core_1_1AttachedBody.html#aabba37049256d5259e89516785777d61">More...</a><br /></td></tr>
-<tr class="separator:aabba37049256d5259e89516785777d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2715330ff86343a32509f339c34c9d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1core_1_1AttachedBody.html#ad2715330ff86343a32509f339c34c9d4">AttachedBody</a> (const <a class="el" href="classmoveit_1_1core_1_1LinkModel.html">LinkModel</a> *parent, const std::string &amp;id, const Eigen::Isometry3d &amp;pose, const std::vector&lt; shapes::ShapeConstPtr &gt; &amp;shapes, const EigenSTL::vector_Isometry3d &amp;shape_poses, const <a class="el" href="ros_2warehouse_2warehouse_2CMakeLists_8txt.html#af4423e580afb68aec7c40fb0bce7d5d4">std::set</a>&lt; std::string &gt; &amp;touch_links, const trajectory_msgs::msg::JointTrajectory &amp;detach_posture, const <a class="el" href="namespacemoveit_1_1core.html#aaed75968b346de18defad60f19fc2545">moveit::core::FixedTransformsMap</a> &amp;subframe_poses=<a class="el" href="namespacemoveit_1_1core.html#aaed75968b346de18defad60f19fc2545">moveit::core::FixedTransformsMap</a>())</td></tr>
+<tr class="memdesc:ad2715330ff86343a32509f339c34c9d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an attached body for a specified <em>link</em>.  <a href="classmoveit_1_1core_1_1AttachedBody.html#ad2715330ff86343a32509f339c34c9d4">More...</a><br /></td></tr>
+<tr class="separator:ad2715330ff86343a32509f339c34c9d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eb18ac015702bffe9b8c499597ab4a7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1core_1_1AttachedBody.html#a0eb18ac015702bffe9b8c499597ab4a7">~AttachedBody</a> ()</td></tr>
 <tr class="separator:a0eb18ac015702bffe9b8c499597ab4a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a857be05cdda0157e486176c034105426"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1core_1_1AttachedBody.html#a857be05cdda0157e486176c034105426">getName</a> () const</td></tr>
@@ -160,8 +160,8 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00121">121</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aabba37049256d5259e89516785777d61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabba37049256d5259e89516785777d61">&#9670;&nbsp;</a></span>AttachedBody()</h2>
+<a id="ad2715330ff86343a32509f339c34c9d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2715330ff86343a32509f339c34c9d4">&#9670;&nbsp;</a></span>AttachedBody()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,7 +170,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">moveit::core::AttachedBody::AttachedBody </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classmoveit_1_1core_1_1LinkModel.html">LinkModel</a> *&#160;</td>
-          <td class="paramname"><em>link</em>, </td>
+          <td class="paramname"><em>parent</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -206,7 +206,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const trajectory_msgs::msg::JointTrajectory &amp;&#160;</td>
-          <td class="paramname"><em>attach_posture</em>, </td>
+          <td class="paramname"><em>detach_posture</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -223,7 +223,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Construct an attached body for a specified <em>link</em>. </p>
-<p>The name of this body is <em>id</em> and it consists of <em>shapes</em> that attach to the link by the transforms <em>shape_poses</em>. The set of links that are allowed to be touched by this object is specified by <em>touch_links</em>. </p>
+<p>The name of this body is <em>id</em> and it consists of <em>shapes</em> that attach to the link by the transforms <em>shape_poses</em>. The set of links that are allowed to be touched by this object is specified by <em>touch_links</em>. detach_posture may describe a detach motion for the gripper when placing the object. The shape and subframe poses are relative to the <em>pose</em>, and <em>pose</em> is relative to the parent link. </p>
 
 <p class="definition">Definition at line <a class="el" href="attached__body_8cpp_source.html#l00110">110</a> of file <a class="el" href="attached__body_8cpp_source.html">attached_body.cpp</a>.</p>
 
@@ -302,7 +302,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Get the model of the link this body is attached to. </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00160">160</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00162">162</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -340,7 +340,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the name of the link this body is attached to. </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00154">154</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00156">156</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -378,7 +378,7 @@ Here is the caller graph for this function:</div>
 
 <p>Return the posture that is necessary for the object to be released, (if any). This is useful for example when storing the configuration of a gripper holding an object. </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00186">186</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00188">188</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -416,7 +416,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the fixed transforms (the transforms to the shapes of this body, relative to the link). The returned transforms are guaranteed to be valid isometries. Deprecated. Use getShapePosesInLinkFrame instead. </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00201">201</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00203">203</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 
 </div>
 </div>
@@ -445,7 +445,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the global transforms (in world frame) for the collision bodies. The returned transforms are guaranteed to be valid isometries. </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00261">261</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00263">263</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -485,7 +485,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the pose of the attached body, relative to the world. </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00148">148</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00150">150</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -555,7 +555,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get subframes of this object (in the world frame) </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00214">214</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00216">216</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 
 </div>
 </div>
@@ -584,7 +584,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the name of the attached body. </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00136">136</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00138">138</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -626,7 +626,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the pose of the attached body relative to the parent link. </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00142">142</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00144">144</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -666,7 +666,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the shape poses (the transforms to the shapes of this body, relative to the pose). The returned transforms are guaranteed to be valid isometries. </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00173">173</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00175">175</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -704,7 +704,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the fixed transforms (the transforms to the shapes of this body, relative to the link). The returned transforms are guaranteed to be valid isometries. </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00193">193</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00195">195</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -742,7 +742,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the shapes that make up this attached body. </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00166">166</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00168">168</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -788,7 +788,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get subframes of this object (relative to the object pose). The returned transforms are guaranteed to be valid isometries. </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00208">208</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00210">210</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -890,7 +890,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the links that the attached body is allowed to touch. </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00179">179</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00181">181</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -997,7 +997,7 @@ Here is the caller graph for this function:</div>
 <p>Set all subframes of this object. </p>
 <p>Use these to define points of interest on the object to plan with (e.g. screwdriver/tip, kettle/spout, mug/base). </p>
 
-<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00224">224</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="attached__body_8h_source.html#l00226">226</a> of file <a class="el" href="attached__body_8h_source.html">attached_body.h</a>.</p>
 
 </div>
 </div>

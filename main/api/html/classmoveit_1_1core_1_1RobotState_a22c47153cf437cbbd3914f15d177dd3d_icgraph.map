@@ -1,7 +1,10 @@
 <map id="moveit::core::RobotState::getCollisionBodyTransform" name="moveit::core::RobotState::getCollisionBodyTransform">
-<area shape="rect" id="node1" title="Get the link transform w.r.t. the root link (model frame) of the RobotModel. This is typically the ro..." alt="" coords="525,93,731,134"/>
+<area shape="rect" id="node1" title="Get the link transform w.r.t. the root link (model frame) of the RobotModel. This is typically the ro..." alt="" coords="525,126,731,167"/>
 <area shape="rect" id="node2" href="$classcollision__detection_1_1CollisionEnvBullet.html#a7d61a67dcd95b0e223cf483643727cd3" title=" " alt="" coords="264,5,469,61"/>
 <area shape="rect" id="node3" href="$classcollision__detection_1_1CollisionEnvFCL.html#acb2f3068450b7fdb7498b2818d5b3b18" title="Converts all shapes which make up an attached body into a vector of FCLGeometryConstPtr." alt="" coords="256,85,477,141"/>
 <area shape="rect" id="node5" href="$robot__state__test_8cpp.html#af3f503f9c9cd0b80c36d72fb0679dfe5" title=" " alt="" coords="332,165,401,192"/>
+<area shape="rect" id="node6" href="$classmoveit_1_1core_1_1RobotState.html#a30c47230782e953d54774bf135d62249" title="Update the state after setting a particular link to the input global transform pose." alt="" coords="275,217,459,258"/>
 <area shape="rect" id="node4" href="$classcollision__detection_1_1CollisionEnvFCL.html#a8b8d636d26e7415ca7cf12380a7634d8" title="Construct an FCL collision object from MoveIt&#39;s World::Object." alt="" coords="5,85,208,141"/>
+<area shape="rect" id="node7" href="$test__collision__distance__field_8cpp.html#a0b2cb582338c9b38b99cf1ac6e6a4ab7" title=" " alt="" coords="72,199,141,225"/>
+<area shape="rect" id="node8" href="$test__collision__common__pr2_8h.html#a02b332627ab378437cf5b833a952c7c0" title=" " alt="" coords="47,249,166,276"/>
 </map>

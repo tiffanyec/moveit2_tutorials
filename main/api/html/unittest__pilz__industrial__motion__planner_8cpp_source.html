@@ -244,30 +244,31 @@ $(function() {
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <a class="code" href="namespaceplanning__interface.html#a1307e10a0a3b9ca03406d777b9a938a3">moveit_msgs::msg::MotionPlanRequest</a> req;</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  moveit_msgs::msg::MoveItErrorCodes error_code;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="comment">// Check for the algorithms</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  std::vector&lt;std::string&gt; algs;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  planner_instance_-&gt;getPlanningAlgorithms(algs);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; alg : algs)</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  {</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    req.planner_id = alg;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    EXPECT_NE(<span class="keyword">nullptr</span>, planner_instance_-&gt;getPlanningContext(<span class="keyword">nullptr</span>, req, error_code));</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  }</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;}</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="unittest__pilz__industrial__motion__planner_8cpp.html#a94ce3ebf10dca3578c320483c1bd39ff">  220</a></span>&#160;<a class="code" href="unittest__pilz__industrial__motion__planner_8cpp.html#a8f905dffb483301d10bc66fad79e81dc">TEST_F</a>(<a class="code" href="classCommandPlannerTest.html">CommandPlannerTest</a>, CheckPlanningContextDescriptionNotEmptyAndStable)</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;{</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  std::string desc = planner_instance_-&gt;getDescription();</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  EXPECT_GT(desc.length(), 0u);</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;}</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
-<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="unittest__pilz__industrial__motion__planner_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">  226</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="unittest__pilz__industrial__motion__planner_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;{</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  rclcpp::init(argc, argv);</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  testing::InitGoogleTest(&amp;argc, argv);</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  <span class="keywordflow">return</span> RUN_ALL_TESTS();</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;}</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  req.group_name = <span class="stringliteral">&quot;manipulator&quot;</span>;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <span class="comment">// Check for the algorithms</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  std::vector&lt;std::string&gt; algs;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  planner_instance_-&gt;getPlanningAlgorithms(algs);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; alg : algs)</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  {</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    req.planner_id = alg;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    EXPECT_NE(<span class="keyword">nullptr</span>, planner_instance_-&gt;getPlanningContext(<span class="keyword">nullptr</span>, req, error_code));</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  }</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;}</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="unittest__pilz__industrial__motion__planner_8cpp.html#a94ce3ebf10dca3578c320483c1bd39ff">  221</a></span>&#160;<a class="code" href="unittest__pilz__industrial__motion__planner_8cpp.html#a8f905dffb483301d10bc66fad79e81dc">TEST_F</a>(<a class="code" href="classCommandPlannerTest.html">CommandPlannerTest</a>, CheckPlanningContextDescriptionNotEmptyAndStable)</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;{</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  std::string desc = planner_instance_-&gt;getDescription();</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  EXPECT_GT(desc.length(), 0u);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;}</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno"><a class="line" href="unittest__pilz__industrial__motion__planner_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">  227</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="unittest__pilz__industrial__motion__planner_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;{</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  rclcpp::init(argc, argv);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  testing::InitGoogleTest(&amp;argc, argv);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  <span class="keywordflow">return</span> RUN_ALL_TESTS();</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassCommandPlannerTest_html_a623532d6d2ea25f3074407d53a19588c"><div class="ttname"><a href="classCommandPlannerTest.html#a623532d6d2ea25f3074407d53a19588c">CommandPlannerTest::planner_plugin_loader_</a></div><div class="ttdeci">std::unique_ptr&lt; pluginlib::ClassLoader&lt; planning_interface::PlannerManager &gt; &gt; planner_plugin_loader_</div><div class="ttdef"><b>Definition:</b> <a href="unittest__pilz__industrial__motion__planner_8cpp_source.html#l00116">unittest_pilz_industrial_motion_planner.cpp:116</a></div></div>
 <div class="ttc" id="aclassCommandPlannerTest_html_aec51ab9a80428cc7a1881d7270e31319"><div class="ttname"><a href="classCommandPlannerTest.html#aec51ab9a80428cc7a1881d7270e31319">CommandPlannerTest::createPlannerInstance</a></div><div class="ttdeci">void createPlannerInstance()</div><div class="ttdoc">initialize the planner plugin The planner is loaded using the pluginlib. Checks that the planner was ...</div><div class="ttdef"><b>Definition:</b> <a href="unittest__pilz__industrial__motion__planner_8cpp_source.html#l00069">unittest_pilz_industrial_motion_planner.cpp:69</a></div></div>
@@ -281,7 +282,7 @@ $(function() {
 <div class="ttc" id="aclassCommandPlannerTest_html_a7aa5ff1bc4c790aa80deb0b5c74a1f55"><div class="ttname"><a href="classCommandPlannerTest.html#a7aa5ff1bc4c790aa80deb0b5c74a1f55">CommandPlannerTest::planner_plugin_name_</a></div><div class="ttdeci">std::string planner_plugin_name_</div><div class="ttdef"><b>Definition:</b> <a href="unittest__pilz__industrial__motion__planner_8cpp_source.html#l00115">unittest_pilz_industrial_motion_planner.cpp:115</a></div></div>
 <div class="ttc" id="aunittest__pilz__industrial__motion__planner_8cpp_html_a8f905dffb483301d10bc66fad79e81dc"><div class="ttname"><a href="unittest__pilz__industrial__motion__planner_8cpp.html#a8f905dffb483301d10bc66fad79e81dc">TEST_F</a></div><div class="ttdeci">TEST_F(CommandPlannerTest, ObtainLoadedPlanningAlgorithms)</div><div class="ttdoc">Test that PTP can be loaded This needs to be extended with every new planning Algorithm.</div><div class="ttdef"><b>Definition:</b> <a href="unittest__pilz__industrial__motion__planner_8cpp_source.html#l00124">unittest_pilz_industrial_motion_planner.cpp:124</a></div></div>
 <div class="ttc" id="aclassCommandPlannerTest_html_a9a743ed998fe88d66c8d19932a0a70de"><div class="ttname"><a href="classCommandPlannerTest.html#a9a743ed998fe88d66c8d19932a0a70de">CommandPlannerTest::TearDown</a></div><div class="ttdeci">void TearDown() override</div><div class="ttdef"><b>Definition:</b> <a href="unittest__pilz__industrial__motion__planner_8cpp_source.html#l00105">unittest_pilz_industrial_motion_planner.cpp:105</a></div></div>
-<div class="ttc" id="aunittest__pilz__industrial__motion__planner_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="unittest__pilz__industrial__motion__planner_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="unittest__pilz__industrial__motion__planner_8cpp_source.html#l00226">unittest_pilz_industrial_motion_planner.cpp:226</a></div></div>
+<div class="ttc" id="aunittest__pilz__industrial__motion__planner_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="unittest__pilz__industrial__motion__planner_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="unittest__pilz__industrial__motion__planner_8cpp_source.html#l00227">unittest_pilz_industrial_motion_planner.cpp:227</a></div></div>
 <div class="ttc" id="anamespaceplanning__request__adapter_html_af64b3fa8ebc256d9c5133c6c80ade28f"><div class="ttname"><a href="namespaceplanning__request__adapter.html#af64b3fa8ebc256d9c5133c6c80ade28f">planning_request_adapter::LOGGER</a></div><div class="ttdeci">rclcpp::Logger LOGGER</div><div class="ttdef"><b>Definition:</b> <a href="planning__request__adapter_8cpp_source.html#l00078">planning_request_adapter.cpp:78</a></div></div>
 <div class="ttc" id="aclassCommandPlannerTest_html_aa5d63c7eec2e1749380393cbf5475f8a"><div class="ttname"><a href="classCommandPlannerTest.html#aa5d63c7eec2e1749380393cbf5475f8a">CommandPlannerTest::node_</a></div><div class="ttdeci">rclcpp::Node::SharedPtr node_</div><div class="ttdef"><b>Definition:</b> <a href="unittest__pilz__industrial__motion__planner_8cpp_source.html#l00112">unittest_pilz_industrial_motion_planner.cpp:112</a></div></div>
 <div class="ttc" id="aclassCommandPlannerTest_html_abd671756ec0d367dd261175f90f28193"><div class="ttname"><a href="classCommandPlannerTest.html#abd671756ec0d367dd261175f90f28193">CommandPlannerTest::robot_model_</a></div><div class="ttdeci">moveit::core::RobotModelConstPtr robot_model_</div><div class="ttdef"><b>Definition:</b> <a href="unittest__pilz__industrial__motion__planner_8cpp_source.html#l00113">unittest_pilz_industrial_motion_planner.cpp:113</a></div></div>

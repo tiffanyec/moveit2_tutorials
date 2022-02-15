@@ -189,7 +189,7 @@ $(function() {
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  {</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">// LCOV_EXCL_START</span></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      RCLCPP_ERROR_STREAM(LOGGER, <span class="stringliteral">&quot;no bounds set for joint &quot;</span> &lt;&lt; joint_model-&gt;<a class="code" href="classmoveit_1_1core_1_1JointModel.html#aa1d2f99c9025d01a92e47bc356938f77">getName</a>());</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      RCLCPP_WARN_STREAM(LOGGER, <span class="stringliteral">&quot;no bounds set for joint &quot;</span> &lt;&lt; joint_model-&gt;<a class="code" href="classmoveit_1_1core_1_1JointModel.html#aa1d2f99c9025d01a92e47bc356938f77">getName</a>());</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment">// LCOV_EXCL_STOP</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">case</span> 1:</div>
@@ -199,7 +199,7 @@ $(function() {
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">// LCOV_EXCL_START</span></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      RCLCPP_ERROR_STREAM(LOGGER, <span class="stringliteral">&quot;Multi-DOF-Joints not supported. The robot won&#39;t move. &quot;</span> &lt;&lt; joint_model-&gt;<a class="code" href="classmoveit_1_1core_1_1JointModel.html#aa1d2f99c9025d01a92e47bc356938f77">getName</a>());</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      RCLCPP_WARN_STREAM(LOGGER, <span class="stringliteral">&quot;Multi-DOF-Joint &#39;&quot;</span> &lt;&lt; joint_model-&gt;<a class="code" href="classmoveit_1_1core_1_1JointModel.html#aa1d2f99c9025d01a92e47bc356938f77">getName</a>() &lt;&lt; <span class="stringliteral">&quot;&#39; not supported.&quot;</span>);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      joint_limit.<a class="code" href="structjoint__limits_1_1JointLimits.html#af6c866a379ffc1f7a80a7dcb56ea08fd">has_position_limits</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      joint_limit.<a class="code" href="structjoint__limits_1_1JointLimits.html#ad34b33dfe2942132c5bb0624098fd1d3">min_position</a> = 0;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      joint_limit.<a class="code" href="structjoint__limits_1_1JointLimits.html#a77dc908d317d7723cb4f763d5c4e9f20">max_position</a> = 0;</div>
@@ -218,7 +218,7 @@ $(function() {
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  {</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="comment">// LCOV_EXCL_START</span></div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      RCLCPP_ERROR_STREAM(LOGGER, <span class="stringliteral">&quot;no bounds set for joint &quot;</span> &lt;&lt; joint_model-&gt;<a class="code" href="classmoveit_1_1core_1_1JointModel.html#aa1d2f99c9025d01a92e47bc356938f77">getName</a>());</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      RCLCPP_WARN_STREAM(LOGGER, <span class="stringliteral">&quot;no bounds set for joint &quot;</span> &lt;&lt; joint_model-&gt;<a class="code" href="classmoveit_1_1core_1_1JointModel.html#aa1d2f99c9025d01a92e47bc356938f77">getName</a>());</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="comment">// LCOV_EXCL_STOP</span></div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">case</span> 1:</div>
@@ -227,7 +227,7 @@ $(function() {
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="comment">// LCOV_EXCL_START</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      RCLCPP_ERROR_STREAM(LOGGER, <span class="stringliteral">&quot;Multi-DOF-Joints not supported. The robot won&#39;t move.&quot;</span>);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      RCLCPP_WARN_STREAM(LOGGER, <span class="stringliteral">&quot;Multi-DOF-Joint &#39;&quot;</span> &lt;&lt; joint_model-&gt;<a class="code" href="classmoveit_1_1core_1_1JointModel.html#aa1d2f99c9025d01a92e47bc356938f77">getName</a>() &lt;&lt; <span class="stringliteral">&quot;&#39; not supported.&quot;</span>);</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      joint_limit.<a class="code" href="structjoint__limits_1_1JointLimits.html#a041ec76504e19f89413836473dd45484">has_velocity_limits</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      joint_limit.<a class="code" href="structjoint__limits_1_1JointLimits.html#a018cee1ccfd11f274c2f05c09d0e6377">max_velocity</a> = 0;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      <span class="keywordflow">break</span>;</div>

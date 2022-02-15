@@ -501,7 +501,7 @@ $(function() {
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;  <span class="comment">// Load 3d_sensors config file</span></div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  load3DSensorsFile();</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; </div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;  <span class="comment">// Load ros controllers yaml file if available-----------------------------------------------</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;  <span class="comment">// Load ros_controllers.yaml file if available-----------------------------------------------</span></div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;  fs::path ros_controllers_yaml_path = <a class="code" href="classmoveit__setup__assistant_1_1StartScreenWidget.html#a9a5980d10480167075f69d8d56328d81">config_data_</a>-&gt;config_pkg_path_;</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;  ros_controllers_yaml_path /= <span class="stringliteral">&quot;config/ros_controllers.yaml&quot;</span>;</div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;  <a class="code" href="classmoveit__setup__assistant_1_1StartScreenWidget.html#a9a5980d10480167075f69d8d56328d81">config_data_</a>-&gt;inputROSControllersYAML(ros_controllers_yaml_path.make_preferred().string());</div>
@@ -811,83 +811,74 @@ $(function() {
 <div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;  fs::path sensors_3d_yaml_path = <a class="code" href="classmoveit__setup__assistant_1_1StartScreenWidget.html#a9a5980d10480167075f69d8d56328d81">config_data_</a>-&gt;config_pkg_path_;</div>
 <div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;  sensors_3d_yaml_path /= <span class="stringliteral">&quot;config/sensors_3d.yaml&quot;</span>;</div>
 <div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160; </div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;  <span class="comment">// Default parameters values are always loaded but overridden by values existing in sensors_3d</span></div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;  fs::path default_sensors_3d_yaml_path = <span class="stringliteral">&quot;templates/moveit_config_pkg_template/config/sensors_3d.yaml&quot;</span>;</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160; </div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;  <span class="keywordflow">if</span> (!fs::is_regular_file(sensors_3d_yaml_path))</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;  {</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classmoveit__setup__assistant_1_1StartScreenWidget.html#a9a5980d10480167075f69d8d56328d81">config_data_</a>-&gt;input3DSensorsYAML(default_sensors_3d_yaml_path.make_preferred().string());</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;  }</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;  {</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classmoveit__setup__assistant_1_1StartScreenWidget.html#a9a5980d10480167075f69d8d56328d81">config_data_</a>-&gt;input3DSensorsYAML(default_sensors_3d_yaml_path.make_preferred().string(),</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;                                            sensors_3d_yaml_path.make_preferred().string());</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;  }</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;}</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160; </div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;<span class="comment">// Class for selecting which mode</span></div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160; </div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;<span class="comment">// Create the widget</span></div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;<a class="code" href="classmoveit__setup__assistant_1_1SelectModeWidget.html#a1b513c29ddfc97b67f898fdfac9d5af0">SelectModeWidget::SelectModeWidget</a>(QWidget* parent) : QFrame(parent)</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;{</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;  <span class="comment">// Set frame graphics</span></div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;  setFrameShape(QFrame::StyledPanel);</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;  setFrameShadow(QFrame::Raised);</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;  setLineWidth(1);</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;  setMidLineWidth(0);</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160; </div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;  <span class="comment">// Basic widget container</span></div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;  QVBoxLayout* layout = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160; </div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;  <span class="comment">// Horizontal layout splitter</span></div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;  QHBoxLayout* hlayout = <span class="keyword">new</span> QHBoxLayout();</div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160; </div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;  <span class="comment">// Widget Title</span></div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;  QLabel* widget_title = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;  widget_title-&gt;setText(<span class="stringliteral">&quot;Create new or edit existing?&quot;</span>);</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;  QFont widget_title_font(QFont().defaultFamily(), 12, QFont::Bold);</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;  widget_title-&gt;setFont(widget_title_font);</div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;  layout-&gt;addWidget(widget_title);</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;  layout-&gt;setAlignment(widget_title, Qt::AlignTop);</div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160; </div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;  <span class="comment">// Widget Instructions</span></div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;  widget_instructions_ = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;  widget_instructions_-&gt;setAlignment(Qt::AlignLeft | Qt::AlignTop);</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;  widget_instructions_-&gt;setWordWrap(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;  widget_instructions_-&gt;setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;  widget_instructions_-&gt;setText(</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;      <span class="stringliteral">&quot;All settings for MoveIt are stored in the MoveIt configuration package. Here you have &quot;</span></div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;      <span class="stringliteral">&quot;the option to create a new configuration package or load an existing one. Note: &quot;</span></div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;      <span class="stringliteral">&quot;changes to a MoveIt configuration package outside this Setup Assistant are likely to be &quot;</span></div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;      <span class="stringliteral">&quot;overwritten by this tool.&quot;</span>);</div>
-<div class="line"><a name="l00796"></a><span class="lineno"><a class="line" href="classmoveit__setup__assistant_1_1SelectModeWidget.html#a1b513c29ddfc97b67f898fdfac9d5af0">  796</a></span>&#160; </div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;  layout-&gt;addWidget(widget_instructions_);</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;  layout-&gt;setAlignment(widget_instructions_, Qt::AlignTop);</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160; </div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;  <span class="comment">// New Button</span></div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;  btn_new_ = <span class="keyword">new</span> QPushButton(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;  btn_new_-&gt;setText(<span class="stringliteral">&quot;Create &amp;New MoveIt\nConfiguration Package&quot;</span>);</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;  hlayout-&gt;addWidget(btn_new_);</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160; </div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;  <span class="comment">// Exist Button</span></div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;  btn_exist_ = <span class="keyword">new</span> QPushButton(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;  btn_exist_-&gt;setText(<span class="stringliteral">&quot;&amp;Edit Existing MoveIt\nConfiguration Package&quot;</span>);</div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;  btn_exist_-&gt;setCheckable(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;  hlayout-&gt;addWidget(btn_exist_);</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160; </div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;  <span class="comment">// Add horizontal layer to vertical layer</span></div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;  layout-&gt;addLayout(hlayout);</div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;  setLayout(layout);</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;  btn_new_-&gt;setCheckable(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;}</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160; </div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;}  <span class="comment">// namespace moveit_setup_assistant</span></div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;  <span class="keywordflow">if</span> (fs::is_regular_file(sensors_3d_yaml_path))</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    <a class="code" href="classmoveit__setup__assistant_1_1StartScreenWidget.html#a9a5980d10480167075f69d8d56328d81">config_data_</a>-&gt;input3DSensorsYAML(sensors_3d_yaml_path.make_preferred().string());</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;}</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160; </div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;<span class="comment">// Class for selecting which mode</span></div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160; </div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;<span class="comment">// Create the widget</span></div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<a class="code" href="classmoveit__setup__assistant_1_1SelectModeWidget.html#a1b513c29ddfc97b67f898fdfac9d5af0">SelectModeWidget::SelectModeWidget</a>(QWidget* parent) : QFrame(parent)</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;{</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;  <span class="comment">// Set frame graphics</span></div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;  setFrameShape(QFrame::StyledPanel);</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;  setFrameShadow(QFrame::Raised);</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;  setLineWidth(1);</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;  setMidLineWidth(0);</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160; </div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;  <span class="comment">// Basic widget container</span></div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;  QVBoxLayout* layout = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160; </div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;  <span class="comment">// Horizontal layout splitter</span></div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;  QHBoxLayout* hlayout = <span class="keyword">new</span> QHBoxLayout();</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160; </div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;  <span class="comment">// Widget Title</span></div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;  QLabel* widget_title = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;  widget_title-&gt;setText(<span class="stringliteral">&quot;Create new or edit existing?&quot;</span>);</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;  QFont widget_title_font(QFont().defaultFamily(), 12, QFont::Bold);</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;  widget_title-&gt;setFont(widget_title_font);</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;  layout-&gt;addWidget(widget_title);</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;  layout-&gt;setAlignment(widget_title, Qt::AlignTop);</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160; </div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;  <span class="comment">// Widget Instructions</span></div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;  widget_instructions_ = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;  widget_instructions_-&gt;setAlignment(Qt::AlignLeft | Qt::AlignTop);</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;  widget_instructions_-&gt;setWordWrap(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;  widget_instructions_-&gt;setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;  widget_instructions_-&gt;setText(</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;      <span class="stringliteral">&quot;All settings for MoveIt are stored in the MoveIt configuration package. Here you have &quot;</span></div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;      <span class="stringliteral">&quot;the option to create a new configuration package or load an existing one. Note: &quot;</span></div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;      <span class="stringliteral">&quot;changes to a MoveIt configuration package outside this Setup Assistant are likely to be &quot;</span></div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;      <span class="stringliteral">&quot;overwritten by this tool.&quot;</span>);</div>
+<div class="line"><a name="l00787"></a><span class="lineno"><a class="line" href="classmoveit__setup__assistant_1_1SelectModeWidget.html#a1b513c29ddfc97b67f898fdfac9d5af0">  787</a></span>&#160; </div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;  layout-&gt;addWidget(widget_instructions_);</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;  layout-&gt;setAlignment(widget_instructions_, Qt::AlignTop);</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160; </div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;  <span class="comment">// New Button</span></div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;  btn_new_ = <span class="keyword">new</span> QPushButton(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;  btn_new_-&gt;setText(<span class="stringliteral">&quot;Create &amp;New MoveIt\nConfiguration Package&quot;</span>);</div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;  hlayout-&gt;addWidget(btn_new_);</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160; </div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;  <span class="comment">// Exist Button</span></div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;  btn_exist_ = <span class="keyword">new</span> QPushButton(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;  btn_exist_-&gt;setText(<span class="stringliteral">&quot;&amp;Edit Existing MoveIt\nConfiguration Package&quot;</span>);</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;  btn_exist_-&gt;setCheckable(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;  hlayout-&gt;addWidget(btn_exist_);</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160; </div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;  <span class="comment">// Add horizontal layer to vertical layer</span></div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;  layout-&gt;addLayout(hlayout);</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;  setLayout(layout);</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;  btn_new_-&gt;setCheckable(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;}</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160; </div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;}  <span class="comment">// namespace moveit_setup_assistant</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassmoveit__setup__assistant_1_1LoadPathArgsWidget_html_aec477e2c49e5107a88a2af0381d81634"><div class="ttname"><a href="classmoveit__setup__assistant_1_1LoadPathArgsWidget.html#aec477e2c49e5107a88a2af0381d81634">moveit_setup_assistant::LoadPathArgsWidget::setArgsEnabled</a></div><div class="ttdeci">void setArgsEnabled(bool enabled=true)</div><div class="ttdef"><b>Definition:</b> <a href="header__widget_8cpp_source.html#l00262">header_widget.cpp:262</a></div></div>
 <div class="ttc" id="astart__screen__widget_8h_html"><div class="ttname"><a href="start__screen__widget_8h.html">start_screen_widget.h</a></div></div>
@@ -907,7 +898,7 @@ $(function() {
 <div class="ttc" id="aclassSetupScreenWidget_html"><div class="ttname"><a href="classSetupScreenWidget.html">SetupScreenWidget</a></div><div class="ttdef"><b>Definition:</b> <a href="setup__screen__widget_8h_source.html#l00044">setup_screen_widget.h:44</a></div></div>
 <div class="ttc" id="aclassmoveit__setup__assistant_1_1LoadPathArgsWidget_html"><div class="ttname"><a href="classmoveit__setup__assistant_1_1LoadPathArgsWidget.html">moveit_setup_assistant::LoadPathArgsWidget</a></div><div class="ttdoc">Extend LoadPathWidget with additional line edit for arguments.</div><div class="ttdef"><b>Definition:</b> <a href="header__widget_8h_source.html#l00104">header_widget.h:104</a></div></div>
 <div class="ttc" id="aclassrdf__loader_1_1RDFLoader_html_a0a6182274db2dd51eba414986377b2ea"><div class="ttname"><a href="classrdf__loader_1_1RDFLoader.html#a0a6182274db2dd51eba414986377b2ea">rdf_loader::RDFLoader::isXacroFile</a></div><div class="ttdeci">static bool isXacroFile(const std::string &amp;path)</div><div class="ttdoc">determine if given path points to a xacro file</div><div class="ttdef"><b>Definition:</b> <a href="rdf__loader_8cpp_source.html#l00144">rdf_loader.cpp:144</a></div></div>
-<div class="ttc" id="aclassmoveit__setup__assistant_1_1SelectModeWidget_html_a1b513c29ddfc97b67f898fdfac9d5af0"><div class="ttname"><a href="classmoveit__setup__assistant_1_1SelectModeWidget.html#a1b513c29ddfc97b67f898fdfac9d5af0">moveit_setup_assistant::SelectModeWidget::SelectModeWidget</a></div><div class="ttdeci">SelectModeWidget(QWidget *parent)</div><div class="ttdef"><b>Definition:</b> <a href="start__screen__widget_8cpp_source.html#l00796">start_screen_widget.cpp:796</a></div></div>
+<div class="ttc" id="aclassmoveit__setup__assistant_1_1SelectModeWidget_html_a1b513c29ddfc97b67f898fdfac9d5af0"><div class="ttname"><a href="classmoveit__setup__assistant_1_1SelectModeWidget.html#a1b513c29ddfc97b67f898fdfac9d5af0">moveit_setup_assistant::SelectModeWidget::SelectModeWidget</a></div><div class="ttdeci">SelectModeWidget(QWidget *parent)</div><div class="ttdef"><b>Definition:</b> <a href="start__screen__widget_8cpp_source.html#l00787">start_screen_widget.cpp:787</a></div></div>
 <div class="ttc" id="anamespacerclcpp_1_1names_html_a4c3e21517afd9a6909de322da95c5e81"><div class="ttname"><a href="namespacerclcpp_1_1names.html#a4c3e21517afd9a6909de322da95c5e81">rclcpp::names::append</a></div><div class="ttdeci">std::string append(const std::string &amp;left, const std::string &amp;right)</div><div class="ttdef"><b>Definition:</b> <a href="rclcpp__utils_8cpp_source.html#l00053">rclcpp_utils.cpp:53</a></div></div>
 <div class="ttc" id="aclassmoveit__setup__assistant_1_1StartScreenWidget_html_a006e63cac7a469c1bf04149d66a20d08"><div class="ttname"><a href="classmoveit__setup__assistant_1_1StartScreenWidget.html#a006e63cac7a469c1bf04149d66a20d08">moveit_setup_assistant::StartScreenWidget::progress_bar_</a></div><div class="ttdeci">QProgressBar * progress_bar_</div><div class="ttdef"><b>Definition:</b> <a href="start__screen__widget_8h_source.html#l00084">start_screen_widget.h:84</a></div></div>
 <div class="ttc" id="aheader__widget_8h_html"><div class="ttname"><a href="header__widget_8h.html">header_widget.h</a></div></div>

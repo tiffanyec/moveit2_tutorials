@@ -194,7 +194,7 @@ $(function() {
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    planner_limits_.setCartesianLimits(cart_limits);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">// initialize trajectory generators and blender</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    lin_generator_ = std::make_unique&lt;TrajectoryGeneratorLIN&gt;(robot_model_, planner_limits_);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    lin_generator_ = std::make_unique&lt;TrajectoryGeneratorLIN&gt;(robot_model_, planner_limits_, planning_group_);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    ASSERT_NE(<span class="keyword">nullptr</span>, lin_generator_) &lt;&lt; <span class="stringliteral">&quot;failed to create LIN trajectory generator&quot;</span>;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    blender_ = std::make_unique&lt;TrajectoryBlenderTransitionWindow&gt;(planner_limits_);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    ASSERT_NE(<span class="keyword">nullptr</span>, blender_) &lt;&lt; <span class="stringliteral">&quot;failed to create trajectory blender&quot;</span>;</div>
