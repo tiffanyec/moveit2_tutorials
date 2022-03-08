@@ -186,7 +186,7 @@ $(function() {
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment">// Otherwise the Servo is still running when another test starts...</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classmoveit__servo_1_1ServoFixture.html#a071c00b86f054bcabf96d270dc29407f">client_servo_stop_</a>)</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    {</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <a class="code" href="classmoveit__servo_1_1ServoFixture.html#a071c00b86f054bcabf96d270dc29407f">client_servo_stop_</a>-&gt;async_send_request(std::make_shared&lt;std_srvs::srv::Trigger::Request&gt;());</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <a class="code" href="classmoveit__servo_1_1ServoFixture.html#af38507a65a8186e0cdd69250c0d88619">stop</a>();</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="classmoveit__servo_1_1ServoFixture.html#a177d6aee35e62d49454faa87ca836601">executor_</a>-&gt;cancel();</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classmoveit__servo_1_1ServoFixture.html#acfe4f7bce6e6f051a3bbee46fcd38e77">executor_thread_</a>.joinable())</div>

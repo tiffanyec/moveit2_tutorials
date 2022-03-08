@@ -132,58 +132,60 @@ $(function() {
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">namespace </span>po = boost::program_options;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="comment">// Declare the supported options</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  po::options_description desc(<span class="stringliteral">&quot;Allowed options&quot;</span>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  desc.add_options()(<span class="stringliteral">&quot;help,h&quot;</span>, <span class="stringliteral">&quot;Show help message&quot;</span>)(<span class="stringliteral">&quot;debug,g&quot;</span>, <span class="stringliteral">&quot;Run in debug/test mode&quot;</span>)(</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="stringliteral">&quot;urdf_path,u&quot;</span>, po::value&lt;std::string&gt;(), <span class="stringliteral">&quot;Optional, path to URDF file in ROS package&quot;</span>)(</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="stringliteral">&quot;config_pkg,c&quot;</span>, po::value&lt;std::string&gt;(), <span class="stringliteral">&quot;Optional, pass in existing config package to load&quot;</span>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="comment">// Process options</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  po::variables_map vm;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    po::store(po::parse_command_line(argc, argv, desc), vm);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    po::notify(vm);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span> (vm.count(<span class="stringliteral">&quot;help&quot;</span>))</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <a class="code" href="setup__assistant__main_8cpp.html#abceef1724f89a8ec41f48a5732c60400">usage</a>(desc, 0);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    std::cerr &lt;&lt; e.what() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="setup__assistant__main_8cpp.html#abceef1724f89a8ec41f48a5732c60400">usage</a>(desc, 1);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment">// Start ROS Node</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  ros::init(argc, argv, <span class="stringliteral">&quot;moveit_setup_assistant&quot;</span>, ros::init_options::NoSigintHandler);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="comment">// ROS Spin</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  ros::AsyncSpinner spinner(1);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  spinner.start();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  ros::NodeHandle nh;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">// clang-format off</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  po::options_description desc(<span class="stringliteral">&quot;Allowed options&quot;</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  desc.add_options()(<span class="stringliteral">&quot;help,h&quot;</span>, <span class="stringliteral">&quot;Show help message&quot;</span>)(<span class="stringliteral">&quot;debug,g&quot;</span>, <span class="stringliteral">&quot;Run in debug/test mode&quot;</span>)(</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="stringliteral">&quot;urdf_path,u&quot;</span>, po::value&lt;std::string&gt;(), <span class="stringliteral">&quot;Optional, path to URDF file in ROS package&quot;</span>)(</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="stringliteral">&quot;config_pkg,c&quot;</span>, po::value&lt;std::string&gt;(), <span class="stringliteral">&quot;Optional, pass in existing config package to load&quot;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="comment">// clang-format on</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">// Process options</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  po::variables_map vm;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    po::store(po::parse_command_line(argc, argv, desc), vm);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    po::notify(vm);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">if</span> (vm.count(<span class="stringliteral">&quot;help&quot;</span>))</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <a class="code" href="setup__assistant__main_8cpp.html#abceef1724f89a8ec41f48a5732c60400">usage</a>(desc, 0);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    std::cerr &lt;&lt; e.what() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="setup__assistant__main_8cpp.html#abceef1724f89a8ec41f48a5732c60400">usage</a>(desc, 1);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="comment">// Start ROS Node</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  ros::init(argc, argv, <span class="stringliteral">&quot;moveit_setup_assistant&quot;</span>, ros::init_options::NoSigintHandler);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="comment">// ROS Spin</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  ros::AsyncSpinner spinner(1);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  spinner.start();</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="comment">// Create Qt Application</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  QApplication qt_app(argc, argv);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="comment">// numeric values should always be POSIX</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  setlocale(LC_NUMERIC, <span class="stringliteral">&quot;C&quot;</span>);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="comment">// Load Qt Widget</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <a class="code" href="classmoveit__setup__assistant_1_1SetupAssistantWidget.html">moveit_setup_assistant::SetupAssistantWidget</a> saw(<span class="keyword">nullptr</span>, vm);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  saw.setMinimumWidth(1090);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  saw.setMinimumHeight(600);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="comment">//  saw.setWindowState( Qt::WindowMaximized );</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  saw.show();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  ros::NodeHandle nh;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="comment">// Create Qt Application</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  QApplication qt_app(argc, argv);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="comment">// numeric values should always be POSIX</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  setlocale(LC_NUMERIC, <span class="stringliteral">&quot;C&quot;</span>);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="comment">// Load Qt Widget</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <a class="code" href="classmoveit__setup__assistant_1_1SetupAssistantWidget.html">moveit_setup_assistant::SetupAssistantWidget</a> saw(<span class="keyword">nullptr</span>, vm);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  saw.setMinimumWidth(1090);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  saw.setMinimumHeight(600);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="comment">//  saw.setWindowState( Qt::WindowMaximized );</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  signal(SIGINT, siginthandler);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  saw.show();</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="comment">// Wait here until Qt App is finished</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> result = qt_app.exec();</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="comment">// Shutdown ROS</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  ros::shutdown();</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  signal(SIGINT, siginthandler);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="comment">// Wait here until Qt App is finished</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> result = qt_app.exec();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="comment">// Shutdown ROS</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  ros::shutdown();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="asetup__assistant__main_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="setup__assistant__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="setup__assistant__main_8cpp_source.html#l00056">setup_assistant_main.cpp:56</a></div></div>
 <div class="ttc" id="asetup__assistant__widget_8h_html"><div class="ttname"><a href="setup__assistant__widget_8h.html">setup_assistant_widget.h</a></div></div>

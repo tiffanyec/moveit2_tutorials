@@ -289,61 +289,63 @@ $(function() {
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  node_options.automatically_declare_parameters_from_overrides(<span class="keyword">true</span>);</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  rclcpp::Node::SharedPtr node = rclcpp::Node::make_shared(<span class="stringliteral">&quot;import_from_text_to_warehouse&quot;</span>, node_options);</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  boost::program_options::options_description desc;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  desc.add_options()(<span class="stringliteral">&quot;help&quot;</span>, <span class="stringliteral">&quot;Show help message&quot;</span>)(<span class="stringliteral">&quot;queries&quot;</span>, boost::program_options::value&lt;std::string&gt;(),</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                                                  <span class="stringliteral">&quot;Name of file containing motion planning queries.&quot;</span>)(</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;      <span class="stringliteral">&quot;scene&quot;</span>, boost::program_options::value&lt;std::string&gt;(), <span class="stringliteral">&quot;Name of file containing motion planning scene.&quot;</span>)(</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      <span class="stringliteral">&quot;host&quot;</span>, boost::program_options::value&lt;std::string&gt;(),</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      <span class="stringliteral">&quot;Host for the DB.&quot;</span>)(<span class="stringliteral">&quot;port&quot;</span>, boost::program_options::value&lt;std::size_t&gt;(), <span class="stringliteral">&quot;Port for the DB.&quot;</span>);</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  boost::program_options::variables_map vm;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  boost::program_options::store(boost::program_options::parse_command_line(argc, argv, desc), vm);</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  boost::program_options::notify(vm);</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  <span class="keywordflow">if</span> (vm.count(<span class="stringliteral">&quot;help&quot;</span>) || argc == 1)  <span class="comment">// show help if no parameters passed</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  {</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    std::cout &lt;&lt; desc &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  }</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  <span class="comment">// Set up db</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  warehouse_ros::DatabaseConnection::Ptr conn = <a class="code" href="namespacemoveit__warehouse.html#a797b441cea1a69945a3b7269c55bf91d">moveit_warehouse::loadDatabase</a>(node);</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <span class="keywordflow">if</span> (vm.count(<span class="stringliteral">&quot;host&quot;</span>) &amp;&amp; vm.count(<span class="stringliteral">&quot;port&quot;</span>))</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    conn-&gt;setParams(vm[<span class="stringliteral">&quot;host&quot;</span>].as&lt;std::string&gt;(), vm[<span class="stringliteral">&quot;port&quot;</span>].as&lt;std::size_t&gt;());</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="keywordflow">if</span> (!conn-&gt;connect())</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  <a class="code" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html">planning_scene_monitor::PlanningSceneMonitor</a> psm(node, ROBOT_DESCRIPTION);</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keywordflow">if</span> (!psm.<a class="code" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a011cb6c08f70118585a4363a1774e957">getPlanningScene</a>())</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  {</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;Unable to initialize PlanningSceneMonitor&quot;</span>);</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  }</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  <a class="code" href="classmoveit__warehouse_1_1PlanningSceneStorage.html">moveit_warehouse::PlanningSceneStorage</a> pss(conn);</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <a class="code" href="classmoveit__warehouse_1_1ConstraintsStorage.html">moveit_warehouse::ConstraintsStorage</a> cs(conn);</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <a class="code" href="classmoveit__warehouse_1_1RobotStateStorage.html">moveit_warehouse::RobotStateStorage</a> rs(conn);</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  <span class="keywordflow">if</span> (vm.count(<span class="stringliteral">&quot;scene&quot;</span>))</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  {</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    std::ifstream fin(vm[<span class="stringliteral">&quot;scene&quot;</span>].as&lt;std::string&gt;().c_str());</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    psm.<a class="code" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a011cb6c08f70118585a4363a1774e957">getPlanningScene</a>()-&gt;loadGeometryFromStream(fin);</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    fin.close();</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    moveit_msgs::msg::PlanningScene psmsg;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    psm.<a class="code" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a011cb6c08f70118585a4363a1774e957">getPlanningScene</a>()-&gt;getPlanningSceneMsg(psmsg);</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    pss.<a class="code" href="classmoveit__warehouse_1_1PlanningSceneStorage.html#ab285d956aff2a716394d20b298954002">addPlanningScene</a>(psmsg);</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  }</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  <span class="keywordflow">if</span> (vm.count(<span class="stringliteral">&quot;queries&quot;</span>))</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  {</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    std::ifstream fin(vm[<span class="stringliteral">&quot;queries&quot;</span>].as&lt;std::string&gt;().c_str());</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordflow">if</span> (fin.good() &amp;&amp; !fin.eof())</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;      <a class="code" href="import__from__text_8cpp.html#a4fc562e476806fc50eb0888fb28f9b61">parseQueries</a>(fin, &amp;psm, &amp;rs, &amp;cs);</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    fin.close();</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  }</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  rclcpp::spin(node);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;}</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="comment">// clang-format off</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  boost::program_options::options_description desc;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  desc.add_options()(<span class="stringliteral">&quot;help&quot;</span>, <span class="stringliteral">&quot;Show help message&quot;</span>)(<span class="stringliteral">&quot;queries&quot;</span>, boost::program_options::value&lt;std::string&gt;(),</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                                                  <span class="stringliteral">&quot;Name of file containing motion planning queries.&quot;</span>)(</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      <span class="stringliteral">&quot;scene&quot;</span>, boost::program_options::value&lt;std::string&gt;(), <span class="stringliteral">&quot;Name of file containing motion planning scene.&quot;</span>)(</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      <span class="stringliteral">&quot;host&quot;</span>, boost::program_options::value&lt;std::string&gt;(),</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      <span class="stringliteral">&quot;Host for the DB.&quot;</span>)(<span class="stringliteral">&quot;port&quot;</span>, boost::program_options::value&lt;std::size_t&gt;(), <span class="stringliteral">&quot;Port for the DB.&quot;</span>);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  <span class="comment">// clang-format on</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  boost::program_options::variables_map vm;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  boost::program_options::store(boost::program_options::parse_command_line(argc, argv, desc), vm);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  boost::program_options::notify(vm);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  <span class="keywordflow">if</span> (vm.count(<span class="stringliteral">&quot;help&quot;</span>) || argc == 1)  <span class="comment">// show help if no parameters passed</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    std::cout &lt;&lt; desc &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  }</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <span class="comment">// Set up db</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  warehouse_ros::DatabaseConnection::Ptr conn = <a class="code" href="namespacemoveit__warehouse.html#a797b441cea1a69945a3b7269c55bf91d">moveit_warehouse::loadDatabase</a>(node);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="keywordflow">if</span> (vm.count(<span class="stringliteral">&quot;host&quot;</span>) &amp;&amp; vm.count(<span class="stringliteral">&quot;port&quot;</span>))</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    conn-&gt;setParams(vm[<span class="stringliteral">&quot;host&quot;</span>].as&lt;std::string&gt;(), vm[<span class="stringliteral">&quot;port&quot;</span>].as&lt;std::size_t&gt;());</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <span class="keywordflow">if</span> (!conn-&gt;connect())</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <a class="code" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html">planning_scene_monitor::PlanningSceneMonitor</a> psm(node, ROBOT_DESCRIPTION);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  <span class="keywordflow">if</span> (!psm.<a class="code" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a011cb6c08f70118585a4363a1774e957">getPlanningScene</a>())</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  {</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;Unable to initialize PlanningSceneMonitor&quot;</span>);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <a class="code" href="classmoveit__warehouse_1_1PlanningSceneStorage.html">moveit_warehouse::PlanningSceneStorage</a> pss(conn);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <a class="code" href="classmoveit__warehouse_1_1ConstraintsStorage.html">moveit_warehouse::ConstraintsStorage</a> cs(conn);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  <a class="code" href="classmoveit__warehouse_1_1RobotStateStorage.html">moveit_warehouse::RobotStateStorage</a> rs(conn);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  <span class="keywordflow">if</span> (vm.count(<span class="stringliteral">&quot;scene&quot;</span>))</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  {</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    std::ifstream fin(vm[<span class="stringliteral">&quot;scene&quot;</span>].as&lt;std::string&gt;().c_str());</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    psm.<a class="code" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a011cb6c08f70118585a4363a1774e957">getPlanningScene</a>()-&gt;loadGeometryFromStream(fin);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    fin.close();</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    moveit_msgs::msg::PlanningScene psmsg;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    psm.<a class="code" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a011cb6c08f70118585a4363a1774e957">getPlanningScene</a>()-&gt;getPlanningSceneMsg(psmsg);</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    pss.<a class="code" href="classmoveit__warehouse_1_1PlanningSceneStorage.html#ab285d956aff2a716394d20b298954002">addPlanningScene</a>(psmsg);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  }</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  <span class="keywordflow">if</span> (vm.count(<span class="stringliteral">&quot;queries&quot;</span>))</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    std::ifstream fin(vm[<span class="stringliteral">&quot;queries&quot;</span>].as&lt;std::string&gt;().c_str());</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordflow">if</span> (fin.good() &amp;&amp; !fin.eof())</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      <a class="code" href="import__from__text_8cpp.html#a4fc562e476806fc50eb0888fb28f9b61">parseQueries</a>(fin, &amp;psm, &amp;rs, &amp;cs);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    fin.close();</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  }</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  rclcpp::spin(node);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassmoveit_1_1core_1_1RobotState_html_a04b9343fdf57f04895fa21c326164d0f"><div class="ttname"><a href="classmoveit_1_1core_1_1RobotState.html#a04b9343fdf57f04895fa21c326164d0f">moveit::core::RobotState::setVariablePositions</a></div><div class="ttdeci">void setVariablePositions(const double *position)</div><div class="ttdoc">It is assumed positions is an array containing the new positions for all variables in this state....</div><div class="ttdef"><b>Definition:</b> <a href="robot__state_8cpp_source.html#l00435">robot_state.cpp:435</a></div></div>
 <div class="ttc" id="aclassmoveit__warehouse_1_1RobotStateStorage_html"><div class="ttname"><a href="classmoveit__warehouse_1_1RobotStateStorage.html">moveit_warehouse::RobotStateStorage</a></div><div class="ttdef"><b>Definition:</b> <a href="state__storage_8h_source.html#l00084">state_storage.h:84</a></div></div>

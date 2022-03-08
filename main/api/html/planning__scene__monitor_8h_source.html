@@ -527,7 +527,7 @@ $(function() {
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html#a10d530a55cf0820f54a5c373e1dd526b">planning_scene_monitor_</a> &amp;&amp; <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html#a10d530a55cf0820f54a5c373e1dd526b">planning_scene_monitor_</a>-&gt;getPlanningScene();</div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;  }</div>
 <div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160; </div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;  <span class="keyword">operator</span> <span class="keyword">const</span> planning_scene::PlanningSceneConstPtr &amp;() <span class="keyword">const</span></div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;  <span class="keyword">operator</span> <span class="keyword">const</span> planning_scene::PlanningSceneConstPtr&amp;() <span class="keyword">const</span></div>
 <div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;  {</div>
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>PlanningSceneMonitor*<span class="keyword">&gt;</span>(<a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html#a10d530a55cf0820f54a5c373e1dd526b">planning_scene_monitor_</a>.get())-&gt;getPlanningScene();</div>
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;  }</div>
@@ -587,7 +587,7 @@ $(function() {
 <div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;  {</div>
 <div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;  }</div>
 <div class="line"><a name="l00731"></a><span class="lineno"><a class="line" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html#a10d530a55cf0820f54a5c373e1dd526b">  731</a></span>&#160; </div>
-<div class="line"><a name="l00732"></a><span class="lineno"><a class="line" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html#a74c264527f499821fbd2ba64e5f3f7be">  732</a></span>&#160;  <span class="keyword">operator</span> <span class="keyword">const</span> planning_scene::PlanningScenePtr &amp;()</div>
+<div class="line"><a name="l00732"></a><span class="lineno"><a class="line" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html#a74c264527f499821fbd2ba64e5f3f7be">  732</a></span>&#160;  <span class="keyword">operator</span> <span class="keyword">const</span> planning_scene::PlanningScenePtr&amp;()</div>
 <div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;  {</div>
 <div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html#a10d530a55cf0820f54a5c373e1dd526b">planning_scene_monitor_</a>-&gt;getPlanningScene();</div>
 <div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;  }</div>

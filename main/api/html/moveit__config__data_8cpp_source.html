@@ -1278,7 +1278,7 @@ $(function() {
 <div class="line"><a name="l01207"></a><span class="lineno"> 1207</span>&#160;    : dc_(dc), key_(dc.link1_ &lt; dc.link2_ ? (dc.link1_ + <span class="stringliteral">&quot;|&quot;</span> + dc.link2_) : (dc.link2_ + <span class="stringliteral">&quot;|&quot;</span> + dc.link1_))</div>
 <div class="line"><a name="l01208"></a><span class="lineno"> 1208</span>&#160;  {</div>
 <div class="line"><a name="l01209"></a><span class="lineno"> 1209</span>&#160;  }</div>
-<div class="line"><a name="l01210"></a><span class="lineno"> 1210</span>&#160;  <span class="keyword">operator</span> <span class="keyword">const</span> srdf::Model::DisabledCollision &amp;() <span class="keyword">const</span></div>
+<div class="line"><a name="l01210"></a><span class="lineno"> 1210</span>&#160;  <span class="keyword">operator</span> <span class="keyword">const</span> srdf::Model::DisabledCollision&amp;() <span class="keyword">const</span></div>
 <div class="line"><a name="l01211"></a><span class="lineno"> 1211</span>&#160;  {</div>
 <div class="line"><a name="l01212"></a><span class="lineno"> 1212</span>&#160;    <span class="keywordflow">return</span> dc_;</div>
 <div class="line"><a name="l01213"></a><span class="lineno"> 1213</span>&#160;  }</div>
@@ -1358,7 +1358,7 @@ $(function() {
 <div class="line"><a name="l01287"></a><span class="lineno"><a class="line" href="classmoveit__setup__assistant_1_1MoveItConfigData.html#a9537552cf5d2ae485e83d5bed32ce5dd"> 1287</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacemoveit__setup__assistant.html#ad257fca3c7dfcf73ae4434b210ccafc7">parse</a>(<span class="keyword">const</span> YAML::Node&amp; node, <span class="keyword">const</span> std::string&amp; key, T&amp; storage, <span class="keyword">const</span> T&amp; default_value = T())</div>
 <div class="line"><a name="l01288"></a><span class="lineno"> 1288</span>&#160;{</div>
 <div class="line"><a name="l01289"></a><span class="lineno"> 1289</span>&#160;  <span class="keyword">const</span> YAML::Node&amp; n = node[key];</div>
-<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;  <span class="keywordtype">bool</span> valid = n;</div>
+<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;  <span class="keywordtype">bool</span> valid = n.IsDefined();</div>
 <div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160;  storage = valid ? n.as&lt;T&gt;() : default_value;</div>
 <div class="line"><a name="l01292"></a><span class="lineno"> 1292</span>&#160;  <span class="keywordflow">return</span> valid;</div>
 <div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;}</div>
