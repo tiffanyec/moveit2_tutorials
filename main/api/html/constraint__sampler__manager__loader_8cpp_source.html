@@ -164,7 +164,7 @@ $(function() {
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<a class="code" href="classconstraint__sampler__manager__loader_1_1ConstraintSamplerManagerLoader.html#abee53d60b0c41c84031badab13bebd5a">ConstraintSamplerManagerLoader::ConstraintSamplerManagerLoader</a>(</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">const</span> rclcpp::Node::SharedPtr&amp; node, <span class="keyword">const</span> constraint_samplers::ConstraintSamplerManagerPtr&amp; csm)</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  : constraint_sampler_manager_(csm ? csm : std::make_shared&lt;<a class="code" href="namespaceconstraint__samplers.html">constraint_samplers</a>::ConstraintSamplerManager&gt;())</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  , impl_(new Helper(node, constraint_sampler_manager_))</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  , impl_(std::make_shared&lt;Helper&gt;(node, constraint_sampler_manager_))</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}  <span class="comment">// namespace constraint_sampler_manager_loader</span></div>

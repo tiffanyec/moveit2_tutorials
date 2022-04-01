@@ -111,211 +111,347 @@ $(function() {
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &lt;gtest/gtest.h&gt;</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="time__optimal__trajectory__generation_8h.html">moveit/trajectory_processing/time_optimal_trajectory_generation.h</a>&gt;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">using</span> <a class="code" href="classtrajectory__processing_1_1Path.html">trajectory_processing::Path</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">using</span> <a class="code" href="classtrajectory__processing_1_1Trajectory.html">trajectory_processing::Trajectory</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11">   45</a></span>&#160;<a class="code" href="test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11">TEST</a>(time_optimal_trajectory_generation, test1)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  Eigen::VectorXd waypoint(4);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  std::list&lt;Eigen::VectorXd&gt; <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  waypoint &lt;&lt; 1424.0, 984.999694824219, 2126.0, 0.0;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  waypoint &lt;&lt; 1423.0, 985.000244140625, 2126.0, 0.0;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="robot__model__test__utils_8h.html">moveit/utils/robot_model_test_utils.h</a>&gt;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">using</span> <a class="code" href="classtrajectory__processing_1_1Path.html">trajectory_processing::Path</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">using</span> <a class="code" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html">trajectory_processing::TimeOptimalTrajectoryGeneration</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">using</span> <a class="code" href="classtrajectory__processing_1_1Trajectory.html">trajectory_processing::Trajectory</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11">   47</a></span>&#160;<a class="code" href="test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11">TEST</a>(time_optimal_trajectory_generation, test1)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  Eigen::VectorXd waypoint(4);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  std::list&lt;Eigen::VectorXd&gt; <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  waypoint &lt;&lt; 1424.0, 984.999694824219, 2126.0, 0.0;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  Eigen::VectorXd max_velocities(4);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  max_velocities &lt;&lt; 1.3, 0.67, 0.67, 0.5;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  Eigen::VectorXd max_accelerations(4);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  max_accelerations &lt;&lt; 0.00249, 0.00249, 0.00249, 0.00249;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <a class="code" href="classtrajectory__processing_1_1Trajectory.html">Trajectory</a> trajectory(<a class="code" href="classtrajectory__processing_1_1Path.html">Path</a>(<a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>, 100.0), max_velocities, max_accelerations, 10.0);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  EXPECT_TRUE(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a25270396d87c878ead796eeef9ddb526">isValid</a>());</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  EXPECT_DOUBLE_EQ(40.080256821829849, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>());</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="comment">// Test start matches</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  EXPECT_DOUBLE_EQ(1424.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[0]);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  EXPECT_DOUBLE_EQ(984.999694824219, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[1]);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  EXPECT_DOUBLE_EQ(2126.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[2]);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  EXPECT_DOUBLE_EQ(0.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[3]);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="comment">// Test end matches</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  EXPECT_DOUBLE_EQ(1423.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[0]);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  EXPECT_DOUBLE_EQ(985.000244140625, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[1]);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  EXPECT_DOUBLE_EQ(2126.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[2]);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  EXPECT_DOUBLE_EQ(0.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[3]);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="test__time__optimal__trajectory__generation_8cpp.html#a9d93cb2ccc222e34b85bd16a9d4117f9">   77</a></span>&#160;<a class="code" href="test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11">TEST</a>(time_optimal_trajectory_generation, test2)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  Eigen::VectorXd waypoint(4);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  std::list&lt;Eigen::VectorXd&gt; <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  waypoint &lt;&lt; 1427.0, 368.0, 690.0, 90.0;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  waypoint &lt;&lt; 1427.0, 368.0, 790.0, 90.0;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  waypoint &lt;&lt; 1423.0, 985.000244140625, 2126.0, 0.0;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  Eigen::VectorXd max_velocities(4);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  max_velocities &lt;&lt; 1.3, 0.67, 0.67, 0.5;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  Eigen::VectorXd max_accelerations(4);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  max_accelerations &lt;&lt; 0.00249, 0.00249, 0.00249, 0.00249;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <a class="code" href="classtrajectory__processing_1_1Trajectory.html">Trajectory</a> trajectory(<a class="code" href="classtrajectory__processing_1_1Path.html">Path</a>(<a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>, 100.0), max_velocities, max_accelerations, 10.0);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  EXPECT_TRUE(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a25270396d87c878ead796eeef9ddb526">isValid</a>());</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  EXPECT_DOUBLE_EQ(40.080256821829849, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>());</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="comment">// Test start matches</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  EXPECT_DOUBLE_EQ(1424.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[0]);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  EXPECT_DOUBLE_EQ(984.999694824219, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[1]);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  EXPECT_DOUBLE_EQ(2126.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[2]);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  EXPECT_DOUBLE_EQ(0.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[3]);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="comment">// Test end matches</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  EXPECT_DOUBLE_EQ(1423.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[0]);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  EXPECT_DOUBLE_EQ(985.000244140625, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[1]);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  EXPECT_DOUBLE_EQ(2126.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[2]);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  EXPECT_DOUBLE_EQ(0.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[3]);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="test__time__optimal__trajectory__generation_8cpp.html#a9d93cb2ccc222e34b85bd16a9d4117f9">   79</a></span>&#160;<a class="code" href="test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11">TEST</a>(time_optimal_trajectory_generation, test2)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  Eigen::VectorXd waypoint(4);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  std::list&lt;Eigen::VectorXd&gt; <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  waypoint &lt;&lt; 1427.0, 368.0, 690.0, 90.0;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  waypoint &lt;&lt; 952.499938964844, 433.0, 1051.0, 90.0;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  waypoint &lt;&lt; 1427.0, 368.0, 790.0, 90.0;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  waypoint &lt;&lt; 452.5, 533.0, 1051.0, 90.0;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  waypoint &lt;&lt; 952.499938964844, 433.0, 1051.0, 90.0;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  waypoint &lt;&lt; 452.5, 533.0, 951.0, 90.0;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  waypoint &lt;&lt; 452.5, 533.0, 1051.0, 90.0;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  Eigen::VectorXd max_velocities(4);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  max_velocities &lt;&lt; 1.3, 0.67, 0.67, 0.5;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  Eigen::VectorXd max_accelerations(4);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  max_accelerations &lt;&lt; 0.002, 0.002, 0.002, 0.002;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <a class="code" href="classtrajectory__processing_1_1Trajectory.html">Trajectory</a> trajectory(<a class="code" href="classtrajectory__processing_1_1Path.html">Path</a>(<a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>, 100.0), max_velocities, max_accelerations, 10.0);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  EXPECT_TRUE(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a25270396d87c878ead796eeef9ddb526">isValid</a>());</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  EXPECT_DOUBLE_EQ(1922.1418427445944, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>());</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="comment">// Test start matches</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  EXPECT_DOUBLE_EQ(1427.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[0]);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  EXPECT_DOUBLE_EQ(368.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[1]);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  EXPECT_DOUBLE_EQ(690.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[2]);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  EXPECT_DOUBLE_EQ(90.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[3]);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="comment">// Test end matches</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  EXPECT_DOUBLE_EQ(452.5, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[0]);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  EXPECT_DOUBLE_EQ(533.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[1]);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  EXPECT_DOUBLE_EQ(951.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[2]);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  EXPECT_DOUBLE_EQ(90.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[3]);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="test__time__optimal__trajectory__generation_8cpp.html#a30f3408c2ea2faa2526e96af4ebee94f">  115</a></span>&#160;<a class="code" href="test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11">TEST</a>(time_optimal_trajectory_generation, test3)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;{</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  Eigen::VectorXd waypoint(4);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  std::list&lt;Eigen::VectorXd&gt; <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  waypoint &lt;&lt; 1427.0, 368.0, 690.0, 90.0;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  waypoint &lt;&lt; 1427.0, 368.0, 790.0, 90.0;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  waypoint &lt;&lt; 452.5, 533.0, 951.0, 90.0;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  Eigen::VectorXd max_velocities(4);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  max_velocities &lt;&lt; 1.3, 0.67, 0.67, 0.5;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  Eigen::VectorXd max_accelerations(4);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  max_accelerations &lt;&lt; 0.002, 0.002, 0.002, 0.002;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <a class="code" href="classtrajectory__processing_1_1Trajectory.html">Trajectory</a> trajectory(<a class="code" href="classtrajectory__processing_1_1Path.html">Path</a>(<a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>, 100.0), max_velocities, max_accelerations, 10.0);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  EXPECT_TRUE(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a25270396d87c878ead796eeef9ddb526">isValid</a>());</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  EXPECT_DOUBLE_EQ(1922.1418427445944, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>());</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="comment">// Test start matches</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  EXPECT_DOUBLE_EQ(1427.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[0]);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  EXPECT_DOUBLE_EQ(368.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[1]);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  EXPECT_DOUBLE_EQ(690.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[2]);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  EXPECT_DOUBLE_EQ(90.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[3]);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="comment">// Test end matches</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  EXPECT_DOUBLE_EQ(452.5, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[0]);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  EXPECT_DOUBLE_EQ(533.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[1]);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  EXPECT_DOUBLE_EQ(951.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[2]);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  EXPECT_DOUBLE_EQ(90.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[3]);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="test__time__optimal__trajectory__generation_8cpp.html#a30f3408c2ea2faa2526e96af4ebee94f">  117</a></span>&#160;<a class="code" href="test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11">TEST</a>(time_optimal_trajectory_generation, test3)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  Eigen::VectorXd waypoint(4);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  std::list&lt;Eigen::VectorXd&gt; <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  waypoint &lt;&lt; 1427.0, 368.0, 690.0, 90.0;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  waypoint &lt;&lt; 952.499938964844, 433.0, 1051.0, 90.0;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  waypoint &lt;&lt; 1427.0, 368.0, 790.0, 90.0;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  waypoint &lt;&lt; 452.5, 533.0, 1051.0, 90.0;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  waypoint &lt;&lt; 952.499938964844, 433.0, 1051.0, 90.0;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  waypoint &lt;&lt; 452.5, 533.0, 951.0, 90.0;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  waypoint &lt;&lt; 452.5, 533.0, 1051.0, 90.0;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  Eigen::VectorXd max_velocities(4);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  max_velocities &lt;&lt; 1.3, 0.67, 0.67, 0.5;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  Eigen::VectorXd max_accelerations(4);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  max_accelerations &lt;&lt; 0.002, 0.002, 0.002, 0.002;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <a class="code" href="classtrajectory__processing_1_1Trajectory.html">Trajectory</a> trajectory(<a class="code" href="classtrajectory__processing_1_1Path.html">Path</a>(<a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>, 100.0), max_velocities, max_accelerations);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  EXPECT_TRUE(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a25270396d87c878ead796eeef9ddb526">isValid</a>());</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  EXPECT_DOUBLE_EQ(1919.5597888812974, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>());</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="comment">// Test start matches</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  EXPECT_DOUBLE_EQ(1427.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[0]);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  EXPECT_DOUBLE_EQ(368.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[1]);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  EXPECT_DOUBLE_EQ(690.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[2]);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  EXPECT_DOUBLE_EQ(90.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[3]);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <span class="comment">// Test end matches</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  EXPECT_DOUBLE_EQ(452.5, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[0]);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  EXPECT_DOUBLE_EQ(533.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[1]);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  EXPECT_DOUBLE_EQ(951.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[2]);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  EXPECT_DOUBLE_EQ(90.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[3]);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;}</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">// Test that totg algorithm doesn&#39;t give large acceleration</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="test__time__optimal__trajectory__generation_8cpp.html#afa971b084e97619045a0538e1ad0c639">  154</a></span>&#160;<a class="code" href="test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11">TEST</a>(time_optimal_trajectory_generation, testLargeAccel)</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;{</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="keywordtype">double</span> path_tolerance = 0.1;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="keywordtype">double</span> resample_dt = 0.1;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  Eigen::VectorXd waypoint(6);</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  std::list&lt;Eigen::VectorXd&gt; <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  Eigen::VectorXd max_velocities(6);</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  Eigen::VectorXd max_accelerations(6);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  <span class="comment">// Waypoints</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  <span class="comment">// clang-format off</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  waypoint &lt;&lt; 1.6113056281076339,</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;             -0.21400163389235427,</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;             -1.974502599739185,</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;              9.9653618690354051e-12,</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;             -1.3810916877429624,</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;              1.5293902838041467;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  waypoint &lt;&lt; 1.6088016187976597,</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;             -0.21792862470933924,</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;             -1.9758628799742952,</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;              0.00010424017303217738,</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;             -1.3835690515335755,</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;              1.5279972853269816;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  waypoint &lt;&lt; 1.5887695443178671,</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;             -0.24934455124521923,</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;             -1.9867451218551782,</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;              0.00093816147756670078,</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;             -1.4033879618584812,</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;              1.5168532975096607;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  waypoint &lt;&lt; 1.1647412393815282,</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;             -0.91434018564402375,</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;             -2.2170946337498498,</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;              0.018590164397622583,</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;             -1.8229041212673529,</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;              1.2809632867583278;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  <span class="comment">// Max velocities</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  max_velocities &lt;&lt; 0.89535390627300004,</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                    0.89535390627300004,</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                    0.79587013890930003,</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                    0.92022484811399996,</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                    0.82074108075029995,</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                    1.3927727430915;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  <span class="comment">// Max accelerations</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  max_accelerations &lt;&lt; 0.82673490883799994,</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                       0.78539816339699997,</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                       0.60883578557700002,</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                       3.2074759432319997,</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                       1.4398966328939999,</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                       4.7292792634680003;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  <span class="comment">// clang-format on</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  <a class="code" href="classtrajectory__processing_1_1Trajectory.html">Trajectory</a> parameterized(<a class="code" href="classtrajectory__processing_1_1Path.html">Path</a>(<a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>, path_tolerance), max_velocities, max_accelerations, 0.001);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  waypoint &lt;&lt; 452.5, 533.0, 951.0, 90.0;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  Eigen::VectorXd max_velocities(4);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  max_velocities &lt;&lt; 1.3, 0.67, 0.67, 0.5;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  Eigen::VectorXd max_accelerations(4);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  max_accelerations &lt;&lt; 0.002, 0.002, 0.002, 0.002;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <a class="code" href="classtrajectory__processing_1_1Trajectory.html">Trajectory</a> trajectory(<a class="code" href="classtrajectory__processing_1_1Path.html">Path</a>(<a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>, 100.0), max_velocities, max_accelerations);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  EXPECT_TRUE(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a25270396d87c878ead796eeef9ddb526">isValid</a>());</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  EXPECT_DOUBLE_EQ(1919.5597888812974, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>());</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="comment">// Test start matches</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  EXPECT_DOUBLE_EQ(1427.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[0]);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  EXPECT_DOUBLE_EQ(368.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[1]);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  EXPECT_DOUBLE_EQ(690.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[2]);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  EXPECT_DOUBLE_EQ(90.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(0.0)[3]);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="comment">// Test end matches</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  EXPECT_DOUBLE_EQ(452.5, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[0]);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  EXPECT_DOUBLE_EQ(533.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[1]);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  EXPECT_DOUBLE_EQ(951.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[2]);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  EXPECT_DOUBLE_EQ(90.0, trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">getPosition</a>(trajectory.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>())[3]);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;}</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">// Test that totg algorithm doesn&#39;t give large acceleration</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="test__time__optimal__trajectory__generation_8cpp.html#afa971b084e97619045a0538e1ad0c639">  156</a></span>&#160;<a class="code" href="test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11">TEST</a>(time_optimal_trajectory_generation, testLargeAccel)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;{</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keywordtype">double</span> path_tolerance = 0.1;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <span class="keywordtype">double</span> resample_dt = 0.1;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  Eigen::VectorXd waypoint(6);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  std::list&lt;Eigen::VectorXd&gt; <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  Eigen::VectorXd max_velocities(6);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  Eigen::VectorXd max_accelerations(6);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="comment">// Waypoints</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <span class="comment">// clang-format off</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  waypoint &lt;&lt; 1.6113056281076339,</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;             -0.21400163389235427,</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;             -1.974502599739185,</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;              9.9653618690354051e-12,</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;             -1.3810916877429624,</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;              1.5293902838041467;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  waypoint &lt;&lt; 1.6088016187976597,</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;             -0.21792862470933924,</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;             -1.9758628799742952,</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;              0.00010424017303217738,</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;             -1.3835690515335755,</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;              1.5279972853269816;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  waypoint &lt;&lt; 1.5887695443178671,</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;             -0.24934455124521923,</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;             -1.9867451218551782,</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;              0.00093816147756670078,</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;             -1.4033879618584812,</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;              1.5168532975096607;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  waypoint &lt;&lt; 1.1647412393815282,</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;             -0.91434018564402375,</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;             -2.2170946337498498,</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;              0.018590164397622583,</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;             -1.8229041212673529,</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;              1.2809632867583278;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  <a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>.push_back(waypoint);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  <span class="comment">// Max velocities</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  max_velocities &lt;&lt; 0.89535390627300004,</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                    0.89535390627300004,</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                    0.79587013890930003,</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                    0.92022484811399996,</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                    0.82074108075029995,</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                    1.3927727430915;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <span class="comment">// Max accelerations</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  max_accelerations &lt;&lt; 0.82673490883799994,</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                       0.78539816339699997,</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                       0.60883578557700002,</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                       3.2074759432319997,</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                       1.4398966328939999,</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                       4.7292792634680003;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  <span class="comment">// clang-format on</span></div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  ASSERT_TRUE(parameterized.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a25270396d87c878ead796eeef9ddb526">isValid</a>());</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  <a class="code" href="classtrajectory__processing_1_1Trajectory.html">Trajectory</a> parameterized(<a class="code" href="classtrajectory__processing_1_1Path.html">Path</a>(<a class="code" href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">waypoints</a>, path_tolerance), max_velocities, max_accelerations, 0.001);</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  <span class="keywordtype">size_t</span> sample_count = std::ceil(parameterized.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>() / resample_dt);</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> sample = 0; sample &lt;= sample_count; ++sample)</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  {</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="comment">// always sample the end of the trajectory as well</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordtype">double</span> t = std::min(parameterized.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>(), sample * resample_dt);</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    Eigen::VectorXd acceleration = parameterized.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a1a48fed786b4c7ccf5dba6dae78e965e">getAcceleration</a>(t);</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    ASSERT_EQ(acceleration.size(), 6);</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; 6; ++i)</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      EXPECT_NEAR(acceleration(i), 0.0, 100.0) &lt;&lt; <span class="stringliteral">&quot;Invalid acceleration at position &quot;</span> &lt;&lt; sample_count &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  }</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;}</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
-<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="test__time__optimal__trajectory__generation_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">  230</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="test__time__optimal__trajectory__generation_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;{</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  testing::InitGoogleTest(&amp;argc, argv);</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <span class="keywordflow">return</span> RUN_ALL_TESTS();</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;}</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  ASSERT_TRUE(parameterized.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a25270396d87c878ead796eeef9ddb526">isValid</a>());</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="keywordtype">size_t</span> sample_count = std::ceil(parameterized.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>() / resample_dt);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> sample = 0; sample &lt;= sample_count; ++sample)</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  {</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="comment">// always sample the end of the trajectory as well</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordtype">double</span> t = std::min(parameterized.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">getDuration</a>(), sample * resample_dt);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    Eigen::VectorXd acceleration = parameterized.<a class="code" href="classtrajectory__processing_1_1Trajectory.html#a1a48fed786b4c7ccf5dba6dae78e965e">getAcceleration</a>(t);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    ASSERT_EQ(acceleration.size(), 6);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; 6; ++i)</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      EXPECT_NEAR(acceleration(i), 0.0, 100.0) &lt;&lt; <span class="stringliteral">&quot;Invalid acceleration at position &quot;</span> &lt;&lt; sample_count &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  }</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;}</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00232"></a><span class="lineno"><a class="line" href="test__time__optimal__trajectory__generation_8cpp.html#a16a36e399fa8b0dd611bbc73ebb3f5ff">  232</a></span>&#160;<a class="code" href="test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11">TEST</a>(time_optimal_trajectory_generation, testPluginAPI)</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;{</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  constexpr <span class="keyword">auto</span> robot_name{ <span class="stringliteral">&quot;panda&quot;</span> };</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  constexpr <span class="keyword">auto</span> group_name{ <span class="stringliteral">&quot;panda_arm&quot;</span> };</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <span class="keyword">auto</span> robot_model = <a class="code" href="namespacemoveit_1_1core.html#a646367a1863f557a16cb8769a2980604">moveit::core::loadTestingRobotModel</a>(robot_name);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  ASSERT_TRUE((<span class="keywordtype">bool</span>)robot_model) &lt;&lt; <span class="stringliteral">&quot;Failed to load robot model&quot;</span> &lt;&lt; robot_name;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="keyword">auto</span> <a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a> = robot_model-&gt;getJointModelGroup(group_name);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  ASSERT_TRUE((<span class="keywordtype">bool</span>)<a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>) &lt;&lt; <span class="stringliteral">&quot;Failed to load joint model group &quot;</span> &lt;&lt; group_name;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a> waypoint_state(robot_model);</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  waypoint_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#aba31c6f758e3dabd32c1acbd069e189e">setToDefaultValues</a>();</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> trajectory(robot_model, <a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  waypoint_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a564140d144754d149b292e70c4c59b55">setJointGroupPositions</a>(<a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>, std::vector&lt;double&gt;{ -0.5, -3.52, 1.35, -2.51, -0.88, 0.63, 0.0 });</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#a8d818ea730ce7620ca2b15edd70f774e">addSuffixWayPoint</a>(waypoint_state, 0.1);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  waypoint_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a564140d144754d149b292e70c4c59b55">setJointGroupPositions</a>(<a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>, std::vector&lt;double&gt;{ -0.5, -3.52, 1.35, -2.51, -0.88, 0.63, 0.0 });</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#a8d818ea730ce7620ca2b15edd70f774e">addSuffixWayPoint</a>(waypoint_state, 0.1);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  waypoint_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a564140d144754d149b292e70c4c59b55">setJointGroupPositions</a>(<a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>, std::vector&lt;double&gt;{ 0.0, -3.5, 1.4, -1.2, -1.0, -0.2, 0.0 });</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#a8d818ea730ce7620ca2b15edd70f774e">addSuffixWayPoint</a>(waypoint_state, 0.1);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  waypoint_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a564140d144754d149b292e70c4c59b55">setJointGroupPositions</a>(<a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>, std::vector&lt;double&gt;{ -0.5, -3.52, 1.35, -2.51, -0.88, 0.63, 0.0 });</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#a8d818ea730ce7620ca2b15edd70f774e">addSuffixWayPoint</a>(waypoint_state, 0.1);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  waypoint_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a564140d144754d149b292e70c4c59b55">setJointGroupPositions</a>(<a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>, std::vector&lt;double&gt;{ 0.0, -3.5, 1.4, -1.2, -1.0, -0.2, 0.0 });</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#a8d818ea730ce7620ca2b15edd70f774e">addSuffixWayPoint</a>(waypoint_state, 0.1);</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  waypoint_state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a564140d144754d149b292e70c4c59b55">setJointGroupPositions</a>(<a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>, std::vector&lt;double&gt;{ -0.5, -3.52, 1.35, -2.51, -0.88, 0.63, 0.0 });</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#a8d818ea730ce7620ca2b15edd70f774e">addSuffixWayPoint</a>(waypoint_state, 0.1);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  <span class="comment">// Number TOTG iterations</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  constexpr <span class="keywordtype">size_t</span> totg_iterations = 10;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  <span class="comment">// Test computing the dynamics repeatedly with the same totg instance</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  moveit_msgs::msg::RobotTrajectory first_trajectory_msg_start, first_trajectory_msg_end;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  {</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> test_trajectory(trajectory, <span class="keyword">true</span> <span class="comment">/* deep copy */</span>);</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="comment">// Test if the trajectory was copied correctly</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    ASSERT_EQ(test_trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#af827ef5d4a1a30176f2599c701683f27">getDuration</a>(), trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#af827ef5d4a1a30176f2599c701683f27">getDuration</a>());</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <a class="code" href="namespacemoveit_1_1core.html#ad652fd03ea08dacf06e522436eead29b">moveit::core::JointBoundsVector</a> test_bounds = test_trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#a216fc759b1f79f0d70a0509766d80fcc">getRobotModel</a>()-&gt;getActiveJointModelsBounds();</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <a class="code" href="namespacemoveit_1_1core.html#ad652fd03ea08dacf06e522436eead29b">moveit::core::JointBoundsVector</a> original_bounds = trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#a216fc759b1f79f0d70a0509766d80fcc">getRobotModel</a>()-&gt;getActiveJointModelsBounds();</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    ASSERT_EQ(test_bounds.size(), original_bounds.size());</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> bound_idx = 0; bound_idx &lt; test_bounds.at(0)-&gt;size(); ++bound_idx)</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    {</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;      ASSERT_EQ(test_bounds.at(0)-&gt;at(bound_idx).max_velocity_, original_bounds.at(0)-&gt;at(bound_idx).max_velocity_);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      ASSERT_EQ(test_bounds.at(0)-&gt;at(bound_idx).min_velocity_, original_bounds.at(0)-&gt;at(bound_idx).min_velocity_);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      ASSERT_EQ(test_bounds.at(0)-&gt;at(bound_idx).velocity_bounded_,</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                original_bounds.at(0)-&gt;at(bound_idx).velocity_bounded_);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      ASSERT_EQ(test_bounds.at(0)-&gt;at(bound_idx).max_acceleration_,</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                original_bounds.at(0)-&gt;at(bound_idx).max_acceleration_);</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      ASSERT_EQ(test_bounds.at(0)-&gt;at(bound_idx).min_acceleration_,</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                original_bounds.at(0)-&gt;at(bound_idx).min_acceleration_);</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      ASSERT_EQ(test_bounds.at(0)-&gt;at(bound_idx).acceleration_bounded_,</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                original_bounds.at(0)-&gt;at(bound_idx).acceleration_bounded_);</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    }</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    ASSERT_EQ(test_trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#abec675e916c243304ad0bf76d91392e7">getWayPointDurationFromPrevious</a>(1), trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#abec675e916c243304ad0bf76d91392e7">getWayPointDurationFromPrevious</a>(1));</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <a class="code" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html">TimeOptimalTrajectoryGeneration</a> totg;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    ASSERT_TRUE(totg.<a class="code" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#a5ad18a23d5b6f0beedaa4b6e20f8b01b">computeTimeStamps</a>(test_trajectory)) &lt;&lt; <span class="stringliteral">&quot;Failed to compute time stamps&quot;</span>;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    test_trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#a7315e0ff4705f4c9b6f6871b0b584b88">getRobotTrajectoryMsg</a>(first_trajectory_msg_start);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="comment">// Iteratively recompute timestamps with same totg instance</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; totg_iterations; ++i)</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    {</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      <span class="keywordtype">bool</span> totg_success = totg.<a class="code" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#a5ad18a23d5b6f0beedaa4b6e20f8b01b">computeTimeStamps</a>(test_trajectory);</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      EXPECT_TRUE(totg_success) &lt;&lt; <span class="stringliteral">&quot;Failed to compute time stamps with a same TOTG instance in iteration &quot;</span> &lt;&lt; i;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    }</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    test_trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#a7315e0ff4705f4c9b6f6871b0b584b88">getRobotTrajectoryMsg</a>(first_trajectory_msg_end);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  }</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;  <span class="comment">// Test computing the dynamics repeatedly with one TOTG instance per call</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  moveit_msgs::msg::RobotTrajectory second_trajectory_msg_start, second_trajectory_msg_end;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  {</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> test_trajectory(trajectory, <span class="keyword">true</span> <span class="comment">/* deep copy */</span>);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    {</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      <a class="code" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html">TimeOptimalTrajectoryGeneration</a> totg;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      ASSERT_TRUE(totg.<a class="code" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#a5ad18a23d5b6f0beedaa4b6e20f8b01b">computeTimeStamps</a>(test_trajectory)) &lt;&lt; <span class="stringliteral">&quot;Failed to compute time stamps&quot;</span>;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    }</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    test_trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#a7315e0ff4705f4c9b6f6871b0b584b88">getRobotTrajectoryMsg</a>(second_trajectory_msg_start);</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="comment">// Iteratively recompute timestamps with new totg instances</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; totg_iterations; ++i)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    {</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      <a class="code" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html">TimeOptimalTrajectoryGeneration</a> totg;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      <span class="keywordtype">bool</span> totg_success = totg.<a class="code" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#a5ad18a23d5b6f0beedaa4b6e20f8b01b">computeTimeStamps</a>(test_trajectory);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      EXPECT_TRUE(totg_success) &lt;&lt; <span class="stringliteral">&quot;Failed to compute time stamps with a new TOTG instance in iteration &quot;</span> &lt;&lt; i;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    }</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    test_trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#a7315e0ff4705f4c9b6f6871b0b584b88">getRobotTrajectoryMsg</a>(second_trajectory_msg_end);</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  }</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <span class="comment">// Make sure trajectories produce equal waypoints independent of TOTG instances</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  ASSERT_EQ(first_trajectory_msg_start, second_trajectory_msg_start);</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  ASSERT_EQ(first_trajectory_msg_end, second_trajectory_msg_end);</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  <span class="comment">// Iterate on the original trajectory again</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  moveit_msgs::msg::RobotTrajectory third_trajectory_msg_end;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  {</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <a class="code" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html">TimeOptimalTrajectoryGeneration</a> totg;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    ASSERT_TRUE(totg.<a class="code" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#a5ad18a23d5b6f0beedaa4b6e20f8b01b">computeTimeStamps</a>(trajectory)) &lt;&lt; <span class="stringliteral">&quot;Failed to compute time stamps&quot;</span>;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  }</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; totg_iterations; ++i)</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <a class="code" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html">TimeOptimalTrajectoryGeneration</a> totg;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordtype">bool</span> totg_success = totg.<a class="code" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#a5ad18a23d5b6f0beedaa4b6e20f8b01b">computeTimeStamps</a>(trajectory);</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    ASSERT_TRUE(totg_success) &lt;&lt; <span class="stringliteral">&quot;Failed to compute timestamps on a new TOTG instance in iteration &quot;</span> &lt;&lt; i;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  }</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  <span class="comment">// Compare with previous work</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#a7315e0ff4705f4c9b6f6871b0b584b88">getRobotTrajectoryMsg</a>(third_trajectory_msg_end);</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  <span class="comment">// Make sure trajectories produce equal waypoints independent of TOTG instances</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  ASSERT_EQ(first_trajectory_msg_end, third_trajectory_msg_end);</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;}</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00351"></a><span class="lineno"><a class="line" href="test__time__optimal__trajectory__generation_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">  351</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="test__time__optimal__trajectory__generation_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;{</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  testing::InitGoogleTest(&amp;argc, argv);</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  <span class="keywordflow">return</span> RUN_ALL_TESTS();</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassrobot__trajectory_1_1RobotTrajectory_html_a216fc759b1f79f0d70a0509766d80fcc"><div class="ttname"><a href="classrobot__trajectory_1_1RobotTrajectory.html#a216fc759b1f79f0d70a0509766d80fcc">robot_trajectory::RobotTrajectory::getRobotModel</a></div><div class="ttdeci">const moveit::core::RobotModelConstPtr &amp; getRobotModel() const</div><div class="ttdef"><b>Definition:</b> <a href="robot__trajectory_8h_source.html#l00120">robot_trajectory.h:120</a></div></div>
+<div class="ttc" id="aclasstrajectory__processing_1_1TimeOptimalTrajectoryGeneration_html_a5ad18a23d5b6f0beedaa4b6e20f8b01b"><div class="ttname"><a href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#a5ad18a23d5b6f0beedaa4b6e20f8b01b">trajectory_processing::TimeOptimalTrajectoryGeneration::computeTimeStamps</a></div><div class="ttdeci">bool computeTimeStamps(robot_trajectory::RobotTrajectory &amp;trajectory, const double max_velocity_scaling_factor=1.0, const double max_acceleration_scaling_factor=1.0) const</div><div class="ttdef"><b>Definition:</b> <a href="time__optimal__trajectory__generation_8cpp_source.html#l00871">time_optimal_trajectory_generation.cpp:871</a></div></div>
+<div class="ttc" id="aclassrobot__trajectory_1_1RobotTrajectory_html_a8d818ea730ce7620ca2b15edd70f774e"><div class="ttname"><a href="classrobot__trajectory_1_1RobotTrajectory.html#a8d818ea730ce7620ca2b15edd70f774e">robot_trajectory::RobotTrajectory::addSuffixWayPoint</a></div><div class="ttdeci">RobotTrajectory &amp; addSuffixWayPoint(const moveit::core::RobotState &amp;state, double dt)</div><div class="ttdoc">Add a point to the trajectory.</div><div class="ttdef"><b>Definition:</b> <a href="robot__trajectory_8h_source.html#l00218">robot_trajectory.h:218</a></div></div>
 <div class="ttc" id="anamespaceplan__with__constraints_html_ae2821c574c31d6fcba2690cae34021db"><div class="ttname"><a href="namespaceplan__with__constraints.html#ae2821c574c31d6fcba2690cae34021db">plan_with_constraints.waypoints</a></div><div class="ttdeci">list waypoints</div><div class="ttdef"><b>Definition:</b> <a href="plan__with__constraints_8py_source.html#l00058">plan_with_constraints.py:58</a></div></div>
-<div class="ttc" id="aclasstrajectory__processing_1_1Trajectory_html_aada4cdb42a2a789912c6d0d14302d57a"><div class="ttname"><a href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">trajectory_processing::Trajectory::getDuration</a></div><div class="ttdeci">double getDuration() const</div><div class="ttdoc">Returns the optimal duration of the trajectory.</div><div class="ttdef"><b>Definition:</b> <a href="time__optimal__trajectory__generation_8cpp_source.html#l00776">time_optimal_trajectory_generation.cpp:776</a></div></div>
-<div class="ttc" id="atest__time__optimal__trajectory__generation_8cpp_html_a58fafeea33a2ccaaa2ed7335eaef0b11"><div class="ttname"><a href="test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11">TEST</a></div><div class="ttdeci">TEST(time_optimal_trajectory_generation, test1)</div><div class="ttdef"><b>Definition:</b> <a href="test__time__optimal__trajectory__generation_8cpp_source.html#l00045">test_time_optimal_trajectory_generation.cpp:45</a></div></div>
+<div class="ttc" id="anamespacemoveit_1_1core_html_ad652fd03ea08dacf06e522436eead29b"><div class="ttname"><a href="namespacemoveit_1_1core.html#ad652fd03ea08dacf06e522436eead29b">moveit::core::JointBoundsVector</a></div><div class="ttdeci">std::vector&lt; const JointModel::Bounds * &gt; JointBoundsVector</div><div class="ttdef"><b>Definition:</b> <a href="joint__model__group_8h_source.html#l00132">joint_model_group.h:132</a></div></div>
+<div class="ttc" id="aclassmoveit_1_1core_1_1RobotState_html"><div class="ttname"><a href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a></div><div class="ttdoc">Representation of a robot's state. This includes position, velocity, acceleration and effort.</div><div class="ttdef"><b>Definition:</b> <a href="robot__state_8h_source.html#l00155">robot_state.h:155</a></div></div>
+<div class="ttc" id="aclassrobot__trajectory_1_1RobotTrajectory_html_af827ef5d4a1a30176f2599c701683f27"><div class="ttname"><a href="classrobot__trajectory_1_1RobotTrajectory.html#af827ef5d4a1a30176f2599c701683f27">robot_trajectory::RobotTrajectory::getDuration</a></div><div class="ttdeci">double getDuration() const</div><div class="ttdef"><b>Definition:</b> <a href="robot__trajectory_8cpp_source.html#l00119">robot_trajectory.cpp:119</a></div></div>
+<div class="ttc" id="aclassrobot__trajectory_1_1RobotTrajectory_html"><div class="ttname"><a href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a></div><div class="ttdoc">Maintain a sequence of waypoints and the time durations between these waypoints.</div><div class="ttdef"><b>Definition:</b> <a href="robot__trajectory_8h_source.html#l00091">robot_trajectory.h:91</a></div></div>
+<div class="ttc" id="aclasstrajectory__processing_1_1TimeOptimalTrajectoryGeneration_html"><div class="ttname"><a href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html">trajectory_processing::TimeOptimalTrajectoryGeneration</a></div><div class="ttdef"><b>Definition:</b> <a href="time__optimal__trajectory__generation_8h_source.html#l00162">time_optimal_trajectory_generation.h:162</a></div></div>
+<div class="ttc" id="aclasstrajectory__processing_1_1Trajectory_html_aada4cdb42a2a789912c6d0d14302d57a"><div class="ttname"><a href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a">trajectory_processing::Trajectory::getDuration</a></div><div class="ttdeci">double getDuration() const</div><div class="ttdoc">Returns the optimal duration of the trajectory.</div><div class="ttdef"><b>Definition:</b> <a href="time__optimal__trajectory__generation_8cpp_source.html#l00777">time_optimal_trajectory_generation.cpp:777</a></div></div>
+<div class="ttc" id="atest__time__optimal__trajectory__generation_8cpp_html_a58fafeea33a2ccaaa2ed7335eaef0b11"><div class="ttname"><a href="test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11">TEST</a></div><div class="ttdeci">TEST(time_optimal_trajectory_generation, test1)</div><div class="ttdef"><b>Definition:</b> <a href="test__time__optimal__trajectory__generation_8cpp_source.html#l00047">test_time_optimal_trajectory_generation.cpp:47</a></div></div>
+<div class="ttc" id="aclassmoveit_1_1core_1_1RobotState_html_aba31c6f758e3dabd32c1acbd069e189e"><div class="ttname"><a href="classmoveit_1_1core_1_1RobotState.html#aba31c6f758e3dabd32c1acbd069e189e">moveit::core::RobotState::setToDefaultValues</a></div><div class="ttdeci">void setToDefaultValues()</div><div class="ttdoc">Set all joints to their default positions. The default position is 0, or if that is not within bounds...</div><div class="ttdef"><b>Definition:</b> <a href="robot__state_8cpp_source.html#l00426">robot_state.cpp:426</a></div></div>
 <div class="ttc" id="atime__optimal__trajectory__generation_8h_html"><div class="ttname"><a href="time__optimal__trajectory__generation_8h.html">time_optimal_trajectory_generation.h</a></div></div>
-<div class="ttc" id="aclasstrajectory__processing_1_1Trajectory_html_a1a48fed786b4c7ccf5dba6dae78e965e"><div class="ttname"><a href="classtrajectory__processing_1_1Trajectory.html#a1a48fed786b4c7ccf5dba6dae78e965e">trajectory_processing::Trajectory::getAcceleration</a></div><div class="ttdeci">Eigen::VectorXd getAcceleration(double time) const</div><div class="ttdoc">Return the acceleration vector for a given point in time.</div><div class="ttdef"><b>Definition:</b> <a href="time__optimal__trajectory__generation_8cpp_source.html#l00839">time_optimal_trajectory_generation.cpp:839</a></div></div>
+<div class="ttc" id="aclassrobot__trajectory_1_1RobotTrajectory_html_a7315e0ff4705f4c9b6f6871b0b584b88"><div class="ttname"><a href="classrobot__trajectory_1_1RobotTrajectory.html#a7315e0ff4705f4c9b6f6871b0b584b88">robot_trajectory::RobotTrajectory::getRobotTrajectoryMsg</a></div><div class="ttdeci">void getRobotTrajectoryMsg(moveit_msgs::msg::RobotTrajectory &amp;trajectory, const std::vector&lt; std::string &gt; &amp;joint_filter=std::vector&lt; std::string &gt;()) const</div><div class="ttdef"><b>Definition:</b> <a href="robot__trajectory_8cpp_source.html#l00275">robot_trajectory.cpp:275</a></div></div>
+<div class="ttc" id="aclassrobot__trajectory_1_1RobotTrajectory_html_abec675e916c243304ad0bf76d91392e7"><div class="ttname"><a href="classrobot__trajectory_1_1RobotTrajectory.html#abec675e916c243304ad0bf76d91392e7">robot_trajectory::RobotTrajectory::getWayPointDurationFromPrevious</a></div><div class="ttdeci">double getWayPointDurationFromPrevious(std::size_t index) const</div><div class="ttdef"><b>Definition:</b> <a href="robot__trajectory_8h_source.html#l00192">robot_trajectory.h:192</a></div></div>
+<div class="ttc" id="aclasstrajectory__processing_1_1Trajectory_html_a1a48fed786b4c7ccf5dba6dae78e965e"><div class="ttname"><a href="classtrajectory__processing_1_1Trajectory.html#a1a48fed786b4c7ccf5dba6dae78e965e">trajectory_processing::Trajectory::getAcceleration</a></div><div class="ttdeci">Eigen::VectorXd getAcceleration(double time) const</div><div class="ttdoc">Return the acceleration vector for a given point in time.</div><div class="ttdef"><b>Definition:</b> <a href="time__optimal__trajectory__generation_8cpp_source.html#l00840">time_optimal_trajectory_generation.cpp:840</a></div></div>
+<div class="ttc" id="arobot__model__test__utils_8h_html"><div class="ttname"><a href="robot__model__test__utils_8h.html">robot_model_test_utils.h</a></div></div>
 <div class="ttc" id="aclasstrajectory__processing_1_1Trajectory_html"><div class="ttname"><a href="classtrajectory__processing_1_1Trajectory.html">trajectory_processing::Trajectory</a></div><div class="ttdef"><b>Definition:</b> <a href="time__optimal__trajectory__generation_8h_source.html#l00091">time_optimal_trajectory_generation.h:91</a></div></div>
 <div class="ttc" id="aclasstrajectory__processing_1_1Path_html"><div class="ttname"><a href="classtrajectory__processing_1_1Path.html">trajectory_processing::Path</a></div><div class="ttdef"><b>Definition:</b> <a href="time__optimal__trajectory__generation_8h_source.html#l00072">time_optimal_trajectory_generation.h:72</a></div></div>
-<div class="ttc" id="atest__time__optimal__trajectory__generation_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="test__time__optimal__trajectory__generation_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="test__time__optimal__trajectory__generation_8cpp_source.html#l00230">test_time_optimal_trajectory_generation.cpp:230</a></div></div>
-<div class="ttc" id="aclasstrajectory__processing_1_1Trajectory_html_a42dc127a1d865ac21fe38a8fab206253"><div class="ttname"><a href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">trajectory_processing::Trajectory::getPosition</a></div><div class="ttdeci">Eigen::VectorXd getPosition(double time) const</div><div class="ttdoc">Return the position/configuration vector for a given point in time.</div><div class="ttdef"><b>Definition:</b> <a href="time__optimal__trajectory__generation_8cpp_source.html#l00804">time_optimal_trajectory_generation.cpp:804</a></div></div>
-<div class="ttc" id="aclasstrajectory__processing_1_1Trajectory_html_a25270396d87c878ead796eeef9ddb526"><div class="ttname"><a href="classtrajectory__processing_1_1Trajectory.html#a25270396d87c878ead796eeef9ddb526">trajectory_processing::Trajectory::isValid</a></div><div class="ttdeci">bool isValid() const</div><div class="ttdoc">Call this method after constructing the object to make sure the trajectory generation succeeded witho...</div><div class="ttdef"><b>Definition:</b> <a href="time__optimal__trajectory__generation_8cpp_source.html#l00771">time_optimal_trajectory_generation.cpp:771</a></div></div>
+<div class="ttc" id="atest__time__optimal__trajectory__generation_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="test__time__optimal__trajectory__generation_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="test__time__optimal__trajectory__generation_8cpp_source.html#l00351">test_time_optimal_trajectory_generation.cpp:351</a></div></div>
+<div class="ttc" id="aclassmoveit_1_1core_1_1RobotState_html_a564140d144754d149b292e70c4c59b55"><div class="ttname"><a href="classmoveit_1_1core_1_1RobotState.html#a564140d144754d149b292e70c4c59b55">moveit::core::RobotState::setJointGroupPositions</a></div><div class="ttdeci">void setJointGroupPositions(const std::string &amp;joint_group_name, const double *gstate)</div><div class="ttdoc">Given positions for the variables that make up a group, in the order found in the group (including va...</div><div class="ttdef"><b>Definition:</b> <a href="robot__state_8h_source.html#l00671">robot_state.h:671</a></div></div>
+<div class="ttc" id="aclasstrajectory__processing_1_1Trajectory_html_a42dc127a1d865ac21fe38a8fab206253"><div class="ttname"><a href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253">trajectory_processing::Trajectory::getPosition</a></div><div class="ttdeci">Eigen::VectorXd getPosition(double time) const</div><div class="ttdoc">Return the position/configuration vector for a given point in time.</div><div class="ttdef"><b>Definition:</b> <a href="time__optimal__trajectory__generation_8cpp_source.html#l00805">time_optimal_trajectory_generation.cpp:805</a></div></div>
+<div class="ttc" id="aclasstrajectory__processing_1_1Trajectory_html_a25270396d87c878ead796eeef9ddb526"><div class="ttname"><a href="classtrajectory__processing_1_1Trajectory.html#a25270396d87c878ead796eeef9ddb526">trajectory_processing::Trajectory::isValid</a></div><div class="ttdeci">bool isValid() const</div><div class="ttdoc">Call this method after constructing the object to make sure the trajectory generation succeeded witho...</div><div class="ttdef"><b>Definition:</b> <a href="time__optimal__trajectory__generation_8cpp_source.html#l00772">time_optimal_trajectory_generation.cpp:772</a></div></div>
+<div class="ttc" id="anamespacemoveit_1_1core_html_a646367a1863f557a16cb8769a2980604"><div class="ttname"><a href="namespacemoveit_1_1core.html#a646367a1863f557a16cb8769a2980604">moveit::core::loadTestingRobotModel</a></div><div class="ttdeci">moveit::core::RobotModelPtr loadTestingRobotModel(const std::string &amp;robot_name)</div><div class="ttdoc">Loads a robot from moveit_resources.</div><div class="ttdef"><b>Definition:</b> <a href="robot__model__test__utils_8cpp_source.html#l00117">robot_model_test_utils.cpp:117</a></div></div>
+<div class="ttc" id="anamespacetest__cleanup_html_a121623a04b6c3260c0e3e9c8cb74d9f9"><div class="ttname"><a href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">test_cleanup.group</a></div><div class="ttdeci">group</div><div class="ttdef"><b>Definition:</b> <a href="test__cleanup_8py_source.html#l00008">test_cleanup.py:8</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

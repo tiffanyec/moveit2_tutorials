@@ -159,7 +159,7 @@ $(function() {
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordflow">if</span> (sampling_frequency_ &gt; std::numeric_limits&lt;double&gt;::epsilon() &amp;&amp; !record_states_thread_)</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    record_states_thread_ = std::make_unique&lt;boost::thread&gt;(boost::bind(&amp;TrajectoryMonitor::recordStates, <span class="keyword">this</span>));</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    record_states_thread_ = std::make_unique&lt;boost::thread&gt;(std::bind(&amp;TrajectoryMonitor::recordStates, <span class="keyword">this</span>));</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    RCLCPP_DEBUG(LOGGER, <span class="stringliteral">&quot;Started trajectory monitor&quot;</span>);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  }</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>

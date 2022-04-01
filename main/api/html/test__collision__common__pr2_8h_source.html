@@ -545,7 +545,7 @@ $(function() {
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; 10000; ++i)</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;  {</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    poses.push_back(Eigen::Isometry3d::Identity());</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <a class="code" href="namespaceshapes.html">shapes</a>.push_back(shapes::ShapeConstPtr(<span class="keyword">new</span> shapes::Box(.01, .01, .01)));</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <a class="code" href="namespaceshapes.html">shapes</a>.push_back(std::make_shared&lt;shapes::Box&gt;(.01, .01, .01));</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;  }</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;  <span class="keyword">auto</span> start = std::chrono::system_clock::now();</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;  this-&gt;cenv_-&gt;getWorld()-&gt;addToObject(<span class="stringliteral">&quot;map&quot;</span>, <a class="code" href="namespaceshapes.html">shapes</a>, poses);</div>
@@ -599,7 +599,7 @@ $(function() {
 <div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    this-&gt;cenv_-&gt;getWorld()-&gt;removeObject(<span class="stringliteral">&quot;shape&quot;</span>);</div>
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    <a class="code" href="namespaceshapes.html">shapes</a>.clear();</div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    poses.clear();</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <a class="code" href="namespaceshapes.html">shapes</a>.push_back(shapes::ShapeConstPtr(<span class="keyword">new</span> shapes::Box(1 + i * .0001, 1 + i * .0001, 1 + i * .0001)));</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <a class="code" href="namespaceshapes.html">shapes</a>.push_back(std::make_shared&lt;const shapes::Box&gt;(1 + i * .0001, 1 + i * .0001, 1 + i * .0001));</div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    poses.push_back(Eigen::Isometry3d::Identity());</div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    this-&gt;cenv_-&gt;getWorld()-&gt;addToObject(<span class="stringliteral">&quot;shape&quot;</span>, <a class="code" href="namespaceshapes.html">shapes</a>, poses);</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <a class="code" href="structcollision__detection_1_1CollisionRequest.html">collision_detection::CollisionRequest</a> req;</div>
@@ -621,7 +621,7 @@ $(function() {
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    this-&gt;cenv_-&gt;getWorld()-&gt;removeObject(<span class="stringliteral">&quot;shape&quot;</span>);</div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    <a class="code" href="namespaceshapes.html">shapes</a>.clear();</div>
 <div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    poses.clear();</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <a class="code" href="namespaceshapes.html">shapes</a>.push_back(shapes::ShapeConstPtr(<span class="keyword">new</span> shapes::Box(1 + i * .0001, 1 + i * .0001, 1 + i * .0001)));</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <a class="code" href="namespaceshapes.html">shapes</a>.push_back(std::make_shared&lt;shapes::Box&gt;(1 + i * .0001, 1 + i * .0001, 1 + i * .0001));</div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    poses.push_back(Eigen::Isometry3d::Identity());</div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    this-&gt;cenv_-&gt;getWorld()-&gt;addToObject(<span class="stringliteral">&quot;shape&quot;</span>, <a class="code" href="namespaceshapes.html">shapes</a>, poses);</div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <a class="code" href="structcollision__detection_1_1CollisionRequest.html">collision_detection::CollisionRequest</a> req;</div>

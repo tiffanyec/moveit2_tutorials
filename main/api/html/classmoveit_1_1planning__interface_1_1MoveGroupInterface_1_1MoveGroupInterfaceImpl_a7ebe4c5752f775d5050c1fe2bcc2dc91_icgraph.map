@@ -1,4 +1,5 @@
 <map id="moveit::planning_interface::MoveGroupInterface::MoveGroupInterfaceImpl::setTargetType" name="moveit::planning_interface::MoveGroupInterface::MoveGroupInterfaceImpl::setTargetType">
-<area shape="rect" id="node1" title=" " alt="" coords="288,5,535,61"/>
-<area shape="rect" id="node2" href="$classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#aca31d1456dd7b6ef92b309a1b1922af0" title="Forget any poses specified for all end&#45;effectors." alt="" coords="5,5,240,61"/>
+<area shape="rect" id="node1" title=" " alt="" coords="309,43,556,99"/>
+<area shape="rect" id="node2" href="$classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#aca31d1456dd7b6ef92b309a1b1922af0" title="Forget any poses specified for all end&#45;effectors." alt="" coords="16,5,251,61"/>
+<area shape="rect" id="node3" href="$classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#abe1de96366109bdfe47aa6448b2fa121" title="If a different start state should be considered instead of the current state of the robot,..." alt="" coords="5,86,261,127"/>
 </map>

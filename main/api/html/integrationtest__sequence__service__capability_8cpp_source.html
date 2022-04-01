@@ -252,127 +252,129 @@ $(function() {
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="comment">// Set start state</span></div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <span class="keyword">using</span> std::placeholders::_1;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1JointConfiguration.html">JointConfiguration</a> config{ <span class="stringliteral">&quot;MyGroupName&quot;</span>, { -1., 2., -3., 4., -5., 0. }, std::bind(&amp;createJointName, _1) };</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  req_list.items[1].req.start_state.joint_state = config.<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1JointConfiguration.html#a5fb8e09983a4d26fd0f9365af5dd0723">toSensorMsg</a>();</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  moveit_msgs::GetMotionSequence srv;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  srv.request.request = req_list;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  ASSERT_TRUE(client_.call(srv));</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1JointConfiguration.html">JointConfiguration</a> config{ <span class="stringliteral">&quot;MyGroupName&quot;</span>,</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                             { -1., 2., -3., 4., -5., 0. },</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                             std::bind(&amp;createJointName, std::placeholders::_1) };</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  req_list.items[1].req.start_state.joint_state = config.<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1JointConfiguration.html#a5fb8e09983a4d26fd0f9365af5dd0723">toSensorMsg</a>();</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  moveit_msgs::GetMotionSequence srv;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  srv.request.request = req_list;</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  EXPECT_EQ(moveit_msgs::msg::MoveItErrorCodes::INVALID_ROBOT_STATE, srv.response.response.error_code.val)</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Incorrect error code.&quot;</span>;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  EXPECT_TRUE(srv.response.response.planned_trajectories.empty());</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;}</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
-<div class="line"><a name="l00278"></a><span class="lineno"><a class="line" href="integrationtest__sequence__service__capability_8cpp.html#aa8f3b91d9396a9848412fd5d2695a9f5">  278</a></span>&#160;<a class="code" href="integrationtest__sequence__service__capability_8cpp.html#a9703332ff22f7d6e58ccaa00c8276239">TEST_F</a>(<a class="code" href="classIntegrationTestSequenceService.html">IntegrationTestSequenceService</a>, TestFirstGoalNotReachable)</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;{</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html">Sequence</a> seq{ data_loader_-&gt;getSequence(<span class="stringliteral">&quot;ComplexSequence&quot;</span>) };</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Ptp.html">PtpJointCart</a>&amp; cmd{ seq.getCmd&lt;<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Ptp.html">PtpJointCart</a>&gt;(0) };</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  cmd.<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1BaseCmd.html#a8461afe820506faad8262db0d00242ff">getGoalConfiguration</a>().getPose().position.y = 27;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  moveit_msgs::GetMotionSequence srv;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  srv.request.request = seq.toRequest();</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  ASSERT_TRUE(client_.call(srv));</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  ASSERT_TRUE(client_.call(srv));</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  EXPECT_EQ(moveit_msgs::msg::MoveItErrorCodes::INVALID_ROBOT_STATE, srv.response.response.error_code.val)</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Incorrect error code.&quot;</span>;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  EXPECT_TRUE(srv.response.response.planned_trajectories.empty());</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;}</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
+<div class="line"><a name="l00280"></a><span class="lineno"><a class="line" href="integrationtest__sequence__service__capability_8cpp.html#aa8f3b91d9396a9848412fd5d2695a9f5">  280</a></span>&#160;<a class="code" href="integrationtest__sequence__service__capability_8cpp.html#a9703332ff22f7d6e58ccaa00c8276239">TEST_F</a>(<a class="code" href="classIntegrationTestSequenceService.html">IntegrationTestSequenceService</a>, TestFirstGoalNotReachable)</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;{</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html">Sequence</a> seq{ data_loader_-&gt;getSequence(<span class="stringliteral">&quot;ComplexSequence&quot;</span>) };</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Ptp.html">PtpJointCart</a>&amp; cmd{ seq.getCmd&lt;<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Ptp.html">PtpJointCart</a>&gt;(0) };</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  cmd.<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1BaseCmd.html#a8461afe820506faad8262db0d00242ff">getGoalConfiguration</a>().getPose().position.y = 27;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  moveit_msgs::GetMotionSequence srv;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  srv.request.request = seq.toRequest();</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  EXPECT_EQ(moveit_msgs::msg::MoveItErrorCodes::NO_IK_SOLUTION, srv.response.response.error_code.val)</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Incorrect error code.&quot;</span>;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  EXPECT_TRUE(srv.response.response.planned_trajectories.empty());</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;}</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
-<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="integrationtest__sequence__service__capability_8cpp.html#a61937895ec70b46bd9116889d0162da9">  305</a></span>&#160;<a class="code" href="integrationtest__sequence__service__capability_8cpp.html#a9703332ff22f7d6e58ccaa00c8276239">TEST_F</a>(<a class="code" href="classIntegrationTestSequenceService.html">IntegrationTestSequenceService</a>, TestInvalidLinkName)</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;{</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html">Sequence</a> seq{ data_loader_-&gt;getSequence(<span class="stringliteral">&quot;ComplexSequence&quot;</span>) };</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  seq.<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html#a974951b6da6cc38dfb5a3e74b5c86a08">setAllBlendRadiiToZero</a>();</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <span class="comment">// Invalidate link name</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Circ.html">CircInterimCart</a>&amp; circ{ seq.getCmd&lt;<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Circ.html">CircInterimCart</a>&gt;(1) };</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  circ.<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1BaseCmd.html#a8461afe820506faad8262db0d00242ff">getGoalConfiguration</a>().setLinkName(<span class="stringliteral">&quot;InvalidLinkName&quot;</span>);</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  moveit_msgs::GetMotionSequence srv;</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  srv.request.request = seq.toRequest();</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  ASSERT_TRUE(client_.call(srv));</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  ASSERT_TRUE(client_.call(srv));</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  EXPECT_EQ(moveit_msgs::msg::MoveItErrorCodes::NO_IK_SOLUTION, srv.response.response.error_code.val)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Incorrect error code.&quot;</span>;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  EXPECT_TRUE(srv.response.response.planned_trajectories.empty());</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;}</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
+<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="integrationtest__sequence__service__capability_8cpp.html#a61937895ec70b46bd9116889d0162da9">  307</a></span>&#160;<a class="code" href="integrationtest__sequence__service__capability_8cpp.html#a9703332ff22f7d6e58ccaa00c8276239">TEST_F</a>(<a class="code" href="classIntegrationTestSequenceService.html">IntegrationTestSequenceService</a>, TestInvalidLinkName)</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;{</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html">Sequence</a> seq{ data_loader_-&gt;getSequence(<span class="stringliteral">&quot;ComplexSequence&quot;</span>) };</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  seq.<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html#a974951b6da6cc38dfb5a3e74b5c86a08">setAllBlendRadiiToZero</a>();</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="comment">// Invalidate link name</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Circ.html">CircInterimCart</a>&amp; circ{ seq.getCmd&lt;<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Circ.html">CircInterimCart</a>&gt;(1) };</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  circ.<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1BaseCmd.html#a8461afe820506faad8262db0d00242ff">getGoalConfiguration</a>().setLinkName(<span class="stringliteral">&quot;InvalidLinkName&quot;</span>);</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  moveit_msgs::GetMotionSequence srv;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  srv.request.request = seq.toRequest();</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  EXPECT_NE(moveit_msgs::msg::MoveItErrorCodes::SUCCESS, srv.response.response.error_code.val)</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Incorrect error code.&quot;</span>;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  EXPECT_TRUE(srv.response.response.planned_trajectories.empty());</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;}</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
-<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="integrationtest__sequence__service__capability_8cpp.html#a6974e1368e550fef552b541a9720e69d">  335</a></span>&#160;<a class="code" href="integrationtest__sequence__service__capability_8cpp.html#a9703332ff22f7d6e58ccaa00c8276239">TEST_F</a>(<a class="code" href="classIntegrationTestSequenceService.html">IntegrationTestSequenceService</a>, TestLargeRequest)</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;{</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html">Sequence</a> seq{ data_loader_-&gt;getSequence(<span class="stringliteral">&quot;ComplexSequence&quot;</span>) };</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  moveit_msgs::msg::MotionSequenceRequest req{ seq.<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html#aef951b46f2a45012db4e9fd1b8bcdb13">toRequest</a>() };</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  <span class="comment">// Make copy of sequence commands and add them to the end of sequence.</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  <span class="comment">// Create large request by making copies of the original sequence commands</span></div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;  <span class="comment">// and adding them to the end of the original sequence.</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  <span class="keywordtype">size_t</span> n{ req.items.size() };</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; n; ++i)</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  {</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    moveit_msgs::msg::MotionSequenceItem item{ req.items.at(i) };</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keywordflow">if</span> (i == 0)</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    {</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="comment">// Remove start state because only the first request</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;      <span class="comment">// is allowed to have a start state in a sequence.</span></div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;      item.req.start_state = moveit_msgs::msg::RobotState();</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    }</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    req.items.push_back(item);</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  }</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;  moveit_msgs::GetMotionSequence srv;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;  srv.request.request = req;</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;  ASSERT_TRUE(client_.call(srv));</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  ASSERT_TRUE(client_.call(srv));</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  EXPECT_NE(moveit_msgs::msg::MoveItErrorCodes::SUCCESS, srv.response.response.error_code.val)</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Incorrect error code.&quot;</span>;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  EXPECT_TRUE(srv.response.response.planned_trajectories.empty());</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;}</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00337"></a><span class="lineno"><a class="line" href="integrationtest__sequence__service__capability_8cpp.html#a6974e1368e550fef552b541a9720e69d">  337</a></span>&#160;<a class="code" href="integrationtest__sequence__service__capability_8cpp.html#a9703332ff22f7d6e58ccaa00c8276239">TEST_F</a>(<a class="code" href="classIntegrationTestSequenceService.html">IntegrationTestSequenceService</a>, TestLargeRequest)</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;{</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html">Sequence</a> seq{ data_loader_-&gt;getSequence(<span class="stringliteral">&quot;ComplexSequence&quot;</span>) };</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  moveit_msgs::msg::MotionSequenceRequest req{ seq.<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html#aef951b46f2a45012db4e9fd1b8bcdb13">toRequest</a>() };</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;  <span class="comment">// Make copy of sequence commands and add them to the end of sequence.</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  <span class="comment">// Create large request by making copies of the original sequence commands</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  <span class="comment">// and adding them to the end of the original sequence.</span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  <span class="keywordtype">size_t</span> n{ req.items.size() };</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; n; ++i)</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  {</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    moveit_msgs::msg::MotionSequenceItem item{ req.items.at(i) };</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordflow">if</span> (i == 0)</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    {</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;      <span class="comment">// Remove start state because only the first request</span></div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;      <span class="comment">// is allowed to have a start state in a sequence.</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;      item.req.start_state = moveit_msgs::msg::RobotState();</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    }</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    req.items.push_back(item);</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;  }</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160; </div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;  moveit_msgs::GetMotionSequence srv;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;  srv.request.request = req;</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;  EXPECT_EQ(moveit_msgs::msg::MoveItErrorCodes::SUCCESS, srv.response.response.error_code.val)</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Incorrect error code.&quot;</span>;</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;  EXPECT_EQ(srv.response.response.planned_trajectories.size(), 1u);</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;  EXPECT_GT(srv.response.response.planned_trajectories.front().joint_trajectory.points.size(), 0u)</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Trajectory should contain points.&quot;</span>;</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;}</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
-<div class="line"><a name="l00379"></a><span class="lineno"><a class="line" href="integrationtest__sequence__service__capability_8cpp.html#ac70fca8458308b1c42aa89ac1541d74a">  379</a></span>&#160;<a class="code" href="integrationtest__sequence__service__capability_8cpp.html#a9703332ff22f7d6e58ccaa00c8276239">TEST_F</a>(<a class="code" href="classIntegrationTestSequenceService.html">IntegrationTestSequenceService</a>, TestComplexSequenceWithoutBlending)</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;{</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html">Sequence</a> seq{ data_loader_-&gt;getSequence(<span class="stringliteral">&quot;ComplexSequence&quot;</span>) };</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  seq.<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html#a974951b6da6cc38dfb5a3e74b5c86a08">setAllBlendRadiiToZero</a>();</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;  ASSERT_TRUE(client_.call(srv));</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; </div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;  EXPECT_EQ(moveit_msgs::msg::MoveItErrorCodes::SUCCESS, srv.response.response.error_code.val)</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Incorrect error code.&quot;</span>;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;  EXPECT_EQ(srv.response.response.planned_trajectories.size(), 1u);</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;  EXPECT_GT(srv.response.response.planned_trajectories.front().joint_trajectory.points.size(), 0u)</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Trajectory should contain points.&quot;</span>;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;}</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; </div>
+<div class="line"><a name="l00381"></a><span class="lineno"><a class="line" href="integrationtest__sequence__service__capability_8cpp.html#ac70fca8458308b1c42aa89ac1541d74a">  381</a></span>&#160;<a class="code" href="integrationtest__sequence__service__capability_8cpp.html#a9703332ff22f7d6e58ccaa00c8276239">TEST_F</a>(<a class="code" href="classIntegrationTestSequenceService.html">IntegrationTestSequenceService</a>, TestComplexSequenceWithoutBlending)</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;{</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html">Sequence</a> seq{ data_loader_-&gt;getSequence(<span class="stringliteral">&quot;ComplexSequence&quot;</span>) };</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;  moveit_msgs::GetMotionSequence srv;</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;  srv.request.request = seq.toRequest();</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160; </div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  ASSERT_TRUE(client_.call(srv));</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;  seq.<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html#a974951b6da6cc38dfb5a3e74b5c86a08">setAllBlendRadiiToZero</a>();</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;  moveit_msgs::GetMotionSequence srv;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  srv.request.request = seq.toRequest();</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160; </div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;  EXPECT_EQ(moveit_msgs::msg::MoveItErrorCodes::SUCCESS, srv.response.response.error_code.val)</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Incorrect error code.&quot;</span>;</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;  EXPECT_EQ(srv.response.response.planned_trajectories.size(), 1u);</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;  EXPECT_GT(srv.response.response.planned_trajectories.front().joint_trajectory.points.size(), 0u)</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Trajectory should contain points.&quot;</span>;</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;}</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
-<div class="line"><a name="l00409"></a><span class="lineno"><a class="line" href="integrationtest__sequence__service__capability_8cpp.html#aec1e71609d5533328efe7d702c249698">  409</a></span>&#160;<a class="code" href="integrationtest__sequence__service__capability_8cpp.html#a9703332ff22f7d6e58ccaa00c8276239">TEST_F</a>(<a class="code" href="classIntegrationTestSequenceService.html">IntegrationTestSequenceService</a>, TestComplexSequenceWithBlending)</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;{</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html">Sequence</a> seq{ data_loader_-&gt;getSequence(<span class="stringliteral">&quot;ComplexSequence&quot;</span>) };</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;  moveit_msgs::GetMotionSequence srv;</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;  srv.request.request = seq.<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html#aef951b46f2a45012db4e9fd1b8bcdb13">toRequest</a>();</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;  ASSERT_TRUE(client_.call(srv));</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;  ASSERT_TRUE(client_.call(srv));</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;  EXPECT_EQ(moveit_msgs::msg::MoveItErrorCodes::SUCCESS, srv.response.response.error_code.val)</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Incorrect error code.&quot;</span>;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;  EXPECT_EQ(srv.response.response.planned_trajectories.size(), 1u);</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;  EXPECT_GT(srv.response.response.planned_trajectories.front().joint_trajectory.points.size(), 0u)</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Trajectory should contain points.&quot;</span>;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;}</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
+<div class="line"><a name="l00411"></a><span class="lineno"><a class="line" href="integrationtest__sequence__service__capability_8cpp.html#aec1e71609d5533328efe7d702c249698">  411</a></span>&#160;<a class="code" href="integrationtest__sequence__service__capability_8cpp.html#a9703332ff22f7d6e58ccaa00c8276239">TEST_F</a>(<a class="code" href="classIntegrationTestSequenceService.html">IntegrationTestSequenceService</a>, TestComplexSequenceWithBlending)</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;{</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;  <a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html">Sequence</a> seq{ data_loader_-&gt;getSequence(<span class="stringliteral">&quot;ComplexSequence&quot;</span>) };</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;  moveit_msgs::GetMotionSequence srv;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;  srv.request.request = seq.<a class="code" href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html#aef951b46f2a45012db4e9fd1b8bcdb13">toRequest</a>();</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160; </div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;  EXPECT_EQ(moveit_msgs::msg::MoveItErrorCodes::SUCCESS, srv.response.response.error_code.val)</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Incorrect error code.&quot;</span>;</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;  EXPECT_EQ(srv.response.response.planned_trajectories.size(), 1u);</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;  EXPECT_GT(srv.response.response.planned_trajectories.front().joint_trajectory.points.size(), 0u)</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Trajectory should contain points.&quot;</span>;</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;}</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160; </div>
-<div class="line"><a name="l00425"></a><span class="lineno"><a class="line" href="integrationtest__sequence__service__capability_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">  425</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="integrationtest__sequence__service__capability_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;{</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;  ros::init(argc, argv, <span class="stringliteral">&quot;integrationtest_sequence_service_capability&quot;</span>);</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;  ros::NodeHandle nh;</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  testing::InitGoogleTest(&amp;argc, argv);</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;  <span class="keywordflow">return</span> RUN_ALL_TESTS();</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;}</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;  ASSERT_TRUE(client_.call(srv));</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160; </div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;  EXPECT_EQ(moveit_msgs::msg::MoveItErrorCodes::SUCCESS, srv.response.response.error_code.val)</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Incorrect error code.&quot;</span>;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;  EXPECT_EQ(srv.response.response.planned_trajectories.size(), 1u);</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;  EXPECT_GT(srv.response.response.planned_trajectories.front().joint_trajectory.points.size(), 0u)</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;      &lt;&lt; <span class="stringliteral">&quot;Trajectory should contain points.&quot;</span>;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;}</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160; </div>
+<div class="line"><a name="l00427"></a><span class="lineno"><a class="line" href="integrationtest__sequence__service__capability_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">  427</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="integrationtest__sequence__service__capability_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;{</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  ros::init(argc, argv, <span class="stringliteral">&quot;integrationtest_sequence_service_capability&quot;</span>);</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;  ros::NodeHandle nh;</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;  testing::InitGoogleTest(&amp;argc, argv);</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;  <span class="keywordflow">return</span> RUN_ALL_TESTS();</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassIntegrationTestSequenceService_html_a12a784e048bb505f951c03d5e1794eb9"><div class="ttname"><a href="classIntegrationTestSequenceService.html#a12a784e048bb505f951c03d5e1794eb9">IntegrationTestSequenceService::client_</a></div><div class="ttdeci">ros::ServiceClient client_</div><div class="ttdef"><b>Definition:</b> <a href="integrationtest__sequence__service__capability_8cpp_source.html#l00076">integrationtest_sequence_service_capability.cpp:76</a></div></div>
 <div class="ttc" id="aclassIntegrationTestSequenceService_html"><div class="ttname"><a href="classIntegrationTestSequenceService.html">IntegrationTestSequenceService</a></div><div class="ttdef"><b>Definition:</b> <a href="integrationtest__sequence__service__capability_8cpp_source.html#l00069">integrationtest_sequence_service_capability.cpp:69</a></div></div>
@@ -389,7 +391,7 @@ $(function() {
 <div class="ttc" id="anamespacepilz__industrial__motion__planner__testutils_html_adf2e74460f0a874bf5875569ef13f5fa"><div class="ttname"><a href="namespacepilz__industrial__motion__planner__testutils.html#adf2e74460f0a874bf5875569ef13f5fa">pilz_industrial_motion_planner_testutils::TestdataLoaderUPtr</a></div><div class="ttdeci">std::unique_ptr&lt; TestdataLoader &gt; TestdataLoaderUPtr</div><div class="ttdef"><b>Definition:</b> <a href="testdata__loader_8h_source.html#l00145">testdata_loader.h:145</a></div></div>
 <div class="ttc" id="aclasspilz__industrial__motion__planner__testutils_1_1Circ_html"><div class="ttname"><a href="classpilz__industrial__motion__planner__testutils_1_1Circ.html">pilz_industrial_motion_planner_testutils::Circ</a></div><div class="ttdoc">Data class storing all information regarding a Circ command.</div><div class="ttdef"><b>Definition:</b> <a href="circ_8h_source.html#l00080">circ.h:80</a></div></div>
 <div class="ttc" id="anamespacepilz__industrial__motion__planner__testutils_html"><div class="ttname"><a href="namespacepilz__industrial__motion__planner__testutils.html">pilz_industrial_motion_planner_testutils</a></div><div class="ttdef"><b>Definition:</b> <a href="basecmd_8h_source.html#l00041">basecmd.h:41</a></div></div>
-<div class="ttc" id="aintegrationtest__sequence__service__capability_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="integrationtest__sequence__service__capability_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="integrationtest__sequence__service__capability_8cpp_source.html#l00425">integrationtest_sequence_service_capability.cpp:425</a></div></div>
+<div class="ttc" id="aintegrationtest__sequence__service__capability_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="integrationtest__sequence__service__capability_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="integrationtest__sequence__service__capability_8cpp_source.html#l00427">integrationtest_sequence_service_capability.cpp:427</a></div></div>
 <div class="ttc" id="aclassIntegrationTestSequenceService_html_a9f857beb0c35ce34d67e88c563be6a70"><div class="ttname"><a href="classIntegrationTestSequenceService.html#a9f857beb0c35ce34d67e88c563be6a70">IntegrationTestSequenceService::robot_model_</a></div><div class="ttdeci">robot_model::RobotModelPtr robot_model_</div><div class="ttdef"><b>Definition:</b> <a href="integrationtest__sequence__service__capability_8cpp_source.html#l00077">integrationtest_sequence_service_capability.cpp:77</a></div></div>
 <div class="ttc" id="aclasspilz__industrial__motion__planner__testutils_1_1Ptp_html"><div class="ttname"><a href="classpilz__industrial__motion__planner__testutils_1_1Ptp.html">pilz_industrial_motion_planner_testutils::Ptp</a></div><div class="ttdoc">Data class storing all information regarding a Ptp command.</div><div class="ttdef"><b>Definition:</b> <a href="ptp_8h_source.html#l00079">ptp.h:79</a></div></div>
 <div class="ttc" id="aclasspilz__industrial__motion__planner__testutils_1_1Sequence_html_a974951b6da6cc38dfb5a3e74b5c86a08"><div class="ttname"><a href="classpilz__industrial__motion__planner__testutils_1_1Sequence.html#a974951b6da6cc38dfb5a3e74b5c86a08">pilz_industrial_motion_planner_testutils::Sequence::setAllBlendRadiiToZero</a></div><div class="ttdeci">void setAllBlendRadiiToZero()</div><div class="ttdef"><b>Definition:</b> <a href="sequence_8h_source.html#l00166">sequence.h:166</a></div></div>

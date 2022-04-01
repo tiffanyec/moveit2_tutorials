@@ -158,7 +158,7 @@ Protected Slots</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a4423ce6f5bc3b7493a02b8f9af9548c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a4423ce6f5bc3b7493a02b8f9af9548c7">loadRobotModel</a> ()</td></tr>
 <tr class="separator:a4423ce6f5bc3b7493a02b8f9af9548c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35509e2fe77ce5a32d3eeb938a9e9e2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a35509e2fe77ce5a32d3eeb938a9e9e2e">clearRobotModel</a> ()</td></tr>
+<tr class="memitem:a35509e2fe77ce5a32d3eeb938a9e9e2e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a35509e2fe77ce5a32d3eeb938a9e9e2e">clearRobotModel</a> ()</td></tr>
 <tr class="separator:a35509e2fe77ce5a32d3eeb938a9e9e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c1dda029d03d2b1aafbb0f06eaaecc8"><td class="memItemLeft" align="right" valign="top">virtual planning_scene_monitor::PlanningSceneMonitorPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a9c1dda029d03d2b1aafbb0f06eaaecc8">createPlanningSceneMonitor</a> ()</td></tr>
 <tr class="separator:a9c1dda029d03d2b1aafbb0f06eaaecc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -351,7 +351,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Queue this function call for execution within the background thread All jobs are queued and processed in order by a single background thread. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00268">268</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00267">267</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -373,7 +373,7 @@ Protected Attributes</h2></td></tr>
 
 <p>queue the execution of this function for the next time the main <a class="el" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#abca299d9501855a7ebe1efc0f7febcea">update()</a> loop gets called </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00278">278</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00277">277</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -402,7 +402,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Set the scene node's position, given the target frame and the planning frame. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00721">721</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00720">720</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -429,7 +429,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00351">351</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00350">350</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -450,7 +450,7 @@ Protected Attributes</h2></td></tr>
 
 <p>remove all queued jobs </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00215">215</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00214">214</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -472,13 +472,15 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>This function is used by <a class="el" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a4423ce6f5bc3b7493a02b8f9af9548c7">loadRobotModel()</a> and should only be called in the MainLoop You probably should not call this function directly </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00559">559</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p>Reimplemented in <a class="el" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a5d9f1ac93646fc40e75f8f2d4f0ea4da">moveit_rviz_plugin::MotionPlanningDisplay</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00558">558</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -506,7 +508,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>This function constructs a new planning scene. Probably this should be called in a background thread as it may take some time to complete its execution </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00552">552</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00551">551</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -533,7 +535,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00291">291</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00290">290</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -560,7 +562,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00736">736</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00735">735</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -579,7 +581,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00318">318</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00317">317</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -598,7 +600,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00313">313</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00312">312</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -619,7 +621,7 @@ Protected Attributes</h2></td></tr>
 
 <p>get read-only access to planning scene </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00341">341</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00340">340</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -640,7 +642,7 @@ Protected Attributes</h2></td></tr>
 
 <p>get write access to planning scene </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00346">346</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00345">345</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -659,7 +661,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00323">323</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00322">322</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -687,7 +689,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00708">708</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00707">707</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -715,7 +717,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>This function reloads the robot model and reinitializes the PlanningSceneMonitor It can be called either from the Main Loop or from a Background thread </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00566">566</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00565">565</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -742,7 +744,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00664">664</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00663">663</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -769,7 +771,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00642">642</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00641">641</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -796,7 +798,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00224">224</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00223">223</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -827,7 +829,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a1e6d63e6e537c7ede19381d0b47e1233">moveit_rviz_plugin::MotionPlanningDisplay</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00618">618</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00617">617</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -858,7 +860,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#aee4a87243cf759854077cff4e8a152ab">moveit_rviz_plugin::MotionPlanningDisplay</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00596">596</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00595">595</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -888,7 +890,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#ad1eddad0c973088ba173efa1ea166bb6">moveit_rviz_plugin::MotionPlanningDisplay</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00628">628</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00627">627</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -907,7 +909,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00677">677</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00676">676</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -934,7 +936,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00380">380</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00379">379</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -961,7 +963,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00251">251</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00250">250</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -989,7 +991,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00713">713</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00712">712</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -1017,7 +1019,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00622">622</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00621">621</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -1061,7 +1063,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00480">480</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00479">479</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -1091,7 +1093,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00519">519</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00518">518</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1144,7 +1146,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00531">531</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00530">530</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -1165,7 +1167,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Directly spawn a (detached) background thread for execution of this function call Should be used, when order of processing is not relevant / job can run in parallel. Must be used, when job will be blocking. Using <a class="el" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a5f866683f45f26cbd278d50e92c93f52">addBackgroundJob()</a> in this case will block other queued jobs as well </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00273">273</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00272">272</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -1193,7 +1195,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00495">495</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00494">494</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -1231,7 +1233,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00505">505</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00504">504</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -1251,7 +1253,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00525">525</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00524">524</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -1289,7 +1291,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00541">541</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00540">540</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -1327,7 +1329,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00682">682</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00681">681</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -1367,7 +1369,7 @@ Here is the call graph for this function:</div>
 
 <p>Reimplemented in <a class="el" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a1991357762c6735bcff7c12b124fc453">moveit_rviz_plugin::MotionPlanningDisplay</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00694">694</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00693">693</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -1386,7 +1388,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00284">284</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00283">283</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>
@@ -1408,7 +1410,7 @@ Here is the call graph for this function:</div>
 
 <p>wait for robot state more recent than t </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00334">334</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__display_8cpp_source.html#l00333">333</a> of file <a class="el" href="planning__scene__display_8cpp_source.html">planning_scene_display.cpp</a>.</p>
 
 </div>
 </div>

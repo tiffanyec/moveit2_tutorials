@@ -150,7 +150,7 @@ $(function() {
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
 <div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="test__kinematic__complex_8cpp.html#a0e801af07878675ef75fa777a90a6eb9">   78</a></span>&#160;<a class="code" href="test__kinematic__complex_8cpp.html#a6c1fe19a26bbfaa914da12ac1d6e1d3d">TEST_F</a>(<a class="code" href="classLoadPlanningModelsPr2.html">LoadPlanningModelsPr2</a>, ModelInit)</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  srdf::ModelSharedPtr srdf_model(<span class="keyword">new</span> srdf::Model());</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keyword">auto</span> srdf_model = std::make_shared&lt;srdf::Model&gt;();</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment">// with no world multidof we should get a fixed joint</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1RobotModel.html">moveit::core::RobotModel</a> robot_model0(urdf_model_, srdf_model);</div>
@@ -194,7 +194,7 @@ $(function() {
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                                     <span class="stringliteral">&quot;&lt;/group&gt;&quot;</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                                     <span class="stringliteral">&quot;&lt;/robot&gt;&quot;</span>;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  srdf::ModelSharedPtr srdf_model(<span class="keyword">new</span> srdf::Model());</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keyword">auto</span> srdf_model = std::make_shared&lt;srdf::Model&gt;();</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  srdf_model-&gt;initString(*urdf_model_, SMODEL1);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1RobotModel.html">moveit::core::RobotModel</a> robot_model1(urdf_model_, srdf_model);</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
@@ -223,7 +223,7 @@ $(function() {
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                                     <span class="stringliteral">&quot;&lt;/robot&gt;&quot;</span>;</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  srdf_model-&gt;initString(*urdf_model_, SMODEL2);</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  moveit::core::RobotModelPtr robot_model2(<span class="keyword">new</span> <a class="code" href="classmoveit_1_1core_1_1RobotModel.html">moveit::core::RobotModel</a>(urdf_model_, srdf_model));</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  <span class="keyword">auto</span> robot_model2 = std::make_shared&lt;moveit::core::RobotModel&gt;(urdf_model_, srdf_model);</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  left_arm_base_tip_group = robot_model2-&gt;getJointModelGroup(<span class="stringliteral">&quot;left_arm_base_tip&quot;</span>);</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  ASSERT_TRUE(left_arm_base_tip_group != <span class="keyword">nullptr</span>);</div>
@@ -292,13 +292,13 @@ $(function() {
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
 <div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="test__kinematic__complex_8cpp.html#a56461abc3f708b2d770d7a3df13df4e9">  220</a></span>&#160;<a class="code" href="test__kinematic__complex_8cpp.html#a6c1fe19a26bbfaa914da12ac1d6e1d3d">TEST_F</a>(<a class="code" href="classLoadPlanningModelsPr2.html">LoadPlanningModelsPr2</a>, AssociatedFixedLinks)</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;{</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  moveit::core::RobotModelPtr model(<span class="keyword">new</span> <a class="code" href="classmoveit_1_1core_1_1RobotModel.html">moveit::core::RobotModel</a>(urdf_model_, srdf_model_));</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  <span class="keyword">auto</span> model = std::make_shared&lt;moveit::core::RobotModel&gt;(urdf_model_, srdf_model_);</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  EXPECT_TRUE(model-&gt;getLinkModel(<span class="stringliteral">&quot;r_gripper_palm_link&quot;</span>)-&gt;getAssociatedFixedTransforms().size() &gt; 1);</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;}</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
 <div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="test__kinematic__complex_8cpp.html#af67b60b65c242b1ee592ce566a6dffc1">  226</a></span>&#160;<a class="code" href="test__kinematic__complex_8cpp.html#a6c1fe19a26bbfaa914da12ac1d6e1d3d">TEST_F</a>(<a class="code" href="classLoadPlanningModelsPr2.html">LoadPlanningModelsPr2</a>, FullTest)</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;{</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  moveit::core::RobotModelPtr robot_model(<span class="keyword">new</span> <a class="code" href="classmoveit_1_1core_1_1RobotModel.html">moveit::core::RobotModel</a>(urdf_model_, srdf_model_));</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="keyword">auto</span> robot_model = std::make_shared&lt;moveit::core::RobotModel&gt;(urdf_model_, srdf_model_);</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a> ks(robot_model);</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  ks.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#aba31c6f758e3dabd32c1acbd069e189e">setToDefaultValues</a>();</div>
@@ -341,7 +341,7 @@ $(function() {
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
 <div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="test__kinematic__complex_8cpp.html#aa1450fb7f87ddc5fe47f1d52fe1a62dc">  269</a></span>&#160;<a class="code" href="test__kinematic__complex_8cpp.html#a6c1fe19a26bbfaa914da12ac1d6e1d3d">TEST_F</a>(<a class="code" href="classLoadPlanningModelsPr2.html">LoadPlanningModelsPr2</a>, ObjectPoseAndSubframes)</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;{</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  moveit::core::RobotModelPtr robot_model(<span class="keyword">new</span> <a class="code" href="classmoveit_1_1core_1_1RobotModel.html">moveit::core::RobotModel</a>(urdf_model_, srdf_model_));</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  <span class="keyword">auto</span> robot_model = std::make_shared&lt;moveit::core::RobotModel&gt;(urdf_model_, srdf_model_);</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a> ks(robot_model);</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  ks.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#aba31c6f758e3dabd32c1acbd069e189e">setToDefaultValues</a>();</div>

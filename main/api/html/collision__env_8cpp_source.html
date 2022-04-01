@@ -147,7 +147,7 @@ $(function() {
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacecollision__detection.html">collision_detection</a></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
 <div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classcollision__detection_1_1CollisionEnv.html#a4a9d510534956e92001f99f757946a7e">   76</a></span>&#160;<a class="code" href="classcollision__detection_1_1CollisionEnv.html#a36d23973bf88a11e80a6f3ef699082d7">CollisionEnv::CollisionEnv</a>(<span class="keyword">const</span> moveit::core::RobotModelConstPtr&amp; model, <span class="keywordtype">double</span> padding, <span class="keywordtype">double</span> scale)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  : robot_model_(model), world_(new <a class="code" href="classcollision__detection_1_1World.html">World</a>()), world_const_(world_)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  : robot_model_(model), world_(std::make_shared&lt;<a class="code" href="classcollision__detection_1_1World.html">World</a>&gt;()), world_const_(world_)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordflow">if</span> (!validateScale(scale))</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    scale = 1.0;</div>

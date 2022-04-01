@@ -119,7 +119,7 @@ $(function() {
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &lt;tf2_eigen/tf2_eigen.h&gt;</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &lt;boost/bind.hpp&gt;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#include &lt;typeinfo&gt;</span></div>
@@ -824,7 +824,7 @@ $(function() {
 <div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;}</div>
 <div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160; </div>
 <div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;VisibilityConstraint::VisibilityConstraint(<span class="keyword">const</span> moveit::core::RobotModelConstPtr&amp; model)</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;  : KinematicConstraint(model), collision_env_(new <a class="code" href="namespacecollision__detection.html">collision_detection</a>::CollisionEnvFCL(model))</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;  : KinematicConstraint(model), collision_env_(std::make_shared&lt;<a class="code" href="namespacecollision__detection.html">collision_detection</a>::CollisionEnvFCL&gt;(model))</div>
 <div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;{</div>
 <div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;  <a class="code" href="classkinematic__constraints_1_1KinematicConstraint.html#a2a67bff0f308501192c11fe63ff48f80">type_</a> = <a class="code" href="classkinematic__constraints_1_1KinematicConstraint.html#a3580cb0bd862d44e8a215fe5fd525b35a5374b6c8fe4f18b643f1e0ef41843ddb">VISIBILITY_CONSTRAINT</a>;</div>
 <div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;}</div>

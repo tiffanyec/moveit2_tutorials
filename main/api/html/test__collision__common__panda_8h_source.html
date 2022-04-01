@@ -345,7 +345,7 @@ $(function() {
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  {</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <a class="code" href="structcollision__detection_1_1DistanceResult.html">collision_detection::DistanceResult</a> res;</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    shapes::ShapeConstPtr shape(<span class="keyword">new</span> shapes::Cylinder(rng.uniform01(), rng.uniform01()));</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    shapes::ShapeConstPtr shape = std::make_shared&lt;const shapes::Cylinder&gt;(rng.uniform01(), rng.uniform01());</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    Eigen::Isometry3d pose{ Eigen::Isometry3d::Identity() };</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    pose.translation() =</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <a class="code" href="namespacefcl.html#a0288e6b07bc0c851a9503dbaea7a0f19">Eigen::Vector3d</a>(rng.uniformReal(0.1, 2.0), rng.uniformReal(0.1, 2.0), rng.uniformReal(1.2, 1.7));</div>

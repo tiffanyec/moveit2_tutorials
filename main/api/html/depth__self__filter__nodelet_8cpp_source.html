@@ -164,7 +164,7 @@ $(function() {
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  model_label_ptr_ = std::make_shared&lt;cv_bridge::CvImage&gt;();</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  mesh_filter_ = std::make_shared&lt;MeshFilter&lt;StereoCameraModel&gt;&gt;(</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      bind(&amp;<a class="code" href="classTransformProvider.html#adbfeda079552e910b07994008117d237">TransformProvider::getTransform</a>, &amp;transform_provider_, _1, _2),</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      bind(&amp;<a class="code" href="classTransformProvider.html#adbfeda079552e910b07994008117d237">TransformProvider::getTransform</a>, &amp;transform_provider_, std::placeholders::_1, std::placeholders::_2),</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <a class="code" href="classmesh__filter_1_1StereoCameraModel.html#ae1c49deec1fa5787906f154f1563f1ba">mesh_filter::StereoCameraModel::REGISTERED_PSDK_PARAMS</a>);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  mesh_filter_-&gt;parameters().setDepthRange(near_clipping_plane_distance_, far_clipping_plane_distance_);</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  mesh_filter_-&gt;setShadowThreshold(shadow_threshold_);</div>

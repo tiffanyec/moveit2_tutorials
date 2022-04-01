@@ -110,16 +110,16 @@ $(function() {
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;gtest/gtest.h&gt;</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="world_8h.html">moveit/collision_detection/world.h</a>&gt;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &lt;geometric_shapes/shapes.h&gt;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &lt;boost/bind.hpp&gt;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="test__world_8cpp.html#a0044d326dabb69316ae673240928f93a">   42</a></span>&#160;<a class="code" href="test__world_8cpp.html#a0044d326dabb69316ae673240928f93a">TEST</a>(World, AddRemoveShape)</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="classcollision__detection_1_1World.html">collision_detection::World</a> world;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="comment">// Create some shapes</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  shapes::ShapePtr ball(<span class="keyword">new</span> shapes::Sphere(1.0));</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  shapes::ShapePtr box(<span class="keyword">new</span> shapes::Box(1, 2, 3));</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  shapes::ShapePtr cyl(<span class="keyword">new</span> shapes::Cylinder(4, 5));</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  shapes::ShapePtr ball = std::make_shared&lt;shapes::Sphere&gt;(1.0);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  shapes::ShapePtr box = std::make_shared&lt;shapes::Box&gt;(1, 2, 3);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  shapes::ShapePtr cyl = std::make_shared&lt;shapes::Cylinder&gt;(4, 5);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  EXPECT_EQ(1, ball.use_count());</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
@@ -309,12 +309,12 @@ $(function() {
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <a class="code" href="structTestAction.html">TestAction</a> ta;</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  <a class="code" href="classcollision__detection_1_1World_1_1ObserverHandle.html">collision_detection::World::ObserverHandle</a> observer_ta;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  observer_ta = world.<a class="code" href="classcollision__detection_1_1World.html#a6d999503e46564ed159d894373009f38">addObserver</a>(boost::bind(TrackChangesNotify, &amp;ta, _1, _2));</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  observer_ta = world.<a class="code" href="classcollision__detection_1_1World.html#a6d999503e46564ed159d894373009f38">addObserver</a>(std::bind(TrackChangesNotify, &amp;ta, std::placeholders::_1, std::placeholders::_2));</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <span class="comment">// Create some shapes</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  shapes::ShapePtr ball(<span class="keyword">new</span> shapes::Sphere(1.0));</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  shapes::ShapePtr box(<span class="keyword">new</span> shapes::Box(1, 2, 3));</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  shapes::ShapePtr cyl(<span class="keyword">new</span> shapes::Cylinder(4, 5));</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  shapes::ShapePtr ball = std::make_shared&lt;shapes::Sphere&gt;(1.0);</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  shapes::ShapePtr box = std::make_shared&lt;shapes::Box&gt;(1, 2, 3);</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  shapes::ShapePtr cyl = std::make_shared&lt;shapes::Cylinder&gt;(4, 5);</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  world.<a class="code" href="classcollision__detection_1_1World.html#a5e18424a37de7f24092f2e7c7898e620">addToObject</a>(<span class="stringliteral">&quot;obj1&quot;</span>, ball, Eigen::Isometry3d::Identity());</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
@@ -340,7 +340,7 @@ $(function() {
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  <a class="code" href="structTestAction.html">TestAction</a> ta2;</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  <a class="code" href="classcollision__detection_1_1World_1_1ObserverHandle.html">collision_detection::World::ObserverHandle</a> observer_ta2;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  observer_ta2 = world.<a class="code" href="classcollision__detection_1_1World.html#a6d999503e46564ed159d894373009f38">addObserver</a>(boost::bind(TrackChangesNotify, &amp;ta2, _1, _2));</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  observer_ta2 = world.<a class="code" href="classcollision__detection_1_1World.html#a6d999503e46564ed159d894373009f38">addObserver</a>(std::bind(TrackChangesNotify, &amp;ta2, std::placeholders::_1, std::placeholders::_2));</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  world.<a class="code" href="classcollision__detection_1_1World.html#a5e18424a37de7f24092f2e7c7898e620">addToObject</a>(<span class="stringliteral">&quot;obj2&quot;</span>, cyl, Eigen::Isometry3d::Identity());</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
@@ -378,7 +378,7 @@ $(function() {
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <a class="code" href="structTestAction.html">TestAction</a> ta3;</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  <a class="code" href="classcollision__detection_1_1World_1_1ObserverHandle.html">collision_detection::World::ObserverHandle</a> observer_ta3;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  observer_ta3 = world.<a class="code" href="classcollision__detection_1_1World.html#a6d999503e46564ed159d894373009f38">addObserver</a>(boost::bind(TrackChangesNotify, &amp;ta3, _1, _2));</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  observer_ta3 = world.<a class="code" href="classcollision__detection_1_1World.html#a6d999503e46564ed159d894373009f38">addObserver</a>(std::bind(TrackChangesNotify, &amp;ta3, std::placeholders::_1, std::placeholders::_2));</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <span class="keywordtype">bool</span> rm_good = world.<a class="code" href="classcollision__detection_1_1World.html#a49d198631f76d2f2a5550821187070ed">removeShapeFromObject</a>(<span class="stringliteral">&quot;obj2&quot;</span>, cyl);</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  EXPECT_TRUE(rm_good);</div>
@@ -444,12 +444,12 @@ $(function() {
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  <a class="code" href="structTestAction.html">TestAction</a> ta;</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;  <a class="code" href="classcollision__detection_1_1World_1_1ObserverHandle.html">collision_detection::World::ObserverHandle</a> observer_ta;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  observer_ta = world.<a class="code" href="classcollision__detection_1_1World.html#a6d999503e46564ed159d894373009f38">addObserver</a>(boost::bind(TrackChangesNotify, &amp;ta, _1, _2));</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  observer_ta = world.<a class="code" href="classcollision__detection_1_1World.html#a6d999503e46564ed159d894373009f38">addObserver</a>(std::bind(TrackChangesNotify, &amp;ta, std::placeholders::_1, std::placeholders::_2));</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;  <span class="comment">// Create shapes</span></div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;  shapes::ShapePtr ball(<span class="keyword">new</span> shapes::Sphere(1.0));</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;  shapes::ShapePtr box(<span class="keyword">new</span> shapes::Box(1, 1, 1));</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;  shapes::ShapePtr cyl(<span class="keyword">new</span> shapes::Cylinder(0.5, 3));  <span class="comment">// radius, length</span></div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;  shapes::ShapePtr ball = std::make_shared&lt;shapes::Sphere&gt;(1.0);</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;  shapes::ShapePtr box = std::make_shared&lt;shapes::Box&gt;(1, 1, 1);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;  shapes::ShapePtr cyl = std::make_shared&lt;shapes::Cylinder&gt;(0.5, 3);  <span class="comment">// radius, length</span></div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  <span class="comment">// Confirm that setting object pose creates an object</span></div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;  world.<a class="code" href="classcollision__detection_1_1World.html#a7c9b1d33dc58d6c7e79ef3281c6ecf6f">setObjectPose</a>(<span class="stringliteral">&quot;mix1&quot;</span>, Eigen::Isometry3d::Identity());</div>

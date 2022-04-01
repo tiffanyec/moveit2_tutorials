@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/override.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="canonical" href="https://moveit.picknik.ai/galactic//rolling/doc/examples/ompl_constrained_planning/ompl_constrained_planning.html" />
+    <link rel="canonical" href="https://moveit.picknik.ai/rolling//rolling/doc/examples/ompl_constrained_planning/ompl_constrained_planning.html" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -182,10 +182,10 @@ catkin build
 <p>Setup a RobotCommander and a MoveGroupCommander, see <a class="reference external" href="../move_group_python_interface/move_group_python_interface_tutorial.html">move group Python interface</a> tutorial for more details.
 Everything is wrappen in a class to make it easily reusable.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ConstrainedPlanningTutorial</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Wrapper class for the tutorial. &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Wrapper class for the tutorial.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_name</span><span class="o">=</span><span class="s2">&quot;panda_arm&quot;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Start the ROS node and create object to handle the robot and the planning scene. &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Start the ROS node and create object to handle the robot and the planning scene.&quot;&quot;&quot;</span>
 
         <span class="n">moveit_commander</span><span class="o">.</span><span class="n">roscpp_initialize</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
         <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">&quot;ompl_constrained_planning_example&quot;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>

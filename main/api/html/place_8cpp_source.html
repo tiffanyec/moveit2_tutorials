@@ -345,7 +345,7 @@ $(function() {
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  ros::WallTime start_time = ros::WallTime::now();</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <span class="comment">// construct common data for possible manipulation plans</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  ManipulationPlanSharedDataPtr plan_data(<span class="keyword">new</span> ManipulationPlanSharedData());</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  <span class="keyword">auto</span> plan_data = std::make_shared&lt;ManipulationPlanSharedData&gt;();</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  ManipulationPlanSharedDataConstPtr const_plan_data = plan_data;</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  plan_data-&gt;planning_group_ = jmg;</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  plan_data-&gt;end_effector_group_ = eef;</div>
@@ -388,8 +388,8 @@ $(function() {
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  ManipulationStagePtr stage1(</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      <span class="keyword">new</span> ReachableAndValidPoseFilter(<a class="code" href="namespaceplanning__scene.html">planning_scene</a>, approach_place_acm, pick_place_-&gt;getConstraintsSamplerManager()));</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  ManipulationStagePtr stage2(<span class="keyword">new</span> ApproachAndTranslateStage(<a class="code" href="namespaceplanning__scene.html">planning_scene</a>, approach_place_acm));</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  ManipulationStagePtr stage3(<span class="keyword">new</span> PlanStage(<a class="code" href="namespaceplanning__scene.html">planning_scene</a>, pick_place_-&gt;getPlanningPipeline()));</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  ManipulationStagePtr stage2 = std::make_shared&lt;ApproachAndTranslateStage&gt;(<a class="code" href="namespaceplanning__scene.html">planning_scene</a>, approach_place_acm);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  ManipulationStagePtr stage3 = std::make_shared&lt;PlanStage&gt;(<a class="code" href="namespaceplanning__scene.html">planning_scene</a>, pick_place_-&gt;getPlanningPipeline());</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  pipeline_.addStage(stage1).addStage(stage2).addStage(stage3);</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  initialize();</div>
@@ -407,7 +407,7 @@ $(function() {
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;  <span class="comment">// add possible place locations</span></div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; goal.place_locations.size(); ++i)</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  {</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    ManipulationPlanPtr <a class="code" href="namespacepick.html#a40e85b309b8813e4f17a4c3242b98c34">p</a>(<span class="keyword">new</span> ManipulationPlan(const_plan_data));</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keyword">auto</span> <a class="code" href="namespacepick.html#a40e85b309b8813e4f17a4c3242b98c34">p</a> = std::make_shared&lt;ManipulationPlan&gt;(const_plan_data);</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keyword">const</span> moveit_msgs::action::PlaceLocation&amp; pl = goal.place_locations[place_locations_order[i]];</div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordflow">if</span> (goal.place_eef)</div>

@@ -122,7 +122,7 @@ $(function() {
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="comment">// spin a thread that will process user events</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  run_processing_thread_ = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  processing_ = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  processing_thread_ = std::make_unique&lt;boost::thread&gt;(boost::bind(&amp;BackgroundProcessing::processingThread, <span class="keyword">this</span>));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  processing_thread_ = std::make_unique&lt;boost::thread&gt;(std::bind(&amp;BackgroundProcessing::processingThread, <span class="keyword">this</span>));</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<a class="code" href="classmoveit_1_1tools_1_1BackgroundProcessing.html#a15526519ab82b5ef8e1260bab9e2da46">BackgroundProcessing::~BackgroundProcessing</a>()</div>

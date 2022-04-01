@@ -122,8 +122,8 @@ $(function() {
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  , max_sensor_delta_(1e-3)  <span class="comment">// 1mm</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  , process_occupied_cells_set_(nullptr)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  , process_model_cells_set_(nullptr)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  , update_thread_(<a class="code" href="namespaceboost.html">boost</a>::bind(&amp;LazyFreeSpaceUpdater::lazyUpdateThread, this))</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  , process_thread_(<a class="code" href="namespaceboost.html">boost</a>::bind(&amp;LazyFreeSpaceUpdater::processThread, this))</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  , update_thread_(std::bind(&amp;LazyFreeSpaceUpdater::lazyUpdateThread, this))</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  , process_thread_(std::bind(&amp;LazyFreeSpaceUpdater::processThread, this))</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
@@ -339,7 +339,6 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="alazy__free__space__updater_8h_html"><div class="ttname"><a href="lazy__free__space__updater_8h.html">lazy_free_space_updater.h</a></div></div>
 <div class="ttc" id="aclassoccupancy__map__monitor_1_1LazyFreeSpaceUpdater_html_a3b9180b8492e07700e82ebef5c15a5f9"><div class="ttname"><a href="classoccupancy__map__monitor_1_1LazyFreeSpaceUpdater.html#a3b9180b8492e07700e82ebef5c15a5f9">occupancy_map_monitor::LazyFreeSpaceUpdater::pushLazyUpdate</a></div><div class="ttdeci">void pushLazyUpdate(octomap::KeySet *occupied_cells, octomap::KeySet *model_cells, const octomap::point3d &amp;sensor_origin)</div><div class="ttdef"><b>Definition:</b> <a href="lazy__free__space__updater_8cpp_source.html#l00104">lazy_free_space_updater.cpp:104</a></div></div>
-<div class="ttc" id="anamespaceboost_html"><div class="ttname"><a href="namespaceboost.html">boost</a></div><div class="ttdef"><b>Definition:</b> <a href="serialize__msg_8h_source.html#l00118">serialize_msg.h:118</a></div></div>
 <div class="ttc" id="aclassoccupancy__map__monitor_1_1LazyFreeSpaceUpdater_html_a1c808742b339592c1c41d080329d920a"><div class="ttname"><a href="classoccupancy__map__monitor_1_1LazyFreeSpaceUpdater.html#a1c808742b339592c1c41d080329d920a">occupancy_map_monitor::LazyFreeSpaceUpdater::~LazyFreeSpaceUpdater</a></div><div class="ttdeci">~LazyFreeSpaceUpdater()</div><div class="ttdef"><b>Definition:</b> <a href="lazy__free__space__updater_8cpp_source.html#l00089">lazy_free_space_updater.cpp:89</a></div></div>
 <div class="ttc" id="anamespaceplanning__request__adapter_html_af64b3fa8ebc256d9c5133c6c80ade28f"><div class="ttname"><a href="namespaceplanning__request__adapter.html#af64b3fa8ebc256d9c5133c6c80ade28f">planning_request_adapter::LOGGER</a></div><div class="ttdeci">rclcpp::Logger LOGGER</div><div class="ttdef"><b>Definition:</b> <a href="planning__request__adapter_8cpp_source.html#l00078">planning_request_adapter.cpp:78</a></div></div>
 <div class="ttc" id="anamespaceoccupancy__map__monitor_html"><div class="ttname"><a href="namespaceoccupancy__map__monitor.html">occupancy_map_monitor</a></div><div class="ttdef"><b>Definition:</b> <a href="occupancy__map__monitor_8h_source.html#l00054">occupancy_map_monitor.h:54</a></div></div>

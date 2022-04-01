@@ -122,7 +122,7 @@ $(function() {
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                             start_state);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  ros::WallTime wt = ros::WallTime::now();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  boost::shared_ptr&lt;EnvironmentChain3D&gt; env_chain(<span class="keyword">new</span> EnvironmentChain3D(<a class="code" href="namespaceplanning__scene.html">planning_scene</a>));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">auto</span> env_chain = boost::make_shared&lt;EnvironmentChain3D&gt;(<a class="code" href="namespaceplanning__scene.html">planning_scene</a>);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordflow">if</span> (!env_chain-&gt;setupForMotionPlan(<a class="code" href="namespaceplanning__scene.html">planning_scene</a>, req, res, params))</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  {</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// std::cerr &lt;&lt; &quot;Env chain setup failing&quot; &lt;&lt; &#39;\n&#39;;</span></div>
@@ -133,7 +133,7 @@ $(function() {
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  boost::this_thread::interruption_point();</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">// DummyEnvironment* dummy_env = new DummyEnvironment();</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  boost::shared_ptr&lt;ARAPlanner&gt; planner(<span class="keyword">new</span> ARAPlanner(env_chain.get(), <span class="keyword">true</span>));</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">auto</span> planner = boost::make_shared&lt;ARAPlanner&gt;(env_chain.get(), <span class="keyword">true</span>);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  planner-&gt;set_initialsolution_eps(100.0);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  planner-&gt;set_search_mode(<span class="keyword">true</span>);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  planner-&gt;force_planning_from_scratch();</div>

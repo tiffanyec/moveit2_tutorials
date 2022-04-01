@@ -74,6 +74,7 @@ $(function() {
 <a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classplanning__scene__monitor_1_1PlanningSceneMonitor-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">planning_scene_monitor::PlanningSceneMonitor Class Reference</div>  </div>
@@ -254,18 +255,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa4a9923bbd37d94418855e6f56cb2701"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#aa4a9923bbd37d94418855e6f56cb2701">waitForCurrentRobotState</a> (const rclcpp::Time &amp;t, double wait_time=1.)</td></tr>
 <tr class="memdesc:aa4a9923bbd37d94418855e6f56cb2701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for robot state to become more recent than time t.  <a href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#aa4a9923bbd37d94418855e6f56cb2701">More...</a><br /></td></tr>
 <tr class="separator:aa4a9923bbd37d94418855e6f56cb2701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01bac58f27f99eb03a3b251666c810b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a01bac58f27f99eb03a3b251666c810b3">lockSceneRead</a> ()</td></tr>
-<tr class="memdesc:a01bac58f27f99eb03a3b251666c810b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock the scene for reading (multiple threads can lock for reading at the same time)  <a href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a01bac58f27f99eb03a3b251666c810b3">More...</a><br /></td></tr>
-<tr class="separator:a01bac58f27f99eb03a3b251666c810b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1329d6847747435c065cbba04ec17334"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a1329d6847747435c065cbba04ec17334">unlockSceneRead</a> ()</td></tr>
-<tr class="memdesc:a1329d6847747435c065cbba04ec17334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlock the scene from reading (multiple threads can lock for reading at the same time)  <a href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a1329d6847747435c065cbba04ec17334">More...</a><br /></td></tr>
-<tr class="separator:a1329d6847747435c065cbba04ec17334"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a4e2bd86a4c1867f176652e852b431b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a0a4e2bd86a4c1867f176652e852b431b">lockSceneWrite</a> ()</td></tr>
-<tr class="memdesc:a0a4e2bd86a4c1867f176652e852b431b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock the scene for writing (only one thread can lock for writing and no other thread can lock for reading)  <a href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a0a4e2bd86a4c1867f176652e852b431b">More...</a><br /></td></tr>
-<tr class="separator:a0a4e2bd86a4c1867f176652e852b431b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af862365cde56d7541340429ea5db5eaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#af862365cde56d7541340429ea5db5eaf">unlockSceneWrite</a> ()</td></tr>
-<tr class="memdesc:af862365cde56d7541340429ea5db5eaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock the scene from writing (only one thread can lock for writing and no other thread can lock for reading)  <a href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#af862365cde56d7541340429ea5db5eaf">More...</a><br /></td></tr>
-<tr class="separator:af862365cde56d7541340429ea5db5eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af905b715d7d4295812ae37582127a773"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#af905b715d7d4295812ae37582127a773">clearOctomap</a> ()</td></tr>
 <tr class="separator:af905b715d7d4295812ae37582127a773"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f5f5c9bd991737d3538154b00c06ccf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a4f5f5c9bd991737d3538154b00c06ccf">newPlanningSceneMessage</a> (const moveit_msgs::msg::PlanningScene &amp;scene)</td></tr>
@@ -307,6 +296,18 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a5d37431646791a8bf7408f5c0c1e04ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a5d37431646791a8bf7408f5c0c1e04ad">initialize</a> (const planning_scene::PlanningScenePtr &amp;scene)</td></tr>
 <tr class="memdesc:a5d37431646791a8bf7408f5c0c1e04ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the planning scene monitor.  <a href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a5d37431646791a8bf7408f5c0c1e04ad">More...</a><br /></td></tr>
 <tr class="separator:a5d37431646791a8bf7408f5c0c1e04ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01bac58f27f99eb03a3b251666c810b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a01bac58f27f99eb03a3b251666c810b3">lockSceneRead</a> ()</td></tr>
+<tr class="memdesc:a01bac58f27f99eb03a3b251666c810b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock the scene for reading (multiple threads can lock for reading at the same time)  <a href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a01bac58f27f99eb03a3b251666c810b3">More...</a><br /></td></tr>
+<tr class="separator:a01bac58f27f99eb03a3b251666c810b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1329d6847747435c065cbba04ec17334"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a1329d6847747435c065cbba04ec17334">unlockSceneRead</a> ()</td></tr>
+<tr class="memdesc:a1329d6847747435c065cbba04ec17334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlock the scene from reading (multiple threads can lock for reading at the same time)  <a href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a1329d6847747435c065cbba04ec17334">More...</a><br /></td></tr>
+<tr class="separator:a1329d6847747435c065cbba04ec17334"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4e2bd86a4c1867f176652e852b431b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a0a4e2bd86a4c1867f176652e852b431b">lockSceneWrite</a> ()</td></tr>
+<tr class="memdesc:a0a4e2bd86a4c1867f176652e852b431b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock the scene for writing (only one thread can lock for writing and no other thread can lock for reading)  <a href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a0a4e2bd86a4c1867f176652e852b431b">More...</a><br /></td></tr>
+<tr class="separator:a0a4e2bd86a4c1867f176652e852b431b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af862365cde56d7541340429ea5db5eaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#af862365cde56d7541340429ea5db5eaf">unlockSceneWrite</a> ()</td></tr>
+<tr class="memdesc:af862365cde56d7541340429ea5db5eaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock the scene from writing (only one thread can lock for writing and no other thread can lock for reading)  <a href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#af862365cde56d7541340429ea5db5eaf">More...</a><br /></td></tr>
+<tr class="separator:af862365cde56d7541340429ea5db5eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae64e2ba98037de4672e32e05840e3b02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#ae64e2ba98037de4672e32e05840e3b02">configureCollisionMatrix</a> (const planning_scene::PlanningScenePtr &amp;scene)</td></tr>
 <tr class="memdesc:ae64e2ba98037de4672e32e05840e3b02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the collision matrix for a particular scene.  <a href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#ae64e2ba98037de4672e32e05840e3b02">More...</a><br /></td></tr>
 <tr class="separator:ae64e2ba98037de4672e32e05840e3b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -446,6 +447,13 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a69ade18a44f52f3fa345ba5dda4fa929"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0c0cd590df7be0545d7e9c3bc914ed8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; boost::function&lt; void(<a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a97d046ac6573578fc63521717a013268">SceneUpdateType</a>)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#af0c0cd590df7be0545d7e9c3bc914ed8">update_callbacks_</a></td></tr>
 <tr class="separator:af0c0cd590df7be0545d7e9c3bc914ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a9dfb5f77b236a65e92ce0973f25206f0"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a9dfb5f77b236a65e92ce0973f25206f0">LockedPlanningSceneRO</a></td></tr>
+<tr class="separator:a9dfb5f77b236a65e92ce0973f25206f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4b02dea927dfc2d7363b24c34a9a582"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#ad4b02dea927dfc2d7363b24c34a9a582">LockedPlanningSceneRW</a></td></tr>
+<tr class="separator:ad4b02dea927dfc2d7363b24c34a9a582"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html" title="PlanningSceneMonitor Subscribes to the topic planning_scene.">PlanningSceneMonitor</a> Subscribes to the topic <em><a class="el" href="namespaceplanning__scene.html" title="This namespace includes the central class for representing planning contexts.">planning_scene</a></em>. </p>
@@ -1033,7 +1041,7 @@ Here is the call graph for this function:</div>
 
 <p>Add a function to be called when an update to the scene is received. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01418">1418</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01417">1417</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -1063,7 +1071,7 @@ Here is the call graph for this function:</div>
 
 <p>Callback for a new attached object msg. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00769">769</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00768">768</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1101,7 +1109,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00628">628</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00627">627</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -1122,7 +1130,7 @@ Here is the caller graph for this function:</div>
 
 <p>Clear the functions to be called when an update to the scene is received. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01425">1425</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01424">1424</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -1152,7 +1160,7 @@ Here is the caller graph for this function:</div>
 
 <p>Callback for a new collision object msg. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00754">754</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00753">753</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1192,7 +1200,7 @@ Here is the call graph for this function:</div>
 
 <p>Configure the collision matrix for a particular scene. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01487">1487</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01486">1486</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1231,7 +1239,7 @@ Here is the caller graph for this function:</div>
 
 <p>Configure the default padding. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01533">1533</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01532">1532</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1281,7 +1289,7 @@ Here is the caller graph for this function:</div>
 
 <p>Callback for a change for an attached object of the current state of the planning scene. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00967">967</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00966">966</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1343,7 +1351,7 @@ Here is the caller graph for this function:</div>
 
 <p>Callback for a change in the world maintained by the planning scene. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00979">979</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00978">978</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1391,7 +1399,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00851">851</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00850">850</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1430,7 +1438,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00888">888</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00887">887</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1479,7 +1487,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00783">783</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00782">782</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1517,7 +1525,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00927">927</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00926">926</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1557,7 +1565,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00879">879</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00878">878</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1734,7 +1742,7 @@ Here is the call graph for this function:</div>
 
 <p>Get the topic names that the monitor is listening to. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00480">480</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00479">479</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -2013,7 +2021,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01104">1104</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01103">1103</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -2164,7 +2172,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00835">835</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00834">834</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2201,7 +2209,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00910">910</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00909">909</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2240,7 +2248,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00820">820</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00819">819</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2277,7 +2285,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00950">950</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00949">949</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2316,7 +2324,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00863">863</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00862">862</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2389,6 +2397,9 @@ Here is the caller graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void planning_scene_monitor::PlanningSceneMonitor::lockSceneRead </td>
@@ -2397,11 +2408,16 @@ Here is the caller graph for this function:</div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Lock the scene for reading (multiple threads can lock for reading at the same time) </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01053">1053</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01052">1052</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -2410,6 +2426,9 @@ Here is the caller graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void planning_scene_monitor::PlanningSceneMonitor::lockSceneWrite </td>
@@ -2418,11 +2437,16 @@ Here is the caller graph for this function:</div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Lock the scene for writing (only one thread can lock for writing and no other thread can lock for reading) </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01067">1067</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01066">1066</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -2489,7 +2513,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00651">651</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00650">650</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -2519,7 +2543,7 @@ Here is the caller graph for this function:</div>
 
 <p>Callback for a new planning scene world. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00730">730</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00729">729</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2558,7 +2582,7 @@ Here is the call graph for this function:</div>
 
 <p>Callback for octomap updates. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01335">1335</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01334">1334</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2596,7 +2620,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00579">579</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00578">578</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -2616,7 +2640,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01481">1481</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01480">1480</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -2644,7 +2668,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00534">534</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00533">533</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -2666,7 +2690,7 @@ Here is the call graph for this function:</div>
 
 <p>Set the maximum frequency at which planning scenes are being published. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01431">1431</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01430">1430</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -2694,7 +2718,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01359">1359</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01358">1358</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -2754,7 +2778,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01081">1081</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01080">1080</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2811,7 +2835,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01225">1225</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01224">1224</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2875,7 +2899,7 @@ Here is the call graph for this function:</div>
 </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01164">1164</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01163">1163</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2960,7 +2984,7 @@ Here is the caller graph for this function:</div>
 
 <p>Stop the scene monitor. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01095">1095</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01094">1094</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2992,7 +3016,7 @@ Here is the caller graph for this function:</div>
 
 <p>Stop the state monitor. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01263">1263</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01262">1262</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3023,7 +3047,7 @@ Here is the caller graph for this function:</div>
 
 <p>Stop the world geometry monitor. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01209">1209</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01208">1208</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3056,7 +3080,7 @@ Here is the caller graph for this function:</div>
 
 <p>This function is called every time there is a change to the planning scene. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00523">523</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00522">522</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3079,6 +3103,9 @@ Here is the caller graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void planning_scene_monitor::PlanningSceneMonitor::unlockSceneRead </td>
@@ -3087,11 +3114,16 @@ Here is the caller graph for this function:</div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Unlock the scene from reading (multiple threads can lock for reading at the same time) </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01060">1060</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01059">1059</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3109,6 +3141,9 @@ Here is the caller graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void planning_scene_monitor::PlanningSceneMonitor::unlockSceneWrite </td>
@@ -3117,11 +3152,16 @@ Here is the caller graph for this function:</div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Lock the scene from writing (only one thread can lock for writing and no other thread can lock for reading) </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01074">1074</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01073">1073</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3151,7 +3191,7 @@ Here is the caller graph for this function:</div>
 
 <p>Update the transforms for the frames that are not part of the kinematic model using tf. Examples of these frames are the "map" and "odom_combined" transforms. This function is automatically called when data that uses transforms is received. However, this function should also be called before starting a planning request, for example. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01466">1466</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01465">1465</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -3194,7 +3234,7 @@ Here is the caller graph for this function:</div>
 
 <p>Update the scene using the monitored state. This function is automatically called when an update to the current state is received (if <a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a963f74004e92a77e1c8592b4d436e4f3" title="Start the current state monitor.">startStateMonitor()</a> has been called). The updates are throttled to a maximum update frequency however, which is set by <a class="el" href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a906f01f451c80f7125c163bd35d2106a" title="Update the scene using the monitored state at a specified frequency, in Hz. This function has an effe...">setStateUpdateFrequency()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01389">1389</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l01388">1388</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -3216,7 +3256,7 @@ Here is the caller graph for this function:</div>
 
 <p>Return true if the scene <em>scene</em> can be updated directly or indirectly by this monitor. This function will return true if the pointer of the scene is the same as the one maintained, or if a parent of the scene is the one maintained. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00518">518</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00517">517</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -3238,7 +3278,7 @@ Here is the caller graph for this function:</div>
 
 <p>Return true if the scene <em>scene</em> can be updated directly or indirectly by this monitor. This function will return true if the pointer of the scene is the same as the one maintained, or if a parent of the scene is the one maintained. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00513">513</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00512">512</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
 
 </div>
 </div>
@@ -3271,7 +3311,56 @@ Here is the caller graph for this function:</div>
 <p>Wait for robot state to become more recent than time t. </p>
 <p>If there is no state monitor active, there will be no scene updates. Hence, you can specify a timeout to wait for those updates. Default is 1s. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00998">998</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8cpp_source.html#l00997">997</a> of file <a class="el" href="planning__scene__monitor_8cpp_source.html">planning_scene_monitor.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a9dfb5f77b236a65e92ce0973f25206f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dfb5f77b236a65e92ce0973f25206f0">&#9670;&nbsp;</a></span>LockedPlanningSceneRO</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html">LockedPlanningSceneRO</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8h_source.html#l00642">642</a> of file <a class="el" href="planning__scene__monitor_8h_source.html">planning_scene_monitor.h</a>.</p>
+
+</div>
+</div>
+<a id="ad4b02dea927dfc2d7363b24c34a9a582"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4b02dea927dfc2d7363b24c34a9a582">&#9670;&nbsp;</a></span>LockedPlanningSceneRW</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classplanning__scene__monitor_1_1LockedPlanningSceneRW.html">LockedPlanningSceneRW</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="planning__scene__monitor_8h_source.html#l00643">643</a> of file <a class="el" href="planning__scene__monitor_8h_source.html">planning_scene_monitor.h</a>.</p>
 
 </div>
 </div>

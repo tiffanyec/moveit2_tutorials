@@ -1,5 +1,7 @@
 <map id="moveit::core::JointModelGroup::getLinkModelNames" name="moveit::core::JointModelGroup::getLinkModelNames">
-<area shape="rect" id="node1" title="Get the names of the links that are part of this joint group." alt="" coords="313,35,516,76"/>
-<area shape="rect" id="node2" href="$classTestOMPLConstraints.html#af2df71e076fb981856f4af329ecb5768" title="Test position constraints a link that is not the end&#45;effector." alt="" coords="5,5,265,47"/>
-<area shape="rect" id="node3" href="$robot__state__test_8cpp.html#adb3b487fd2559db6519d52dec17ab77d" title=" " alt="" coords="101,71,170,98"/>
+<area shape="rect" id="node1" title="Get the names of the links that are part of this joint group." alt="" coords="680,71,883,112"/>
+<area shape="rect" id="node2" href="$classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a0807e40ef8643d2d56b747d80883f7fd" title="Compute a Cartesian path that follows specified waypoints with a step size of at most eef_step meters..." alt="" coords="313,5,632,47"/>
+<area shape="rect" id="node4" href="$classTestOMPLConstraints.html#af2df71e076fb981856f4af329ecb5768" title="Test position constraints a link that is not the end&#45;effector." alt="" coords="343,71,603,112"/>
+<area shape="rect" id="node5" href="$robot__state__test_8cpp.html#adb3b487fd2559db6519d52dec17ab77d" title=" " alt="" coords="438,137,507,163"/>
+<area shape="rect" id="node3" href="$classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a05cadb2504535bb77a7e124a2aaa3379" title="Given a plan, execute it without waiting for completion." alt="" coords="5,5,265,47"/>
 </map>

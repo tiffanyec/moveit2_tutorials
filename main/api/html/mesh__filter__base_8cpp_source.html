@@ -244,7 +244,7 @@ $(function() {
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;{</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  std::unique_lock&lt;std::mutex&gt; _(meshes_mutex_);</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  JobPtr job(<span class="keyword">new</span> <a class="code" href="classmesh__filter_1_1FilterJob_3_01void_01_4.html">FilterJob&lt;void&gt;</a>(std::bind(&amp;<a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a0709974f4134d1fa42db2a7978bb0c90">MeshFilterBase::addMeshHelper</a>, <span class="keyword">this</span>, next_handle_, &amp;mesh)));</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  JobPtr job = std::make_shared&lt;FilterJob&lt;void&gt;&gt;(std::bind(&amp;<a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a0709974f4134d1fa42db2a7978bb0c90">MeshFilterBase::addMeshHelper</a>, <span class="keyword">this</span>, next_handle_, &amp;mesh));</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  addJob(job);</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  job-&gt;wait();</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  <a class="code" href="namespacemesh__filter.html#a07c4a34ccdc891a29719367f162c52a1">mesh_filter::MeshHandle</a> ret = next_handle_;</div>
@@ -290,208 +290,210 @@ $(function() {
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
 <div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#a03de6f4e13877cf9ffc83c5dc2901800">  218</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a03de6f4e13877cf9ffc83c5dc2901800">mesh_filter::MeshFilterBase::getModelLabels</a>(<a class="code" href="namespacemesh__filter.html#af762de35b7dba852cc5196ff06903bc1">LabelType</a>* labels)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  JobPtr job(<span class="keyword">new</span> <a class="code" href="classmesh__filter_1_1FilterJob_3_01void_01_4.html">FilterJob&lt;void&gt;</a>(std::bind(&amp;<a class="code" href="classmesh__filter_1_1GLRenderer.html#ac2f283e1fd228485f6d8066d437bcbbe">GLRenderer::getColorBuffer</a>, mesh_renderer_.get(), (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*)labels)));</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  addJob(job);</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  job-&gt;wait();</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;}</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
-<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#a975fdfcbe99c6e91cd614eb1f41affc4">  225</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a975fdfcbe99c6e91cd614eb1f41affc4">mesh_filter::MeshFilterBase::getModelDepth</a>(<span class="keywordtype">float</span>* depth)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  JobPtr job1(<span class="keyword">new</span> <a class="code" href="classmesh__filter_1_1FilterJob_3_01void_01_4.html">FilterJob&lt;void&gt;</a>(std::bind(&amp;<a class="code" href="classmesh__filter_1_1GLRenderer.html#a277ac95d491ba30ee3d7a51a2938c7df">GLRenderer::getDepthBuffer</a>, mesh_renderer_.get(), depth)));</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  JobPtr job2(<span class="keyword">new</span> <a class="code" href="classmesh__filter_1_1FilterJob_3_01void_01_4.html">FilterJob&lt;void&gt;</a>(</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;      std::bind(&amp;<a class="code" href="classmesh__filter_1_1SensorModel_1_1Parameters.html#a6833f16a7beb73bf31213d986946907a">SensorModel::Parameters::transformModelDepthToMetricDepth</a>, sensor_parameters_.get(), depth)));</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  {</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    std::unique_lock&lt;std::mutex&gt; lock(jobs_mutex_);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    jobs_queue_.push(job1);</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    jobs_queue_.push(job2);</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  }</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  jobs_condition_.notify_one();</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  job1-&gt;wait();</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  job2-&gt;wait();</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;}</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
-<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#abd60c72488738ca4fd4de84aba6f24d3">  240</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#abd60c72488738ca4fd4de84aba6f24d3">mesh_filter::MeshFilterBase::getFilteredDepth</a>(<span class="keywordtype">float</span>* depth)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  JobPtr job1(<span class="keyword">new</span> <a class="code" href="classmesh__filter_1_1FilterJob_3_01void_01_4.html">FilterJob&lt;void&gt;</a>(std::bind(&amp;<a class="code" href="classmesh__filter_1_1GLRenderer.html#a277ac95d491ba30ee3d7a51a2938c7df">GLRenderer::getDepthBuffer</a>, depth_filter_.get(), depth)));</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  JobPtr job2(<span class="keyword">new</span> <a class="code" href="classmesh__filter_1_1FilterJob_3_01void_01_4.html">FilterJob&lt;void&gt;</a>(</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      std::bind(&amp;<a class="code" href="classmesh__filter_1_1SensorModel_1_1Parameters.html#ad2fdd1c2573166b134e3384f75d0c4ad">SensorModel::Parameters::transformFilteredDepthToMetricDepth</a>, sensor_parameters_.get(), depth)));</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  {</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    std::unique_lock&lt;std::mutex&gt; lock(jobs_mutex_);</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    jobs_queue_.push(job1);</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    jobs_queue_.push(job2);</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  }</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  jobs_condition_.notify_one();</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  job1-&gt;wait();</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  job2-&gt;wait();</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;}</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
-<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#aa32975ce113c4f9b8635680111c1d5d3">  255</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#aa32975ce113c4f9b8635680111c1d5d3">mesh_filter::MeshFilterBase::getFilteredLabels</a>(<a class="code" href="namespacemesh__filter.html#af762de35b7dba852cc5196ff06903bc1">LabelType</a>* labels)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  JobPtr job(<span class="keyword">new</span> <a class="code" href="classmesh__filter_1_1FilterJob_3_01void_01_4.html">FilterJob&lt;void&gt;</a>(std::bind(&amp;<a class="code" href="classmesh__filter_1_1GLRenderer.html#ac2f283e1fd228485f6d8066d437bcbbe">GLRenderer::getColorBuffer</a>, depth_filter_.get(), (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*)labels)));</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  addJob(job);</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  job-&gt;wait();</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;}</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#a28d3af908a85807d357a919bb7c396d9">  262</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a28d3af908a85807d357a919bb7c396d9">mesh_filter::MeshFilterBase::run</a>(<span class="keyword">const</span> std::string&amp; render_vertex_shader,</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                                      <span class="keyword">const</span> std::string&amp; render_fragment_shader,</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                                      <span class="keyword">const</span> std::string&amp; filter_vertex_shader,</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                                      <span class="keyword">const</span> std::string&amp; filter_fragment_shader)</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;{</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  initialize(render_vertex_shader, render_fragment_shader, filter_vertex_shader, filter_fragment_shader);</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  <span class="keywordflow">while</span> (!stop_)</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  {</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    std::unique_lock&lt;std::mutex&gt; lock(jobs_mutex_);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="comment">// check if we have new sensor data to be processed. If not, wait until we get notified.</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordflow">if</span> (jobs_queue_.empty())</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      jobs_condition_.wait(lock);</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordflow">if</span> (!jobs_queue_.empty())</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    {</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      JobPtr job = jobs_queue_.front();</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;      jobs_queue_.pop();</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      lock.unlock();</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      job-&gt;execute();</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      lock.lock();</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    }</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  }</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  deInitialize();</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;}</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
-<div class="line"><a name="l00288"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#a09a369ba6f3c51af013e83e993321e9c">  288</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a09a369ba6f3c51af013e83e993321e9c">mesh_filter::MeshFilterBase::filter</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* sensor_data, GLushort <a class="code" href="namespacemoveit__commander__cmdline.html#ad511cd8d787603477151f3a6383a9dfb">type</a>, <span class="keywordtype">bool</span> wait)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespacemoveit__commander__cmdline.html#ad511cd8d787603477151f3a6383a9dfb">type</a> != GL_FLOAT &amp;&amp; <a class="code" href="namespacemoveit__commander__cmdline.html#ad511cd8d787603477151f3a6383a9dfb">type</a> != GL_UNSIGNED_SHORT)</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  {</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    std::stringstream msg;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    msg &lt;&lt; <span class="stringliteral">&quot;unknown type \&quot;&quot;</span> &lt;&lt; <a class="code" href="namespacemoveit__commander__cmdline.html#ad511cd8d787603477151f3a6383a9dfb">type</a> &lt;&lt; <span class="stringliteral">&quot;\&quot;. Allowed values are GL_FLOAT or GL_UNSIGNED_SHORT.&quot;</span>;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="keywordflow">throw</span> std::runtime_error(msg.str());</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  }</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  JobPtr job(<span class="keyword">new</span> <a class="code" href="classmesh__filter_1_1FilterJob_3_01void_01_4.html">FilterJob&lt;void&gt;</a>(std::bind(&amp;<a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a035ebccc7942111d4563439095841c21">MeshFilterBase::doFilter</a>, <span class="keyword">this</span>, sensor_data, <a class="code" href="namespacemoveit__commander__cmdline.html#ad511cd8d787603477151f3a6383a9dfb">type</a>)));</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  addJob(job);</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  <span class="keywordflow">if</span> (wait)</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    job-&gt;wait();</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;}</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
-<div class="line"><a name="l00303"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#a035ebccc7942111d4563439095841c21">  303</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a035ebccc7942111d4563439095841c21">mesh_filter::MeshFilterBase::doFilter</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* sensor_data, <span class="keyword">const</span> <span class="keywordtype">int</span> encoding)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  std::unique_lock&lt;std::mutex&gt; _(transform_callback_mutex_);</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  mesh_renderer_-&gt;begin();</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  sensor_parameters_-&gt;setRenderParameters(*mesh_renderer_);</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  glEnable(GL_TEXTURE_2D);</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  glEnable(GL_DEPTH_TEST);</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  glDepthFunc(GL_LESS);</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  glEnable(GL_CULL_FACE);</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  glCullFace(GL_FRONT);</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  glDisable(GL_ALPHA_TEST);</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  glDisable(GL_BLEND);</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  GLuint padding_coefficients_id = glGetUniformLocation(mesh_renderer_-&gt;getProgramID(), <span class="stringliteral">&quot;padding_coefficients&quot;</span>);</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  Eigen::Vector3f padding_coefficients =</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      sensor_parameters_-&gt;getPaddingCoefficients() * padding_scale_ + Eigen::Vector3f(0, 0, padding_offset_);</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  glUniform3f(padding_coefficients_id, padding_coefficients[0], padding_coefficients[1], padding_coefficients[2]);</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  Eigen::Isometry3d transform;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">const</span> std::pair&lt;const MeshHandle, GLMeshPtr&gt;&amp; mesh : meshes_)</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordflow">if</span> (transform_callback_(mesh.first, transform))</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;      mesh.second-&gt;render(transform);</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  mesh_renderer_-&gt;end();</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  JobPtr job = std::make_shared&lt;FilterJob&lt;void&gt;&gt;(</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      std::bind(&amp;<a class="code" href="classmesh__filter_1_1GLRenderer.html#ac2f283e1fd228485f6d8066d437bcbbe">GLRenderer::getColorBuffer</a>, mesh_renderer_.get(), (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*)labels));</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  addJob(job);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  job-&gt;wait();</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;}</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#a975fdfcbe99c6e91cd614eb1f41affc4">  226</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a975fdfcbe99c6e91cd614eb1f41affc4">mesh_filter::MeshFilterBase::getModelDepth</a>(<span class="keywordtype">float</span>* depth)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  JobPtr job1 = std::make_shared&lt;FilterJob&lt;void&gt;&gt;(std::bind(&amp;<a class="code" href="classmesh__filter_1_1GLRenderer.html#a277ac95d491ba30ee3d7a51a2938c7df">GLRenderer::getDepthBuffer</a>, mesh_renderer_.get(), depth));</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  JobPtr job2 = std::make_shared&lt;FilterJob&lt;void&gt;&gt;(</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;      std::bind(&amp;<a class="code" href="classmesh__filter_1_1SensorModel_1_1Parameters.html#a6833f16a7beb73bf31213d986946907a">SensorModel::Parameters::transformModelDepthToMetricDepth</a>, sensor_parameters_.get(), depth));</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  {</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    std::unique_lock&lt;std::mutex&gt; lock(jobs_mutex_);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    jobs_queue_.push(job1);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    jobs_queue_.push(job2);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  }</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  jobs_condition_.notify_one();</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  job1-&gt;wait();</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  job2-&gt;wait();</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;}</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#abd60c72488738ca4fd4de84aba6f24d3">  241</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#abd60c72488738ca4fd4de84aba6f24d3">mesh_filter::MeshFilterBase::getFilteredDepth</a>(<span class="keywordtype">float</span>* depth)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  JobPtr job1 = std::make_shared&lt;FilterJob&lt;void&gt;&gt;(std::bind(&amp;<a class="code" href="classmesh__filter_1_1GLRenderer.html#a277ac95d491ba30ee3d7a51a2938c7df">GLRenderer::getDepthBuffer</a>, depth_filter_.get(), depth));</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  JobPtr job2 = std::make_shared&lt;FilterJob&lt;void&gt;&gt;(</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      std::bind(&amp;<a class="code" href="classmesh__filter_1_1SensorModel_1_1Parameters.html#ad2fdd1c2573166b134e3384f75d0c4ad">SensorModel::Parameters::transformFilteredDepthToMetricDepth</a>, sensor_parameters_.get(), depth));</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  {</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    std::unique_lock&lt;std::mutex&gt; lock(jobs_mutex_);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    jobs_queue_.push(job1);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    jobs_queue_.push(job2);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  }</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  jobs_condition_.notify_one();</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  job1-&gt;wait();</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  job2-&gt;wait();</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;}</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00256"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#aa32975ce113c4f9b8635680111c1d5d3">  256</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#aa32975ce113c4f9b8635680111c1d5d3">mesh_filter::MeshFilterBase::getFilteredLabels</a>(<a class="code" href="namespacemesh__filter.html#af762de35b7dba852cc5196ff06903bc1">LabelType</a>* labels)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  JobPtr job = std::make_shared&lt;FilterJob&lt;void&gt;&gt;(</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      std::bind(&amp;<a class="code" href="classmesh__filter_1_1GLRenderer.html#ac2f283e1fd228485f6d8066d437bcbbe">GLRenderer::getColorBuffer</a>, depth_filter_.get(), (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*)labels));</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  addJob(job);</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  job-&gt;wait();</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;}</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#a28d3af908a85807d357a919bb7c396d9">  264</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a28d3af908a85807d357a919bb7c396d9">mesh_filter::MeshFilterBase::run</a>(<span class="keyword">const</span> std::string&amp; render_vertex_shader,</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                                      <span class="keyword">const</span> std::string&amp; render_fragment_shader,</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                                      <span class="keyword">const</span> std::string&amp; filter_vertex_shader,</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                                      <span class="keyword">const</span> std::string&amp; filter_fragment_shader)</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;{</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  initialize(render_vertex_shader, render_fragment_shader, filter_vertex_shader, filter_fragment_shader);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  <span class="keywordflow">while</span> (!stop_)</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  {</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    std::unique_lock&lt;std::mutex&gt; lock(jobs_mutex_);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="comment">// check if we have new sensor data to be processed. If not, wait until we get notified.</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">if</span> (jobs_queue_.empty())</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      jobs_condition_.wait(lock);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordflow">if</span> (!jobs_queue_.empty())</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    {</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      JobPtr job = jobs_queue_.front();</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      jobs_queue_.pop();</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      lock.unlock();</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;      job-&gt;execute();</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      lock.lock();</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    }</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  deInitialize();</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;}</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
+<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#a09a369ba6f3c51af013e83e993321e9c">  290</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a09a369ba6f3c51af013e83e993321e9c">mesh_filter::MeshFilterBase::filter</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* sensor_data, GLushort <a class="code" href="namespacemoveit__commander__cmdline.html#ad511cd8d787603477151f3a6383a9dfb">type</a>, <span class="keywordtype">bool</span> wait)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespacemoveit__commander__cmdline.html#ad511cd8d787603477151f3a6383a9dfb">type</a> != GL_FLOAT &amp;&amp; <a class="code" href="namespacemoveit__commander__cmdline.html#ad511cd8d787603477151f3a6383a9dfb">type</a> != GL_UNSIGNED_SHORT)</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  {</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    std::stringstream msg;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    msg &lt;&lt; <span class="stringliteral">&quot;unknown type \&quot;&quot;</span> &lt;&lt; <a class="code" href="namespacemoveit__commander__cmdline.html#ad511cd8d787603477151f3a6383a9dfb">type</a> &lt;&lt; <span class="stringliteral">&quot;\&quot;. Allowed values are GL_FLOAT or GL_UNSIGNED_SHORT.&quot;</span>;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordflow">throw</span> std::runtime_error(msg.str());</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  }</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  JobPtr job = std::make_shared&lt;FilterJob&lt;void&gt;&gt;(std::bind(&amp;<a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a035ebccc7942111d4563439095841c21">MeshFilterBase::doFilter</a>, <span class="keyword">this</span>, sensor_data, <a class="code" href="namespacemoveit__commander__cmdline.html#ad511cd8d787603477151f3a6383a9dfb">type</a>));</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  addJob(job);</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <span class="keywordflow">if</span> (wait)</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    job-&gt;wait();</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;}</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#a035ebccc7942111d4563439095841c21">  305</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a035ebccc7942111d4563439095841c21">mesh_filter::MeshFilterBase::doFilter</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* sensor_data, <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceround__collada__numbers.html#a81ebd2dde6c1dd1351b625dec0d83a21">encoding</a>)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  std::unique_lock&lt;std::mutex&gt; _(transform_callback_mutex_);</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  mesh_renderer_-&gt;begin();</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  sensor_parameters_-&gt;setRenderParameters(*mesh_renderer_);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  glEnable(GL_TEXTURE_2D);</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  glEnable(GL_DEPTH_TEST);</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  glDepthFunc(GL_LESS);</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  glEnable(GL_CULL_FACE);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  glCullFace(GL_FRONT);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  glDisable(GL_ALPHA_TEST);</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  glDisable(GL_BLEND);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  GLuint padding_coefficients_id = glGetUniformLocation(mesh_renderer_-&gt;getProgramID(), <span class="stringliteral">&quot;padding_coefficients&quot;</span>);</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  Eigen::Vector3f padding_coefficients =</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      sensor_parameters_-&gt;getPaddingCoefficients() * padding_scale_ + Eigen::Vector3f(0, 0, padding_offset_);</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  glUniform3f(padding_coefficients_id, padding_coefficients[0], padding_coefficients[1], padding_coefficients[2]);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  Eigen::Isometry3d transform;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">const</span> std::pair&lt;const MeshHandle, GLMeshPtr&gt;&amp; mesh : meshes_)</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordflow">if</span> (transform_callback_(mesh.first, transform))</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      mesh.second-&gt;render(transform);</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  <span class="comment">// now filter the depth_map with the second rendering stage</span></div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  <span class="comment">// depth_filter_.setBufferSize (width, height);</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  <span class="comment">// depth_filter_.setCameraParameters (fx, fy, cx, cy);</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  depth_filter_-&gt;begin();</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;  sensor_parameters_-&gt;setFilterParameters(*depth_filter_);</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  glEnable(GL_TEXTURE_2D);</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  glEnable(GL_DEPTH_TEST);</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  glDepthFunc(GL_ALWAYS);</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  glDisable(GL_CULL_FACE);</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  glDisable(GL_ALPHA_TEST);</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  glDisable(GL_BLEND);</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  <span class="comment">//  glUniform1f (near_location_, depth_filter_.getNearClippingDistance ());</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  <span class="comment">//  glUniform1f (far_location_, depth_filter_.getFarClippingDistance ());</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  glUniform1f(shadow_threshold_location_, shadow_threshold_);</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  GLuint depth_texture = mesh_renderer_-&gt;getDepthTexture();</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  GLuint color_texture = mesh_renderer_-&gt;getColorTexture();</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  <span class="comment">// bind sensor depth</span></div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  glActiveTexture(GL_TEXTURE0);</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;  glBindTexture(GL_TEXTURE_2D, sensor_depth_texture_);</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  <span class="keywordtype">float</span> scale =</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      1.0 / (sensor_parameters_-&gt;getFarClippingPlaneDistance() - sensor_parameters_-&gt;getNearClippingPlaneDistance());</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;  <span class="keywordflow">if</span> (encoding == GL_UNSIGNED_SHORT)</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="comment">// unsigned shorts shorts will be mapped to the range 0-1 during transfer. Afterwards we can apply another scale +</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="comment">// offset to</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="comment">// map the values between near and far clipping plane to 0 - 1. -&gt; scale = (65535 * depth - near ) / (far - near)</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="comment">// we have: [0 - 65535] -&gt; [0 - 1]</span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="comment">// we want: [near - far] -&gt; [0 - 1]</span></div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    glPixelTransferf(GL_DEPTH_SCALE, scale * 65.535);</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    glPixelTransferf(GL_DEPTH_SCALE, scale);</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;  glPixelTransferf(GL_DEPTH_BIAS, -scale * sensor_parameters_-&gt;getNearClippingPlaneDistance());</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;  glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, sensor_parameters_-&gt;getWidth(), sensor_parameters_-&gt;getHeight(), 0,</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;               GL_DEPTH_COMPONENT, encoding, sensor_data);</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  <span class="comment">// bind depth map</span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;  glActiveTexture(GL_TEXTURE2);</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;  glBindTexture(GL_TEXTURE_2D, depth_texture);</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160; </div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;  <span class="comment">// bind labels</span></div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;  glActiveTexture(GL_TEXTURE4);</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;  glBindTexture(GL_TEXTURE_2D, color_texture);</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  glCallList(canvas_);</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;  depth_filter_-&gt;end();</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;}</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
-<div class="line"><a name="l00385"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#a95e4a5ee09c087c083e1ae8d1cc71965">  385</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a95e4a5ee09c087c083e1ae8d1cc71965">mesh_filter::MeshFilterBase::setPaddingOffset</a>(<span class="keywordtype">float</span> offset)</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;{</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;  padding_offset_ = offset;</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;}</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160; </div>
-<div class="line"><a name="l00390"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#ac25841b619542c32ed70b474124e2951">  390</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#ac25841b619542c32ed70b474124e2951">mesh_filter::MeshFilterBase::setPaddingScale</a>(<span class="keywordtype">float</span> scale)</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;{</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;  padding_scale_ = scale;</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;}</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  mesh_renderer_-&gt;end();</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  <span class="comment">// now filter the depth_map with the second rendering stage</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  <span class="comment">// depth_filter_.setBufferSize (width, height);</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;  <span class="comment">// depth_filter_.setCameraParameters (fx, fy, cx, cy);</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  depth_filter_-&gt;begin();</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  sensor_parameters_-&gt;setFilterParameters(*depth_filter_);</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  glEnable(GL_TEXTURE_2D);</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  glEnable(GL_DEPTH_TEST);</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  glDepthFunc(GL_ALWAYS);</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  glDisable(GL_CULL_FACE);</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;  glDisable(GL_ALPHA_TEST);</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  glDisable(GL_BLEND);</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  <span class="comment">//  glUniform1f (near_location_, depth_filter_.getNearClippingDistance ());</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  <span class="comment">//  glUniform1f (far_location_, depth_filter_.getFarClippingDistance ());</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  glUniform1f(shadow_threshold_location_, shadow_threshold_);</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  GLuint depth_texture = mesh_renderer_-&gt;getDepthTexture();</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  GLuint color_texture = mesh_renderer_-&gt;getColorTexture();</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;  <span class="comment">// bind sensor depth</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;  glActiveTexture(GL_TEXTURE0);</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  glBindTexture(GL_TEXTURE_2D, sensor_depth_texture_);</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;  <span class="keywordtype">float</span> scale =</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      1.0 / (sensor_parameters_-&gt;getFarClippingPlaneDistance() - sensor_parameters_-&gt;getNearClippingPlaneDistance());</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespaceround__collada__numbers.html#a81ebd2dde6c1dd1351b625dec0d83a21">encoding</a> == GL_UNSIGNED_SHORT)</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="comment">// unsigned shorts shorts will be mapped to the range 0-1 during transfer. Afterwards we can apply another scale +</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="comment">// offset to</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="comment">// map the values between near and far clipping plane to 0 - 1. -&gt; scale = (65535 * depth - near ) / (far - near)</span></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="comment">// we have: [0 - 65535] -&gt; [0 - 1]</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="comment">// we want: [near - far] -&gt; [0 - 1]</span></div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    glPixelTransferf(GL_DEPTH_SCALE, scale * 65.535);</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;  <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    glPixelTransferf(GL_DEPTH_SCALE, scale);</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;  glPixelTransferf(GL_DEPTH_BIAS, -scale * sensor_parameters_-&gt;getNearClippingPlaneDistance());</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; </div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;  glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, sensor_parameters_-&gt;getWidth(), sensor_parameters_-&gt;getHeight(), 0,</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;               GL_DEPTH_COMPONENT, <a class="code" href="namespaceround__collada__numbers.html#a81ebd2dde6c1dd1351b625dec0d83a21">encoding</a>, sensor_data);</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;  <span class="comment">// bind depth map</span></div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;  glActiveTexture(GL_TEXTURE2);</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;  glBindTexture(GL_TEXTURE_2D, depth_texture);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160; </div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;  <span class="comment">// bind labels</span></div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  glActiveTexture(GL_TEXTURE4);</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;  glBindTexture(GL_TEXTURE_2D, color_texture);</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  glCallList(canvas_);</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  depth_filter_-&gt;end();</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;}</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
+<div class="line"><a name="l00387"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#a95e4a5ee09c087c083e1ae8d1cc71965">  387</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#a95e4a5ee09c087c083e1ae8d1cc71965">mesh_filter::MeshFilterBase::setPaddingOffset</a>(<span class="keywordtype">float</span> offset)</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;{</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;  padding_offset_ = offset;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;}</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
+<div class="line"><a name="l00392"></a><span class="lineno"><a class="line" href="classmesh__filter_1_1MeshFilterBase.html#ac25841b619542c32ed70b474124e2951">  392</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmesh__filter_1_1MeshFilterBase.html#ac25841b619542c32ed70b474124e2951">mesh_filter::MeshFilterBase::setPaddingScale</a>(<span class="keywordtype">float</span> scale)</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;{</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;  padding_scale_ = scale;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_ac25841b619542c32ed70b474124e2951"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#ac25841b619542c32ed70b474124e2951">mesh_filter::MeshFilterBase::setPaddingScale</a></div><div class="ttdeci">void setPaddingScale(float scale)</div><div class="ttdoc">set the scale component of padding used to multiply with sensor-specific padding coefficients to get ...</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00390">mesh_filter_base.cpp:390</a></div></div>
+<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_ac25841b619542c32ed70b474124e2951"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#ac25841b619542c32ed70b474124e2951">mesh_filter::MeshFilterBase::setPaddingScale</a></div><div class="ttdeci">void setPaddingScale(float scale)</div><div class="ttdoc">set the scale component of padding used to multiply with sensor-specific padding coefficients to get ...</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00392">mesh_filter_base.cpp:392</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1GLRenderer_html_ac2f283e1fd228485f6d8066d437bcbbe"><div class="ttname"><a href="classmesh__filter_1_1GLRenderer.html#ac2f283e1fd228485f6d8066d437bcbbe">mesh_filter::GLRenderer::getColorBuffer</a></div><div class="ttdeci">void getColorBuffer(unsigned char *buffer) const</div><div class="ttdoc">retrieves the color buffer from OpenGL</div><div class="ttdef"><b>Definition:</b> <a href="gl__renderer_8cpp_source.html#l00208">gl_renderer.cpp:208</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1FilterJob_html"><div class="ttname"><a href="classmesh__filter_1_1FilterJob.html">mesh_filter::FilterJob</a></div><div class="ttdef"><b>Definition:</b> <a href="filter__job_8h_source.html#l00120">filter_job.h:120</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a0709974f4134d1fa42db2a7978bb0c90"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a0709974f4134d1fa42db2a7978bb0c90">mesh_filter::MeshFilterBase::addMeshHelper</a></div><div class="ttdeci">void addMeshHelper(MeshHandle handle, const shapes::Mesh *cmesh)</div><div class="ttdoc">used within a Job to allow the main thread adding meshes</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00189">mesh_filter_base.cpp:189</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a264c65243b5b51a77a12521a521e09e7"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a264c65243b5b51a77a12521a521e09e7">mesh_filter::MeshFilterBase::~MeshFilterBase</a></div><div class="ttdeci">~MeshFilterBase()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00121">mesh_filter_base.cpp:121</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1GLRenderer_html_a277ac95d491ba30ee3d7a51a2938c7df"><div class="ttname"><a href="classmesh__filter_1_1GLRenderer.html#a277ac95d491ba30ee3d7a51a2938c7df">mesh_filter::GLRenderer::getDepthBuffer</a></div><div class="ttdeci">void getDepthBuffer(float *buffer) const</div><div class="ttdoc">retrieves the depth buffer from OpenGL</div><div class="ttdef"><b>Definition:</b> <a href="gl__renderer_8cpp_source.html#l00216">gl_renderer.cpp:216</a></div></div>
-<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a975fdfcbe99c6e91cd614eb1f41affc4"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a975fdfcbe99c6e91cd614eb1f41affc4">mesh_filter::MeshFilterBase::getModelDepth</a></div><div class="ttdeci">void getModelDepth(float *depth) const</div><div class="ttdoc">retrieves the depth values of the rendered model</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00225">mesh_filter_base.cpp:225</a></div></div>
+<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a975fdfcbe99c6e91cd614eb1f41affc4"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a975fdfcbe99c6e91cd614eb1f41affc4">mesh_filter::MeshFilterBase::getModelDepth</a></div><div class="ttdeci">void getModelDepth(float *depth) const</div><div class="ttdoc">retrieves the depth values of the rendered model</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00226">mesh_filter_base.cpp:226</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a64ff619727fac377e2e5b8db4b0de16e"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a64ff619727fac377e2e5b8db4b0de16e">mesh_filter::MeshFilterBase::deInitialize</a></div><div class="ttdeci">void deInitialize()</div><div class="ttdoc">cleaning up</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00145">mesh_filter_base.cpp:145</a></div></div>
 <div class="ttc" id="afilter__job_8h_html"><div class="ttname"><a href="filter__job_8h.html">filter_job.h</a></div></div>
 <div class="ttc" id="agl__mesh_8h_html"><div class="ttname"><a href="gl__mesh_8h.html">gl_mesh.h</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1FilterJob_html_aab9861e3e90d02300f106f8c76224c04"><div class="ttname"><a href="classmesh__filter_1_1FilterJob.html#aab9861e3e90d02300f106f8c76224c04">mesh_filter::FilterJob::getResult</a></div><div class="ttdeci">const ReturnType &amp; getResult() const</div><div class="ttdef"><b>Definition:</b> <a href="filter__job_8h_source.html#l00146">filter_job.h:146</a></div></div>
-<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_aa32975ce113c4f9b8635680111c1d5d3"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#aa32975ce113c4f9b8635680111c1d5d3">mesh_filter::MeshFilterBase::getFilteredLabels</a></div><div class="ttdeci">void getFilteredLabels(LabelType *labels) const</div><div class="ttdoc">retrieves the labels of the input data</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00255">mesh_filter_base.cpp:255</a></div></div>
-<div class="ttc" id="aclassmesh__filter_1_1FilterJob_3_01void_01_4_html"><div class="ttname"><a href="classmesh__filter_1_1FilterJob_3_01void_01_4.html">mesh_filter::FilterJob&lt; void &gt;</a></div><div class="ttdef"><b>Definition:</b> <a href="filter__job_8h_source.html#l00153">filter_job.h:153</a></div></div>
+<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_aa32975ce113c4f9b8635680111c1d5d3"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#aa32975ce113c4f9b8635680111c1d5d3">mesh_filter::MeshFilterBase::getFilteredLabels</a></div><div class="ttdeci">void getFilteredLabels(LabelType *labels) const</div><div class="ttdoc">retrieves the labels of the input data</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00256">mesh_filter_base.cpp:256</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a00d2f9587c550e1f581c1de5872640eb"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a00d2f9587c550e1f581c1de5872640eb">mesh_filter::MeshFilterBase::setTransformCallback</a></div><div class="ttdeci">void setTransformCallback(const TransformCallback &amp;transform_callback)</div><div class="ttdoc">set the callback for retrieving transformations for each mesh.</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00164">mesh_filter_base.cpp:164</a></div></div>
-<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_abd60c72488738ca4fd4de84aba6f24d3"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#abd60c72488738ca4fd4de84aba6f24d3">mesh_filter::MeshFilterBase::getFilteredDepth</a></div><div class="ttdeci">void getFilteredDepth(float *depth) const</div><div class="ttdoc">retrieves the filtered depth values</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00240">mesh_filter_base.cpp:240</a></div></div>
+<div class="ttc" id="anamespaceround__collada__numbers_html_a81ebd2dde6c1dd1351b625dec0d83a21"><div class="ttname"><a href="namespaceround__collada__numbers.html#a81ebd2dde6c1dd1351b625dec0d83a21">round_collada_numbers.encoding</a></div><div class="ttdeci">encoding</div><div class="ttdef"><b>Definition:</b> <a href="round__collada__numbers_8py_source.html#l00114">round_collada_numbers.py:114</a></div></div>
+<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_abd60c72488738ca4fd4de84aba6f24d3"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#abd60c72488738ca4fd4de84aba6f24d3">mesh_filter::MeshFilterBase::getFilteredDepth</a></div><div class="ttdeci">void getFilteredDepth(float *depth) const</div><div class="ttdoc">retrieves the filtered depth values</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00241">mesh_filter_base.cpp:241</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a03de6f4e13877cf9ffc83c5dc2901800"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a03de6f4e13877cf9ffc83c5dc2901800">mesh_filter::MeshFilterBase::getModelLabels</a></div><div class="ttdeci">void getModelLabels(LabelType *labels) const</div><div class="ttdoc">retrieves the labels of the rendered model</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00218">mesh_filter_base.cpp:218</a></div></div>
-<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a28d3af908a85807d357a919bb7c396d9"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a28d3af908a85807d357a919bb7c396d9">mesh_filter::MeshFilterBase::run</a></div><div class="ttdeci">void run(const std::string &amp;render_vertex_shader, const std::string &amp;render_fragment_shader, const std::string &amp;filter_vertex_shader, const std::string &amp;filter_fragment_shader)</div><div class="ttdoc">filtering thread</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00262">mesh_filter_base.cpp:262</a></div></div>
+<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a28d3af908a85807d357a919bb7c396d9"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a28d3af908a85807d357a919bb7c396d9">mesh_filter::MeshFilterBase::run</a></div><div class="ttdeci">void run(const std::string &amp;render_vertex_shader, const std::string &amp;render_fragment_shader, const std::string &amp;filter_vertex_shader, const std::string &amp;filter_fragment_shader)</div><div class="ttdoc">filtering thread</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00264">mesh_filter_base.cpp:264</a></div></div>
 <div class="ttc" id="anamespacemoveit__commander__cmdline_html_ad511cd8d787603477151f3a6383a9dfb"><div class="ttname"><a href="namespacemoveit__commander__cmdline.html#ad511cd8d787603477151f3a6383a9dfb">moveit_commander_cmdline.type</a></div><div class="ttdeci">type</div><div class="ttdef"><b>Definition:</b> <a href="moveit__commander__cmdline_8py_source.html#l00202">moveit_commander_cmdline.py:202</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1SensorModel_1_1Parameters_html_a6833f16a7beb73bf31213d986946907a"><div class="ttname"><a href="classmesh__filter_1_1SensorModel_1_1Parameters.html#a6833f16a7beb73bf31213d986946907a">mesh_filter::SensorModel::Parameters::transformModelDepthToMetricDepth</a></div><div class="ttdeci">virtual void transformModelDepthToMetricDepth(float *depth) const</div><div class="ttdoc">transforms depth values from rendered model to metric depth values</div><div class="ttdef"><b>Definition:</b> <a href="sensor__model_8cpp_source.html#l00105">sensor_model.cpp:105</a></div></div>
-<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a035ebccc7942111d4563439095841c21"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a035ebccc7942111d4563439095841c21">mesh_filter::MeshFilterBase::doFilter</a></div><div class="ttdeci">void doFilter(const void *sensor_data, const int encoding) const</div><div class="ttdoc">the filter method that does the magic</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00303">mesh_filter_base.cpp:303</a></div></div>
+<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a035ebccc7942111d4563439095841c21"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a035ebccc7942111d4563439095841c21">mesh_filter::MeshFilterBase::doFilter</a></div><div class="ttdeci">void doFilter(const void *sensor_data, const int encoding) const</div><div class="ttdoc">the filter method that does the magic</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00305">mesh_filter_base.cpp:305</a></div></div>
 <div class="ttc" id="anamespacemesh__filter_html_af762de35b7dba852cc5196ff06903bc1"><div class="ttname"><a href="namespacemesh__filter.html#af762de35b7dba852cc5196ff06903bc1">mesh_filter::LabelType</a></div><div class="ttdeci">uint32_t LabelType</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8h_source.html#l00061">mesh_filter_base.h:61</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a451d2d172a3f7fb1d660a22683b0cceb"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a451d2d172a3f7fb1d660a22683b0cceb">mesh_filter::MeshFilterBase::addJob</a></div><div class="ttdeci">void addJob(const JobPtr &amp;job) const</div><div class="ttdoc">add a Job for the main thread that needs to be executed there</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00136">mesh_filter_base.cpp:136</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a3d50f895d6c9a7498cb3ba0b4a147686"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a3d50f895d6c9a7498cb3ba0b4a147686">mesh_filter::MeshFilterBase::initialize</a></div><div class="ttdeci">void initialize(const std::string &amp;render_vertex_shader, const std::string &amp;render_fragment_shader, const std::string &amp;filter_vertex_shader, const std::string &amp;filter_fragment_shader)</div><div class="ttdoc">initializes OpenGL related things as well as renderers</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00073">mesh_filter_base.cpp:73</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1SensorModel_1_1Parameters_html"><div class="ttname"><a href="classmesh__filter_1_1SensorModel_1_1Parameters.html">mesh_filter::SensorModel::Parameters</a></div><div class="ttdoc">Abstract Interface defining Sensor Parameters.</div><div class="ttdef"><b>Definition:</b> <a href="sensor__model_8h_source.html#l00092">sensor_model.h:92</a></div></div>
-<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a09a369ba6f3c51af013e83e993321e9c"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a09a369ba6f3c51af013e83e993321e9c">mesh_filter::MeshFilterBase::filter</a></div><div class="ttdeci">void filter(const void *sensor_data, GLushort type, bool wait=false) const</div><div class="ttdoc">label/remove pixels from input depth-image</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00288">mesh_filter_base.cpp:288</a></div></div>
+<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a09a369ba6f3c51af013e83e993321e9c"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a09a369ba6f3c51af013e83e993321e9c">mesh_filter::MeshFilterBase::filter</a></div><div class="ttdeci">void filter(const void *sensor_data, GLushort type, bool wait=false) const</div><div class="ttdoc">label/remove pixels from input depth-image</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00290">mesh_filter_base.cpp:290</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a4933962abaa85732fb599554c666b967"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a4933962abaa85732fb599554c666b967">mesh_filter::MeshFilterBase::setShadowThreshold</a></div><div class="ttdeci">void setShadowThreshold(float threshold)</div><div class="ttdoc">set the shadow threshold. points that are further away than the rendered model are filtered out....</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00213">mesh_filter_base.cpp:213</a></div></div>
-<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a95e4a5ee09c087c083e1ae8d1cc71965"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a95e4a5ee09c087c083e1ae8d1cc71965">mesh_filter::MeshFilterBase::setPaddingOffset</a></div><div class="ttdeci">void setPaddingOffset(float offset)</div><div class="ttdoc">set the offset component of padding. This value is added to the scaled sensor-specific constant compo...</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00385">mesh_filter_base.cpp:385</a></div></div>
+<div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a95e4a5ee09c087c083e1ae8d1cc71965"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a95e4a5ee09c087c083e1ae8d1cc71965">mesh_filter::MeshFilterBase::setPaddingOffset</a></div><div class="ttdeci">void setPaddingOffset(float offset)</div><div class="ttdoc">set the offset component of padding. This value is added to the scaled sensor-specific constant compo...</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00387">mesh_filter_base.cpp:387</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a135252b30578e3e8e9b4d0b34dc16412"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a135252b30578e3e8e9b4d0b34dc16412">mesh_filter::MeshFilterBase::MeshFilterBase</a></div><div class="ttdeci">MeshFilterBase(const TransformCallback &amp;transform_callback, const SensorModel::Parameters &amp;sensor_parameters, const std::string &amp;render_vertex_shader=&quot;&quot;, const std::string &amp;render_fragment_shader=&quot;&quot;, const std::string &amp;filter_vertex_shader=&quot;&quot;, const std::string &amp;filter_fragment_shader=&quot;&quot;)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8cpp_source.html#l00054">mesh_filter_base.cpp:54</a></div></div>
 <div class="ttc" id="aclassmesh__filter_1_1MeshFilterBase_html_a909ffeea8af593b90d0e322d8f8dc5cb"><div class="ttname"><a href="classmesh__filter_1_1MeshFilterBase.html#a909ffeea8af593b90d0e322d8f8dc5cb">mesh_filter::MeshFilterBase::TransformCallback</a></div><div class="ttdeci">std::function&lt; bool(MeshHandle, Eigen::Isometry3d &amp;)&gt; TransformCallback</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8h_source.html#l00067">mesh_filter_base.h:67</a></div></div>
 <div class="ttc" id="anamespacemesh__filter_html_a07c4a34ccdc891a29719367f162c52a1"><div class="ttname"><a href="namespacemesh__filter.html#a07c4a34ccdc891a29719367f162c52a1">mesh_filter::MeshHandle</a></div><div class="ttdeci">unsigned int MeshHandle</div><div class="ttdef"><b>Definition:</b> <a href="mesh__filter__base_8h_source.html#l00060">mesh_filter_base.h:60</a></div></div>

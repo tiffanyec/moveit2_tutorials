@@ -1,5 +1,5 @@
 <map id="moveit_core/utils/include/moveit/utils/robot_model_test_utils.h" name="moveit_core/utils/include/moveit/utils/robot_model_test_utils.h">
-<area shape="rect" id="node1" title=" " alt="" coords="3692,5,3883,61"/>
+<area shape="rect" id="node1" title=" " alt="" coords="3819,5,4009,61"/>
 <area shape="rect" id="node2" href="$test__collision__common__panda_8h.html" title=" " alt="" coords="169,109,376,180"/>
 <area shape="rect" id="node5" href="$test__collision__common__pr2_8h.html" title=" " alt="" coords="400,109,591,180"/>
 <area shape="rect" id="node8" href="$test__bullet__continuous__collision__checking_8cpp.html" title=" " alt="" coords="615,109,789,180"/>
@@ -19,26 +19,27 @@
 <area shape="rect" id="node22" href="$test__kinematic__complex_8cpp.html" title=" " alt="" coords="3666,124,3909,165"/>
 <area shape="rect" id="node23" href="$test__robot__trajectory_8cpp.html" title=" " alt="" coords="3933,124,4149,165"/>
 <area shape="rect" id="node24" href="$test__ruckig__traj__smoothing_8cpp.html" title=" " alt="" coords="4173,117,4375,173"/>
-<area shape="rect" id="node25" href="$test__time__parameterization_8cpp.html" title=" " alt="" coords="4399,117,4605,173"/>
-<area shape="rect" id="node26" href="$robot__model__test__utils_8cpp.html" title=" " alt="" coords="4629,124,4831,165"/>
-<area shape="rect" id="node27" href="$benchmark__ik_8cpp.html" title=" " alt="" coords="4855,124,5031,165"/>
-<area shape="rect" id="node28" href="$test__kinematics__plugin_8cpp.html" title=" " alt="" coords="5056,124,5260,165"/>
-<area shape="rect" id="node29" href="$load__test__robot_8h.html" title=" " alt="" coords="5386,117,5554,173"/>
-<area shape="rect" id="node30" href="$test__constrained__planning__state__space_8cpp.html" title=" " alt="" coords="4970,228,5167,299"/>
-<area shape="rect" id="node32" href="$test__ompl__constraints_8cpp.html" title=" " alt="" coords="5191,235,5389,291"/>
-<area shape="rect" id="node36" href="$test__state__space_8cpp.html" title=" " alt="" coords="5578,117,5746,173"/>
-<area shape="rect" id="node37" href="$trajectory__test_8cpp.html" title=" " alt="" coords="5770,124,5949,165"/>
-<area shape="rect" id="node38" href="$enforce__limits__tests_8cpp.html" title=" " alt="" coords="5973,124,6188,165"/>
-<area shape="rect" id="node39" href="$compare__collision__speed__checking__fcl__bullet_8cpp.html" title=" " alt="" coords="6213,109,6439,180"/>
-<area shape="rect" id="node40" href="$current__state__monitor__tests_8cpp.html" title=" " alt="" coords="6464,109,6663,180"/>
-<area shape="rect" id="node41" href="$trajectory__monitor__tests_8cpp.html" title=" " alt="" coords="6687,109,6872,180"/>
-<area shape="rect" id="node42" href="$moveit__config__data__test_8cpp.html" title=" " alt="" coords="6896,117,7079,173"/>
+<area shape="rect" id="node25" href="$test__time__optimal__trajectory__generation_8cpp.html" title=" " alt="" coords="4399,109,4586,180"/>
+<area shape="rect" id="node26" href="$test__time__parameterization_8cpp.html" title=" " alt="" coords="4610,117,4815,173"/>
+<area shape="rect" id="node27" href="$robot__model__test__utils_8cpp.html" title=" " alt="" coords="4839,124,5042,165"/>
+<area shape="rect" id="node28" href="$benchmark__ik_8cpp.html" title=" " alt="" coords="5066,124,5242,165"/>
+<area shape="rect" id="node29" href="$test__kinematics__plugin_8cpp.html" title=" " alt="" coords="5267,124,5471,165"/>
+<area shape="rect" id="node30" href="$load__test__robot_8h.html" title=" " alt="" coords="5597,117,5765,173"/>
+<area shape="rect" id="node31" href="$test__constrained__planning__state__space_8cpp.html" title=" " alt="" coords="5181,228,5378,299"/>
+<area shape="rect" id="node33" href="$test__ompl__constraints_8cpp.html" title=" " alt="" coords="5402,235,5599,291"/>
+<area shape="rect" id="node37" href="$test__state__space_8cpp.html" title=" " alt="" coords="5789,117,5957,173"/>
+<area shape="rect" id="node38" href="$trajectory__test_8cpp.html" title=" " alt="" coords="5981,124,6159,165"/>
+<area shape="rect" id="node39" href="$enforce__limits__tests_8cpp.html" title=" " alt="" coords="6184,124,6399,165"/>
+<area shape="rect" id="node40" href="$compare__collision__speed__checking__fcl__bullet_8cpp.html" title=" " alt="" coords="6423,109,6650,180"/>
+<area shape="rect" id="node41" href="$current__state__monitor__tests_8cpp.html" title=" " alt="" coords="6675,109,6873,180"/>
+<area shape="rect" id="node42" href="$trajectory__monitor__tests_8cpp.html" title=" " alt="" coords="6897,109,7083,180"/>
+<area shape="rect" id="node43" href="$moveit__config__data__test_8cpp.html" title=" " alt="" coords="7107,117,7289,173"/>
 <area shape="rect" id="node3" href="$test__bullet__collision__detection__panda_8cpp.html" title=" " alt="" coords="5,228,169,299"/>
 <area shape="rect" id="node4" href="$test__fcl__collision__detection__panda_8cpp.html" title=" " alt="" coords="193,228,368,299"/>
 <area shape="rect" id="node6" href="$test__bullet__collision__detection__pr2_8cpp.html" title=" " alt="" coords="407,228,570,299"/>
 <area shape="rect" id="node7" href="$test__fcl__collision__detection__pr2_8cpp.html" title=" " alt="" coords="595,228,769,299"/>
-<area shape="rect" id="node31" href="$test__constrained__state__validity__checker_8cpp.html" title=" " alt="" coords="5861,228,6036,299"/>
-<area shape="rect" id="node33" href="$test__planning__context__manager_8cpp.html" title=" " alt="" coords="6061,228,6231,299"/>
-<area shape="rect" id="node34" href="$test__state__validity__checker_8cpp.html" title=" " alt="" coords="5413,235,5644,291"/>
-<area shape="rect" id="node35" href="$test__threadsafe__state__storage_8cpp.html" title=" " alt="" coords="5669,228,5837,299"/>
+<area shape="rect" id="node32" href="$test__constrained__state__validity__checker_8cpp.html" title=" " alt="" coords="6072,228,6247,299"/>
+<area shape="rect" id="node34" href="$test__planning__context__manager_8cpp.html" title=" " alt="" coords="6271,228,6442,299"/>
+<area shape="rect" id="node35" href="$test__state__validity__checker_8cpp.html" title=" " alt="" coords="5624,235,5855,291"/>
+<area shape="rect" id="node36" href="$test__threadsafe__state__storage_8cpp.html" title=" " alt="" coords="5879,228,6047,299"/>
 </map>

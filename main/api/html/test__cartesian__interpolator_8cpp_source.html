@@ -302,7 +302,7 @@ $(function() {
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="stringliteral">&quot;&lt;/robot&gt;&quot;</span>;</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    urdf::ModelInterfaceSharedPtr urdf_model = urdf::parseURDF(MODEL2);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    srdf::ModelSharedPtr srdf_model(<span class="keyword">new</span> srdf::Model());</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    srdf::ModelSharedPtr srdf_model = std::make_shared&lt;srdf::Model&gt;();</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    srdf_model-&gt;initString(*urdf_model, SMODEL2);</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <a class="code" href="classOneRobot.html#aec03f81da8319771a2856cd4833aac9b">robot_model_</a> = std::make_shared&lt;moveit::core::RobotModel&gt;(urdf_model, srdf_model);</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  }</div>
@@ -320,7 +320,7 @@ $(function() {
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;{</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  traj.clear();</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  std::shared_ptr&lt;moveit::core::RobotState&gt; robot_state(<span class="keyword">new</span> <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a>(robot_model_));</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="keyword">auto</span> robot_state = std::make_shared&lt;moveit::core::RobotState&gt;(robot_model_);</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  robot_state-&gt;setToDefaultValues();</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <span class="keywordtype">double</span> ja, jc;</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
@@ -469,7 +469,6 @@ $(function() {
 <div class="ttc" id="aclassmoveit_1_1core_1_1JointModelGroup_html"><div class="ttname"><a href="classmoveit_1_1core_1_1JointModelGroup.html">moveit::core::JointModelGroup</a></div><div class="ttdef"><b>Definition:</b> <a href="joint__model__group_8h_source.html#l00134">joint_model_group.h:134</a></div></div>
 <div class="ttc" id="atest__cartesian__interpolator_8cpp_html_ae38fb361f90d5e8d741f2b890ae2aa6c"><div class="ttname"><a href="test__cartesian__interpolator_8cpp.html#ae38fb361f90d5e8d741f2b890ae2aa6c">TEST_F</a></div><div class="ttdeci">TEST_F(OneRobot, testGenerateTrajectory)</div><div class="ttdef"><b>Definition:</b> <a href="test__cartesian__interpolator_8cpp_source.html#l00286">test_cartesian_interpolator.cpp:286</a></div></div>
 <div class="ttc" id="aclassmoveit_1_1core_1_1CartesianInterpolator_html_a7d1dc2244ea8833cac25941e0d5aa3b8"><div class="ttname"><a href="classmoveit_1_1core_1_1CartesianInterpolator.html#a7d1dc2244ea8833cac25941e0d5aa3b8">moveit::core::CartesianInterpolator::checkRelativeJointSpaceJump</a></div><div class="ttdeci">static double checkRelativeJointSpaceJump(const JointModelGroup *group, std::vector&lt; std::shared_ptr&lt; RobotState &gt;&gt; &amp;traj, double jump_threshold_factor)</div><div class="ttdoc">Tests for relative joint space jumps of the trajectory traj.</div><div class="ttdef"><b>Definition:</b> <a href="cartesian__interpolator_8cpp_source.html#l00301">cartesian_interpolator.cpp:301</a></div></div>
-<div class="ttc" id="aclassmoveit_1_1core_1_1RobotState_html"><div class="ttname"><a href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a></div><div class="ttdoc">Representation of a robot's state. This includes position, velocity, acceleration and effort.</div><div class="ttdef"><b>Definition:</b> <a href="robot__state_8h_source.html#l00155">robot_state.h:155</a></div></div>
 <div class="ttc" id="arobot__model_8h_html"><div class="ttname"><a href="robot__model_8h.html">robot_model.h</a></div></div>
 <div class="ttc" id="aclassOneRobot_html_a01ba16bfad6905afb557bb99462ec513"><div class="ttname"><a href="classOneRobot.html#a01ba16bfad6905afb557bb99462ec513">OneRobot::TearDown</a></div><div class="ttdeci">void TearDown() override</div><div class="ttdef"><b>Definition:</b> <a href="robot__state__test_8cpp_source.html#l00382">robot_state_test.cpp:382</a></div></div>
 <div class="ttc" id="acartesian__interpolator_8h_html"><div class="ttname"><a href="cartesian__interpolator_8h.html">cartesian_interpolator.h</a></div></div>

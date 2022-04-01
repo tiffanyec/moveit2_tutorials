@@ -585,7 +585,7 @@ $(function() {
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num_threads; ++i)</div>
 <div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;  {</div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    ThreadComputation tc(<a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a>, req, i, num_trials / num_threads, &amp;links_seen_colliding, &amp;lock, progress);</div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    bgroup.create_thread(boost::bind(&amp;disableNeverInCollisionThread, tc));</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    bgroup.create_thread(std::bind(&amp;disableNeverInCollisionThread, tc));</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;  }</div>
 <div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160; </div>
 <div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;  <span class="keywordflow">try</span></div>

@@ -144,22 +144,22 @@ $(function() {
 <div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classcollision__detection_1_1CollisionDetectorAllocator.html">   79</a></span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  CollisionEnvPtr <a class="code" href="classcollision__detection_1_1CollisionDetectorAllocatorTemplate.html#ab6b4bca6f9db98f8a8bdd7bd070532d4">allocateEnv</a>(<span class="keyword">const</span> WorldPtr&amp; world, <span class="keyword">const</span> moveit::core::RobotModelConstPtr&amp; robot_model)<span class="keyword"> const override</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">  </span>{</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classcollision__detection_1_1CollisionDetectorAllocator.html#aebe05670f297391779af5fa93a8cd952">   82</a></span>&#160;    <span class="keywordflow">return</span> CollisionEnvPtr(<span class="keyword">new</span> CollisionEnvType(robot_model, world));</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classcollision__detection_1_1CollisionDetectorAllocator.html#aebe05670f297391779af5fa93a8cd952">   82</a></span>&#160;    <span class="keywordflow">return</span> std::make_shared&lt;CollisionEnvType&gt;(robot_model, world);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  }</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  CollisionEnvPtr <a class="code" href="classcollision__detection_1_1CollisionDetectorAllocatorTemplate.html#ab6b4bca6f9db98f8a8bdd7bd070532d4">allocateEnv</a>(<span class="keyword">const</span> CollisionEnvConstPtr&amp; orig, <span class="keyword">const</span> WorldPtr&amp; world)<span class="keyword"> const override</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">  </span>{</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">return</span> CollisionEnvPtr(<span class="keyword">new</span> CollisionEnvType(<span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span>CollisionEnvType&amp;<span class="keyword">&gt;</span>(*orig), world));</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">return</span> std::make_shared&lt;CollisionEnvType&gt;(<span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span>CollisionEnvType&amp;<span class="keyword">&gt;</span>(*orig), world);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  }</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  CollisionEnvPtr <a class="code" href="classcollision__detection_1_1CollisionDetectorAllocatorTemplate.html#ab6b4bca6f9db98f8a8bdd7bd070532d4">allocateEnv</a>(<span class="keyword">const</span> moveit::core::RobotModelConstPtr&amp; robot_model)<span class="keyword"> const override</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">  </span>{</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> CollisionEnvPtr(<span class="keyword">new</span> CollisionEnvType(robot_model));</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> std::make_shared&lt;CollisionEnvType&gt;(robot_model);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  }</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keyword">static</span> CollisionDetectorAllocatorPtr <a class="code" href="classcollision__detection_1_1CollisionDetectorAllocatorTemplate.html#a1ea75b81fe9b59894ab81f2ea0faffb6">create</a>()</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> CollisionDetectorAllocatorPtr(<span class="keyword">new</span> CollisionDetectorAllocatorType());</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> std::make_shared&lt;CollisionDetectorAllocatorType&gt;();</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  }</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;};</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}  <span class="comment">// namespace collision_detection</span></div>

@@ -109,7 +109,7 @@ $(function() {
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="default__constraint__samplers_8h.html">moveit/constraint_samplers/default_constraint_samplers.h</a>&gt;</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &lt;boost/bind.hpp&gt;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceconstraint__samplers.html">constraint_samplers</a></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
@@ -270,19 +270,19 @@ $(function() {
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;}</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<a class="code" href="structconstraint__samplers_1_1IKSamplingPose.html#a474c8e64f5557e558870bcbc72541d59">IKSamplingPose::IKSamplingPose</a>(<span class="keyword">const</span> <a class="code" href="classkinematic__constraints_1_1PositionConstraint.html">kinematic_constraints::PositionConstraint</a>&amp; pc)</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  : position_constraint_(new <a class="code" href="namespacekinematic__constraints.html">kinematic_constraints</a>::PositionConstraint(pc))</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  : position_constraint_(std::make_shared&lt;<a class="code" href="namespacekinematic__constraints.html">kinematic_constraints</a>::PositionConstraint&gt;(pc))</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;{</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;}</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<a class="code" href="structconstraint__samplers_1_1IKSamplingPose.html#a474c8e64f5557e558870bcbc72541d59">IKSamplingPose::IKSamplingPose</a>(<span class="keyword">const</span> <a class="code" href="classkinematic__constraints_1_1OrientationConstraint.html">kinematic_constraints::OrientationConstraint</a>&amp; oc)</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  : orientation_constraint_(new <a class="code" href="namespacekinematic__constraints.html">kinematic_constraints</a>::OrientationConstraint(oc))</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  : orientation_constraint_(std::make_shared&lt;<a class="code" href="namespacekinematic__constraints.html">kinematic_constraints</a>::OrientationConstraint&gt;(oc))</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;{</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;}</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<a class="code" href="structconstraint__samplers_1_1IKSamplingPose.html#a474c8e64f5557e558870bcbc72541d59">IKSamplingPose::IKSamplingPose</a>(<span class="keyword">const</span> <a class="code" href="classkinematic__constraints_1_1PositionConstraint.html">kinematic_constraints::PositionConstraint</a>&amp; pc,</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                               <span class="keyword">const</span> <a class="code" href="classkinematic__constraints_1_1OrientationConstraint.html">kinematic_constraints::OrientationConstraint</a>&amp; oc)</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  : position_constraint_(new <a class="code" href="namespacekinematic__constraints.html">kinematic_constraints</a>::PositionConstraint(pc))</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  , orientation_constraint_(new <a class="code" href="namespacekinematic__constraints.html">kinematic_constraints</a>::OrientationConstraint(oc))</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  : position_constraint_(std::make_shared&lt;<a class="code" href="namespacekinematic__constraints.html">kinematic_constraints</a>::PositionConstraint&gt;(pc))</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  , orientation_constraint_(std::make_shared&lt;<a class="code" href="namespacekinematic__constraints.html">kinematic_constraints</a>::OrientationConstraint&gt;(oc))</div>
 <div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="classconstraint__samplers_1_1JointConstraintSampler.html#a3a2a319628afc3b267d4dc12009cd639">  213</a></span>&#160;{</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;}</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
@@ -634,8 +634,8 @@ $(function() {
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160; </div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;  <a class="code" href="classkinematics_1_1KinematicsBase.html#a151d379adb69059e7f2f666d06cd919a">kinematics::KinematicsBase::IKCallbackFn</a> adapted_ik_validity_callback;</div>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classconstraint__samplers_1_1ConstraintSampler.html#abe73f9eca4d6b0670aa4bb85f134aa1b">group_state_validity_callback_</a>)</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    adapted_ik_validity_callback =</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;        boost::bind(&amp;samplingIkCallbackFnAdapter, &amp;state, <a class="code" href="classconstraint__samplers_1_1ConstraintSampler.html#aacf8b5fc42c314e0e81acb0a88e4ba48">jmg_</a>, <a class="code" href="classconstraint__samplers_1_1ConstraintSampler.html#abe73f9eca4d6b0670aa4bb85f134aa1b">group_state_validity_callback_</a>, _1, _2, _3);</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    adapted_ik_validity_callback = std::bind(&amp;samplingIkCallbackFnAdapter, &amp;state, <a class="code" href="classconstraint__samplers_1_1ConstraintSampler.html#aacf8b5fc42c314e0e81acb0a88e4ba48">jmg_</a>, <a class="code" href="classconstraint__samplers_1_1ConstraintSampler.html#abe73f9eca4d6b0670aa4bb85f134aa1b">group_state_validity_callback_</a>,</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;                                             std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);</div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160; </div>
 <div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="namespaceplan.html#a0d1d9218112fb104ea1d563b4a920e07">a</a> = 0; <a class="code" href="namespaceplan.html#a0d1d9218112fb104ea1d563b4a920e07">a</a> &lt; max_attempts; ++<a class="code" href="namespaceplan.html#a0d1d9218112fb104ea1d563b4a920e07">a</a>)</div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;  {</div>

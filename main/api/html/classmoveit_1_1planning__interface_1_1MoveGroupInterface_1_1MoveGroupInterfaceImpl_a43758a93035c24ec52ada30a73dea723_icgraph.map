@@ -1,4 +1,5 @@
 <map id="moveit::planning_interface::MoveGroupInterface::MoveGroupInterfaceImpl::getGoalJointTolerance" name="moveit::planning_interface::MoveGroupInterface::MoveGroupInterfaceImpl::getGoalJointTolerance">
-<area shape="rect" id="node1" title=" " alt="" coords="309,5,568,61"/>
-<area shape="rect" id="node2" href="$classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a71e3819bd31711dcb81c18305ca9a521" title="Set the JointValueTarget and use it for future planning requests." alt="" coords="5,5,261,61"/>
+<area shape="rect" id="node1" title=" " alt="" coords="556,5,815,61"/>
+<area shape="rect" id="node2" href="$classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a71e3819bd31711dcb81c18305ca9a521" title="Set the JointValueTarget and use it for future planning requests." alt="" coords="252,5,508,61"/>
+<area shape="rect" id="node3" href="$classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a16ad2dbf427bddba1c9c4ba20e0a2f05" title="Stop any trajectory execution, if one is active." alt="" coords="5,13,204,54"/>
 </map>

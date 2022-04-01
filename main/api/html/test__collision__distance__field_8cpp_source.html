@@ -363,7 +363,7 @@ $(function() {
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> identity = Eigen::Isometry3d::Identity();</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  std::vector&lt;shapes::ShapeConstPtr&gt; <a class="code" href="namespaceshapes.html">shapes</a>;</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  EigenSTL::vector_Isometry3d poses;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  <a class="code" href="namespaceshapes.html">shapes</a>.push_back(shapes::ShapeConstPtr(<span class="keyword">new</span> shapes::Box(.25, .25, .25)));</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  <a class="code" href="namespaceshapes.html">shapes</a>.push_back(std::make_shared&lt;const shapes::Box&gt;(.25, .25, .25));</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  poses.push_back(identity);</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  std::set&lt;std::string&gt; touch_links;</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  trajectory_msgs::msg::JointTrajectory empty_state;</div>

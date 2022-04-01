@@ -360,74 +360,74 @@ $(function() {
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    RCLCPP_DEBUG(LOGGER, <span class="stringliteral">&quot;Motion planner reported a solution path with %ld states&quot;</span>, state_count);</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">if</span> (check_solution_paths_)</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    {</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      std::vector&lt;std::size_t&gt; index;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      <span class="keywordflow">if</span> (!<a class="code" href="namespaceplanning__scene.html">planning_scene</a>-&gt;isPathValid(*res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>, req.path_constraints, req.group_name, <span class="keyword">false</span>, &amp;index))</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      {</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="comment">// check to see if there is any problem with the states that are found to be invalid</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="comment">// they are considered ok if they were added by a planning request adapter</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="keywordtype">bool</span> problem = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; index.size() &amp;&amp; !problem; ++i)</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        {</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;          <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;          <span class="keywordflow">for</span> (std::size_t added_index : adapter_added_state_index)</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            <span class="keywordflow">if</span> (index[i] == added_index)</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            {</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;              found = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;              <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            }</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;          <span class="keywordflow">if</span> (!found)</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            problem = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        }</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keywordflow">if</span> (problem)</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        {</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;          <span class="keywordflow">if</span> (index.size() == 1 &amp;&amp; index[0] == 0)</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;          {  <span class="comment">// ignore cases when the robot starts at invalid location</span></div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;            RCLCPP_DEBUG(LOGGER, <span class="stringliteral">&quot;It appears the robot is starting at an invalid state, but that is ok.&quot;</span>);</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;          }</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;          <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;          {</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;            valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#ae39168510db61336c31f10949a54444a">error_code_</a>.val = moveit_msgs::msg::MoveItErrorCodes::INVALID_MOTION_PLAN;</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;            <span class="comment">// display error messages</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;            std::stringstream ss;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            <span class="keywordflow">for</span> (std::size_t it : index)</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;              ss &lt;&lt; it &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      visualization_msgs::msg::MarkerArray arr;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      visualization_msgs::msg::Marker m;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      m.action = visualization_msgs::msg::Marker::DELETEALL;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;      arr.markers.push_back(m);</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      std::vector&lt;std::size_t&gt; index;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      <span class="keywordflow">if</span> (!<a class="code" href="namespaceplanning__scene.html">planning_scene</a>-&gt;isPathValid(*res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>, req.path_constraints, req.group_name, <span class="keyword">false</span>, &amp;index))</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      {</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="comment">// check to see if there is any problem with the states that are found to be invalid</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        <span class="comment">// they are considered ok if they were added by a planning request adapter</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keywordtype">bool</span> problem = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; index.size() &amp;&amp; !problem; ++i)</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        {</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;          <span class="keywordtype">bool</span> found = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;          <span class="keywordflow">for</span> (std::size_t added_index : adapter_added_state_index)</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            <span class="keywordflow">if</span> (index[i] == added_index)</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            {</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;              found = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;              <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            }</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;          <span class="keywordflow">if</span> (!found)</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;            problem = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        }</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keywordflow">if</span> (problem)</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        {</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;          <span class="keywordflow">if</span> (index.size() == 1 &amp;&amp; index[0] == 0)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;          {  <span class="comment">// ignore cases when the robot starts at invalid location</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            RCLCPP_DEBUG(LOGGER, <span class="stringliteral">&quot;It appears the robot is starting at an invalid state, but that is ok.&quot;</span>);</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;          }</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;          <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;          {</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            valid = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#ae39168510db61336c31f10949a54444a">error_code_</a>.val = moveit_msgs::msg::MoveItErrorCodes::INVALID_MOTION_PLAN;</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            RCLCPP_ERROR_STREAM(LOGGER, <span class="stringliteral">&quot;Computed path is not valid. Invalid states at index locations: [ &quot;</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;                                            &lt;&lt; ss.str() &lt;&lt; <span class="stringliteral">&quot;] out of &quot;</span> &lt;&lt; state_count</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                                            &lt;&lt; <span class="stringliteral">&quot;. Explanations follow in command line. Contacts are published on &quot;</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                                            &lt;&lt; contacts_publisher_-&gt;get_topic_name());</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            <span class="comment">// display error messages</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            std::stringstream ss;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            <span class="keywordflow">for</span> (std::size_t it : index)</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;              ss &lt;&lt; it &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;            <span class="comment">// call validity checks in verbose mode for the problematic states</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;            visualization_msgs::msg::MarkerArray arr;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;            <span class="keywordflow">for</span> (std::size_t it : index)</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            {</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;              <span class="comment">// check validity with verbose on</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;              <span class="keyword">const</span> <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a>&amp; robot_state = res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>-&gt;getWayPoint(it);</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;              <a class="code" href="namespaceplanning__scene.html">planning_scene</a>-&gt;isStateValid(robot_state, req.path_constraints, req.group_name, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;              <span class="comment">// compute the contacts if any</span></div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;              <a class="code" href="structcollision__detection_1_1CollisionRequest.html">collision_detection::CollisionRequest</a> c_req;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;              <a class="code" href="structcollision__detection_1_1CollisionResult.html">collision_detection::CollisionResult</a> c_res;</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;              c_req.<a class="code" href="structcollision__detection_1_1CollisionRequest.html#a5360522b02a383072fb881fc08d15788">contacts</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;              c_req.<a class="code" href="structcollision__detection_1_1CollisionRequest.html#a8dac54b1f11971b246df751eff3242d8">max_contacts</a> = 10;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;              c_req.<a class="code" href="structcollision__detection_1_1CollisionRequest.html#adaea18ae293e533557ccb8629445232f">max_contacts_per_pair</a> = 3;</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;              c_req.<a class="code" href="structcollision__detection_1_1CollisionRequest.html#a4c5f87dc1f2be6cc0c3463a319b6ca36">verbose</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;              <a class="code" href="namespaceplanning__scene.html">planning_scene</a>-&gt;checkCollision(c_req, c_res, robot_state);</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;              <span class="keywordflow">if</span> (c_res.<a class="code" href="structcollision__detection_1_1CollisionResult.html#afd0843007154ccb922e8117312bbacbb">contact_count</a> &gt; 0)</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;              {</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                visualization_msgs::msg::MarkerArray arr_i;</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                <a class="code" href="namespacecollision__detection.html#a424475f0dc3f5af66d1de9bd4d51f547">collision_detection::getCollisionMarkersFromContacts</a>(arr_i, <a class="code" href="namespaceplanning__scene.html">planning_scene</a>-&gt;getPlanningFrame(),</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                                                                     c_res.<a class="code" href="structcollision__detection_1_1CollisionResult.html#a0c7af992e5bc7e62d81bc4ad6ccdb2a0">contacts</a>);</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;                arr.markers.insert(arr.markers.end(), arr_i.markers.begin(), arr_i.markers.end());</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;              }</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            }</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;Completed listing of explanations for invalid states.&quot;</span>);</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            <span class="keywordflow">if</span> (!arr.markers.empty())</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;            {</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;              contacts_publisher_-&gt;publish(arr);</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            }</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;            RCLCPP_ERROR_STREAM(LOGGER, <span class="stringliteral">&quot;Computed path is not valid. Invalid states at index locations: [ &quot;</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                                            &lt;&lt; ss.str() &lt;&lt; <span class="stringliteral">&quot;] out of &quot;</span> &lt;&lt; state_count</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                                            &lt;&lt; <span class="stringliteral">&quot;. Explanations follow in command line. Contacts are published on &quot;</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                                            &lt;&lt; contacts_publisher_-&gt;get_topic_name());</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            <span class="comment">// call validity checks in verbose mode for the problematic states</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;            <span class="keywordflow">for</span> (std::size_t it : index)</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            {</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;              <span class="comment">// check validity with verbose on</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;              <span class="keyword">const</span> <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a>&amp; robot_state = res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>-&gt;getWayPoint(it);</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;              <a class="code" href="namespaceplanning__scene.html">planning_scene</a>-&gt;isStateValid(robot_state, req.path_constraints, req.group_name, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;              <span class="comment">// compute the contacts if any</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;              <a class="code" href="structcollision__detection_1_1CollisionRequest.html">collision_detection::CollisionRequest</a> c_req;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;              <a class="code" href="structcollision__detection_1_1CollisionResult.html">collision_detection::CollisionResult</a> c_res;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;              c_req.<a class="code" href="structcollision__detection_1_1CollisionRequest.html#a5360522b02a383072fb881fc08d15788">contacts</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;              c_req.<a class="code" href="structcollision__detection_1_1CollisionRequest.html#a8dac54b1f11971b246df751eff3242d8">max_contacts</a> = 10;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;              c_req.<a class="code" href="structcollision__detection_1_1CollisionRequest.html#adaea18ae293e533557ccb8629445232f">max_contacts_per_pair</a> = 3;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;              c_req.<a class="code" href="structcollision__detection_1_1CollisionRequest.html#a4c5f87dc1f2be6cc0c3463a319b6ca36">verbose</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;              <a class="code" href="namespaceplanning__scene.html">planning_scene</a>-&gt;checkCollision(c_req, c_res, robot_state);</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;              <span class="keywordflow">if</span> (c_res.<a class="code" href="structcollision__detection_1_1CollisionResult.html#afd0843007154ccb922e8117312bbacbb">contact_count</a> &gt; 0)</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;              {</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                visualization_msgs::msg::MarkerArray arr_i;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                <a class="code" href="namespacecollision__detection.html#a424475f0dc3f5af66d1de9bd4d51f547">collision_detection::getCollisionMarkersFromContacts</a>(arr_i, <a class="code" href="namespaceplanning__scene.html">planning_scene</a>-&gt;getPlanningFrame(),</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                                                                     c_res.<a class="code" href="structcollision__detection_1_1CollisionResult.html#a0c7af992e5bc7e62d81bc4ad6ccdb2a0">contacts</a>);</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                arr.markers.insert(arr.markers.end(), arr_i.markers.begin(), arr_i.markers.end());</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;              }</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            }</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;Completed listing of explanations for invalid states.&quot;</span>);</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;          }</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        }</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordflow">else</span></div>
@@ -439,52 +439,53 @@ $(function() {
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;      }</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;      <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        RCLCPP_DEBUG(LOGGER, <span class="stringliteral">&quot;Planned path was found to be valid when rechecked&quot;</span>);</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    }</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;  }</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  <span class="comment">// display solution path if needed</span></div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;  <span class="keywordflow">if</span> (display_computed_motion_plans_ &amp;&amp; solved)</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  {</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    moveit_msgs::msg::DisplayTrajectory disp;</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    disp.model_id = robot_model_-&gt;getName();</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    disp.trajectory.resize(1);</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>-&gt;getRobotTrajectoryMsg(disp.trajectory[0]);</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <a class="code" href="namespacemoveit_1_1core.html#a0aafbf7242f36d6efd7bd73ecee400e8">moveit::core::robotStateToRobotStateMsg</a>(res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>-&gt;getFirstWayPoint(), disp.trajectory_start);</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    display_path_publisher_-&gt;publish(disp);</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  }</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  <span class="keywordflow">if</span> (!solved)</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  {</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    <span class="comment">// This should alert the user if planning failed because of contradicting constraints.</span></div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="comment">// Could be checked more thoroughly, but it is probably not worth going to that length.</span></div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keywordtype">bool</span> stacked_constraints = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="keywordflow">if</span> (req.path_constraints.position_constraints.size() &gt; 1 || req.path_constraints.orientation_constraints.size() &gt; 1)</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;      stacked_constraints = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; constraint : req.goal_constraints)</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    {</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;      <span class="keywordflow">if</span> (constraint.position_constraints.size() &gt; 1 || constraint.orientation_constraints.size() &gt; 1)</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        stacked_constraints = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    }</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="keywordflow">if</span> (stacked_constraints)</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;      RCLCPP_WARN(LOGGER, <span class="stringliteral">&quot;More than one constraint is set. If your move_group does not have multiple end &quot;</span></div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;                          <span class="stringliteral">&quot;effectors/arms, this is &quot;</span></div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                          <span class="stringliteral">&quot;unusual. Are you using a move_group_interface and forgetting to call clearPoseTargets() or &quot;</span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                          <span class="stringliteral">&quot;equivalent?&quot;</span>);</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;  }</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;  <span class="keywordflow">return</span> solved &amp;&amp; valid;</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;}</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
-<div class="line"><a name="l00405"></a><span class="lineno"><a class="line" href="classplanning__pipeline_1_1PlanningPipeline.html#a5ae4e818cb1f2cf76dd2c3ff103b660a">  405</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classplanning__pipeline_1_1PlanningPipeline.html#a5ae4e818cb1f2cf76dd2c3ff103b660a">planning_pipeline::PlanningPipeline::terminate</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;  <span class="keywordflow">if</span> (planner_instance_)</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    planner_instance_-&gt;terminate();</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;}</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;      contacts_publisher_-&gt;publish(arr);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    }</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;  }</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;  <span class="comment">// display solution path if needed</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  <span class="keywordflow">if</span> (display_computed_motion_plans_ &amp;&amp; solved)</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;  {</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    moveit_msgs::msg::DisplayTrajectory disp;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    disp.model_id = robot_model_-&gt;getName();</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    disp.trajectory.resize(1);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>-&gt;getRobotTrajectoryMsg(disp.trajectory[0]);</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <a class="code" href="namespacemoveit_1_1core.html#a0aafbf7242f36d6efd7bd73ecee400e8">moveit::core::robotStateToRobotStateMsg</a>(res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>-&gt;getFirstWayPoint(), disp.trajectory_start);</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    display_path_publisher_-&gt;publish(disp);</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;  }</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  <span class="keywordflow">if</span> (!solved)</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;  {</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="comment">// This should alert the user if planning failed because of contradicting constraints.</span></div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="comment">// Could be checked more thoroughly, but it is probably not worth going to that length.</span></div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="keywordtype">bool</span> stacked_constraints = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keywordflow">if</span> (req.path_constraints.position_constraints.size() &gt; 1 || req.path_constraints.orientation_constraints.size() &gt; 1)</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;      stacked_constraints = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; constraint : req.goal_constraints)</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    {</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      <span class="keywordflow">if</span> (constraint.position_constraints.size() &gt; 1 || constraint.orientation_constraints.size() &gt; 1)</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        stacked_constraints = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    }</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    <span class="keywordflow">if</span> (stacked_constraints)</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;      RCLCPP_WARN(LOGGER, <span class="stringliteral">&quot;More than one constraint is set. If your move_group does not have multiple end &quot;</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                          <span class="stringliteral">&quot;effectors/arms, this is &quot;</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                          <span class="stringliteral">&quot;unusual. Are you using a move_group_interface and forgetting to call clearPoseTargets() or &quot;</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                          <span class="stringliteral">&quot;equivalent?&quot;</span>);</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;  }</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;  <span class="keywordflow">return</span> solved &amp;&amp; valid;</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;}</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160; </div>
+<div class="line"><a name="l00406"></a><span class="lineno"><a class="line" href="classplanning__pipeline_1_1PlanningPipeline.html#a5ae4e818cb1f2cf76dd2c3ff103b660a">  406</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classplanning__pipeline_1_1PlanningPipeline.html#a5ae4e818cb1f2cf76dd2c3ff103b660a">planning_pipeline::PlanningPipeline::terminate</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;  <span class="keywordflow">if</span> (planner_instance_)</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    planner_instance_-&gt;terminate();</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassplanning__pipeline_1_1PlanningPipeline_html_afb0f73d1b3ee192cc53e16304d2d54cd"><div class="ttname"><a href="classplanning__pipeline_1_1PlanningPipeline.html#afb0f73d1b3ee192cc53e16304d2d54cd">planning_pipeline::PlanningPipeline::DISPLAY_PATH_TOPIC</a></div><div class="ttdeci">static const std::string DISPLAY_PATH_TOPIC</div><div class="ttdoc">When motion plans are computed and they are supposed to be automatically displayed,...</div><div class="ttdef"><b>Definition:</b> <a href="planning__pipeline_8h_source.html#l00128">planning_pipeline.h:128</a></div></div>
 <div class="ttc" id="astructplanning__interface_1_1MotionPlanResponse_html"><div class="ttname"><a href="structplanning__interface_1_1MotionPlanResponse.html">planning_interface::MotionPlanResponse</a></div><div class="ttdef"><b>Definition:</b> <a href="planning__response_8h_source.html#l00078">planning_response.h:78</a></div></div>
 <div class="ttc" id="astructplanning__interface_1_1MotionPlanResponse_html_ae39168510db61336c31f10949a54444a"><div class="ttname"><a href="structplanning__interface_1_1MotionPlanResponse.html#ae39168510db61336c31f10949a54444a">planning_interface::MotionPlanResponse::error_code_</a></div><div class="ttdeci">moveit_msgs::msg::MoveItErrorCodes error_code_</div><div class="ttdef"><b>Definition:</b> <a href="planning__response_8h_source.html#l00120">planning_response.h:120</a></div></div>
-<div class="ttc" id="aclassplanning__pipeline_1_1PlanningPipeline_html_a5ae4e818cb1f2cf76dd2c3ff103b660a"><div class="ttname"><a href="classplanning__pipeline_1_1PlanningPipeline.html#a5ae4e818cb1f2cf76dd2c3ff103b660a">planning_pipeline::PlanningPipeline::terminate</a></div><div class="ttdeci">void terminate() const</div><div class="ttdoc">Request termination, if a generatePlan() function is currently computing plans.</div><div class="ttdef"><b>Definition:</b> <a href="planning__pipeline_8cpp_source.html#l00405">planning_pipeline.cpp:405</a></div></div>
+<div class="ttc" id="aclassplanning__pipeline_1_1PlanningPipeline_html_a5ae4e818cb1f2cf76dd2c3ff103b660a"><div class="ttname"><a href="classplanning__pipeline_1_1PlanningPipeline.html#a5ae4e818cb1f2cf76dd2c3ff103b660a">planning_pipeline::PlanningPipeline::terminate</a></div><div class="ttdeci">void terminate() const</div><div class="ttdoc">Request termination, if a generatePlan() function is currently computing plans.</div><div class="ttdef"><b>Definition:</b> <a href="planning__pipeline_8cpp_source.html#l00406">planning_pipeline.cpp:406</a></div></div>
 <div class="ttc" id="aclassplanning__pipeline_1_1PlanningPipeline_html_af88026b4e85afcf6f3e157d3baefae82"><div class="ttname"><a href="classplanning__pipeline_1_1PlanningPipeline.html#af88026b4e85afcf6f3e157d3baefae82">planning_pipeline::PlanningPipeline::MOTION_CONTACTS_TOPIC</a></div><div class="ttdeci">static const std::string MOTION_CONTACTS_TOPIC</div><div class="ttdoc">When contacts are found in the solution path reported by a planner, they can be published as markers ...</div><div class="ttdef"><b>Definition:</b> <a href="planning__pipeline_8h_source.html#l00136">planning_pipeline.h:136</a></div></div>
 <div class="ttc" id="aclassmoveit_1_1core_1_1RobotState_html"><div class="ttname"><a href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a></div><div class="ttdoc">Representation of a robot's state. This includes position, velocity, acceleration and effort.</div><div class="ttdef"><b>Definition:</b> <a href="robot__state_8h_source.html#l00155">robot_state.h:155</a></div></div>
 <div class="ttc" id="aclassplanning__pipeline_1_1PlanningPipeline_html_a977add6fc9a8083e26cee64cedfc4663"><div class="ttname"><a href="classplanning__pipeline_1_1PlanningPipeline.html#a977add6fc9a8083e26cee64cedfc4663">planning_pipeline::PlanningPipeline::MOTION_PLAN_REQUEST_TOPIC</a></div><div class="ttdeci">static const std::string MOTION_PLAN_REQUEST_TOPIC</div><div class="ttdoc">When motion planning requests are received and they are supposed to be automatically published,...</div><div class="ttdef"><b>Definition:</b> <a href="planning__pipeline_8h_source.html#l00132">planning_pipeline.h:132</a></div></div>

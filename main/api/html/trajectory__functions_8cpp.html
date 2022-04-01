@@ -143,8 +143,108 @@ Include dependency graph for trajectory_functions.cpp:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a2fe53a81df95276f6522dfe5ab280a6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="trajectory__functions_8cpp.html#a2fe53a81df95276f6522dfe5ab280a6c">normalizeQuaternion</a> (geometry_msgs::msg::Quaternion &amp;quat)</td></tr>
 <tr class="separator:a2fe53a81df95276f6522dfe5ab280a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac64372dd58e69f3970dbffd5e9278b0"><td class="memItemLeft" align="right" valign="top">Eigen::Isometry3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="trajectory__functions_8cpp.html#aac64372dd58e69f3970dbffd5e9278b0">getConstraintPose</a> (const geometry_msgs::msg::Point &amp;position, const geometry_msgs::msg::Quaternion &amp;orientation, const geometry_msgs::msg::Vector3 &amp;offset)</td></tr>
+<tr class="memdesc:aac64372dd58e69f3970dbffd5e9278b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adapt goal pose, defined by position+orientation, to consider offset.  <a href="trajectory__functions_8cpp.html#aac64372dd58e69f3970dbffd5e9278b0">More...</a><br /></td></tr>
+<tr class="separator:aac64372dd58e69f3970dbffd5e9278b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a199eb7ef1c0299ab9020ea507446f06a"><td class="memItemLeft" align="right" valign="top">Eigen::Isometry3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="trajectory__functions_8cpp.html#a199eb7ef1c0299ab9020ea507446f06a">getConstraintPose</a> (const moveit_msgs::msg::Constraints &amp;goal)</td></tr>
+<tr class="memdesc:a199eb7ef1c0299ab9020ea507446f06a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conviencency method, passing args from a goal constraint.  <a href="trajectory__functions_8cpp.html#a199eb7ef1c0299ab9020ea507446f06a">More...</a><br /></td></tr>
+<tr class="separator:a199eb7ef1c0299ab9020ea507446f06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="aac64372dd58e69f3970dbffd5e9278b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac64372dd58e69f3970dbffd5e9278b0">&#9670;&nbsp;</a></span>getConstraintPose() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Isometry3d getConstraintPose </td>
+          <td>(</td>
+          <td class="paramtype">const geometry_msgs::msg::Point &amp;&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const geometry_msgs::msg::Quaternion &amp;&#160;</td>
+          <td class="paramname"><em>orientation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const geometry_msgs::msg::Vector3 &amp;&#160;</td>
+          <td class="paramname"><em>offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adapt goal pose, defined by position+orientation, to consider offset. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">constraint</td><td>to apply offset to </td></tr>
+    <tr><td class="paramname">offset</td><td>to apply to the constraint </td></tr>
+    <tr><td class="paramname">orientation</td><td>to apply to the offset </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>final goal pose </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="trajectory__functions_8cpp_source.html#l00609">609</a> of file <a class="el" href="trajectory__functions_8cpp_source.html">trajectory_functions.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="trajectory__functions_8cpp_aac64372dd58e69f3970dbffd5e9278b0_icgraph.png" border="0" usemap="#trajectory__functions_8cpp_aac64372dd58e69f3970dbffd5e9278b0_icgraph" alt=""/></div>
+<map name="trajectory__functions_8cpp_aac64372dd58e69f3970dbffd5e9278b0_icgraph" id="trajectory__functions_8cpp_aac64372dd58e69f3970dbffd5e9278b0_icgraph">
+<area shape="rect" title="Adapt goal pose, defined by position+orientation, to consider offset." alt="" coords="195,5,336,32"/>
+<area shape="rect" href="trajectory__functions_8cpp.html#a199eb7ef1c0299ab9020ea507446f06a" title="Conviencency method, passing args from a goal constraint." alt="" coords="5,5,147,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a199eb7ef1c0299ab9020ea507446f06a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a199eb7ef1c0299ab9020ea507446f06a">&#9670;&nbsp;</a></span>getConstraintPose() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Isometry3d getConstraintPose </td>
+          <td>(</td>
+          <td class="paramtype">const moveit_msgs::msg::Constraints &amp;&#160;</td>
+          <td class="paramname"><em>goal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Conviencency method, passing args from a goal constraint. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">goal</td><td>goal constraint </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>final goal pose </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="trajectory__functions_8cpp_source.html#l00626">626</a> of file <a class="el" href="trajectory__functions_8cpp_source.html">trajectory_functions.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="trajectory__functions_8cpp_a199eb7ef1c0299ab9020ea507446f06a_cgraph.png" border="0" usemap="#trajectory__functions_8cpp_a199eb7ef1c0299ab9020ea507446f06a_cgraph" alt=""/></div>
+<map name="trajectory__functions_8cpp_a199eb7ef1c0299ab9020ea507446f06a_cgraph" id="trajectory__functions_8cpp_a199eb7ef1c0299ab9020ea507446f06a_cgraph">
+<area shape="rect" title="Conviencency method, passing args from a goal constraint." alt="" coords="5,5,147,32"/>
+<area shape="rect" href="trajectory__functions_8cpp.html#aac64372dd58e69f3970dbffd5e9278b0" title="Adapt goal pose, defined by position+orientation, to consider offset." alt="" coords="195,5,336,32"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a2fe53a81df95276f6522dfe5ab280a6c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2fe53a81df95276f6522dfe5ab280a6c">&#9670;&nbsp;</a></span>normalizeQuaternion()</h2>
 

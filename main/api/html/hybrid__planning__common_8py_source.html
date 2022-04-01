@@ -260,35 +260,32 @@ $(function() {
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        package=<span class="stringliteral">&quot;controller_manager&quot;</span>,</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        executable=<span class="stringliteral">&quot;ros2_control_node&quot;</span>,</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        parameters=[robot_description, ros2_controllers_path],</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        output={</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <span class="stringliteral">&quot;stdout&quot;</span>: <span class="stringliteral">&quot;screen&quot;</span>,</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="stringliteral">&quot;stderr&quot;</span>: <span class="stringliteral">&quot;screen&quot;</span>,</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        },</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    )</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="comment"># Load controllers</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    load_controllers = []</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordflow">for</span> controller <span class="keywordflow">in</span> [</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="stringliteral">&quot;joint_state_broadcaster&quot;</span>,</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="stringliteral">&quot;panda_joint_group_position_controller&quot;</span>,</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    ]:</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        load_controllers += [</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            ExecuteProcess(</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                cmd=[<span class="stringliteral">&quot;ros2 run controller_manager spawner {}&quot;</span>.format(controller)],</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                shell=<span class="keyword">True</span>,</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                output=<span class="stringliteral">&quot;screen&quot;</span>,</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            )</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        ]</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    launched_nodes = [</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        container,</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        static_tf,</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        rviz_node,</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        robot_state_publisher,</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        ros2_control_node,</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    ] + load_controllers</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordflow">return</span> launched_nodes</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        output=<span class="stringliteral">&quot;screen&quot;</span>,</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    )</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="comment"># Load controllers</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    load_controllers = []</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">for</span> controller <span class="keywordflow">in</span> [</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="stringliteral">&quot;joint_state_broadcaster&quot;</span>,</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="stringliteral">&quot;panda_joint_group_position_controller&quot;</span>,</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    ]:</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        load_controllers += [</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            ExecuteProcess(</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                cmd=[<span class="stringliteral">&quot;ros2 run controller_manager spawner {}&quot;</span>.format(controller)],</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                shell=<span class="keyword">True</span>,</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                output=<span class="stringliteral">&quot;screen&quot;</span>,</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            )</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        ]</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    launched_nodes = [</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        container,</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        static_tf,</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        rviz_node,</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        robot_state_publisher,</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        ros2_control_node,</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    ] + load_controllers</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">return</span> launched_nodes</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacehybrid__planning__common_html_ac5e4a957c591e7744c7c84008216de68"><div class="ttname"><a href="namespacehybrid__planning__common.html#ac5e4a957c591e7744c7c84008216de68">hybrid_planning_common.get_robot_description</a></div><div class="ttdeci">def get_robot_description()</div><div class="ttdef"><b>Definition:</b> <a href="hybrid__planning__common_8py_source.html#l00036">hybrid_planning_common.py:36</a></div></div>
 <div class="ttc" id="anamespacecreate__ikfast__moveit__plugin_html_a0c9b4e891e3b0ed1d9e9da320cee114b"><div class="ttname"><a href="namespacecreate__ikfast__moveit__plugin.html#a0c9b4e891e3b0ed1d9e9da320cee114b">create_ikfast_moveit_plugin.get_package_share_directory</a></div><div class="ttdeci">def get_package_share_directory(pkg_name)</div><div class="ttdef"><b>Definition:</b> <a href="create__ikfast__moveit__plugin_8py_source.html#l00070">create_ikfast_moveit_plugin.py:70</a></div></div>

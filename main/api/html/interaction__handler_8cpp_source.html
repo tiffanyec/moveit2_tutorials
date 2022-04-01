@@ -292,7 +292,7 @@ $(function() {
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    StateChangeCallbackFn callback;</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="comment">// modify the RobotState in-place with the state_lock_ held.</span></div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <a class="code" href="classrobot__interaction_1_1LockedRobotState.html#a54e021aecfa80901c3569f5fd8588aa8">LockedRobotState::modifyState</a>(</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        boost::bind(&amp;InteractionHandler::updateStateGeneric, <span class="keyword">this</span>, boost::placeholders::_1, &amp;g, &amp;feedback, &amp;callback));</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        std::bind(&amp;InteractionHandler::updateStateGeneric, <span class="keyword">this</span>, std::placeholders::_1, &amp;g, &amp;feedback, &amp;callback));</div>
 <div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="classrobot__interaction_1_1InteractionHandler.html#a9e9da0ef4c9f129fa13ddda1e94faeea">  223</a></span>&#160; </div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="comment">// This calls update_callback_ to notify client that state changed.</span></div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">if</span> (callback)</div>
@@ -324,8 +324,8 @@ $(function() {
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <span class="comment">// modify the RobotState in-place with state_lock_ held.</span></div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  <span class="comment">// This locks state_lock_ before calling updateState()</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  <a class="code" href="classrobot__interaction_1_1LockedRobotState.html#a54e021aecfa80901c3569f5fd8588aa8">LockedRobotState::modifyState</a>(boost::bind(&amp;InteractionHandler::updateStateEndEffector, <span class="keyword">this</span>, boost::placeholders::_1,</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                                            &amp;eef, &amp;tpose.pose, &amp;callback));</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  <a class="code" href="classrobot__interaction_1_1LockedRobotState.html#a54e021aecfa80901c3569f5fd8588aa8">LockedRobotState::modifyState</a>(std::bind(&amp;InteractionHandler::updateStateEndEffector, <span class="keyword">this</span>, std::placeholders::_1,</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                                          &amp;eef, &amp;tpose.pose, &amp;callback));</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  <span class="comment">// This calls update_callback_ to notify client that state changed.</span></div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  <span class="keywordflow">if</span> (callback)</div>
@@ -356,7 +356,7 @@ $(function() {
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  <span class="comment">// modify the RobotState in-place with state_lock_ held.</span></div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  <span class="comment">// This locks state_lock_ before calling updateState()</span></div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  <a class="code" href="classrobot__interaction_1_1LockedRobotState.html#a54e021aecfa80901c3569f5fd8588aa8">LockedRobotState::modifyState</a>(</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      boost::bind(&amp;InteractionHandler::updateStateJoint, <span class="keyword">this</span>, boost::placeholders::_1, &amp;vj, &amp;tpose.pose, &amp;callback));</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      std::bind(&amp;InteractionHandler::updateStateJoint, <span class="keyword">this</span>, std::placeholders::_1, &amp;vj, &amp;tpose.pose, &amp;callback));</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <span class="comment">// This calls update_callback_ to notify client that state changed.</span></div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <span class="keywordflow">if</span> (callback)</div>
@@ -371,7 +371,7 @@ $(function() {
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  <span class="keywordtype">bool</span> ok = g-&gt;<a class="code" href="structrobot__interaction_1_1GenericInteraction.html#a4b839be6f4f19b9c31f31b3e9e5a3a81">process_feedback</a>(*state, *feedback);</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  <span class="keywordtype">bool</span> error_state_changed = setErrorState(g-&gt;<a class="code" href="structrobot__interaction_1_1GenericInteraction.html#a31aa54503d68ce3fb840acc2a6d4adf3">marker_name_suffix</a>, !ok);</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  <span class="keywordflow">if</span> (update_callback_)</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    *callback = boost::bind(update_callback_, boost::placeholders::_1, error_state_changed);</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    *callback = std::bind(update_callback_, std::placeholders::_1, error_state_changed);</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;}</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">// MUST hold state_lock_ when calling this!</span></div>
@@ -385,7 +385,7 @@ $(function() {
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="keywordtype">bool</span> ok = kinematic_options.<a class="code" href="structrobot__interaction_1_1KinematicOptions.html#a8d147edc48d29b421f565b3a2733bc0a">setStateFromIK</a>(*state, eef-&gt;<a class="code" href="structrobot__interaction_1_1EndEffectorInteraction.html#a63f30fc15bc63b18cdd4a2c7e5ec8e0d">parent_group</a>, eef-&gt;<a class="code" href="structrobot__interaction_1_1EndEffectorInteraction.html#af7a03a8607b0fefaf5f26c7da2a84818">parent_link</a>, *pose);</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  <span class="keywordtype">bool</span> error_state_changed = setErrorState(eef-&gt;<a class="code" href="structrobot__interaction_1_1EndEffectorInteraction.html#a63f30fc15bc63b18cdd4a2c7e5ec8e0d">parent_group</a>, !ok);</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  <span class="keywordflow">if</span> (update_callback_)</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    *callback = boost::bind(update_callback_, boost::placeholders::_1, error_state_changed);</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    *callback = std::bind(update_callback_, std::placeholders::_1, error_state_changed);</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;}</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">// MUST hold state_lock_ when calling this!</span></div>
@@ -403,7 +403,7 @@ $(function() {
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  state-&gt;<a class="code" href="classmoveit_1_1core_1_1RobotState.html#aaec5557d55b862d9dd832b3d4c221836">update</a>();</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  <span class="keywordflow">if</span> (update_callback_)</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    *callback = boost::bind(update_callback_, boost::placeholders::_1, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    *callback = std::bind(update_callback_, std::placeholders::_1, <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;}</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classrobot__interaction_1_1InteractionHandler.html#a69f31f43dbb0f54cb6f0a1905645ebc4">InteractionHandler::inError</a>(<span class="keyword">const</span> EndEffectorInteraction&amp; eef)<span class="keyword"> const</span></div>

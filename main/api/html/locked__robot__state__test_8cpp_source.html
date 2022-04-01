@@ -295,7 +295,7 @@ $(function() {
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  <span class="keywordflow">if</span> (!model)</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  {</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    urdf::ModelInterfaceSharedPtr urdf(urdf::parseURDF(URDF_STR));</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    srdf::ModelSharedPtr srdf(<span class="keyword">new</span> srdf::Model());</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">auto</span> srdf = std::make_shared&lt;srdf::Model&gt;();</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    srdf-&gt;initString(*urdf, SRDF_STR);</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    model = std::make_shared&lt;moveit::core::RobotModel&gt;(urdf, srdf);</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  }</div>
@@ -313,7 +313,7 @@ $(function() {
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  state2.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#aba31c6f758e3dabd32c1acbd069e189e">setToDefaultValues</a>();</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <a class="code" href="classrobot__interaction_1_1LockedRobotState.html">robot_interaction::LockedRobotState</a> ls2(state2);</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  robot_interaction::LockedRobotStatePtr ls4(<span class="keyword">new</span> <a class="code" href="classrobot__interaction_1_1LockedRobotState.html">robot_interaction::LockedRobotState</a>(model));</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keyword">auto</span> ls4 = std::make_shared&lt;robot_interaction::LockedRobotState&gt;(model);</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;}</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment">// sanity test the URDF and enum</span></div>
@@ -506,7 +506,7 @@ $(function() {
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    {</div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      val += 0.0001;</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; </div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      locked_state-&gt;<a class="code" href="classrobot__interaction_1_1LockedRobotState.html#a54e021aecfa80901c3569f5fd8588aa8">modifyState</a>(boost::bind(&amp;MyInfo::modifyFunc, <span class="keyword">this</span>, boost::placeholders::_1, val));</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      locked_state-&gt;<a class="code" href="classrobot__interaction_1_1LockedRobotState.html#a54e021aecfa80901c3569f5fd8588aa8">modifyState</a>(std::bind(&amp;MyInfo::modifyFunc, <span class="keyword">this</span>, std::placeholders::_1, val));</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    }</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160; </div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    cnt_lock_.lock();</div>

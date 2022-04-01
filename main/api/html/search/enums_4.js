@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['grouptype_14680',['GroupType',['../namespacemoveit__setup__assistant.html#a507dfef23b046849f75531a694ea8e20',1,'moveit_setup_assistant']]]
+  ['grouptype_14703',['GroupType',['../namespacemoveit__setup__assistant.html#a507dfef23b046849f75531a694ea8e20',1,'moveit_setup_assistant']]]
 ];
