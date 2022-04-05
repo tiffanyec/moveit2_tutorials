@@ -1,7 +1,7 @@
 <map id="robot_trajectory::RobotTrajectory::getWayPoint" name="robot_trajectory::RobotTrajectory::getWayPoint">
 <area shape="rect" id="node1" title=" " alt="" coords="407,173,641,214"/>
-<area shape="rect" id="node2" href="$classtrajectory__processing_1_1IterativeSplineParameterization.html#ab01c18e50f1663358c658651e1fde2c5" title=" " alt="" coords="115,5,351,61"/>
-<area shape="rect" id="node4" href="$classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#a5ad18a23d5b6f0beedaa4b6e20f8b01b" title=" " alt="" coords="108,85,359,141"/>
+<area shape="rect" id="node2" href="$classtrajectory__processing_1_1IterativeSplineParameterization.html#ac65a0bed2a3d103913f7179b18efb6ab" title=" " alt="" coords="115,5,351,61"/>
+<area shape="rect" id="node4" href="$classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#a7fb161f0df9bd1acb0a08cb339e43102" title=" " alt="" coords="108,85,359,141"/>
 <area shape="rect" id="node6" href="$classmoveit__ros__benchmarks_1_1BenchmarkExecutor.html#a4602671783e5fdb62207685fbaea5dce" title=" " alt="" coords="133,165,333,221"/>
 <area shape="rect" id="node7" href="$classplanning__scene_1_1PlanningScene.html#ac58ce6668c2eb6866ad78a1c8c60c5a5" title="Check if a given path is valid. Each state is checked for validity (collision avoidance,..." alt="" coords="140,246,327,287"/>
 <area shape="rect" id="node8" href="$classmoveit_1_1hybrid__planning_1_1ForwardTrajectory.html#a004dec961e56440b5df8093bf55b2a58" title=" " alt="" coords="139,311,327,353"/>

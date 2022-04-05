@@ -349,30 +349,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:acea4f3acee5b32dda59786ce62c96aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the reference frame set by <a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#aac4b6f7cb3c3257001ccbd64c6d14f46" title="Specify which reference frame to assume for poses specified without a reference frame.">setPoseReferenceFrame()</a>. By default this is the reference frame of the robot model.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#acea4f3acee5b32dda59786ce62c96aef">More...</a><br /></td></tr>
 <tr class="separator:acea4f3acee5b32dda59786ce62c96aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Planning a path from the start position to the Target (goal) position, and executing that plan.</div></td></tr>
-<tr class="memitem:a2e08d176cb9cf74c081c04e9061942b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">MoveItErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a2e08d176cb9cf74c081c04e9061942b4">asyncMove</a> ()</td></tr>
-<tr class="memdesc:a2e08d176cb9cf74c081c04e9061942b4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html" title="The representation of a motion plan (as ROS messasges)">Plan</a> and execute a trajectory that takes the group of joints declared in the constructor to the specified target. This call is not blocking (does not wait for the execution of the trajectory to complete).  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a2e08d176cb9cf74c081c04e9061942b4">More...</a><br /></td></tr>
-<tr class="separator:a2e08d176cb9cf74c081c04e9061942b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e40824e86aca73266f965656824c2e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a2e40824e86aca73266f965656824c2e3">asyncMove</a> ()</td></tr>
+<tr class="memdesc:a2e40824e86aca73266f965656824c2e3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html" title="The representation of a motion plan (as ROS messasges)">Plan</a> and execute a trajectory that takes the group of joints declared in the constructor to the specified target. This call is not blocking (does not wait for the execution of the trajectory to complete).  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a2e40824e86aca73266f965656824c2e3">More...</a><br /></td></tr>
+<tr class="separator:a2e40824e86aca73266f965656824c2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bf35b01906b87cedd32e5845f7adcc0"><td class="memItemLeft" align="right" valign="top">rclcpp_action::Client&lt; moveit_msgs::action::MoveGroup &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a4bf35b01906b87cedd32e5845f7adcc0">getMoveGroupClient</a> () const</td></tr>
 <tr class="memdesc:a4bf35b01906b87cedd32e5845f7adcc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="namespacemove__group.html">move_group</a> action client used by the <em><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html" title="Client class to conveniently use the ROS interfaces provided by the move_group node.">MoveGroupInterface</a></em>. The client can be used for querying the execution state of the trajectory and abort trajectory execution during asynchronous execution.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a4bf35b01906b87cedd32e5845f7adcc0">More...</a><br /></td></tr>
 <tr class="separator:a4bf35b01906b87cedd32e5845f7adcc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9b54cdc45eed094a69508cc4398c1ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">MoveItErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#ad9b54cdc45eed094a69508cc4398c1ad">move</a> ()</td></tr>
-<tr class="memdesc:ad9b54cdc45eed094a69508cc4398c1ad"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html" title="The representation of a motion plan (as ROS messasges)">Plan</a> and execute a trajectory that takes the group of joints declared in the constructor to the specified target. This call is always blocking (waits for the execution of the trajectory to complete) and requires an asynchronous spinner to be started.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#ad9b54cdc45eed094a69508cc4398c1ad">More...</a><br /></td></tr>
-<tr class="separator:ad9b54cdc45eed094a69508cc4398c1ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c45180e15c2b26f61c64c3add5648b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">MoveItErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a9c45180e15c2b26f61c64c3add5648b3">plan</a> (<a class="el" href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html">Plan</a> &amp;plan)</td></tr>
-<tr class="memdesc:a9c45180e15c2b26f61c64c3add5648b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a motion plan that takes the group declared in the constructor from the current state to the specified target. No execution is performed. The resulting plan is stored in <em>plan</em>.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a9c45180e15c2b26f61c64c3add5648b3">More...</a><br /></td></tr>
-<tr class="separator:a9c45180e15c2b26f61c64c3add5648b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05cadb2504535bb77a7e124a2aaa3379"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">MoveItErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a05cadb2504535bb77a7e124a2aaa3379">asyncExecute</a> (const <a class="el" href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html">Plan</a> &amp;<a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a9c45180e15c2b26f61c64c3add5648b3">plan</a>)</td></tr>
-<tr class="memdesc:a05cadb2504535bb77a7e124a2aaa3379"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a <em>plan</em>, execute it without waiting for completion.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a05cadb2504535bb77a7e124a2aaa3379">More...</a><br /></td></tr>
-<tr class="separator:a05cadb2504535bb77a7e124a2aaa3379"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a598d395e3ad4f180d22e4b0c1d485bc8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">MoveItErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a598d395e3ad4f180d22e4b0c1d485bc8">asyncExecute</a> (const moveit_msgs::msg::RobotTrajectory &amp;trajectory)</td></tr>
-<tr class="memdesc:a598d395e3ad4f180d22e4b0c1d485bc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a <em>robot</em> trajectory, execute it without waiting for completion.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a598d395e3ad4f180d22e4b0c1d485bc8">More...</a><br /></td></tr>
-<tr class="separator:a598d395e3ad4f180d22e4b0c1d485bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e2932b72fafb94af034c29bce092683"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">MoveItErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a0e2932b72fafb94af034c29bce092683">execute</a> (const <a class="el" href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html">Plan</a> &amp;<a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a9c45180e15c2b26f61c64c3add5648b3">plan</a>)</td></tr>
-<tr class="memdesc:a0e2932b72fafb94af034c29bce092683"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a <em>plan</em>, execute it while waiting for completion.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a0e2932b72fafb94af034c29bce092683">More...</a><br /></td></tr>
-<tr class="separator:a0e2932b72fafb94af034c29bce092683"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a299b753d634977802d047ad3a54e39c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">MoveItErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a299b753d634977802d047ad3a54e39c9">execute</a> (const moveit_msgs::msg::RobotTrajectory &amp;trajectory)</td></tr>
-<tr class="memdesc:a299b753d634977802d047ad3a54e39c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a <em>robot</em> trajectory, execute it while waiting for completion.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a299b753d634977802d047ad3a54e39c9">More...</a><br /></td></tr>
-<tr class="separator:a299b753d634977802d047ad3a54e39c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bfa19482d2a110b46d30e1f55089ce7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a5bfa19482d2a110b46d30e1f55089ce7">move</a> ()</td></tr>
+<tr class="memdesc:a5bfa19482d2a110b46d30e1f55089ce7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html" title="The representation of a motion plan (as ROS messasges)">Plan</a> and execute a trajectory that takes the group of joints declared in the constructor to the specified target. This call is always blocking (waits for the execution of the trajectory to complete) and requires an asynchronous spinner to be started.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a5bfa19482d2a110b46d30e1f55089ce7">More...</a><br /></td></tr>
+<tr class="separator:a5bfa19482d2a110b46d30e1f55089ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22ace93a8ef807ff62417a779dd8d598"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a22ace93a8ef807ff62417a779dd8d598">plan</a> (<a class="el" href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html">Plan</a> &amp;plan)</td></tr>
+<tr class="memdesc:a22ace93a8ef807ff62417a779dd8d598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a motion plan that takes the group declared in the constructor from the current state to the specified target. No execution is performed. The resulting plan is stored in <em>plan</em>.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a22ace93a8ef807ff62417a779dd8d598">More...</a><br /></td></tr>
+<tr class="separator:a22ace93a8ef807ff62417a779dd8d598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af08c4d1a5e71f4a37986b42d0bcb0e86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#af08c4d1a5e71f4a37986b42d0bcb0e86">asyncExecute</a> (const <a class="el" href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html">Plan</a> &amp;<a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a22ace93a8ef807ff62417a779dd8d598">plan</a>)</td></tr>
+<tr class="memdesc:af08c4d1a5e71f4a37986b42d0bcb0e86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a <em>plan</em>, execute it without waiting for completion.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#af08c4d1a5e71f4a37986b42d0bcb0e86">More...</a><br /></td></tr>
+<tr class="separator:af08c4d1a5e71f4a37986b42d0bcb0e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4de6b49b928847378e87533e26a4905"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#aa4de6b49b928847378e87533e26a4905">asyncExecute</a> (const moveit_msgs::msg::RobotTrajectory &amp;trajectory)</td></tr>
+<tr class="memdesc:aa4de6b49b928847378e87533e26a4905"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a <em>robot</em> trajectory, execute it without waiting for completion.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#aa4de6b49b928847378e87533e26a4905">More...</a><br /></td></tr>
+<tr class="separator:aa4de6b49b928847378e87533e26a4905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8309085a7921e080194d48d2812651c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a8309085a7921e080194d48d2812651c1">execute</a> (const <a class="el" href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html">Plan</a> &amp;<a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a22ace93a8ef807ff62417a779dd8d598">plan</a>)</td></tr>
+<tr class="memdesc:a8309085a7921e080194d48d2812651c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a <em>plan</em>, execute it while waiting for completion.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a8309085a7921e080194d48d2812651c1">More...</a><br /></td></tr>
+<tr class="separator:a8309085a7921e080194d48d2812651c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa66754f486f5b09f6f229c6db2652f6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#aa66754f486f5b09f6f229c6db2652f6b">execute</a> (const moveit_msgs::msg::RobotTrajectory &amp;trajectory)</td></tr>
+<tr class="memdesc:aa66754f486f5b09f6f229c6db2652f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a <em>robot</em> trajectory, execute it while waiting for completion.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#aa66754f486f5b09f6f229c6db2652f6b">More...</a><br /></td></tr>
+<tr class="separator:aa66754f486f5b09f6f229c6db2652f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0807e40ef8643d2d56b747d80883f7fd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a0807e40ef8643d2d56b747d80883f7fd">computeCartesianPath</a> (const std::vector&lt; geometry_msgs::msg::Pose &gt; &amp;waypoints, double eef_step, double jump_threshold, moveit_msgs::msg::RobotTrajectory &amp;trajectory, bool avoid_collisions=true, moveit_msgs::msg::MoveItErrorCodes *error_code=nullptr)</td></tr>
 <tr class="memdesc:a0807e40ef8643d2d56b747d80883f7fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a Cartesian path that follows specified waypoints with a step size of at most <em>eef_step</em> meters between end effector configurations of consecutive points in the result <em>trajectory</em>. The reference frame for the waypoints is that specified by <a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#aac4b6f7cb3c3257001ccbd64c6d14f46" title="Specify which reference frame to assume for poses specified without a reference frame.">setPoseReferenceFrame()</a>. No more than <em>jump_threshold</em> is allowed as change in distance in the configuration space of the robot (this is to prevent 'jumps' in IK solutions). Collisions are avoided if <em>avoid_collisions</em> is set to true. If collisions cannot be avoided, the function fails. Return a value that is between 0.0 and 1.0 indicating the fraction of the path achieved as described by the waypoints. Return -1.0 in case of error.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a0807e40ef8643d2d56b747d80883f7fd">More...</a><br /></td></tr>
 <tr class="separator:a0807e40ef8643d2d56b747d80883f7fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -398,7 +398,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9a49b0b8885f6a62228b8cce52dfe59c"><td class="mdescLeft">&#160;</td><td class="mdescRight">How often is the system allowed to move the camera to update environment model when looking.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a9a49b0b8885f6a62228b8cce52dfe59c">More...</a><br /></td></tr>
 <tr class="separator:a9a49b0b8885f6a62228b8cce52dfe59c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ed9be2b4652788b2016dd5641bebfe8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a6ed9be2b4652788b2016dd5641bebfe8">constructMotionPlanRequest</a> (moveit_msgs::msg::MotionPlanRequest &amp;request)</td></tr>
-<tr class="memdesc:a6ed9be2b4652788b2016dd5641bebfe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the MotionPlanRequest that would be sent to the <a class="el" href="namespacemove__group.html">move_group</a> action with <a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a9c45180e15c2b26f61c64c3add5648b3" title="Compute a motion plan that takes the group declared in the constructor from the current state to the ...">plan()</a> or <a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#ad9b54cdc45eed094a69508cc4398c1ad" title="Plan and execute a trajectory that takes the group of joints declared in the constructor to the speci...">move()</a> and store it in <em>request</em>.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a6ed9be2b4652788b2016dd5641bebfe8">More...</a><br /></td></tr>
+<tr class="memdesc:a6ed9be2b4652788b2016dd5641bebfe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the MotionPlanRequest that would be sent to the <a class="el" href="namespacemove__group.html">move_group</a> action with <a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a22ace93a8ef807ff62417a779dd8d598" title="Compute a motion plan that takes the group declared in the constructor from the current state to the ...">plan()</a> or <a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a5bfa19482d2a110b46d30e1f55089ce7" title="Plan and execute a trajectory that takes the group of joints declared in the constructor to the speci...">move()</a> and store it in <em>request</em>.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a6ed9be2b4652788b2016dd5641bebfe8">More...</a><br /></td></tr>
 <tr class="separator:a6ed9be2b4652788b2016dd5641bebfe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">High level actions that trigger a sequence of plans and actions.</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Build a PickupGoal for an object named <em>object</em> and store it in <em>goal_out</em> </p>
@@ -488,7 +488,7 @@ Protected Member Functions</h2></td></tr>
 <div class="textblock"><p>Client class to conveniently use the ROS interfaces provided by the <a class="el" href="namespacemove__group.html">move_group</a> node. </p>
 <p>This class includes many default settings to make things easy to use. </p>
 
-<p class="definition">Definition at line <a class="el" href="move__group__interface_8h_source.html#l00172">172</a> of file <a class="el" href="move__group__interface_8h_source.html">move_group_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="move__group__interface_8h_source.html#l00146">146</a> of file <a class="el" href="move__group__interface_8h_source.html">move_group_interface.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1d1040090d7a0457384bacaef839237e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d1040090d7a0457384bacaef839237e">&#9670;&nbsp;</a></span>MoveGroupInterface() <span class="overload">[1/4]</span></h2>
@@ -749,14 +749,14 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a598d395e3ad4f180d22e4b0c1d485bc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a598d395e3ad4f180d22e4b0c1d485bc8">&#9670;&nbsp;</a></span>asyncExecute() <span class="overload">[1/2]</span></h2>
+<a id="aa4de6b49b928847378e87533e26a4905"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4de6b49b928847378e87533e26a4905">&#9670;&nbsp;</a></span>asyncExecute() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">MoveItErrorCode</a> moveit::planning_interface::MoveGroupInterface::asyncExecute </td>
+          <td class="memname"><a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a> moveit::planning_interface::MoveGroupInterface::asyncExecute </td>
           <td>(</td>
           <td class="paramtype">const moveit_msgs::msg::RobotTrajectory &amp;&#160;</td>
           <td class="paramname"><em>trajectory</em></td><td>)</td>
@@ -771,14 +771,14 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a05cadb2504535bb77a7e124a2aaa3379"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05cadb2504535bb77a7e124a2aaa3379">&#9670;&nbsp;</a></span>asyncExecute() <span class="overload">[2/2]</span></h2>
+<a id="af08c4d1a5e71f4a37986b42d0bcb0e86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af08c4d1a5e71f4a37986b42d0bcb0e86">&#9670;&nbsp;</a></span>asyncExecute() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">MoveItErrorCode</a> moveit::planning_interface::MoveGroupInterface::asyncExecute </td>
+          <td class="memname"><a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a> moveit::planning_interface::MoveGroupInterface::asyncExecute </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html">Plan</a> &amp;&#160;</td>
           <td class="paramname"><em>plan</em></td><td>)</td>
@@ -793,8 +793,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a05cadb2504535bb77a7e124a2aaa3379_cgraph.png" border="0" usemap="#classmoveit_1_1planning__interface_1_1MoveGroupInterface_a05cadb2504535bb77a7e124a2aaa3379_cgraph" alt=""/></div>
-<map name="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a05cadb2504535bb77a7e124a2aaa3379_cgraph" id="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a05cadb2504535bb77a7e124a2aaa3379_cgraph">
+<div class="center"><img src="classmoveit_1_1planning__interface_1_1MoveGroupInterface_af08c4d1a5e71f4a37986b42d0bcb0e86_cgraph.png" border="0" usemap="#classmoveit_1_1planning__interface_1_1MoveGroupInterface_af08c4d1a5e71f4a37986b42d0bcb0e86_cgraph" alt=""/></div>
+<map name="classmoveit_1_1planning__interface_1_1MoveGroupInterface_af08c4d1a5e71f4a37986b42d0bcb0e86_cgraph" id="classmoveit_1_1planning__interface_1_1MoveGroupInterface_af08c4d1a5e71f4a37986b42d0bcb0e86_cgraph">
 <area shape="rect" title="Given a plan, execute it without waiting for completion." alt="" coords="5,50,265,91"/>
 <area shape="rect" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a0807e40ef8643d2d56b747d80883f7fd" title="Compute a Cartesian path that follows specified waypoints with a step size of at most eef_step meters..." alt="" coords="313,50,632,91"/>
 <area shape="rect" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1MoveGroupInterfaceImpl.html#a85c033ed09c50bc557955b3b190548fc" title=" " alt="" coords="680,5,927,61"/>
@@ -804,14 +804,14 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a2e08d176cb9cf74c081c04e9061942b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e08d176cb9cf74c081c04e9061942b4">&#9670;&nbsp;</a></span>asyncMove()</h2>
+<a id="a2e40824e86aca73266f965656824c2e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e40824e86aca73266f965656824c2e3">&#9670;&nbsp;</a></span>asyncMove()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">MoveItErrorCode</a> moveit::planning_interface::MoveGroupInterface::asyncMove </td>
+          <td class="memname"><a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a> moveit::planning_interface::MoveGroupInterface::asyncMove </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1099,7 +1099,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a0807e40ef8643d2d56b747d80883f7fd_icgraph.png" border="0" usemap="#classmoveit_1_1planning__interface_1_1MoveGroupInterface_a0807e40ef8643d2d56b747d80883f7fd_icgraph" alt=""/></div>
 <map name="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a0807e40ef8643d2d56b747d80883f7fd_icgraph" id="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a0807e40ef8643d2d56b747d80883f7fd_icgraph">
 <area shape="rect" title="Compute a Cartesian path that follows specified waypoints with a step size of at most eef_step meters..." alt="" coords="313,5,632,47"/>
-<area shape="rect" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a05cadb2504535bb77a7e124a2aaa3379" title="Given a plan, execute it without waiting for completion." alt="" coords="5,5,265,47"/>
+<area shape="rect" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#af08c4d1a5e71f4a37986b42d0bcb0e86" title="Given a plan, execute it without waiting for completion." alt="" coords="5,5,265,47"/>
 </map>
 </div>
 
@@ -1193,7 +1193,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Build the MotionPlanRequest that would be sent to the <a class="el" href="namespacemove__group.html">move_group</a> action with <a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a9c45180e15c2b26f61c64c3add5648b3" title="Compute a motion plan that takes the group declared in the constructor from the current state to the ...">plan()</a> or <a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#ad9b54cdc45eed094a69508cc4398c1ad" title="Plan and execute a trajectory that takes the group of joints declared in the constructor to the speci...">move()</a> and store it in <em>request</em>. </p>
+<p>Build the MotionPlanRequest that would be sent to the <a class="el" href="namespacemove__group.html">move_group</a> action with <a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a22ace93a8ef807ff62417a779dd8d598" title="Compute a motion plan that takes the group declared in the constructor from the current state to the ...">plan()</a> or <a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#a5bfa19482d2a110b46d30e1f55089ce7" title="Plan and execute a trajectory that takes the group of joints declared in the constructor to the speci...">move()</a> and store it in <em>request</em>. </p>
 
 <p class="definition">Definition at line <a class="el" href="move__group__interface_8cpp_source.html#l02459">2459</a> of file <a class="el" href="move__group__interface_8cpp_source.html">move_group_interface.cpp</a>.</p>
 
@@ -1221,14 +1221,14 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a299b753d634977802d047ad3a54e39c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a299b753d634977802d047ad3a54e39c9">&#9670;&nbsp;</a></span>execute() <span class="overload">[1/2]</span></h2>
+<a id="aa66754f486f5b09f6f229c6db2652f6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa66754f486f5b09f6f229c6db2652f6b">&#9670;&nbsp;</a></span>execute() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">MoveItErrorCode</a> moveit::planning_interface::MoveGroupInterface::execute </td>
+          <td class="memname"><a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a> moveit::planning_interface::MoveGroupInterface::execute </td>
           <td>(</td>
           <td class="paramtype">const moveit_msgs::msg::RobotTrajectory &amp;&#160;</td>
           <td class="paramname"><em>trajectory</em></td><td>)</td>
@@ -1243,14 +1243,14 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a0e2932b72fafb94af034c29bce092683"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e2932b72fafb94af034c29bce092683">&#9670;&nbsp;</a></span>execute() <span class="overload">[2/2]</span></h2>
+<a id="a8309085a7921e080194d48d2812651c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8309085a7921e080194d48d2812651c1">&#9670;&nbsp;</a></span>execute() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">MoveItErrorCode</a> moveit::planning_interface::MoveGroupInterface::execute </td>
+          <td class="memname"><a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a> moveit::planning_interface::MoveGroupInterface::execute </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html">Plan</a> &amp;&#160;</td>
           <td class="paramname"><em>plan</em></td><td>)</td>
@@ -1265,8 +1265,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a0e2932b72fafb94af034c29bce092683_cgraph.png" border="0" usemap="#classmoveit_1_1planning__interface_1_1MoveGroupInterface_a0e2932b72fafb94af034c29bce092683_cgraph" alt=""/></div>
-<map name="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a0e2932b72fafb94af034c29bce092683_cgraph" id="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a0e2932b72fafb94af034c29bce092683_cgraph">
+<div class="center"><img src="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a8309085a7921e080194d48d2812651c1_cgraph.png" border="0" usemap="#classmoveit_1_1planning__interface_1_1MoveGroupInterface_a8309085a7921e080194d48d2812651c1_cgraph" alt=""/></div>
+<map name="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a8309085a7921e080194d48d2812651c1_cgraph" id="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a8309085a7921e080194d48d2812651c1_cgraph">
 <area shape="rect" title="Given a plan, execute it while waiting for completion." alt="" coords="5,13,228,54"/>
 <area shape="rect" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1MoveGroupInterfaceImpl.html#a2e21ac5f48a4d30b6231f36127be36ee" title=" " alt="" coords="276,5,540,61"/>
 </map>
@@ -1605,7 +1605,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a9e6c771e22a7921612963533c4f35a2a_cgraph.png" border="0" usemap="#classmoveit_1_1planning__interface_1_1MoveGroupInterface_a9e6c771e22a7921612963533c4f35a2a_cgraph" alt=""/></div>
 <map name="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a9e6c771e22a7921612963533c4f35a2a_cgraph" id="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a9e6c771e22a7921612963533c4f35a2a_cgraph">
 <area shape="rect" title="Get the description of the default planning plugin loaded by the action server." alt="" coords="5,5,256,61"/>
-<area shape="rect" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1MoveGroupInterfaceImpl.html#a168c305f525b501dd8e8dca1594ac195" title=" " alt="" coords="304,5,551,61"/>
+<area shape="rect" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1MoveGroupInterfaceImpl.html#ab3d1743097c72b9fe8089edb12d5c38c" title=" " alt="" coords="304,5,551,61"/>
 </map>
 </div>
 
@@ -2029,7 +2029,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a1678e44b1a3318b886cfd3211d1b7703_cgraph.png" border="0" usemap="#classmoveit_1_1planning__interface_1_1MoveGroupInterface_a1678e44b1a3318b886cfd3211d1b7703_cgraph" alt=""/></div>
 <map name="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a1678e44b1a3318b886cfd3211d1b7703_cgraph" id="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a1678e44b1a3318b886cfd3211d1b7703_cgraph">
 <area shape="rect" title="Get the planner parameters for given group and planner_id." alt="" coords="5,5,247,61"/>
-<area shape="rect" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1MoveGroupInterfaceImpl.html#a168c305f525b501dd8e8dca1594ac195" title=" " alt="" coords="295,5,541,61"/>
+<area shape="rect" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1MoveGroupInterfaceImpl.html#ab3d1743097c72b9fe8089edb12d5c38c" title=" " alt="" coords="295,5,541,61"/>
 </map>
 </div>
 
@@ -2273,7 +2273,7 @@ Here is the call graph for this function:</div>
 
 <p>Get the currently remembered map of names to joint values. </p>
 
-<p class="definition">Definition at line <a class="el" href="move__group__interface_8h_source.html#l01055">1055</a> of file <a class="el" href="move__group__interface_8h_source.html">move_group_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="move__group__interface_8h_source.html#l01029">1029</a> of file <a class="el" href="move__group__interface_8h_source.html">move_group_interface.h</a>.</p>
 
 </div>
 </div>
@@ -2395,14 +2395,14 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="ad9b54cdc45eed094a69508cc4398c1ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9b54cdc45eed094a69508cc4398c1ad">&#9670;&nbsp;</a></span>move()</h2>
+<a id="a5bfa19482d2a110b46d30e1f55089ce7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bfa19482d2a110b46d30e1f55089ce7">&#9670;&nbsp;</a></span>move()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">MoveItErrorCode</a> moveit::planning_interface::MoveGroupInterface::move </td>
+          <td class="memname"><a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a> moveit::planning_interface::MoveGroupInterface::move </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2497,14 +2497,14 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a9c45180e15c2b26f61c64c3add5648b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c45180e15c2b26f61c64c3add5648b3">&#9670;&nbsp;</a></span>plan()</h2>
+<a id="a22ace93a8ef807ff62417a779dd8d598"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22ace93a8ef807ff62417a779dd8d598">&#9670;&nbsp;</a></span>plan()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">MoveItErrorCode</a> moveit::planning_interface::MoveGroupInterface::plan </td>
+          <td class="memname"><a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a> moveit::planning_interface::MoveGroupInterface::plan </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html">Plan</a> &amp;&#160;</td>
           <td class="paramname"><em>plan</em></td><td>)</td>
@@ -2519,8 +2519,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a9c45180e15c2b26f61c64c3add5648b3_icgraph.png" border="0" usemap="#classmoveit_1_1planning__interface_1_1MoveGroupInterface_a9c45180e15c2b26f61c64c3add5648b3_icgraph" alt=""/></div>
-<map name="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a9c45180e15c2b26f61c64c3add5648b3_icgraph" id="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a9c45180e15c2b26f61c64c3add5648b3_icgraph">
+<div class="center"><img src="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a22ace93a8ef807ff62417a779dd8d598_icgraph.png" border="0" usemap="#classmoveit_1_1planning__interface_1_1MoveGroupInterface_a22ace93a8ef807ff62417a779dd8d598_icgraph" alt=""/></div>
+<map name="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a22ace93a8ef807ff62417a779dd8d598_icgraph" id="classmoveit_1_1planning__interface_1_1MoveGroupInterface_a22ace93a8ef807ff62417a779dd8d598_icgraph">
 <area shape="rect" title="Compute a motion plan that takes the group declared in the constructor from the current state to the ..." alt="" coords="295,71,493,112"/>
 <area shape="rect" href="classrobot__state__update_1_1RobotStateUpdateTest.html#a4b8e555816ac0889d0217261c360bbfe" title=" " alt="" coords="31,5,221,47"/>
 <area shape="rect" href="classpython__move__group_1_1PythonMoveGroupTest.html#a153f7cbf3e9543e4ff77f33cb1196d8a" title=" " alt="" coords="14,71,238,112"/>
@@ -4303,7 +4303,7 @@ Here is the call graph for this function:</div>
 </div><!-- fragment -->
 <p>Default ROS parameter name from where to read the robot's URDF. Set to 'robot_description'. </p>
 
-<p class="definition">Definition at line <a class="el" href="move__group__interface_8h_source.html#l00176">176</a> of file <a class="el" href="move__group__interface_8h_source.html">move_group_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="move__group__interface_8h_source.html#l00150">150</a> of file <a class="el" href="move__group__interface_8h_source.html">move_group_interface.h</a>.</p>
 
 </div>
 </div>

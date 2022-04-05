@@ -1,4 +1,5 @@
 <map id="collision_detection::AllowedCollisionMatrix::print" name="collision_detection::AllowedCollisionMatrix::print">
-<area shape="rect" id="node1" title="Print the allowed collision matrix." alt="" coords="5,5,185,61"/>
+<area shape="rect" id="node1" title="Print the allowed collision matrix." alt="" coords="5,45,185,101"/>
 <area shape="rect" id="node2" href="$classcollision__detection_1_1AllowedCollisionMatrix.html#a74486fe3a716208c2c271e81e99e2b1f" title="Get the allowed collision predicate between two elements. Return true if a predicate for entry is inc..." alt="" coords="233,5,413,61"/>
+<area shape="rect" id="node3" href="$classcollision__detection_1_1AllowedCollisionMatrix.html#ac3b12c32bd2a5cf08465a61110b83f4e" title="Get the type of the allowed collision to be considered by default for an element. Return true if a de..." alt="" coords="233,85,413,141"/>
 </map>

@@ -103,6 +103,8 @@ ROS Noetic</h1>
 <li>Removed deprecated header <code><a class="el" href="deprecation_8h.html">moveit/macros/deprecation.h</a></code>. Use <code>[[deprecated]]</code> instead.</li>
 <li>All uses of <code>MOVEIT_CLASS_FORWARD</code> et. al. must now be followed by a semicolon for consistency (and to get -pedantic builds to pass for the codebase).</li>
 <li>In case you start RViz in a namespace, the default topic for the trajectory visualization display now uses the relative instead of the absolute namespace (i.e. <code>&lt;ns&gt;/move_group/display_planned_path</code> instead of <code>/move_group/display_planned_path</code>).</li>
+<li><code>RobotState::attachBody()</code> now takes a unique_ptr instead of an owning raw pointer.</li>
+<li>Moved the class <code>MoveItErrorCode</code> from both <code>moveit_ros_planning</code> and <code><a class="el" href="namespacemoveit__ros__planning__interface.html">moveit_ros_planning_interface</a></code> to <code>moveit_core</code>. The class now is in namespace <code><a class="el" href="namespacemoveit_1_1core.html" title="Core components of MoveIt.">moveit::core</a></code>, access via <code><a class="el" href="namespacemoveit_1_1planning__interface.html" title="Simple interface to MoveIt components.">moveit::planning_interface</a></code> or <code><a class="el" href="classmoveit__cpp_1_1PlanningComponent.html">moveit_cpp::PlanningComponent</a></code> is deprecated.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md17"></a>
 ROS Melodic</h1>

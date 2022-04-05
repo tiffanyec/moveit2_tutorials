@@ -296,7 +296,7 @@ $(function() {
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  <span class="comment">// Set support surface as table1.</span></div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  move_group_-&gt;setSupportSurfaceName(<span class="stringliteral">&quot;table1&quot;</span>);</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  <span class="comment">// Call pick to pick up the object using the grasps given</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  ASSERT_EQ(move_group_-&gt;pick(<span class="stringliteral">&quot;object&quot;</span>, grasps), moveit::planning_interface::MoveItErrorCode::SUCCESS);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  ASSERT_EQ(move_group_-&gt;pick(<span class="stringliteral">&quot;object&quot;</span>, grasps), moveit::core::MoveItErrorCode::SUCCESS);</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="comment">// Ideally, you would create a vector of place locations to be attempted although in this example, we only create</span></div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <span class="comment">// a single place location.</span></div>
@@ -351,7 +351,7 @@ $(function() {
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  <span class="comment">// Set support surface as table2.</span></div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  move_group_-&gt;setSupportSurfaceName(<span class="stringliteral">&quot;table2&quot;</span>);</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  <span class="comment">// Call place to place the object using the place locations given.</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  ASSERT_EQ(move_group_-&gt;place(<span class="stringliteral">&quot;object&quot;</span>, place_location), moveit::planning_interface::MoveItErrorCode::SUCCESS);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  ASSERT_EQ(move_group_-&gt;place(<span class="stringliteral">&quot;object&quot;</span>, place_location), moveit::core::MoveItErrorCode::SUCCESS);</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;}</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
 <div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="move__group__pick__place__test_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">  284</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="move__group__pick__place__test_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>

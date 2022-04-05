@@ -1,6 +1,6 @@
 <map id="moveit_cpp::PlanningComponent::PlanSolution" name="moveit_cpp::PlanningComponent::PlanSolution">
-<area shape="rect" id="node1" title="The representation of a plan solution." alt="" coords="101,185,339,227"/>
-<area shape="rect" id="node2" href="$classmoveit__cpp_1_1PlanningComponent_1_1MoveItErrorCode.html" title=" " alt="" coords="5,81,243,123"/>
-<area shape="rect" id="node3" title=" " alt="" coords="55,5,193,32"/>
-<area shape="rect" id="node4" title=" " alt="" coords="267,89,362,115"/>
+<area shape="rect" id="node1" title="The representation of a plan solution." alt="" coords="89,171,327,212"/>
+<area shape="rect" id="node2" href="$classmoveit_1_1core_1_1MoveItErrorCode.html" title="a wrapper around moveit_msgs::MoveItErrorCodes to make it easier to return an error code message from..." alt="" coords="5,81,227,108"/>
+<area shape="rect" id="node3" title=" " alt="" coords="47,5,185,32"/>
+<area shape="rect" id="node4" title=" " alt="" coords="251,81,346,108"/>
 </map>

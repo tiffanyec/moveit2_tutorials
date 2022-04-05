@@ -1,9 +1,9 @@
 <map id="moveit_ros/hybrid_planning/global_planner/global_planner_plugins/include/moveit/global_planner/moveit_planning_pipeline.h" name="moveit_ros/hybrid_planning/global_planner/global_planner_plugins/include/moveit/global_planner/moveit_planning_pipeline.h">
-<area shape="rect" id="node1" title=" " alt="" coords="2199,5,2462,76"/>
+<area shape="rect" id="node1" title=" " alt="" coords="2217,5,2479,76"/>
 <area shape="rect" id="node2" title=" " alt="" coords="3259,615,3391,641"/>
 <area shape="rect" id="node3" href="$global__planner__interface_8h.html" title=" " alt="" coords="354,303,553,344"/>
-<area shape="rect" id="node34" href="$moveit__cpp_8h.html" title=" " alt="" coords="2365,213,2563,255"/>
-<area shape="rect" id="node47" href="$planning__component_8h.html" title=" " alt="" coords="2095,124,2303,165"/>
+<area shape="rect" id="node34" href="$moveit__cpp_8h.html" title=" " alt="" coords="2374,213,2573,255"/>
+<area shape="rect" id="node47" href="$planning__component_8h.html" title=" " alt="" coords="2120,124,2328,165"/>
 <area shape="rect" id="node4" title=" " alt="" coords="401,399,551,441"/>
 <area shape="rect" id="node5" href="$planning__scene__monitor_8h.html" title=" " alt="" coords="1807,392,1993,448"/>
 <area shape="rect" id="node32" title=" " alt="" coords="5,399,160,441"/>
@@ -32,13 +32,13 @@
 <area shape="rect" id="node15" title=" " alt="" coords="2641,704,2813,745"/>
 <area shape="rect" id="node16" title=" " alt="" coords="955,704,1125,745"/>
 <area shape="rect" id="node17" title=" " alt="" coords="779,704,931,745"/>
-<area shape="rect" id="node22" title=" " alt="" coords="3452,615,3511,641"/>
-<area shape="rect" id="node23" title=" " alt="" coords="3571,615,3634,641"/>
+<area shape="rect" id="node22" title=" " alt="" coords="3488,615,3547,641"/>
+<area shape="rect" id="node23" title=" " alt="" coords="3607,615,3670,641"/>
 <area shape="rect" id="node35" href="$controller__manager_8h.html" title=" " alt="" coords="4735,503,4934,545"/>
 <area shape="rect" id="node36" href="$planning__pipeline_8h.html" title=" " alt="" coords="3149,303,3336,344"/>
-<area shape="rect" id="node42" href="$trajectory__execution__manager_8h.html" title=" " alt="" coords="3781,392,4005,448"/>
+<area shape="rect" id="node42" href="$trajectory__execution__manager_8h.html" title=" " alt="" coords="3760,392,3984,448"/>
 <area shape="rect" id="node37" href="$planning__interface_8h.html" title=" " alt="" coords="4467,503,4661,545"/>
-<area shape="rect" id="node38" href="$planning__request__adapter_8h.html" title=" " alt="" coords="4391,392,4585,448"/>
+<area shape="rect" id="node38" href="$planning__request__adapter_8h.html" title=" " alt="" coords="4351,392,4545,448"/>
 <area shape="rect" id="node39" title=" " alt="" coords="3465,511,3655,537"/>
 <area shape="rect" id="node40" title=" " alt="" coords="2930,399,3123,441"/>
 <area shape="rect" id="node41" title=" " alt="" coords="3147,399,3338,441"/>
@@ -46,7 +46,7 @@
 <area shape="rect" id="node44" title=" " alt="" coords="4311,511,4443,537"/>
 <area shape="rect" id="node45" title=" " alt="" coords="3782,511,3845,537"/>
 <area shape="rect" id="node46" title=" " alt="" coords="3869,503,4077,545"/>
-<area shape="rect" id="node48" title=" " alt="" coords="1888,213,2083,255"/>
+<area shape="rect" id="node48" title=" " alt="" coords="1929,213,2124,255"/>
 <area shape="rect" id="node49" href="$conversions_8h.html" title=" " alt="" coords="456,503,603,545"/>
-<area shape="rect" id="node50" title=" " alt="" coords="2107,213,2290,255"/>
+<area shape="rect" id="node50" href="$moveit__error__code_8h.html" title=" " alt="" coords="2149,213,2299,255"/>
 </map>

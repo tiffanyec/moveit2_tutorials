@@ -11,7 +11,7 @@
 <area shape="rect" id="node14" href="$test__collision__common__panda_8h.html#a894803518e93708a180036f3541da9e1" title="Brings the panda robot in user defined home position." alt="" coords="789,545,883,571"/>
 <area shape="rect" id="node16" href="$test__bullet__continuous__collision__checking_8cpp.html#ac603f07e4fe91e8b8704f211fb3479b3" title="Continuous self collision checks are not supported yet by the bullet integration." alt="" coords="801,595,871,622"/>
 <area shape="rect" id="node17" href="$test__multi__threaded_8cpp.html#ad41b8bdce67cc855d0a802424635ab9f" title="Tests the collision detector in multiple threads." alt="" coords="801,646,871,673"/>
-<area shape="rect" id="node18" href="$test__collision__common__pr2_8h.html#a6c87f5349fd29014a139bb3d711b8b46" title=" " alt="" coords="777,697,895,723"/>
+<area shape="rect" id="node18" href="$test__collision__common__pr2_8h.html#a02b332627ab378437cf5b833a952c7c0" title=" " alt="" coords="777,697,895,723"/>
 <area shape="rect" id="node19" href="$classmoveit__rviz__plugin_1_1PlanningSceneRender.html#a5c0ea4d7dd376089cb6c895ca7801862" title=" " alt="" coords="745,747,927,803"/>
 <area shape="rect" id="node4" href="$classplanning__scene_1_1PlanningScene.html#a7a90a85d8dcfd1f2aea3cd019db399c8" title="Get the allowed collision matrix." alt="" coords="403,71,643,112"/>
 <area shape="rect" id="node5" href="$pymoveit__core_8cpp.html#acdb1e01a5a6ec640937d8c69c0f7d045" title=" " alt="" coords="204,71,355,112"/>

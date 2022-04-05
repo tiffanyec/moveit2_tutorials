@@ -70,6 +70,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">move_group_interface.h File Reference</div>  </div>
@@ -77,6 +78,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="class__forward_8h_source.html">moveit/macros/class_forward.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="robot__state_8h_source.html">moveit/robot_state/robot_state.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="moveit__error__code_8h_source.html">moveit/utils/moveit_error_code.h</a>&gt;</code><br />
 <code>#include &lt;moveit_msgs/msg/robot_trajectory.hpp&gt;</code><br />
 <code>#include &lt;moveit_msgs/msg/robot_state.hpp&gt;</code><br />
 <code>#include &lt;moveit_msgs/msg/planner_interface_description.hpp&gt;</code><br />
@@ -96,56 +98,56 @@ Include dependency graph for move_group_interface.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="move__group__interface_8h__incl.png" border="0" usemap="#moveit__ros_2planning__interface_2move__group__interface_2include_2moveit_2move__group__interface_2move__group__interface_8h" alt=""/></div>
 <map name="moveit__ros_2planning__interface_2move__group__interface_2include_2moveit_2move__group__interface_2move__group__interface_8h" id="moveit__ros_2planning__interface_2move__group__interface_2include_2moveit_2move__group__interface_2move__group__interface_8h">
-<area shape="rect" title=" " alt="" coords="3305,5,3519,91"/>
-<area shape="rect" href="class__forward_8h.html" title=" " alt="" coords="655,496,812,537"/>
+<area shape="rect" title=" " alt="" coords="3543,5,3756,91"/>
+<area shape="rect" href="class__forward_8h.html" title=" " alt="" coords="171,496,328,537"/>
 <area shape="rect" title=" " alt="" coords="28,675,105,701"/>
-<area shape="rect" href="robot__state_8h.html" title=" " alt="" coords="928,139,1075,180"/>
-<area shape="rect" title=" " alt="" coords="2087,503,2147,530"/>
-<area shape="rect" title=" " alt="" coords="2535,139,2715,180"/>
-<area shape="rect" title=" " alt="" coords="2739,139,2919,180"/>
-<area shape="rect" title=" " alt="" coords="2944,139,3139,180"/>
-<area shape="rect" title=" " alt="" coords="3163,146,3410,173"/>
-<area shape="rect" title=" " alt="" coords="3433,146,3644,173"/>
-<area shape="rect" title=" " alt="" coords="3668,139,3823,180"/>
-<area shape="rect" title=" " alt="" coords="3847,139,4020,180"/>
-<area shape="rect" title=" " alt="" coords="4044,139,4236,180"/>
-<area shape="rect" title=" " alt="" coords="4260,139,4455,180"/>
-<area shape="rect" title=" " alt="" coords="4479,139,4630,180"/>
-<area shape="rect" title=" " alt="" coords="4655,146,4775,173"/>
-<area shape="rect" title=" " alt="" coords="4799,139,5020,180"/>
-<area shape="rect" href="declare__ptr_8h.html" title=" " alt="" coords="401,585,573,627"/>
-<area shape="rect" href="robot__model_8h.html" title=" " alt="" coords="1535,228,1689,269"/>
-<area shape="rect" href="attached__body_8h.html" title=" " alt="" coords="583,317,729,359"/>
-<area shape="rect" href="transforms_8h.html" title=" " alt="" coords="94,414,325,441"/>
-<area shape="rect" title=" " alt="" coords="627,228,799,269"/>
-<area shape="rect" title=" " alt="" coords="824,228,995,269"/>
-<area shape="rect" title=" " alt="" coords="1019,228,1171,269"/>
-<area shape="rect" title=" " alt="" coords="1195,235,1418,262"/>
-<area shape="rect" title=" " alt="" coords="1441,235,1511,262"/>
-<area shape="rect" title=" " alt="" coords="371,235,501,262"/>
-<area shape="rect" href="exceptions_8h.html" title=" " alt="" coords="1210,325,1441,351"/>
-<area shape="rect" title=" " alt="" coords="948,414,1081,441"/>
-<area shape="rect" href="joint__model__group_8h.html" title=" " alt="" coords="1027,317,1186,359"/>
-<area shape="rect" title=" " alt="" coords="2352,503,2432,530"/>
-<area shape="rect" title=" " alt="" coords="1491,503,1618,530"/>
-<area shape="rect" href="fixed__joint__model_8h.html" title=" " alt="" coords="1924,317,2079,359"/>
-<area shape="rect" href="floating__joint__model_8h.html" title=" " alt="" coords="2103,317,2273,359"/>
-<area shape="rect" href="planar__joint__model_8h.html" title=" " alt="" coords="2297,317,2460,359"/>
-<area shape="rect" href="revolute__joint__model_8h.html" title=" " alt="" coords="1516,317,1692,359"/>
-<area shape="rect" href="prismatic__joint__model_8h.html" title=" " alt="" coords="1717,317,1899,359"/>
-<area shape="rect" title=" " alt="" coords="1543,414,1630,441"/>
-<area shape="rect" href="joint__model_8h.html" title=" " alt="" coords="1719,407,1873,448"/>
-<area shape="rect" href="link__model_8h.html" title=" " alt="" coords="1364,407,1519,448"/>
-<area shape="rect" href="kinematics__base_8h.html" title=" " alt="" coords="1106,407,1289,448"/>
-<area shape="rect" title=" " alt="" coords="1042,503,1185,530"/>
-<area shape="rect" title=" " alt="" coords="881,414,924,441"/>
-<area shape="rect" title=" " alt="" coords="1643,503,1701,530"/>
-<area shape="rect" title=" " alt="" coords="1416,503,1467,530"/>
-<area shape="rect" title=" " alt="" coords="1209,496,1391,537"/>
-<area shape="rect" title=" " alt="" coords="583,407,755,448"/>
-<area shape="rect" title=" " alt="" coords="401,407,559,448"/>
-<area shape="rect" title=" " alt="" coords="69,496,296,537"/>
-<area shape="rect" title=" " alt="" coords="320,503,493,530"/>
+<area shape="rect" href="robot__state_8h.html" title=" " alt="" coords="1875,139,2021,180"/>
+<area shape="rect" title=" " alt="" coords="2525,503,2585,530"/>
+<area shape="rect" href="moveit__error__code_8h.html" title=" " alt="" coords="2723,139,2874,180"/>
+<area shape="rect" title=" " alt="" coords="2898,139,3078,180"/>
+<area shape="rect" title=" " alt="" coords="3102,139,3282,180"/>
+<area shape="rect" title=" " alt="" coords="3307,139,3501,180"/>
+<area shape="rect" title=" " alt="" coords="3526,146,3773,173"/>
+<area shape="rect" title=" " alt="" coords="3796,146,4007,173"/>
+<area shape="rect" title=" " alt="" coords="4031,139,4185,180"/>
+<area shape="rect" title=" " alt="" coords="4209,139,4383,180"/>
+<area shape="rect" title=" " alt="" coords="4407,139,4599,180"/>
+<area shape="rect" title=" " alt="" coords="4623,139,4817,180"/>
+<area shape="rect" title=" " alt="" coords="4842,139,4993,180"/>
+<area shape="rect" title=" " alt="" coords="5017,146,5137,173"/>
+<area shape="rect" title=" " alt="" coords="5161,139,5383,180"/>
+<area shape="rect" href="declare__ptr_8h.html" title=" " alt="" coords="103,585,275,627"/>
+<area shape="rect" href="robot__model_8h.html" title=" " alt="" coords="1035,228,1189,269"/>
+<area shape="rect" href="attached__body_8h.html" title=" " alt="" coords="1852,317,1999,359"/>
+<area shape="rect" href="transforms_8h.html" title=" " alt="" coords="1907,414,2138,441"/>
+<area shape="rect" title=" " alt="" coords="1765,228,1937,269"/>
+<area shape="rect" title=" " alt="" coords="1961,228,2132,269"/>
+<area shape="rect" title=" " alt="" coords="2156,228,2308,269"/>
+<area shape="rect" title=" " alt="" coords="2333,235,2555,262"/>
+<area shape="rect" title=" " alt="" coords="2579,235,2648,262"/>
+<area shape="rect" title=" " alt="" coords="880,235,1011,262"/>
+<area shape="rect" href="exceptions_8h.html" title=" " alt="" coords="195,325,426,351"/>
+<area shape="rect" title=" " alt="" coords="1337,414,1471,441"/>
+<area shape="rect" href="joint__model__group_8h.html" title=" " alt="" coords="1519,317,1678,359"/>
+<area shape="rect" title=" " alt="" coords="67,503,147,530"/>
+<area shape="rect" title=" " alt="" coords="1349,503,1475,530"/>
+<area shape="rect" href="fixed__joint__model_8h.html" title=" " alt="" coords="657,317,812,359"/>
+<area shape="rect" href="floating__joint__model_8h.html" title=" " alt="" coords="836,317,1007,359"/>
+<area shape="rect" href="planar__joint__model_8h.html" title=" " alt="" coords="1031,317,1193,359"/>
+<area shape="rect" href="revolute__joint__model_8h.html" title=" " alt="" coords="1217,317,1393,359"/>
+<area shape="rect" href="prismatic__joint__model_8h.html" title=" " alt="" coords="450,317,633,359"/>
+<area shape="rect" title=" " alt="" coords="267,414,354,441"/>
+<area shape="rect" href="joint__model_8h.html" title=" " alt="" coords="1035,407,1189,448"/>
+<area shape="rect" href="link__model_8h.html" title=" " alt="" coords="1561,407,1716,448"/>
+<area shape="rect" title=" " alt="" coords="1741,414,1883,441"/>
+<area shape="rect" title=" " alt="" coords="1495,414,1537,441"/>
+<area shape="rect" title=" " alt="" coords="1613,503,1664,530"/>
+<area shape="rect" title=" " alt="" coords="2241,496,2423,537"/>
+<area shape="rect" title=" " alt="" coords="2397,407,2569,448"/>
+<area shape="rect" title=" " alt="" coords="2162,407,2321,448"/>
+<area shape="rect" title=" " alt="" coords="1936,496,2163,537"/>
+<area shape="rect" title=" " alt="" coords="1739,503,1912,530"/>
+<area shape="rect" title=" " alt="" coords="2723,228,2906,269"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -187,8 +189,6 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">moveit::planning_interface::MoveItErrorCode</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html">moveit::planning_interface::MoveGroupInterface</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client class to conveniently use the ROS interfaces provided by the <a class="el" href="namespacemove__group.html">move_group</a> node.  <a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,6 +207,11 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacemoveit_1_1planning__interface"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemoveit_1_1planning__interface.html">moveit::planning_interface</a></td></tr>
 <tr class="memdesc:namespacemoveit_1_1planning__interface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple interface to MoveIt components. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ac9e1644bbdf204413071c25560415954"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemoveit_1_1planning__interface.html#ac9e1644bbdf204413071c25560415954">moveit::planning_interface::MoveItErrorCode</a> = <a class="el" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a></td></tr>
+<tr class="separator:ac9e1644bbdf204413071c25560415954"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>

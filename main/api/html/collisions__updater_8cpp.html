@@ -68,6 +68,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">collisions_updater.cpp File Reference</div>  </div>
@@ -137,6 +138,11 @@ Include dependency graph for collisions_updater.cpp:</div>
 </div>
 <p><a href="collisions__updater_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCollisionPairLess.html">CollisionPairLess</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a9bee8b823ba48cb09f57c18407284cdf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="collisions__updater_8cpp.html#a9bee8b823ba48cb09f57c18407284cdf">loadSetupAssistantConfig</a> (<a class="el" href="classmoveit__setup__assistant_1_1MoveItConfigData.html">moveit_setup_assistant::MoveItConfigData</a> &amp;config_data, const std::string &amp;pkg_path)</td></tr>
@@ -145,6 +151,8 @@ Functions</h2></td></tr>
 <tr class="separator:abf01ecd89054144ab5c086f72ba9ef29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0255f83644fb7cd23a2bf00cdc6eef64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacemoveit__setup__assistant.html#a81e8d6baf4648b04a9aa5a4639ad5420">moveit_setup_assistant::LinkPairMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="collisions__updater_8cpp.html#a0255f83644fb7cd23a2bf00cdc6eef64">compute</a> (<a class="el" href="classmoveit__setup__assistant_1_1MoveItConfigData.html">moveit_setup_assistant::MoveItConfigData</a> &amp;config_data, uint32_t trials, double min_collision_fraction, bool verbose)</td></tr>
 <tr class="separator:a0255f83644fb7cd23a2bf00cdc6eef64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1aff134ebc12c5a4a4a4ea16c86d177"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="collisions__updater_8cpp.html#af1aff134ebc12c5a4a4a4ea16c86d177">updateCollisionLinkPairs</a> (std::vector&lt; srdf::Model::CollisionPair &gt; &amp;target_pairs, const <a class="el" href="namespacemoveit__setup__assistant.html#a81e8d6baf4648b04a9aa5a4639ad5420">moveit_setup_assistant::LinkPairMap</a> &amp;source_pairs, size_t skip_mask)</td></tr>
+<tr class="separator:af1aff134ebc12c5a4a4a4ea16c86d177"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="collisions__updater_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -187,7 +195,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="collisions__updater_8cpp_source.html#l00108">108</a> of file <a class="el" href="collisions__updater_8cpp_source.html">collisions_updater.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="collisions__updater_8cpp_source.html#l00112">112</a> of file <a class="el" href="collisions__updater_8cpp_source.html">collisions_updater.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -257,7 +265,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="collisions__updater_8cpp_source.html#l00117">117</a> of file <a class="el" href="collisions__updater_8cpp_source.html">collisions_updater.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="collisions__updater_8cpp_source.html#l00167">167</a> of file <a class="el" href="collisions__updater_8cpp_source.html">collisions_updater.cpp</a>.</p>
 
 </div>
 </div>
@@ -294,6 +302,51 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="collisions__updater_8cpp_source.html#l00074">74</a> of file <a class="el" href="collisions__updater_8cpp_source.html">collisions_updater.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af1aff134ebc12c5a4a4a4ea16c86d177"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1aff134ebc12c5a4a4a4ea16c86d177">&#9670;&nbsp;</a></span>updateCollisionLinkPairs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateCollisionLinkPairs </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; srdf::Model::CollisionPair &gt; &amp;&#160;</td>
+          <td class="paramname"><em>target_pairs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacemoveit__setup__assistant.html#a81e8d6baf4648b04a9aa5a4639ad5420">moveit_setup_assistant::LinkPairMap</a> &amp;&#160;</td>
+          <td class="paramname"><em>source_pairs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>skip_mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="collisions__updater_8cpp_source.html#l00131">131</a> of file <a class="el" href="collisions__updater_8cpp_source.html">collisions_updater.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="collisions__updater_8cpp_af1aff134ebc12c5a4a4a4ea16c86d177_cgraph.png" border="0" usemap="#collisions__updater_8cpp_af1aff134ebc12c5a4a4a4ea16c86d177_cgraph" alt=""/></div>
+<map name="collisions__updater_8cpp_af1aff134ebc12c5a4a4a4ea16c86d177_cgraph" id="collisions__updater_8cpp_af1aff134ebc12c5a4a4a4ea16c86d177_cgraph">
+<area shape="rect" title=" " alt="" coords="5,13,187,39"/>
+<area shape="rect" href="namespacemoveit__setup__assistant.html#a214a0fe7bdff2e5a2fe895dac701290a" title="Converts a reason for disabling a link pair into a string." alt="" coords="235,5,420,47"/>
+</map>
+</div>
 
 </div>
 </div>

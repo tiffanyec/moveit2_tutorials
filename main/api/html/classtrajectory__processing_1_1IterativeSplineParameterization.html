@@ -79,15 +79,34 @@ $(function() {
  <a href="classtrajectory__processing_1_1IterativeSplineParameterization.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="iterative__spline__parameterization_8h_source.html">iterative_spline_parameterization.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for trajectory_processing::IterativeSplineParameterization:</div>
+<div class="dyncontent">
+<div class="center"><img src="classtrajectory__processing_1_1IterativeSplineParameterization__inherit__graph.png" border="0" usemap="#trajectory__processing_1_1IterativeSplineParameterization_inherit__map" alt="Inheritance graph"/></div>
+<map name="trajectory__processing_1_1IterativeSplineParameterization_inherit__map" id="trajectory__processing_1_1IterativeSplineParameterization_inherit__map">
+<area shape="rect" title="This class sets the timestamps of a trajectory to enforce velocity, acceleration constraints...." alt="" coords="5,95,241,136"/>
+<area shape="rect" href="classtrajectory__processing_1_1TimeParameterization.html" title="Base class for trajectory parameterization algorithms." alt="" coords="36,5,211,47"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for trajectory_processing::IterativeSplineParameterization:</div>
+<div class="dyncontent">
+<div class="center"><img src="classtrajectory__processing_1_1IterativeSplineParameterization__coll__graph.png" border="0" usemap="#trajectory__processing_1_1IterativeSplineParameterization_coll__map" alt="Collaboration graph"/></div>
+<map name="trajectory__processing_1_1IterativeSplineParameterization_coll__map" id="trajectory__processing_1_1IterativeSplineParameterization_coll__map">
+<area shape="rect" title="This class sets the timestamps of a trajectory to enforce velocity, acceleration constraints...." alt="" coords="5,95,241,136"/>
+<area shape="rect" href="classtrajectory__processing_1_1TimeParameterization.html" title="Base class for trajectory parameterization algorithms." alt="" coords="36,5,211,47"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aeaed6a07d2db755a1826cf556bb2024b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1IterativeSplineParameterization.html#aeaed6a07d2db755a1826cf556bb2024b">IterativeSplineParameterization</a> (bool add_points=true)</td></tr>
 <tr class="separator:aeaed6a07d2db755a1826cf556bb2024b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65d41911d4ed077628f9b4a0d14fc088"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1IterativeSplineParameterization.html#a65d41911d4ed077628f9b4a0d14fc088">~IterativeSplineParameterization</a> ()=default</td></tr>
-<tr class="separator:a65d41911d4ed077628f9b4a0d14fc088"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab01c18e50f1663358c658651e1fde2c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1IterativeSplineParameterization.html#ab01c18e50f1663358c658651e1fde2c5">computeTimeStamps</a> (<a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;trajectory, const double max_velocity_scaling_factor=1.0, const double max_acceleration_scaling_factor=1.0) const</td></tr>
-<tr class="separator:ab01c18e50f1663358c658651e1fde2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac65a0bed2a3d103913f7179b18efb6ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1IterativeSplineParameterization.html#ac65a0bed2a3d103913f7179b18efb6ab">computeTimeStamps</a> (<a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;trajectory, const double max_velocity_scaling_factor=1.0, const double max_acceleration_scaling_factor=1.0) const override</td></tr>
+<tr class="separator:ac65a0bed2a3d103913f7179b18efb6ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classtrajectory__processing_1_1TimeParameterization"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classtrajectory__processing_1_1TimeParameterization')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtrajectory__processing_1_1TimeParameterization.html">trajectory_processing::TimeParameterization</a></td></tr>
+<tr class="memitem:a5bb53d61cca77c7519cefd350f0fc5d7 inherit pub_methods_classtrajectory__processing_1_1TimeParameterization"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1TimeParameterization.html#a5bb53d61cca77c7519cefd350f0fc5d7">~TimeParameterization</a> ()=default</td></tr>
+<tr class="separator:a5bb53d61cca77c7519cefd350f0fc5d7 inherit pub_methods_classtrajectory__processing_1_1TimeParameterization"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class sets the timestamps of a trajectory to enforce velocity, acceleration constraints. Initial/final velocities and accelerations may be specified in the trajectory. Velocity and acceleration limits are specified in the model. </p>
@@ -95,7 +114,7 @@ Public Member Functions</h2></td></tr>
 <p>To match the velocity and acceleration at the endpoints, the second and second-last point locations need to move. By default, two extra points are added to leave the original trajectory unaffected. If points are not added, the trajectory could potentially be faster, but the 2nd and 2nd-last points should be re-checked for collisions.</p>
 <p>Migration notes: If migrating from Iterative Parabolic Time Parameterization, be aware that the velocity and acceleration limits are more strictly enforced using this technique. This means that time-parameterizing the same trajectory with the same velocity and acceleration limits, will result in a longer trajectory. If this is a problem, try retuning (increasing) the limits. </p>
 
-<p class="definition">Definition at line <a class="el" href="iterative__spline__parameterization_8h_source.html#l00104">104</a> of file <a class="el" href="iterative__spline__parameterization_8h_source.html">iterative_spline_parameterization.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="iterative__spline__parameterization_8h_source.html#l00105">105</a> of file <a class="el" href="iterative__spline__parameterization_8h_source.html">iterative_spline_parameterization.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aeaed6a07d2db755a1826cf556bb2024b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeaed6a07d2db755a1826cf556bb2024b">&#9670;&nbsp;</a></span>IterativeSplineParameterization()</h2>
@@ -117,37 +136,15 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a65d41911d4ed077628f9b4a0d14fc088"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65d41911d4ed077628f9b4a0d14fc088">&#9670;&nbsp;</a></span>~IterativeSplineParameterization()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac65a0bed2a3d103913f7179b18efb6ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac65a0bed2a3d103913f7179b18efb6ab">&#9670;&nbsp;</a></span>computeTimeStamps()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">trajectory_processing::IterativeSplineParameterization::~IterativeSplineParameterization </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab01c18e50f1663358c658651e1fde2c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab01c18e50f1663358c658651e1fde2c5">&#9670;&nbsp;</a></span>computeTimeStamps()</h2>
-
-<div class="memitem">
-<div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool trajectory_processing::IterativeSplineParameterization::computeTimeStamps </td>
@@ -173,14 +170,21 @@ Public Member Functions</h2></td></tr>
           <td></td><td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Implements <a class="el" href="classtrajectory__processing_1_1TimeParameterization.html#a4dbacb6d1eaab1aaca95aeabcc01477d">trajectory_processing::TimeParameterization</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="iterative__spline__parameterization_8cpp_source.html#l00078">78</a> of file <a class="el" href="iterative__spline__parameterization_8cpp_source.html">iterative_spline_parameterization.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classtrajectory__processing_1_1IterativeSplineParameterization_ab01c18e50f1663358c658651e1fde2c5_cgraph.png" border="0" usemap="#classtrajectory__processing_1_1IterativeSplineParameterization_ab01c18e50f1663358c658651e1fde2c5_cgraph" alt=""/></div>
-<map name="classtrajectory__processing_1_1IterativeSplineParameterization_ab01c18e50f1663358c658651e1fde2c5_cgraph" id="classtrajectory__processing_1_1IterativeSplineParameterization_ab01c18e50f1663358c658651e1fde2c5_cgraph">
+<div class="center"><img src="classtrajectory__processing_1_1IterativeSplineParameterization_ac65a0bed2a3d103913f7179b18efb6ab_cgraph.png" border="0" usemap="#classtrajectory__processing_1_1IterativeSplineParameterization_ac65a0bed2a3d103913f7179b18efb6ab_cgraph" alt=""/></div>
+<map name="classtrajectory__processing_1_1IterativeSplineParameterization_ac65a0bed2a3d103913f7179b18efb6ab_cgraph" id="classtrajectory__processing_1_1IterativeSplineParameterization_ac65a0bed2a3d103913f7179b18efb6ab_cgraph">
 <area shape="rect" title=" " alt="" coords="5,259,241,315"/>
 <area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#afdd5cc4e84e484af2dc6ea337f62719e" title=" " alt="" coords="289,5,524,47"/>
 <area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#a6eaef50c3127c83dbc5ca393376435b1" title=" " alt="" coords="289,71,524,112"/>
@@ -196,8 +200,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classtrajectory__processing_1_1IterativeSplineParameterization_ab01c18e50f1663358c658651e1fde2c5_icgraph.png" border="0" usemap="#classtrajectory__processing_1_1IterativeSplineParameterization_ab01c18e50f1663358c658651e1fde2c5_icgraph" alt=""/></div>
-<map name="classtrajectory__processing_1_1IterativeSplineParameterization_ab01c18e50f1663358c658651e1fde2c5_icgraph" id="classtrajectory__processing_1_1IterativeSplineParameterization_ab01c18e50f1663358c658651e1fde2c5_icgraph">
+<div class="center"><img src="classtrajectory__processing_1_1IterativeSplineParameterization_ac65a0bed2a3d103913f7179b18efb6ab_icgraph.png" border="0" usemap="#classtrajectory__processing_1_1IterativeSplineParameterization_ac65a0bed2a3d103913f7179b18efb6ab_icgraph" alt=""/></div>
+<map name="classtrajectory__processing_1_1IterativeSplineParameterization_ac65a0bed2a3d103913f7179b18efb6ab_icgraph" id="classtrajectory__processing_1_1IterativeSplineParameterization_ac65a0bed2a3d103913f7179b18efb6ab_icgraph">
 <area shape="rect" title=" " alt="" coords="108,5,344,61"/>
 <area shape="rect" href="test__time__parameterization_8cpp.html#a1fb67aa34417d03016c74d44bd7f54e0" title=" " alt="" coords="5,20,60,47"/>
 </map>

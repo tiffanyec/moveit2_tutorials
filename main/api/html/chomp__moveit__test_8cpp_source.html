@@ -129,9 +129,9 @@ $(function() {
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  move_group_.setStartState(*(move_group_.getCurrentState()));</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  move_group_.setJointValueTarget(std::vector&lt;double&gt;({ 1.0, 1.0 }));</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <a class="code" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">moveit::planning_interface::MoveItErrorCode</a> error_code = move_group_.plan(my_plan_);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a> error_code = move_group_.plan(my_plan_);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  EXPECT_GT(my_plan_.trajectory_.joint_trajectory.points.size(), 0u);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  EXPECT_EQ(error_code.val, moveit::planning_interface::MoveItErrorCode::SUCCESS);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  EXPECT_EQ(error_code.val, moveit::core::MoveItErrorCode::SUCCESS);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="chomp__moveit__test_8cpp.html#a2b80ff9202b1544185a28675c125c183">   65</a></span>&#160;<a class="code" href="chomp__moveit__test_8cpp.html#aa419f93f633d53ea53bb0c40f300c8b7">TEST_F</a>(<a class="code" href="classCHOMPMoveitTest.html">CHOMPMoveitTest</a>, jointSpaceBadGoal)</div>
@@ -140,8 +140,8 @@ $(function() {
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="comment">// joint2 is limited to [-PI/2, PI/2]</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  move_group_.setJointValueTarget(std::vector&lt;double&gt;({ 100.0, 2 * M_PI / 3.0 }));</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <a class="code" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">moveit::planning_interface::MoveItErrorCode</a> error_code = move_group_.plan(my_plan_);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  EXPECT_EQ(error_code.val, moveit::planning_interface::MoveItErrorCode::INVALID_ROBOT_STATE);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a> error_code = move_group_.plan(my_plan_);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  EXPECT_EQ(error_code.val, moveit::core::MoveItErrorCode::INVALID_ROBOT_STATE);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="chomp__moveit__test_8cpp.html#a595a546125fc28b833a14c1d7fa29aa1">   75</a></span>&#160;<a class="code" href="chomp__moveit__test_8cpp.html#aa419f93f633d53ea53bb0c40f300c8b7">TEST_F</a>(<a class="code" href="classCHOMPMoveitTest.html">CHOMPMoveitTest</a>, cartesianGoal)</div>
@@ -154,17 +154,17 @@ $(function() {
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  target_pose1.position.z = 10000.;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  move_group_.setPoseTarget(target_pose1);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <a class="code" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">moveit::planning_interface::MoveItErrorCode</a> error_code = move_group_.plan(my_plan_);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a> error_code = move_group_.plan(my_plan_);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="comment">// CHOMP doesn&#39;t support Cartesian-space goals at the moment</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  EXPECT_EQ(error_code.val, moveit::planning_interface::MoveItErrorCode::INVALID_GOAL_CONSTRAINTS);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  EXPECT_EQ(error_code.val, moveit::core::MoveItErrorCode::INVALID_GOAL_CONSTRAINTS);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
 <div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="chomp__moveit__test_8cpp.html#a3aa8b5c93e0ca60e1d617187d8493918">   90</a></span>&#160;<a class="code" href="chomp__moveit__test_8cpp.html#aa419f93f633d53ea53bb0c40f300c8b7">TEST_F</a>(<a class="code" href="classCHOMPMoveitTest.html">CHOMPMoveitTest</a>, noStartState)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  move_group_.setJointValueTarget(std::vector&lt;double&gt;({ 0.2, 0.2 }));</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <a class="code" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">moveit::planning_interface::MoveItErrorCode</a> error_code = move_group_.plan(my_plan_);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  EXPECT_EQ(error_code.val, moveit::planning_interface::MoveItErrorCode::SUCCESS);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a> error_code = move_group_.plan(my_plan_);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  EXPECT_EQ(error_code.val, moveit::core::MoveItErrorCode::SUCCESS);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
 <div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="chomp__moveit__test_8cpp.html#a33ca32af42ac603e60e7dee7989a401a">   98</a></span>&#160;<a class="code" href="chomp__moveit__test_8cpp.html#aa419f93f633d53ea53bb0c40f300c8b7">TEST_F</a>(<a class="code" href="classCHOMPMoveitTest.html">CHOMPMoveitTest</a>, collisionAtEndOfPath)</div>
@@ -172,8 +172,8 @@ $(function() {
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  move_group_.setStartState(*(move_group_.getCurrentState()));</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  move_group_.setJointValueTarget(std::vector&lt;double&gt;({ M_PI / 2.0, 0 }));</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <a class="code" href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">moveit::planning_interface::MoveItErrorCode</a> error_code = move_group_.plan(my_plan_);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  EXPECT_EQ(error_code.val, moveit::planning_interface::MoveItErrorCode::INVALID_MOTION_PLAN);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a> error_code = move_group_.plan(my_plan_);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  EXPECT_EQ(error_code.val, moveit::core::MoveItErrorCode::INVALID_MOTION_PLAN);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 <div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="chomp__moveit__test_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">  107</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="chomp__moveit__test_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>
@@ -189,10 +189,10 @@ $(function() {
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan_html"><div class="ttname"><a href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html">moveit::planning_interface::MoveGroupInterface::Plan</a></div><div class="ttdoc">The representation of a motion plan (as ROS messasges)</div><div class="ttdef"><b>Definition:</b> <a href="move__group__interface_8h_source.html#l00204">move_group_interface.h:204</a></div></div>
-<div class="ttc" id="aclassmoveit_1_1planning__interface_1_1MoveGroupInterface_html"><div class="ttname"><a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html">moveit::planning_interface::MoveGroupInterface</a></div><div class="ttdoc">Client class to conveniently use the ROS interfaces provided by the move_group node.</div><div class="ttdef"><b>Definition:</b> <a href="move__group__interface_8h_source.html#l00172">move_group_interface.h:172</a></div></div>
+<div class="ttc" id="astructmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan_html"><div class="ttname"><a href="structmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1Plan.html">moveit::planning_interface::MoveGroupInterface::Plan</a></div><div class="ttdoc">The representation of a motion plan (as ROS messasges)</div><div class="ttdef"><b>Definition:</b> <a href="move__group__interface_8h_source.html#l00178">move_group_interface.h:178</a></div></div>
+<div class="ttc" id="aclassmoveit_1_1planning__interface_1_1MoveGroupInterface_html"><div class="ttname"><a href="classmoveit_1_1planning__interface_1_1MoveGroupInterface.html">moveit::planning_interface::MoveGroupInterface</a></div><div class="ttdoc">Client class to conveniently use the ROS interfaces provided by the move_group node.</div><div class="ttdef"><b>Definition:</b> <a href="move__group__interface_8h_source.html#l00146">move_group_interface.h:146</a></div></div>
+<div class="ttc" id="aclassmoveit_1_1core_1_1MoveItErrorCode_html"><div class="ttname"><a href="classmoveit_1_1core_1_1MoveItErrorCode.html">moveit::core::MoveItErrorCode</a></div><div class="ttdoc">a wrapper around moveit_msgs::MoveItErrorCodes to make it easier to return an error code message from...</div><div class="ttdef"><b>Definition:</b> <a href="moveit__error__code_8h_source.html#l00110">moveit_error_code.h:110</a></div></div>
 <div class="ttc" id="achomp__moveit__test_8cpp_html_aa419f93f633d53ea53bb0c40f300c8b7"><div class="ttname"><a href="chomp__moveit__test_8cpp.html#aa419f93f633d53ea53bb0c40f300c8b7">TEST_F</a></div><div class="ttdeci">TEST_F(CHOMPMoveitTest, jointSpaceGoodGoal)</div><div class="ttdef"><b>Definition:</b> <a href="chomp__moveit__test_8cpp_source.html#l00055">chomp_moveit_test.cpp:55</a></div></div>
-<div class="ttc" id="aclassmoveit_1_1planning__interface_1_1MoveItErrorCode_html"><div class="ttname"><a href="classmoveit_1_1planning__interface_1_1MoveItErrorCode.html">moveit::planning_interface::MoveItErrorCode</a></div><div class="ttdef"><b>Definition:</b> <a href="move__group__interface_8h_source.html#l00136">move_group_interface.h:136</a></div></div>
 <div class="ttc" id="aclassCHOMPMoveitTest_html_a1631fa390d241002f8f94171534345df"><div class="ttname"><a href="classCHOMPMoveitTest.html#a1631fa390d241002f8f94171534345df">CHOMPMoveitTest::move_group_</a></div><div class="ttdeci">moveit::planning_interface::MoveGroupInterface move_group_</div><div class="ttdef"><b>Definition:</b> <a href="chomp__moveit__test_8cpp_source.html#l00077">chomp_moveit_test.cpp:77</a></div></div>
 <div class="ttc" id="aclassCHOMPMoveitTest_html_a05c7690175a6d10cfd065803104b24c9"><div class="ttname"><a href="classCHOMPMoveitTest.html#a05c7690175a6d10cfd065803104b24c9">CHOMPMoveitTest::my_plan_</a></div><div class="ttdeci">moveit::planning_interface::MoveGroupInterface::Plan my_plan_</div><div class="ttdef"><b>Definition:</b> <a href="chomp__moveit__test_8cpp_source.html#l00078">chomp_moveit_test.cpp:78</a></div></div>
 <div class="ttc" id="achomp__moveit__test_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="chomp__moveit__test_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="chomp__moveit__test_8cpp_source.html#l00107">chomp_moveit_test.cpp:107</a></div></div>
