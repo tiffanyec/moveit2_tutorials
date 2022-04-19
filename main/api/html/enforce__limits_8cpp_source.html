@@ -142,34 +142,37 @@ $(function() {
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}  <span class="comment">// namespace</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacemoveit__servo.html#aad144f0d55db346503612164e88d8772">enforceVelocityLimits</a>(<span class="keyword">const</span> <a class="code" href="classmoveit_1_1core_1_1JointModelGroup.html">moveit::core::JointModelGroup</a>* joint_model_group, <span class="keyword">const</span> <span class="keywordtype">double</span> publish_period,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                           sensor_msgs::msg::JointState&amp; joint_state)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacemoveit__servo.html#abc9531fe038667750a7a694471760cbb">enforceVelocityLimits</a>(<span class="keyword">const</span> <a class="code" href="classmoveit_1_1core_1_1JointModelGroup.html">moveit::core::JointModelGroup</a>* joint_model_group, <span class="keyword">const</span> <span class="keywordtype">double</span> publish_period,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                           sensor_msgs::msg::JointState&amp; joint_state, <span class="keyword">const</span> <span class="keywordtype">double</span> override_velocity_scaling_factor)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="comment">// Get the velocity scaling factor</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  Eigen::VectorXd velocity =</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      Eigen::Map&lt;Eigen::VectorXd, Eigen::Unaligned&gt;(joint_state.velocity.data(), joint_state.velocity.size());</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">double</span> velocity_scaling_factor = getVelocityScalingFactor(joint_model_group, velocity);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="comment">// Take a smaller step if the velocity scaling factor is less than 1</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordflow">if</span> (velocity_scaling_factor &lt; 1)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    Eigen::VectorXd velocity_residuals = (1 - velocity_scaling_factor) * velocity;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    Eigen::VectorXd positions =</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        Eigen::Map&lt;Eigen::VectorXd, Eigen::Unaligned&gt;(joint_state.position.data(), joint_state.position.size());</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    positions -= velocity_residuals * publish_period;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    velocity *= velocity_scaling_factor;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// Back to sensor_msgs type</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    joint_state.velocity = std::vector&lt;double&gt;(velocity.data(), velocity.data() + velocity.size());</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    joint_state.position = std::vector&lt;double&gt;(positions.data(), positions.data() + positions.size());</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}  <span class="comment">// namespace moveit_servo</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">double</span> velocity_scaling_factor = override_velocity_scaling_factor;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="comment">// if the override velocity scaling factor is approximately zero then the user is not overriding the value.</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordflow">if</span> (override_velocity_scaling_factor &lt; 0.01)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    velocity_scaling_factor = getVelocityScalingFactor(joint_model_group, velocity);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="comment">// Take a smaller step if the velocity scaling factor is less than 1</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keywordflow">if</span> (velocity_scaling_factor &lt; 1)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    Eigen::VectorXd velocity_residuals = (1 - velocity_scaling_factor) * velocity;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    Eigen::VectorXd positions =</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        Eigen::Map&lt;Eigen::VectorXd, Eigen::Unaligned&gt;(joint_state.position.data(), joint_state.position.size());</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    positions -= velocity_residuals * publish_period;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    velocity *= velocity_scaling_factor;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment">// Back to sensor_msgs type</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    joint_state.velocity = std::vector&lt;double&gt;(velocity.data(), velocity.data() + velocity.size());</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    joint_state.position = std::vector&lt;double&gt;(positions.data(), positions.data() + positions.size());</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}  <span class="comment">// namespace moveit_servo</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassmoveit_1_1core_1_1JointModelGroup_html_a14fb89fcb1b1d7297b5ddd3d063c715f"><div class="ttname"><a href="classmoveit_1_1core_1_1JointModelGroup.html#a14fb89fcb1b1d7297b5ddd3d063c715f">moveit::core::JointModelGroup::getActiveJointModels</a></div><div class="ttdeci">const std::vector&lt; const JointModel * &gt; &amp; getActiveJointModels() const</div><div class="ttdoc">Get the active joints in this group (that have controllable DOF). This does not include mimic joints.</div><div class="ttdef"><b>Definition:</b> <a href="joint__model__group_8h_source.html#l00222">joint_model_group.h:222</a></div></div>
+<div class="ttc" id="anamespacemoveit__servo_html_abc9531fe038667750a7a694471760cbb"><div class="ttname"><a href="namespacemoveit__servo.html#abc9531fe038667750a7a694471760cbb">moveit_servo::enforceVelocityLimits</a></div><div class="ttdeci">void enforceVelocityLimits(const moveit::core::JointModelGroup *joint_model_group, const double publish_period, sensor_msgs::msg::JointState &amp;joint_state, const double override_velocity_scaling_factor=0.0)</div><div class="ttdoc">Decrease robot position change and velocity, if needed, to satisfy joint velocity limits.</div><div class="ttdef"><b>Definition:</b> <a href="enforce__limits_8cpp_source.html#l00103">enforce_limits.cpp:103</a></div></div>
 <div class="ttc" id="aclassmoveit_1_1core_1_1JointModelGroup_html"><div class="ttname"><a href="classmoveit_1_1core_1_1JointModelGroup.html">moveit::core::JointModelGroup</a></div><div class="ttdef"><b>Definition:</b> <a href="joint__model__group_8h_source.html#l00134">joint_model_group.h:134</a></div></div>
-<div class="ttc" id="anamespacemoveit__servo_html_aad144f0d55db346503612164e88d8772"><div class="ttname"><a href="namespacemoveit__servo.html#aad144f0d55db346503612164e88d8772">moveit_servo::enforceVelocityLimits</a></div><div class="ttdeci">void enforceVelocityLimits(const moveit::core::JointModelGroup *joint_model_group, const double publish_period, sensor_msgs::msg::JointState &amp;joint_state)</div><div class="ttdoc">Decrease robot position change and velocity, if needed, to satisfy joint velocity limits.</div><div class="ttdef"><b>Definition:</b> <a href="enforce__limits_8cpp_source.html#l00103">enforce_limits.cpp:103</a></div></div>
 <div class="ttc" id="aenforce__limits_8hpp_html"><div class="ttname"><a href="enforce__limits_8hpp.html">enforce_limits.hpp</a></div></div>
 <div class="ttc" id="anamespacemoveit__servo_html"><div class="ttname"><a href="namespacemoveit__servo.html">moveit_servo</a></div><div class="ttdef"><b>Definition:</b> <a href="collision__check_8h_source.html#l00052">collision_check.h:52</a></div></div>
 <div class="ttc" id="ajoint__model__group_8h_html"><div class="ttname"><a href="joint__model__group_8h.html">joint_model_group.h</a></div></div>

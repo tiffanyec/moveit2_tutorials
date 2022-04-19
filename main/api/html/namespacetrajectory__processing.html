@@ -105,12 +105,12 @@ Functions</h2></td></tr>
 <tr class="separator:a7d9b3dd17438e8bdafeab11c091c3857"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af852fc4d44c04c8c422b8aa60cd42c45"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetrajectory__processing.html#af852fc4d44c04c8c422b8aa60cd42c45">trajectoryWaypointCount</a> (const moveit_msgs::msg::RobotTrajectory &amp;trajectory)</td></tr>
 <tr class="separator:af852fc4d44c04c8c422b8aa60cd42c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa95ede4c8ef27d2bbde2f424721b3c06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetrajectory__processing.html#aa95ede4c8ef27d2bbde2f424721b3c06">globalAdjustment</a> (std::vector&lt; <a class="el" href="structtrajectory__processing_1_1SingleJointTrajectory.html">SingleJointTrajectory</a> &gt; &amp;t2, int num_joints, const int num_points, std::vector&lt; double &gt; &amp;time_diff)</td></tr>
-<tr class="separator:aa95ede4c8ef27d2bbde2f424721b3c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc470821d79a10aff1491c1d7d6e64b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetrajectory__processing.html#abc470821d79a10aff1491c1d7d6e64b4">globalAdjustment</a> (std::vector&lt; <a class="el" href="structtrajectory__processing_1_1SingleJointTrajectory.html">SingleJointTrajectory</a> &gt; &amp;t2, <a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;trajectory, std::vector&lt; double &gt; &amp;time_diff)</td></tr>
+<tr class="separator:abc470821d79a10aff1491c1d7d6e64b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aa95ede4c8ef27d2bbde2f424721b3c06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa95ede4c8ef27d2bbde2f424721b3c06">&#9670;&nbsp;</a></span>globalAdjustment()</h2>
+<a id="abc470821d79a10aff1491c1d7d6e64b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc470821d79a10aff1491c1d7d6e64b4">&#9670;&nbsp;</a></span>globalAdjustment()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,14 +124,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_joints</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>num_points</em>, </td>
+          <td class="paramtype"><a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;&#160;</td>
+          <td class="paramname"><em>trajectory</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -148,6 +142,16 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="iterative__spline__parameterization_8cpp_source.html#l00573">573</a> of file <a class="el" href="iterative__spline__parameterization_8cpp_source.html">iterative_spline_parameterization.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacetrajectory__processing_abc470821d79a10aff1491c1d7d6e64b4_cgraph.png" border="0" usemap="#namespacetrajectory__processing_abc470821d79a10aff1491c1d7d6e64b4_cgraph" alt=""/></div>
+<map name="namespacetrajectory__processing_abc470821d79a10aff1491c1d7d6e64b4_cgraph" id="namespacetrajectory__processing_abc470821d79a10aff1491c1d7d6e64b4_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,168,80"/>
+<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#a6eaef50c3127c83dbc5ca393376435b1" title=" " alt="" coords="216,5,451,47"/>
+<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#ababf812aa287c586d9ad0b190e1d2482" title=" " alt="" coords="216,71,451,112"/>
+</map>
+</div>
 
 </div>
 </div>

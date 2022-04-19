@@ -157,7 +157,7 @@ $(function() {
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  joint_state.position = joint_position;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  joint_state.velocity = joint_velocity;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="namespacemoveit__servo.html#aad144f0d55db346503612164e88d8772">moveit_servo::enforceVelocityLimits</a>(joint_model_group_, PUBLISH_PERIOD, joint_state);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="namespacemoveit__servo.html#abc9531fe038667750a7a694471760cbb">moveit_servo::enforceVelocityLimits</a>(joint_model_group_, PUBLISH_PERIOD, joint_state);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  Eigen::ArrayXd eigen_velocity =</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      Eigen::Map&lt;Eigen::ArrayXd, Eigen::Unaligned&gt;(joint_state.velocity.data(), joint_state.velocity.size());</div>
@@ -173,7 +173,7 @@ $(function() {
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  joint_state.position = joint_position;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  joint_state.velocity = joint_velocity;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <a class="code" href="namespacemoveit__servo.html#aad144f0d55db346503612164e88d8772">moveit_servo::enforceVelocityLimits</a>(joint_model_group_, PUBLISH_PERIOD, joint_state);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <a class="code" href="namespacemoveit__servo.html#abc9531fe038667750a7a694471760cbb">moveit_servo::enforceVelocityLimits</a>(joint_model_group_, PUBLISH_PERIOD, joint_state);</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  Eigen::ArrayXd eigen_velocity =</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      Eigen::Map&lt;Eigen::ArrayXd, Eigen::Unaligned&gt;(joint_state.velocity.data(), joint_state.velocity.size());</div>
@@ -189,7 +189,7 @@ $(function() {
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  joint_state.position = joint_position;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  joint_state.velocity = joint_velocity;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <a class="code" href="namespacemoveit__servo.html#aad144f0d55db346503612164e88d8772">moveit_servo::enforceVelocityLimits</a>(joint_model_group_, PUBLISH_PERIOD, joint_state);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <a class="code" href="namespacemoveit__servo.html#abc9531fe038667750a7a694471760cbb">moveit_servo::enforceVelocityLimits</a>(joint_model_group_, PUBLISH_PERIOD, joint_state);</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  Eigen::ArrayXd eigen_velocity =</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      Eigen::Map&lt;Eigen::ArrayXd, Eigen::Unaligned&gt;(joint_state.velocity.data(), joint_state.velocity.size());</div>
@@ -206,8 +206,8 @@ $(function() {
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassmoveit_1_1core_1_1JointModelGroup_html_a14fb89fcb1b1d7297b5ddd3d063c715f"><div class="ttname"><a href="classmoveit_1_1core_1_1JointModelGroup.html#a14fb89fcb1b1d7297b5ddd3d063c715f">moveit::core::JointModelGroup::getActiveJointModels</a></div><div class="ttdeci">const std::vector&lt; const JointModel * &gt; &amp; getActiveJointModels() const</div><div class="ttdoc">Get the active joints in this group (that have controllable DOF). This does not include mimic joints.</div><div class="ttdef"><b>Definition:</b> <a href="joint__model__group_8h_source.html#l00222">joint_model_group.h:222</a></div></div>
+<div class="ttc" id="anamespacemoveit__servo_html_abc9531fe038667750a7a694471760cbb"><div class="ttname"><a href="namespacemoveit__servo.html#abc9531fe038667750a7a694471760cbb">moveit_servo::enforceVelocityLimits</a></div><div class="ttdeci">void enforceVelocityLimits(const moveit::core::JointModelGroup *joint_model_group, const double publish_period, sensor_msgs::msg::JointState &amp;joint_state, const double override_velocity_scaling_factor=0.0)</div><div class="ttdoc">Decrease robot position change and velocity, if needed, to satisfy joint velocity limits.</div><div class="ttdef"><b>Definition:</b> <a href="enforce__limits_8cpp_source.html#l00103">enforce_limits.cpp:103</a></div></div>
 <div class="ttc" id="aclassmoveit_1_1core_1_1JointModelGroup_html"><div class="ttname"><a href="classmoveit_1_1core_1_1JointModelGroup.html">moveit::core::JointModelGroup</a></div><div class="ttdef"><b>Definition:</b> <a href="joint__model__group_8h_source.html#l00134">joint_model_group.h:134</a></div></div>
-<div class="ttc" id="anamespacemoveit__servo_html_aad144f0d55db346503612164e88d8772"><div class="ttname"><a href="namespacemoveit__servo.html#aad144f0d55db346503612164e88d8772">moveit_servo::enforceVelocityLimits</a></div><div class="ttdeci">void enforceVelocityLimits(const moveit::core::JointModelGroup *joint_model_group, const double publish_period, sensor_msgs::msg::JointState &amp;joint_state)</div><div class="ttdoc">Decrease robot position change and velocity, if needed, to satisfy joint velocity limits.</div><div class="ttdef"><b>Definition:</b> <a href="enforce__limits_8cpp_source.html#l00103">enforce_limits.cpp:103</a></div></div>
 <div class="ttc" id="aenforce__limits_8hpp_html"><div class="ttname"><a href="enforce__limits_8hpp.html">enforce_limits.hpp</a></div></div>
 <div class="ttc" id="aenforce__limits__tests_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="enforce__limits__tests_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="enforce__limits__tests_8cpp_source.html#l00126">enforce_limits_tests.cpp:126</a></div></div>
 <div class="ttc" id="aenforce__limits__tests_8cpp_html_ac2637e106557268dacb4887a8dda41ea"><div class="ttname"><a href="enforce__limits__tests_8cpp.html#ac2637e106557268dacb4887a8dda41ea">TEST_F</a></div><div class="ttdeci">TEST_F(EnforceLimitsTests, VelocityScalingTest)</div><div class="ttdef"><b>Definition:</b> <a href="enforce__limits__tests_8cpp_source.html#l00078">enforce_limits_tests.cpp:78</a></div></div>

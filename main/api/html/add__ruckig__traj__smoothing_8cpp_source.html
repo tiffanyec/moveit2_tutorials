@@ -142,22 +142,21 @@ $(function() {
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keywordflow">if</span> (!smoother_.applySmoothing(*res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>, req.max_velocity_scaling_factor,</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                    req.max_acceleration_scaling_factor))</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        RCLCPP_WARN(LOGGER, <span class="stringliteral">&quot; Trajectory smoothing for the solution path failed.&quot;</span>);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        result = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classdefault__planner__request__adapters_1_1AddRuckigTrajectorySmoothing.html">   78</a></span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classdefault__planner__request__adapters_1_1AddRuckigTrajectorySmoothing.html#abc5e239286130d8261f5e5551ab08704">   81</a></span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <a class="code" href="classtrajectory__processing_1_1RuckigSmoothing.html">RuckigSmoothing</a> smoother_;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classdefault__planner__request__adapters_1_1AddRuckigTrajectorySmoothing.html#a6b25edf7a75b6980bcaa0fce6542a2a8">   85</a></span>&#160;}  <span class="comment">// namespace default_planner_request_adapters</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<a class="code" href="trajopt__planner__manager_8cpp.html#a114a92aa0e7f4364291efdee021fb457">CLASS_LOADER_REGISTER_CLASS</a>(<a class="code" href="classdefault__planner__request__adapters_1_1AddRuckigTrajectorySmoothing.html">default_planner_request_adapters::AddRuckigTrajectorySmoothing</a>,</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                            <a class="code" href="classplanning__request__adapter_1_1PlanningRequestAdapter.html">planning_request_adapter::PlanningRequestAdapter</a>)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        result = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classdefault__planner__request__adapters_1_1AddRuckigTrajectorySmoothing.html">   78</a></span>&#160;  }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classdefault__planner__request__adapters_1_1AddRuckigTrajectorySmoothing.html#abc5e239286130d8261f5e5551ab08704">   81</a></span>&#160;  <a class="code" href="classtrajectory__processing_1_1RuckigSmoothing.html">RuckigSmoothing</a> smoother_;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}  <span class="comment">// namespace default_planner_request_adapters</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classdefault__planner__request__adapters_1_1AddRuckigTrajectorySmoothing.html#a6b25edf7a75b6980bcaa0fce6542a2a8">   85</a></span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<a class="code" href="trajopt__planner__manager_8cpp.html#a114a92aa0e7f4364291efdee021fb457">CLASS_LOADER_REGISTER_CLASS</a>(<a class="code" href="classdefault__planner__request__adapters_1_1AddRuckigTrajectorySmoothing.html">default_planner_request_adapters::AddRuckigTrajectorySmoothing</a>,</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                            <a class="code" href="classplanning__request__adapter_1_1PlanningRequestAdapter.html">planning_request_adapter::PlanningRequestAdapter</a>)</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructplanning__interface_1_1MotionPlanResponse_html"><div class="ttname"><a href="structplanning__interface_1_1MotionPlanResponse.html">planning_interface::MotionPlanResponse</a></div><div class="ttdef"><b>Definition:</b> <a href="planning__response_8h_source.html#l00078">planning_response.h:78</a></div></div>
 <div class="ttc" id="aclasstrajectory__processing_1_1RuckigSmoothing_html"><div class="ttname"><a href="classtrajectory__processing_1_1RuckigSmoothing.html">trajectory_processing::RuckigSmoothing</a></div><div class="ttdef"><b>Definition:</b> <a href="ruckig__traj__smoothing_8h_source.html#l00076">ruckig_traj_smoothing.h:76</a></div></div>

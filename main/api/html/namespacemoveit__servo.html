@@ -140,9 +140,9 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aad144f0d55db346503612164e88d8772"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemoveit__servo.html#aad144f0d55db346503612164e88d8772">enforceVelocityLimits</a> (const <a class="el" href="classmoveit_1_1core_1_1JointModelGroup.html">moveit::core::JointModelGroup</a> *joint_model_group, const double publish_period, sensor_msgs::msg::JointState &amp;joint_state)</td></tr>
-<tr class="memdesc:aad144f0d55db346503612164e88d8772"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrease robot position change and velocity, if needed, to satisfy joint velocity limits.  <a href="namespacemoveit__servo.html#aad144f0d55db346503612164e88d8772">More...</a><br /></td></tr>
-<tr class="separator:aad144f0d55db346503612164e88d8772"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc9531fe038667750a7a694471760cbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemoveit__servo.html#abc9531fe038667750a7a694471760cbb">enforceVelocityLimits</a> (const <a class="el" href="classmoveit_1_1core_1_1JointModelGroup.html">moveit::core::JointModelGroup</a> *joint_model_group, const double publish_period, sensor_msgs::msg::JointState &amp;joint_state, const double override_velocity_scaling_factor=0.0)</td></tr>
+<tr class="memdesc:abc9531fe038667750a7a694471760cbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrease robot position change and velocity, if needed, to satisfy joint velocity limits.  <a href="namespacemoveit__servo.html#abc9531fe038667750a7a694471760cbb">More...</a><br /></td></tr>
+<tr class="separator:abc9531fe038667750a7a694471760cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10063149c6b08a77854ceafff0b68e14"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; <a class="el" href="namespacemoveit__servo.html#a72baa5ed9c5fc60a76a9cddfce6b5548">PoseTrackingStatusCode</a>, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemoveit__servo.html#a10063149c6b08a77854ceafff0b68e14">POSE_TRACKING_STATUS_CODE_MAP</a> ({ { <a class="el" href="namespacemoveit__servo.html#a72baa5ed9c5fc60a76a9cddfce6b5548accc0377a8afbf50e7094f5c23a8af223">PoseTrackingStatusCode::INVALID</a>, &quot;Invalid&quot; }, { PoseTrackingStatusCode::SUCCESS, &quot;Success&quot; }, { PoseTrackingStatusCode::NO_RECENT_TARGET_POSE, &quot;No recent target pose&quot; }, { PoseTrackingStatusCode::NO_RECENT_END_EFFECTOR_POSE, &quot;No recent end effector pose&quot; }, { PoseTrackingStatusCode::STOP_REQUESTED, &quot;Stop requested&quot; } })</td></tr>
 <tr class="separator:a10063149c6b08a77854ceafff0b68e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7fbffcbbd4f9cea09e63e0a1c81c624"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; <a class="el" href="namespacemoveit__servo.html#a645be72fe1553806404002b7cb52b43f">StatusCode</a>, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemoveit__servo.html#ad7fbffcbbd4f9cea09e63e0a1c81c624">SERVO_STATUS_CODE_MAP</a> ({ { <a class="el" href="namespacemoveit__servo.html#a645be72fe1553806404002b7cb52b43faccc0377a8afbf50e7094f5c23a8af223">StatusCode::INVALID</a>, &quot;Invalid&quot; }, { StatusCode::NO_WARNING, &quot;No warnings&quot; }, { StatusCode::DECELERATE_FOR_SINGULARITY, &quot;Close to a singularity, decelerating&quot; }, { StatusCode::HALT_FOR_SINGULARITY, &quot;Very close to a singularity, emergency stop&quot; }, { StatusCode::DECELERATE_FOR_COLLISION, &quot;Close to a collision, decelerating&quot; }, { StatusCode::HALT_FOR_COLLISION, &quot;Collision detected, emergency stop&quot; }, { StatusCode::JOINT_BOUND, &quot;Close to a joint bound (position or velocity), halting&quot; } })</td></tr>
@@ -175,7 +175,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pose__tracking_8h_source.html#l00231">231</a> of file <a class="el" href="pose__tracking_8h_source.html">pose_tracking.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pose__tracking_8h_source.html#l00230">230</a> of file <a class="el" href="pose__tracking_8h_source.html">pose_tracking.h</a>.</p>
 
 </div>
 </div>
@@ -321,8 +321,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aad144f0d55db346503612164e88d8772"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad144f0d55db346503612164e88d8772">&#9670;&nbsp;</a></span>enforceVelocityLimits()</h2>
+<a id="abc9531fe038667750a7a694471760cbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc9531fe038667750a7a694471760cbb">&#9670;&nbsp;</a></span>enforceVelocityLimits()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -343,7 +343,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">sensor_msgs::msg::JointState &amp;&#160;</td>
-          <td class="paramname"><em>joint_state</em>&#160;</td>
+          <td class="paramname"><em>joint_state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>override_velocity_scaling_factor</em> = <code>0.0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -358,6 +364,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">joint_model_group</td><td>Active joint group. Used to retrieve limits. </td></tr>
     <tr><td class="paramname">joint_state</td><td>The command that will go to the robot. </td></tr>
+    <tr><td class="paramname">override_velocity_scaling_factor</td><td>Option if the user wants a constant override of the velocity scaling. a value greater than 0 will override the internal calculations done by getVelocityScalingFactor. </td></tr>
   </table>
   </dd>
 </dl>
@@ -366,8 +373,8 @@ Functions</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacemoveit__servo_aad144f0d55db346503612164e88d8772_icgraph.png" border="0" usemap="#namespacemoveit__servo_aad144f0d55db346503612164e88d8772_icgraph" alt=""/></div>
-<map name="namespacemoveit__servo_aad144f0d55db346503612164e88d8772_icgraph" id="namespacemoveit__servo_aad144f0d55db346503612164e88d8772_icgraph">
+<div class="center"><img src="namespacemoveit__servo_abc9531fe038667750a7a694471760cbb_icgraph.png" border="0" usemap="#namespacemoveit__servo_abc9531fe038667750a7a694471760cbb_icgraph" alt=""/></div>
+<map name="namespacemoveit__servo_abc9531fe038667750a7a694471760cbb_icgraph" id="namespacemoveit__servo_abc9531fe038667750a7a694471760cbb_icgraph">
 <area shape="rect" title="Decrease robot position change and velocity, if needed, to satisfy joint velocity limits." alt="" coords="123,5,343,47"/>
 <area shape="rect" href="enforce__limits__tests_8cpp.html#ac2637e106557268dacb4887a8dda41ea" title=" " alt="" coords="5,13,75,39"/>
 </map>

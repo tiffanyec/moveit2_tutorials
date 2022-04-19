@@ -113,9 +113,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9dc84b79d79cb87a155e694e1d391bcf"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__controller__manager_1_1MoveItControllerHandle.html#a9dc84b79d79cb87a155e694e1d391bcf">cancelExecution</a> ()=0</td></tr>
 <tr class="memdesc:a9dc84b79d79cb87a155e694e1d391bcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancel the execution of any motion using this controller.  <a href="classmoveit__controller__manager_1_1MoveItControllerHandle.html#a9dc84b79d79cb87a155e694e1d391bcf">More...</a><br /></td></tr>
 <tr class="separator:a9dc84b79d79cb87a155e694e1d391bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82a3c5d5146c8152255c8be68bd37d16"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__controller__manager_1_1MoveItControllerHandle.html#a82a3c5d5146c8152255c8be68bd37d16">waitForExecution</a> (const rclcpp::Duration &amp;timeout=rclcpp::Duration(-1))=0</td></tr>
-<tr class="memdesc:a82a3c5d5146c8152255c8be68bd37d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for the current execution to complete, or until the timeout is reached.  <a href="classmoveit__controller__manager_1_1MoveItControllerHandle.html#a82a3c5d5146c8152255c8be68bd37d16">More...</a><br /></td></tr>
-<tr class="separator:a82a3c5d5146c8152255c8be68bd37d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eecda54a3bbf56bc332ba68a36c31ec"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__controller__manager_1_1MoveItControllerHandle.html#a8eecda54a3bbf56bc332ba68a36c31ec">waitForExecution</a> (const rclcpp::Duration &amp;timeout=rclcpp::Duration::from_nanoseconds(-1))=0</td></tr>
+<tr class="memdesc:a8eecda54a3bbf56bc332ba68a36c31ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for the current execution to complete, or until the timeout is reached.  <a href="classmoveit__controller__manager_1_1MoveItControllerHandle.html#a8eecda54a3bbf56bc332ba68a36c31ec">More...</a><br /></td></tr>
+<tr class="separator:a8eecda54a3bbf56bc332ba68a36c31ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a026cb044e58469556dc815fcd3fc7ce8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structmoveit__controller__manager_1_1ExecutionStatus.html">ExecutionStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__controller__manager_1_1MoveItControllerHandle.html#a026cb044e58469556dc815fcd3fc7ce8">getLastExecutionStatus</a> ()=0</td></tr>
 <tr class="memdesc:a026cb044e58469556dc815fcd3fc7ce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the execution status of the last trajectory sent to the controller.  <a href="classmoveit__controller__manager_1_1MoveItControllerHandle.html#a026cb044e58469556dc815fcd3fc7ce8">More...</a><br /></td></tr>
 <tr class="separator:a026cb044e58469556dc815fcd3fc7ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -301,14 +301,14 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Send a trajectory to the controller. </p>
-<p>The controller is expected to execute the trajectory, but this function call should not block. Blocking is achievable by calling <a class="el" href="classmoveit__controller__manager_1_1MoveItControllerHandle.html#a82a3c5d5146c8152255c8be68bd37d16" title="Wait for the current execution to complete, or until the timeout is reached.">waitForExecution()</a>. Return false when the controller cannot accept the trajectory. </p>
+<p>The controller is expected to execute the trajectory, but this function call should not block. Blocking is achievable by calling <a class="el" href="classmoveit__controller__manager_1_1MoveItControllerHandle.html#a8eecda54a3bbf56bc332ba68a36c31ec" title="Wait for the current execution to complete, or until the timeout is reached.">waitForExecution()</a>. Return false when the controller cannot accept the trajectory. </p>
 
 <p>Implemented in <a class="el" href="classmoveit__simple__controller__manager_1_1GripperControllerHandle.html#a653210b528649a8bd83ca74e7db35bc5">moveit_simple_controller_manager::GripperControllerHandle</a>, <a class="el" href="classmoveit__simple__controller__manager_1_1FollowJointTrajectoryControllerHandle.html#abf657f5722c9a3545a38163b48ac24d3">moveit_simple_controller_manager::FollowJointTrajectoryControllerHandle</a>, <a class="el" href="classmoveit__controller__manager__example_1_1ExampleControllerHandle.html#afb2d57ff8e8c594d9107e1c8af5a828b">moveit_controller_manager_example::ExampleControllerHandle</a>, and <a class="el" href="classtest__moveit__controller__manager_1_1TestMoveItControllerHandle.html#ac89bf1a5b1b5af2472cf84951ddfd388">test_moveit_controller_manager::TestMoveItControllerHandle</a>.</p>
 
 </div>
 </div>
-<a id="a82a3c5d5146c8152255c8be68bd37d16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82a3c5d5146c8152255c8be68bd37d16">&#9670;&nbsp;</a></span>waitForExecution()</h2>
+<a id="a8eecda54a3bbf56bc332ba68a36c31ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eecda54a3bbf56bc332ba68a36c31ec">&#9670;&nbsp;</a></span>waitForExecution()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -320,7 +320,7 @@ Protected Attributes</h2></td></tr>
           <td class="memname">virtual bool moveit_controller_manager::MoveItControllerHandle::waitForExecution </td>
           <td>(</td>
           <td class="paramtype">const rclcpp::Duration &amp;&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code>rclcpp::Duration(-1)</code></td><td>)</td>
+          <td class="paramname"><em>timeout</em> = <code>rclcpp::Duration::from_nanoseconds(-1)</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
