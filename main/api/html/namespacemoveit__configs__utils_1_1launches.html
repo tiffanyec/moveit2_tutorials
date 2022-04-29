@@ -90,8 +90,39 @@ Functions</h2></td></tr>
 <tr class="separator:af25ac5985fddc387b129fdffbaa972e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd16396f7fda60749b1c8e8019f72aad"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemoveit__configs__utils_1_1launches.html#afd16396f7fda60749b1c8e8019f72aad">generate_move_group_launch</a> (moveit_config)</td></tr>
 <tr class="separator:afd16396f7fda60749b1c8e8019f72aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9478fc6a76264b9eccf1d78b246f1d1c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemoveit__configs__utils_1_1launches.html#a9478fc6a76264b9eccf1d78b246f1d1c">generate_demo_launch</a> (moveit_config)</td></tr>
+<tr class="separator:a9478fc6a76264b9eccf1d78b246f1d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a9478fc6a76264b9eccf1d78b246f1d1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9478fc6a76264b9eccf1d78b246f1d1c">&#9670;&nbsp;</a></span>generate_demo_launch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def moveit_configs_utils.launches.generate_demo_launch </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>moveit_config</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Launches a self contained demo
+
+Includes
+ * static_virtual_joint_tfs
+ * robot_state_publisher
+ * move_group
+ * moveit_rviz
+ * warehouse_db (optional)
+ * ros2_control_node + controller spawners
+</pre> 
+<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00240">240</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
+
+</div>
+</div>
 <a id="afd16396f7fda60749b1c8e8019f72aad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afd16396f7fda60749b1c8e8019f72aad">&#9670;&nbsp;</a></span>generate_move_group_launch()</h2>
 
@@ -108,7 +139,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00183">183</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00187">187</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -137,7 +168,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">Launch file for rviz</pre> 
-<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00041">41</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00045">45</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -166,7 +197,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">Launch file for robot state publisher (rsp)</pre> 
-<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00017">17</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00021">21</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
 
 </div>
 </div>
@@ -186,7 +217,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">Launch file for MoveIt Setup Assistant</pre> 
-<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00071">71</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00075">75</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -215,7 +246,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00112">112</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00116">116</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
 
 </div>
 </div>
@@ -235,7 +266,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00086">86</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00090">90</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
 
 </div>
 </div>
@@ -255,7 +286,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">Launch file for warehouse database</pre> 
-<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00129">129</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="launches_8py_source.html#l00133">133</a> of file <a class="el" href="launches_8py_source.html">launches.py</a>.</p>
 
 </div>
 </div>
