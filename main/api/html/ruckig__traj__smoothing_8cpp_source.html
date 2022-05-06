@@ -161,55 +161,55 @@ $(function() {
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  ruckig::InputParameter&lt;ruckig::DynamicDOFs&gt; ruckig_input{ num_dof };</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  ruckig::OutputParameter&lt;ruckig::DynamicDOFs&gt; ruckig_output{ num_dof };</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="comment">// Initialize the smoother</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  initializeRuckigState(ruckig_input, ruckig_output, *trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#af3a1d752806538d7db0ed93acc32d92f">getFirstWayPointPtr</a>(), <a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="comment">// Kinematic limits (vel/accel/jerk)</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; vars = <a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>-&gt;getVariableNames();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keyword">const</span> <a class="code" href="classmoveit_1_1core_1_1RobotModel.html">moveit::core::RobotModel</a>&amp; rmodel = <a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>-&gt;getParentModel();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keyword">const</span> std::vector&lt;int&gt;&amp; move_group_idx = <a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>-&gt;getVariableIndexList();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; num_dof; ++i)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">const</span> <a class="code" href="structmoveit_1_1core_1_1VariableBounds.html">moveit::core::VariableBounds</a>&amp; bounds = rmodel.<a class="code" href="classmoveit_1_1core_1_1RobotModel.html#a0e6fe94c867b3452abdeecc2d7373ca2">getVariableBounds</a>(vars.at(i));</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">// This assumes min/max bounds are symmetric</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">if</span> (bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#a7e0a5703c51621d5cff73259d1295fd6">velocity_bounded_</a>)</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      ruckig_input.max_velocity.at(i) = max_velocity_scaling_factor * bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#a084bb6fc28ab6b811248378ddfda89e5">max_velocity_</a>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      RCLCPP_WARN_STREAM_ONCE(LOGGER,</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                              <span class="stringliteral">&quot;Joint velocity limits are not defined. Using the default &quot;</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                                  &lt;&lt; DEFAULT_MAX_VELOCITY</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                                  &lt;&lt; <span class="stringliteral">&quot; rad/s. You can define velocity limits in the URDF or joint_limits.yaml.&quot;</span>);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      ruckig_input.max_velocity.at(i) = max_velocity_scaling_factor * DEFAULT_MAX_VELOCITY;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">if</span> (bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#af0e83ca67bd560c306f76fb57828584c">acceleration_bounded_</a>)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      ruckig_input.max_acceleration.at(i) = max_acceleration_scaling_factor * bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#a48db40fdae153da78abbb3003f9250f4">max_acceleration_</a>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      RCLCPP_WARN_STREAM_ONCE(LOGGER,</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                              <span class="stringliteral">&quot;Joint acceleration limits are not defined. Using the default &quot;</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                                  &lt;&lt; DEFAULT_MAX_ACCELERATION</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                                  &lt;&lt; <span class="stringliteral">&quot; rad/s^2. You can define acceleration limits in the URDF or joint_limits.yaml.&quot;</span>);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      ruckig_input.max_acceleration.at(i) = max_acceleration_scaling_factor * DEFAULT_MAX_ACCELERATION;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    ruckig_input.max_jerk.at(i) = bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#a59f3f66b22c10e833fb866198b7ecbf5">jerk_bounded_</a> ? bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#ab9bc265636565aaa8cb7958c672cb3be">max_jerk_</a> : DEFAULT_MAX_JERK;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">if</span> (bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#a59f3f66b22c10e833fb866198b7ecbf5">jerk_bounded_</a>)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    {</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      ruckig_input.max_jerk.at(i) = bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#ab9bc265636565aaa8cb7958c672cb3be">max_jerk_</a>;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    {</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      RCLCPP_WARN_STREAM_ONCE(LOGGER, <span class="stringliteral">&quot;Joint jerk limits are not defined. Using the default &quot;</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                                          &lt;&lt; DEFAULT_MAX_JERK</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                                          &lt;&lt; <span class="stringliteral">&quot; rad/s^3. You can define jerk limits in joint_limits.yaml.&quot;</span>);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      ruckig_input.max_jerk.at(i) = DEFAULT_MAX_JERK;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    }</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="comment">// Kinematic limits (vel/accel/jerk)</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; vars = <a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>-&gt;getVariableNames();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keyword">const</span> <a class="code" href="classmoveit_1_1core_1_1RobotModel.html">moveit::core::RobotModel</a>&amp; rmodel = <a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>-&gt;getParentModel();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">const</span> std::vector&lt;int&gt;&amp; move_group_idx = <a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>-&gt;getVariableIndexList();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; num_dof; ++i)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">const</span> <a class="code" href="structmoveit_1_1core_1_1VariableBounds.html">moveit::core::VariableBounds</a>&amp; bounds = rmodel.<a class="code" href="classmoveit_1_1core_1_1RobotModel.html#a0e6fe94c867b3452abdeecc2d7373ca2">getVariableBounds</a>(vars.at(i));</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">// This assumes min/max bounds are symmetric</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">if</span> (bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#a7e0a5703c51621d5cff73259d1295fd6">velocity_bounded_</a>)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      ruckig_input.max_velocity.at(i) = max_velocity_scaling_factor * bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#a084bb6fc28ab6b811248378ddfda89e5">max_velocity_</a>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      RCLCPP_WARN_STREAM_ONCE(LOGGER,</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                              <span class="stringliteral">&quot;Joint velocity limits are not defined. Using the default &quot;</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                                  &lt;&lt; DEFAULT_MAX_VELOCITY</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                                  &lt;&lt; <span class="stringliteral">&quot; rad/s. You can define velocity limits in the URDF or joint_limits.yaml.&quot;</span>);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      ruckig_input.max_velocity.at(i) = max_velocity_scaling_factor * DEFAULT_MAX_VELOCITY;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">if</span> (bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#af0e83ca67bd560c306f76fb57828584c">acceleration_bounded_</a>)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      ruckig_input.max_acceleration.at(i) = max_acceleration_scaling_factor * bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#a48db40fdae153da78abbb3003f9250f4">max_acceleration_</a>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      RCLCPP_WARN_STREAM_ONCE(LOGGER,</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                              <span class="stringliteral">&quot;Joint acceleration limits are not defined. Using the default &quot;</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                                  &lt;&lt; DEFAULT_MAX_ACCELERATION</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                                  &lt;&lt; <span class="stringliteral">&quot; rad/s^2. You can define acceleration limits in the URDF or joint_limits.yaml.&quot;</span>);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      ruckig_input.max_acceleration.at(i) = max_acceleration_scaling_factor * DEFAULT_MAX_ACCELERATION;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    ruckig_input.max_jerk.at(i) = bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#a59f3f66b22c10e833fb866198b7ecbf5">jerk_bounded_</a> ? bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#ab9bc265636565aaa8cb7958c672cb3be">max_jerk_</a> : DEFAULT_MAX_JERK;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">if</span> (bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#a59f3f66b22c10e833fb866198b7ecbf5">jerk_bounded_</a>)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      ruckig_input.max_jerk.at(i) = bounds.<a class="code" href="structmoveit_1_1core_1_1VariableBounds.html#ab9bc265636565aaa8cb7958c672cb3be">max_jerk_</a>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      RCLCPP_WARN_STREAM_ONCE(LOGGER, <span class="stringliteral">&quot;Joint jerk limits are not defined. Using the default &quot;</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                                          &lt;&lt; DEFAULT_MAX_JERK</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                                          &lt;&lt; <span class="stringliteral">&quot; rad/s^3. You can define jerk limits in joint_limits.yaml.&quot;</span>);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      ruckig_input.max_jerk.at(i) = DEFAULT_MAX_JERK;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="comment">// Initialize the smoother</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  initializeRuckigState(ruckig_input, ruckig_output, *trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#af3a1d752806538d7db0ed93acc32d92f">getFirstWayPointPtr</a>(), <a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>);</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  ruckig::Result ruckig_result;</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="keywordtype">double</span> duration_extension_factor = 1;</div>
@@ -220,7 +220,7 @@ $(function() {
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    {</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      moveit::core::RobotStatePtr next_waypoint = trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#aa02527d5b79f3249febefb4780743746">getWayPointPtr</a>(waypoint_idx + 1);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      getNextRuckigInput(ruckig_output, next_waypoint, <a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>, ruckig_input);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      getNextRuckigInput(trajectory.<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html#aa02527d5b79f3249febefb4780743746">getWayPointPtr</a>(waypoint_idx), next_waypoint, <a class="code" href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">group</a>, ruckig_input);</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      <span class="comment">// Run Ruckig</span></div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      ruckig_result = ruckig_ptr-&gt;update(ruckig_input, ruckig_output);</div>
@@ -292,41 +292,56 @@ $(function() {
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    current_positions_vector.at(i) = first_waypoint.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#aae57a83ed9ad7c34982b6a943341026c">getVariablePosition</a>(idx.at(i));</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    current_velocities_vector.at(i) = first_waypoint.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a4445bddc825e02d3ab8347b7ea948371">getVariableVelocity</a>(idx.at(i));</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    current_accelerations_vector.at(i) = first_waypoint.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a1d1a3e85d77688091145b87647a65ffd">getVariableAcceleration</a>(idx.at(i));</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  }</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  std::copy_n(current_positions_vector.begin(), num_dof, ruckig_input.current_position.begin());</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  std::copy_n(current_velocities_vector.begin(), num_dof, ruckig_input.current_velocity.begin());</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  std::copy_n(current_accelerations_vector.begin(), num_dof, ruckig_input.current_acceleration.begin());</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  <span class="comment">// Initialize output data struct</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  ruckig_output.new_position = ruckig_input.current_position;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  ruckig_output.new_velocity = ruckig_input.current_velocity;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  ruckig_output.new_acceleration = ruckig_input.current_acceleration;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;}</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="keywordtype">void</span> RuckigSmoothing::getNextRuckigInput(<span class="keyword">const</span> ruckig::OutputParameter&lt;0&gt;&amp; ruckig_output,</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                                         <span class="keyword">const</span> moveit::core::RobotStatePtr&amp; next_waypoint,</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                                         <span class="keyword">const</span> <a class="code" href="classmoveit_1_1core_1_1JointModelGroup.html">moveit::core::JointModelGroup</a>* joint_group,</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                                         ruckig::InputParameter&lt;0&gt;&amp; ruckig_input)</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;{</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <span class="comment">// TODO(andyz): https://github.com/ros-planning/moveit2/issues/766</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  <span class="comment">// ruckig_output.pass_to_input(ruckig_input);</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_dof = joint_group-&gt;<a class="code" href="classmoveit_1_1core_1_1JointModelGroup.html#aa84a6083c84b6efcba6b84c18e9cec15">getVariableCount</a>();</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <span class="keyword">const</span> std::vector&lt;int&gt;&amp; idx = joint_group-&gt;<a class="code" href="classmoveit_1_1core_1_1JointModelGroup.html#ab0d0e29514820e4ccb2647456ba5cc25">getVariableIndexList</a>();</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> joint = 0; joint &lt; num_dof; ++joint)</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  {</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="comment">// Feed output from the previous timestep back as input</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    ruckig_input.current_position.at(joint) = ruckig_output.new_position.at(joint);</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    ruckig_input.current_velocity.at(joint) = ruckig_output.new_velocity.at(joint);</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    ruckig_input.current_acceleration.at(joint) = ruckig_output.new_acceleration.at(joint);</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="comment">// Target state is the next waypoint</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    ruckig_input.target_position.at(joint) = next_waypoint-&gt;getVariablePosition(idx.at(joint));</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    ruckig_input.target_velocity.at(joint) = next_waypoint-&gt;getVariableVelocity(idx.at(joint));</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    ruckig_input.target_acceleration.at(joint) = next_waypoint-&gt;getVariableAcceleration(idx.at(joint));</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  }</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;}</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;}  <span class="comment">// namespace trajectory_processing</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="comment">// Clamp velocities/accelerations in case they exceed the limit due to small numerical errors</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    current_velocities_vector.at(i) =</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        std::clamp(current_velocities_vector.at(i), -ruckig_input.max_velocity.at(i), ruckig_input.max_velocity.at(i));</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    current_accelerations_vector.at(i) = std::clamp(</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        current_accelerations_vector.at(i), -ruckig_input.max_acceleration.at(i), ruckig_input.max_acceleration.at(i));</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  std::copy_n(current_positions_vector.begin(), num_dof, ruckig_input.current_position.begin());</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  std::copy_n(current_velocities_vector.begin(), num_dof, ruckig_input.current_velocity.begin());</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  std::copy_n(current_accelerations_vector.begin(), num_dof, ruckig_input.current_acceleration.begin());</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  <span class="comment">// Initialize output data struct</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  ruckig_output.new_position = ruckig_input.current_position;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  ruckig_output.new_velocity = ruckig_input.current_velocity;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  ruckig_output.new_acceleration = ruckig_input.current_acceleration;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;}</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="keywordtype">void</span> RuckigSmoothing::getNextRuckigInput(<span class="keyword">const</span> moveit::core::RobotStatePtr&amp; current_waypoint,</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                                         <span class="keyword">const</span> moveit::core::RobotStatePtr&amp; next_waypoint,</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                                         <span class="keyword">const</span> <a class="code" href="classmoveit_1_1core_1_1JointModelGroup.html">moveit::core::JointModelGroup</a>* joint_group,</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                                         ruckig::InputParameter&lt;0&gt;&amp; ruckig_input)</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;{</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">size_t</span> num_dof = joint_group-&gt;<a class="code" href="classmoveit_1_1core_1_1JointModelGroup.html#aa84a6083c84b6efcba6b84c18e9cec15">getVariableCount</a>();</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keyword">const</span> std::vector&lt;int&gt;&amp; idx = joint_group-&gt;<a class="code" href="classmoveit_1_1core_1_1JointModelGroup.html#ab0d0e29514820e4ccb2647456ba5cc25">getVariableIndexList</a>();</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> joint = 0; joint &lt; num_dof; ++joint)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  {</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    ruckig_input.current_position.at(joint) = current_waypoint-&gt;getVariablePosition(idx.at(joint));</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    ruckig_input.current_velocity.at(joint) = current_waypoint-&gt;getVariableVelocity(idx.at(joint));</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    ruckig_input.current_acceleration.at(joint) = current_waypoint-&gt;getVariableAcceleration(idx.at(joint));</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="comment">// Target state is the next waypoint</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    ruckig_input.target_position.at(joint) = next_waypoint-&gt;getVariablePosition(idx.at(joint));</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    ruckig_input.target_velocity.at(joint) = next_waypoint-&gt;getVariableVelocity(idx.at(joint));</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    ruckig_input.target_acceleration.at(joint) = next_waypoint-&gt;getVariableAcceleration(idx.at(joint));</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="comment">// Clamp velocities/accelerations in case they exceed the limit due to small numerical errors</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    ruckig_input.current_velocity.at(joint) =</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        std::clamp(ruckig_input.current_velocity.at(joint), -ruckig_input.max_velocity.at(joint),</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                   ruckig_input.max_velocity.at(joint));</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    ruckig_input.current_acceleration.at(joint) =</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        std::clamp(ruckig_input.current_acceleration.at(joint), -ruckig_input.max_acceleration.at(joint),</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                   ruckig_input.max_acceleration.at(joint));</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    ruckig_input.target_velocity.at(joint) =</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        std::clamp(ruckig_input.target_velocity.at(joint), -ruckig_input.max_velocity.at(joint),</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                   ruckig_input.max_velocity.at(joint));</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    ruckig_input.target_acceleration.at(joint) =</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        std::clamp(ruckig_input.target_acceleration.at(joint), -ruckig_input.max_acceleration.at(joint),</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                   ruckig_input.max_acceleration.at(joint));</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  }</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;}</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;}  <span class="comment">// namespace trajectory_processing</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassrobot__trajectory_1_1RobotTrajectory_html_ababf812aa287c586d9ad0b190e1d2482"><div class="ttname"><a href="classrobot__trajectory_1_1RobotTrajectory.html#ababf812aa287c586d9ad0b190e1d2482">robot_trajectory::RobotTrajectory::getWayPointCount</a></div><div class="ttdeci">std::size_t getWayPointCount() const</div><div class="ttdef"><b>Definition:</b> <a href="robot__trajectory_8h_source.html#l00138">robot_trajectory.h:138</a></div></div>
 <div class="ttc" id="aclassrobot__trajectory_1_1RobotTrajectory_html_a6eaef50c3127c83dbc5ca393376435b1"><div class="ttname"><a href="classrobot__trajectory_1_1RobotTrajectory.html#a6eaef50c3127c83dbc5ca393376435b1">robot_trajectory::RobotTrajectory::getGroup</a></div><div class="ttdeci">const moveit::core::JointModelGroup * getGroup() const</div><div class="ttdef"><b>Definition:</b> <a href="robot__trajectory_8h_source.html#l00125">robot_trajectory.h:125</a></div></div>

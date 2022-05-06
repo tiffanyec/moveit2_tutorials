@@ -171,7 +171,7 @@ $(function() {
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  EXPECT_TRUE(</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      smoother_.applySmoothing(*trajectory_, 1.0 <span class="comment">/* max vel scaling factor */</span>, 1.0 <span class="comment">/* max accel scaling factor */</span>));</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  EXPECT_GT(trajectory_-&gt;getWayPointDurationFromStart(trajectory_-&gt;getWayPointCount() - 1), 0.9999 * ideal_duration);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  EXPECT_LT(trajectory_-&gt;getWayPointDurationFromStart(trajectory_-&gt;getWayPointCount() - 1), 1.3 * ideal_duration);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  EXPECT_LT(trajectory_-&gt;getWayPointDurationFromStart(trajectory_-&gt;getWayPointCount() - 1), 1.5 * ideal_duration);</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
 <div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="test__ruckig__traj__smoothing_8cpp.html#ac3b0d91108ed876ffd356ca771c29661">  104</a></span>&#160;<a class="code" href="test__ruckig__traj__smoothing_8cpp.html#a29cf0c74e39ba3205e60e7a268c93536">TEST_F</a>(RuckigTests, single_waypoint)</div>
