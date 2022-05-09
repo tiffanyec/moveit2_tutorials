@@ -320,70 +320,67 @@ $(function() {
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  <span class="keywordtype">double</span> <a class="code" href="namespaceplan.html#a0d1d9218112fb104ea1d563b4a920e07">a</a> = 0, b = 0, <a class="code" href="namespaceplan__with__constraints.html#a945577a94b97d84b5fb0e116f2db732a">c</a> = 0, r2 = 0, r4 = 0, r6 = 0, a1 = 0, b1 = 0, c1 = 0, a2 = 0, b2 = 0, c2 = 0;</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="keywordtype">bool</span> wyvill = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  octomap::point3d_list::const_iterator it;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <span class="keywordflow">for</span> (it = cloud.begin(); it != cloud.end(); ++it)</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  {</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    octomath::Vector3 v = (*it);</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordflow">if</span> (wyvill)</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    {</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      r2 = <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> * <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a>;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      r4 = r2 * r2;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      r6 = r4 * r2;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      <a class="code" href="namespaceplan.html#a0d1d9218112fb104ea1d563b4a920e07">a</a> = -4.0 / 9.0;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      b = 17.0 / 9.0;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;      <a class="code" href="namespaceplan__with__constraints.html#a945577a94b97d84b5fb0e116f2db732a">c</a> = -22.0 / 9.0;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;      a1 = <a class="code" href="namespaceplan.html#a0d1d9218112fb104ea1d563b4a920e07">a</a> / r6;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;      b1 = b / r4;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;      c1 = <a class="code" href="namespaceplan__with__constraints.html#a945577a94b97d84b5fb0e116f2db732a">c</a> / r2;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      a2 = 6 * a1;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;      b2 = 4 * b1;</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;      c2 = 2 * c1;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    }</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    {</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;This should not be called!&quot;</span>);</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">const</span> octomath::Vector3&amp; v : cloud)</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  {</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordflow">if</span> (wyvill)</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    {</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      r2 = <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> * <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a>;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      r4 = r2 * r2;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      r6 = r4 * r2;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      <a class="code" href="namespaceplan.html#a0d1d9218112fb104ea1d563b4a920e07">a</a> = -4.0 / 9.0;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      b = 17.0 / 9.0;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      <a class="code" href="namespaceplan__with__constraints.html#a945577a94b97d84b5fb0e116f2db732a">c</a> = -22.0 / 9.0;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      a1 = <a class="code" href="namespaceplan.html#a0d1d9218112fb104ea1d563b4a920e07">a</a> / r6;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      b1 = b / r4;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;      c1 = <a class="code" href="namespaceplan__with__constraints.html#a945577a94b97d84b5fb0e116f2db732a">c</a> / r2;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;      a2 = 6 * a1;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;      b2 = 4 * b1;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;      c2 = 2 * c1;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    }</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    {</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;This should not be called!&quot;</span>);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    }</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordtype">double</span> f_val = 0;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    octomath::Vector3 f_grad(0, 0, 0);</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordtype">double</span> f_val = 0;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    octomath::Vector3 f_grad(0, 0, 0);</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    octomath::Vector3 pos = position - v;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> = pos.norm();</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    pos = pos * (1.0 / <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a>);</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> &gt; <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a>)  <span class="comment">// must skip points outside valid bounds.</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    {</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;      <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    }</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordtype">double</span> r2 = <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> * <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a>;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordtype">double</span> r3 = <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> * r2;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordtype">double</span> r4 = r2 * r2;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordtype">double</span> r5 = r3 * r2;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordtype">double</span> r6 = r3 * r3;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">if</span> (wyvill)</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    {</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;      f_val = (a1 * r6 + b1 * r4 + c1 * r2 + 1);</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      f_grad = pos * (a2 * r5 + b2 * r3 + c2 * <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a>);</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    }</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    {</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;This should not be called!&quot;</span>);</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      <span class="keywordtype">double</span> r_scaled = <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> / <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a>;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      <span class="comment">// TODO still need to address the scaling...</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;      f_val = pow((1 - r_scaled), 4) * (4 * r_scaled + 1);</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      f_grad = pos * (-4.0 / <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> * pow(1.0 - r_scaled, 3) * (4.0 * r_scaled + 1.0) + 4.0 / <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> * pow(1 - r_scaled, 4));</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    }</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="comment">// TODO:  The whole library should be overhauled to follow the &quot;gradient points out&quot;</span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="comment">//        convention of implicit functions.</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    intensity += f_val;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    gradient += f_grad;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  }</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <span class="comment">// implicit surface gradient convention points out, so we flip it.</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  gradient *= -1.0;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;  <span class="comment">// it worked</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;}</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    octomath::Vector3 pos = position - v;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> = pos.norm();</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    pos = pos * (1.0 / <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a>);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> &gt; <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a>)  <span class="comment">// must skip points outside valid bounds.</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    {</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    }</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordtype">double</span> r2 = <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> * <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a>;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordtype">double</span> r3 = <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> * r2;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keywordtype">double</span> r4 = r2 * r2;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordtype">double</span> r5 = r3 * r2;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordtype">double</span> r6 = r3 * r3;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">if</span> (wyvill)</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    {</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      f_val = (a1 * r6 + b1 * r4 + c1 * r2 + 1);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      f_grad = pos * (a2 * r5 + b2 * r3 + c2 * <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a>);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    }</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    {</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;This should not be called!&quot;</span>);</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      <span class="keywordtype">double</span> r_scaled = <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> / <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a>;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      <span class="comment">// TODO still need to address the scaling...</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      f_val = pow((1 - r_scaled), 4) * (4 * r_scaled + 1);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      f_grad = pos * (-4.0 / <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> * pow(1.0 - r_scaled, 3) * (4.0 * r_scaled + 1.0) + 4.0 / <a class="code" href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">r</a> * pow(1 - r_scaled, 4));</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    }</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="comment">// TODO:  The whole library should be overhauled to follow the &quot;gradient points out&quot;</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="comment">//        convention of implicit functions.</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    intensity += f_val;</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    gradient += f_grad;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  }</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  <span class="comment">// implicit surface gradient convention points out, so we flip it.</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  gradient *= -1.0;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;  <span class="comment">// it worked</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="acollision__octomap__filter_8cpp_html_a9ced1391e20e8d818dc8b8675659d492"><div class="ttname"><a href="collision__octomap__filter_8cpp.html#a9ced1391e20e8d818dc8b8675659d492">getMetaballSurfaceProperties</a></div><div class="ttdeci">bool getMetaballSurfaceProperties(const octomap::point3d_list &amp;cloud, const double &amp;spacing, const double &amp;iso_value, const double &amp;r_multiple, const octomath::Vector3 &amp;contact_point, octomath::Vector3 &amp;normal, double &amp;depth, bool estimate_depth)</div><div class="ttdef"><b>Definition:</b> <a href="collision__octomap__filter_8cpp_source.html#l00167">collision_octomap_filter.cpp:167</a></div></div>
 <div class="ttc" id="anamespaceplan__with__constraints_html_a945577a94b97d84b5fb0e116f2db732a"><div class="ttname"><a href="namespaceplan__with__constraints.html#a945577a94b97d84b5fb0e116f2db732a">plan_with_constraints.c</a></div><div class="ttdeci">c</div><div class="ttdef"><b>Definition:</b> <a href="plan__with__constraints_8py_source.html#l00056">plan_with_constraints.py:56</a></div></div>
