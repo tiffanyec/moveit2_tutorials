@@ -1,8 +1,7 @@
 <map id="robot_trajectory::RobotTrajectory::addSuffixWayPoint" name="robot_trajectory::RobotTrajectory::addSuffixWayPoint">
-<area shape="rect" id="node1" title="Add a point to the trajectory." alt="" coords="407,137,641,178"/>
-<area shape="rect" id="node2" href="$classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#a7fb161f0df9bd1acb0a08cb339e43102" title=" " alt="" coords="108,5,359,61"/>
-<area shape="rect" id="node3" href="$test__time__optimal__trajectory__generation_8cpp.html#a16a36e399fa8b0dd611bbc73ebb3f5ff" title=" " alt="" coords="5,53,60,80"/>
-<area shape="rect" id="node4" href="$classompl__interface_1_1ModelBasedPlanningContext.html#a7c98e2b24df6a458e5b43654905aaebc" title=" " alt="" coords="126,137,341,178"/>
-<area shape="rect" id="node5" href="$classmoveit_1_1hybrid__planning_1_1ForwardTrajectory.html#a004dec961e56440b5df8093bf55b2a58" title=" " alt="" coords="139,202,327,243"/>
-<area shape="rect" id="node6" href="$test__robot__trajectory_8cpp.html#ac2eca9d77186f589d9148d63fbef0006" title=" " alt="" coords="199,268,268,295"/>
+<area shape="rect" id="node1" title="Add a point to the trajectory." alt="" coords="268,100,503,141"/>
+<area shape="rect" id="node2" href="$classompl__interface_1_1ModelBasedPlanningContext.html#a7c98e2b24df6a458e5b43654905aaebc" title=" " alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node3" href="$classmoveit_1_1hybrid__planning_1_1ForwardTrajectory.html#a004dec961e56440b5df8093bf55b2a58" title=" " alt="" coords="19,71,207,112"/>
+<area shape="rect" id="node4" href="$test__time__optimal__trajectory__generation_8cpp.html#ad7b222b415e14f9d93f2d3ae4daef939" title=" " alt="" coords="85,137,140,163"/>
+<area shape="rect" id="node5" href="$test__robot__trajectory_8cpp.html#ac2eca9d77186f589d9148d63fbef0006" title=" " alt="" coords="78,187,147,214"/>
 </map>

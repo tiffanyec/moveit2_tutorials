@@ -97,6 +97,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5bb53d61cca77c7519cefd350f0fc5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4dbacb6d1eaab1aaca95aeabcc01477d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1TimeParameterization.html#a4dbacb6d1eaab1aaca95aeabcc01477d">computeTimeStamps</a> (<a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;trajectory, const double max_velocity_scaling_factor=1.0, const double max_acceleration_scaling_factor=1.0) const =0</td></tr>
 <tr class="separator:a4dbacb6d1eaab1aaca95aeabcc01477d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4e39381da1da60073e6df18f1f5a388"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1TimeParameterization.html#ab4e39381da1da60073e6df18f1f5a388">computeTimeStamps</a> (<a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;trajectory, const std::unordered_map&lt; std::string, double &gt; &amp;velocity_limits, const std::unordered_map&lt; std::string, double &gt; &amp;acceleration_limits) const =0</td></tr>
+<tr class="separator:ab4e39381da1da60073e6df18f1f5a388"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for trajectory parameterization algorithms. </p>
@@ -130,7 +132,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4dbacb6d1eaab1aaca95aeabcc01477d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4dbacb6d1eaab1aaca95aeabcc01477d">&#9670;&nbsp;</a></span>computeTimeStamps()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dbacb6d1eaab1aaca95aeabcc01477d">&#9670;&nbsp;</a></span>computeTimeStamps() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,6 +172,50 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implemented in <a class="el" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#a7fb161f0df9bd1acb0a08cb339e43102">trajectory_processing::TimeOptimalTrajectoryGeneration</a>, <a class="el" href="classtrajectory__processing_1_1IterativeSplineParameterization.html#ac65a0bed2a3d103913f7179b18efb6ab">trajectory_processing::IterativeSplineParameterization</a>, and <a class="el" href="classtrajectory__processing_1_1IterativeParabolicTimeParameterization.html#a9178f8f9ae2540954879925f56ca0138">trajectory_processing::IterativeParabolicTimeParameterization</a>.</p>
+
+</div>
+</div>
+<a id="ab4e39381da1da60073e6df18f1f5a388"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4e39381da1da60073e6df18f1f5a388">&#9670;&nbsp;</a></span>computeTimeStamps() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool trajectory_processing::TimeParameterization::computeTimeStamps </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;&#160;</td>
+          <td class="paramname"><em>trajectory</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>velocity_limits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>acceleration_limits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classtrajectory__processing_1_1IterativeSplineParameterization.html#a84e38510264a62836f7d1a033dc6817f">trajectory_processing::IterativeSplineParameterization</a>, <a class="el" href="classtrajectory__processing_1_1IterativeParabolicTimeParameterization.html#a2eb531d2ae2c00c1a64002ed640e1e28">trajectory_processing::IterativeParabolicTimeParameterization</a>, and <a class="el" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#abe3319a6338a0da762d77d646c30e2a7">trajectory_processing::TimeOptimalTrajectoryGeneration</a>.</p>
 
 </div>
 </div>

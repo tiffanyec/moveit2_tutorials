@@ -101,6 +101,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a294c396a9c240f6505dd780eaaca3deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fb161f0df9bd1acb0a08cb339e43102"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#a7fb161f0df9bd1acb0a08cb339e43102">computeTimeStamps</a> (<a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;trajectory, const double max_velocity_scaling_factor=1.0, const double max_acceleration_scaling_factor=1.0) const override</td></tr>
 <tr class="separator:a7fb161f0df9bd1acb0a08cb339e43102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe3319a6338a0da762d77d646c30e2a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#abe3319a6338a0da762d77d646c30e2a7">computeTimeStamps</a> (<a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;trajectory, const std::unordered_map&lt; std::string, double &gt; &amp;velocity_limits, const std::unordered_map&lt; std::string, double &gt; &amp;acceleration_limits) const</td></tr>
+<tr class="separator:abe3319a6338a0da762d77d646c30e2a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classtrajectory__processing_1_1TimeParameterization"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classtrajectory__processing_1_1TimeParameterization')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtrajectory__processing_1_1TimeParameterization.html">trajectory_processing::TimeParameterization</a></td></tr>
 <tr class="memitem:a5bb53d61cca77c7519cefd350f0fc5d7 inherit pub_methods_classtrajectory__processing_1_1TimeParameterization"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1TimeParameterization.html#a5bb53d61cca77c7519cefd350f0fc5d7">~TimeParameterization</a> ()=default</td></tr>
 <tr class="separator:a5bb53d61cca77c7519cefd350f0fc5d7 inherit pub_methods_classtrajectory__processing_1_1TimeParameterization"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,7 +149,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7fb161f0df9bd1acb0a08cb339e43102"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fb161f0df9bd1acb0a08cb339e43102">&#9670;&nbsp;</a></span>computeTimeStamps()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fb161f0df9bd1acb0a08cb339e43102">&#9670;&nbsp;</a></span>computeTimeStamps() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -194,31 +196,10 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration_a7fb161f0df9bd1acb0a08cb339e43102_cgraph.png" border="0" usemap="#classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration_a7fb161f0df9bd1acb0a08cb339e43102_cgraph" alt=""/></div>
 <map name="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration_a7fb161f0df9bd1acb0a08cb339e43102_cgraph" id="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration_a7fb161f0df9bd1acb0a08cb339e43102_cgraph">
-<area shape="rect" title=" " alt="" coords="5,586,256,642"/>
-<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#a8d818ea730ce7620ca2b15edd70f774e" title="Add a point to the trajectory." alt="" coords="304,5,539,47"/>
-<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#ae07ca729ccee3748d65abe389de3b8e1" title=" " alt="" coords="304,71,539,112"/>
-<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#afdd5cc4e84e484af2dc6ea337f62719e" title=" " alt="" coords="304,136,539,177"/>
-<area shape="rect" href="classtrajectory__processing_1_1Trajectory.html#a1a48fed786b4c7ccf5dba6dae78e965e" title="Return the acceleration vector for a given point in time." alt="" coords="320,397,523,439"/>
-<area shape="rect" href="classtrajectory__processing_1_1Trajectory.html#aada4cdb42a2a789912c6d0d14302d57a" title="Returns the optimal duration of the trajectory." alt="" coords="332,267,511,308"/>
-<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#a6eaef50c3127c83dbc5ca393376435b1" title=" " alt="" coords="304,332,539,373"/>
-<area shape="rect" href="classtrajectory__processing_1_1Trajectory.html#a42dc127a1d865ac21fe38a8fab206253" title="Return the position/configuration vector for a given point in time." alt="" coords="334,528,509,569"/>
-<area shape="rect" href="classmoveit_1_1core_1_1RobotModel.html#a0e6fe94c867b3452abdeecc2d7373ca2" title="Get the bounds for a specific variable. Throw an exception of variable is not found." alt="" coords="326,463,517,504"/>
-<area shape="rect" href="classtrajectory__processing_1_1Trajectory.html#ab36c647a2696f1103433fdf1106f11e9" title="Return the velocity vector for a given point in time." alt="" coords="334,201,509,243"/>
-<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#af356952b9847bc920b773f2f83cb9943" title=" " alt="" coords="304,593,539,635"/>
-<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#ababf812aa287c586d9ad0b190e1d2482" title=" " alt="" coords="304,659,539,700"/>
-<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#aa02527d5b79f3249febefb4780743746" title=" " alt="" coords="304,724,539,765"/>
-<area shape="rect" href="classtrajectory__processing_1_1Trajectory.html#a25270396d87c878ead796eeef9ddb526" title="Call this method after constructing the object to make sure the trajectory generation succeeded witho..." alt="" coords="340,789,503,831"/>
-<area shape="rect" href="classmoveit_1_1core_1_1RobotState.html#a064a06cc78d55f8fe11b89dbb30ab9d2" title="Set the acceleration of a variable. If an unknown variable name is specified, an exception is thrown." alt="" coords="329,855,513,896"/>
-<area shape="rect" href="classmoveit_1_1core_1_1RobotState.html#a54879052daa602ea0319cbe3ded82ff3" title="Set the position of a single variable. An exception is thrown if the variable name is not known." alt="" coords="329,920,513,961"/>
-<area shape="rect" href="classmoveit_1_1core_1_1RobotState.html#a44192d552292408eb9a399e56921a04b" title="Set the velocity of a variable. If an unknown variable name is specified, an exception is thrown." alt="" coords="329,985,513,1027"/>
-<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#a7804317b96eb6c13639839b1276ac04c" title=" " alt="" coords="304,1051,539,1092"/>
-<area shape="rect" href="classmoveit_1_1core_1_1RobotState.html#a6aad5a36ebcb44ff828cac210815e241" title="Set all accelerations to 0.0." alt="" coords="329,1116,513,1157"/>
-<area shape="rect" href="classmoveit_1_1core_1_1RobotState.html#a06620553a22719e4f76dd876ab1a5f9e" title="Set all velocities to 0.0." alt="" coords="329,1181,513,1223"/>
-<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#ab1e226f85689e3f9058a6b807f309a64" title=" " alt="" coords="587,5,821,47"/>
-<area shape="rect" href="classtrajectory__processing_1_1Path.html#a382b88a3c5c4f9c33a095db6e3ecac79" title=" " alt="" coords="623,299,785,340"/>
-<area shape="rect" href="classtrajectory__processing_1_1PathSegment.html#ae37705230fe221e27b1ed0f30e35b64e" title=" " alt="" coords="869,299,1065,340"/>
-<area shape="rect" href="classtrajectory__processing_1_1Path.html#a8fb3dbb1e543ba4ae6c12bb6f238700f" title=" " alt="" coords="623,528,785,569"/>
-<area shape="rect" href="classtrajectory__processing_1_1PathSegment.html#a232d552095e9b2a29e15807aa9b0ab55" title=" " alt="" coords="874,528,1061,569"/>
+<area shape="rect" title=" " alt="" coords="5,63,256,119"/>
+<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#afdd5cc4e84e484af2dc6ea337f62719e" title=" " alt="" coords="304,5,539,47"/>
+<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#a6eaef50c3127c83dbc5ca393376435b1" title=" " alt="" coords="304,71,539,112"/>
+<area shape="rect" href="classmoveit_1_1core_1_1RobotModel.html#a0e6fe94c867b3452abdeecc2d7373ca2" title="Get the bounds for a specific variable. Throw an exception of variable is not found." alt="" coords="326,136,517,177"/>
 </map>
 </div>
 <div class="dynheader">
@@ -227,7 +208,64 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration_a7fb161f0df9bd1acb0a08cb339e43102_icgraph.png" border="0" usemap="#classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration_a7fb161f0df9bd1acb0a08cb339e43102_icgraph" alt=""/></div>
 <map name="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration_a7fb161f0df9bd1acb0a08cb339e43102_icgraph" id="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration_a7fb161f0df9bd1acb0a08cb339e43102_icgraph">
 <area shape="rect" title=" " alt="" coords="108,5,359,61"/>
-<area shape="rect" href="test__time__optimal__trajectory__generation_8cpp.html#a16a36e399fa8b0dd611bbc73ebb3f5ff" title=" " alt="" coords="5,20,60,47"/>
+<area shape="rect" href="test__time__optimal__trajectory__generation_8cpp.html#ad7b222b415e14f9d93f2d3ae4daef939" title=" " alt="" coords="5,20,60,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abe3319a6338a0da762d77d646c30e2a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe3319a6338a0da762d77d646c30e2a7">&#9670;&nbsp;</a></span>computeTimeStamps() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool trajectory_processing::TimeOptimalTrajectoryGeneration::computeTimeStamps </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;&#160;</td>
+          <td class="paramname"><em>trajectory</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>velocity_limits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>acceleration_limits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classtrajectory__processing_1_1TimeParameterization.html#ab4e39381da1da60073e6df18f1f5a388">trajectory_processing::TimeParameterization</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="time__optimal__trajectory__generation_8cpp_source.html#l00969">969</a> of file <a class="el" href="time__optimal__trajectory__generation_8cpp_source.html">time_optimal_trajectory_generation.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration_abe3319a6338a0da762d77d646c30e2a7_cgraph.png" border="0" usemap="#classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration_abe3319a6338a0da762d77d646c30e2a7_cgraph" alt=""/></div>
+<map name="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration_abe3319a6338a0da762d77d646c30e2a7_cgraph" id="classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration_abe3319a6338a0da762d77d646c30e2a7_cgraph">
+<area shape="rect" title=" " alt="" coords="5,63,256,119"/>
+<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#afdd5cc4e84e484af2dc6ea337f62719e" title=" " alt="" coords="304,5,539,47"/>
+<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#a6eaef50c3127c83dbc5ca393376435b1" title=" " alt="" coords="304,71,539,112"/>
+<area shape="rect" href="classmoveit_1_1core_1_1RobotModel.html#a0e6fe94c867b3452abdeecc2d7373ca2" title="Get the bounds for a specific variable. Throw an exception of variable is not found." alt="" coords="326,136,517,177"/>
 </map>
 </div>
 

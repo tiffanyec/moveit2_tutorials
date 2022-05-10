@@ -124,10 +124,14 @@ $(function() {
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classtrajectory__processing_1_1IterativeSplineParameterization.html#ac65a0bed2a3d103913f7179b18efb6ab">computeTimeStamps</a>(<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a>&amp; trajectory, <span class="keyword">const</span> <span class="keywordtype">double</span> max_velocity_scaling_factor = 1.0,</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                         <span class="keyword">const</span> <span class="keywordtype">double</span> max_acceleration_scaling_factor = 1.0) <span class="keyword">const override</span>;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">bool</span> add_points_;  </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}  <span class="comment">// namespace trajectory_processing</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classtrajectory__processing_1_1IterativeSplineParameterization.html#ac65a0bed2a3d103913f7179b18efb6ab">computeTimeStamps</a>(<a class="code" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a>&amp; trajectory,</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                         <span class="keyword">const</span> std::unordered_map&lt;std::string, double&gt;&amp; velocity_limits,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                         <span class="keyword">const</span> std::unordered_map&lt;std::string, double&gt;&amp; acceleration_limits) <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">bool</span> add_points_;  </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}  <span class="comment">// namespace trajectory_processing</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="arobot__trajectory_8h_html"><div class="ttname"><a href="robot__trajectory_8h.html">robot_trajectory.h</a></div></div>
 <div class="ttc" id="aclassrobot__trajectory_1_1RobotTrajectory_html"><div class="ttname"><a href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a></div><div class="ttdoc">Maintain a sequence of waypoints and the time durations between these waypoints.</div><div class="ttdef"><b>Definition:</b> <a href="robot__trajectory_8h_source.html#l00091">robot_trajectory.h:91</a></div></div>

@@ -1,6 +1,4 @@
 <map id="trajectory_processing::Trajectory::getDuration" name="trajectory_processing::Trajectory::getDuration">
-<area shape="rect" id="node1" title="Returns the optimal duration of the trajectory." alt="" coords="407,46,585,87"/>
-<area shape="rect" id="node2" href="$classtrajectory__processing_1_1TimeOptimalTrajectoryGeneration.html#a7fb161f0df9bd1acb0a08cb339e43102" title=" " alt="" coords="108,5,359,61"/>
-<area shape="rect" id="node4" href="$test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11" title=" " alt="" coords="206,85,261,112"/>
-<area shape="rect" id="node3" href="$test__time__optimal__trajectory__generation_8cpp.html#a16a36e399fa8b0dd611bbc73ebb3f5ff" title=" " alt="" coords="5,20,60,47"/>
+<area shape="rect" id="node1" title="Returns the optimal duration of the trajectory." alt="" coords="108,5,287,47"/>
+<area shape="rect" id="node2" href="$test__time__optimal__trajectory__generation_8cpp.html#a58fafeea33a2ccaaa2ed7335eaef0b11" title=" " alt="" coords="5,13,60,39"/>
 </map>

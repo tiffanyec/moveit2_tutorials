@@ -104,6 +104,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aeaed6a07d2db755a1826cf556bb2024b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac65a0bed2a3d103913f7179b18efb6ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1IterativeSplineParameterization.html#ac65a0bed2a3d103913f7179b18efb6ab">computeTimeStamps</a> (<a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;trajectory, const double max_velocity_scaling_factor=1.0, const double max_acceleration_scaling_factor=1.0) const override</td></tr>
 <tr class="separator:ac65a0bed2a3d103913f7179b18efb6ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84e38510264a62836f7d1a033dc6817f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1IterativeSplineParameterization.html#a84e38510264a62836f7d1a033dc6817f">computeTimeStamps</a> (<a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;trajectory, const std::unordered_map&lt; std::string, double &gt; &amp;velocity_limits, const std::unordered_map&lt; std::string, double &gt; &amp;acceleration_limits) const override</td></tr>
+<tr class="separator:a84e38510264a62836f7d1a033dc6817f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classtrajectory__processing_1_1TimeParameterization"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classtrajectory__processing_1_1TimeParameterization')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtrajectory__processing_1_1TimeParameterization.html">trajectory_processing::TimeParameterization</a></td></tr>
 <tr class="memitem:a5bb53d61cca77c7519cefd350f0fc5d7 inherit pub_methods_classtrajectory__processing_1_1TimeParameterization"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1TimeParameterization.html#a5bb53d61cca77c7519cefd350f0fc5d7">~TimeParameterization</a> ()=default</td></tr>
 <tr class="separator:a5bb53d61cca77c7519cefd350f0fc5d7 inherit pub_methods_classtrajectory__processing_1_1TimeParameterization"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,7 +140,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac65a0bed2a3d103913f7179b18efb6ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac65a0bed2a3d103913f7179b18efb6ab">&#9670;&nbsp;</a></span>computeTimeStamps()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac65a0bed2a3d103913f7179b18efb6ab">&#9670;&nbsp;</a></span>computeTimeStamps() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -206,6 +208,52 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="test__time__parameterization_8cpp.html#a1fb67aa34417d03016c74d44bd7f54e0" title=" " alt="" coords="5,20,60,47"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a84e38510264a62836f7d1a033dc6817f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84e38510264a62836f7d1a033dc6817f">&#9670;&nbsp;</a></span>computeTimeStamps() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool trajectory_processing::IterativeSplineParameterization::computeTimeStamps </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;&#160;</td>
+          <td class="paramname"><em>trajectory</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>velocity_limits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>acceleration_limits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classtrajectory__processing_1_1TimeParameterization.html#ab4e39381da1da60073e6df18f1f5a388">trajectory_processing::TimeParameterization</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="iterative__spline__parameterization_8cpp_source.html#l00349">349</a> of file <a class="el" href="iterative__spline__parameterization_8cpp_source.html">iterative_spline_parameterization.cpp</a>.</p>
 
 </div>
 </div>

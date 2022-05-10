@@ -81,13 +81,15 @@ $(function() {
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad70304532097ece8d0820c567797ba46"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1RuckigSmoothing.html#ad70304532097ece8d0820c567797ba46">applySmoothing</a> (<a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;trajectory, const double max_velocity_scaling_factor=1.0, const double max_acceleration_scaling_factor=1.0)</td></tr>
 <tr class="separator:ad70304532097ece8d0820c567797ba46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada2b4f0d591239204c640b229ba716dc"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrajectory__processing_1_1RuckigSmoothing.html#ada2b4f0d591239204c640b229ba716dc">applySmoothing</a> (<a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;trajectory, const std::unordered_map&lt; std::string, double &gt; &amp;velocity_limits, const std::unordered_map&lt; std::string, double &gt; &amp;acceleration_limits, const std::unordered_map&lt; std::string, double &gt; &amp;jerk_limits)</td></tr>
+<tr class="separator:ada2b4f0d591239204c640b229ba716dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="ruckig__traj__smoothing_8h_source.html#l00076">76</a> of file <a class="el" href="ruckig__traj__smoothing_8h_source.html">ruckig_traj_smoothing.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad70304532097ece8d0820c567797ba46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad70304532097ece8d0820c567797ba46">&#9670;&nbsp;</a></span>applySmoothing()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad70304532097ece8d0820c567797ba46">&#9670;&nbsp;</a></span>applySmoothing() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,6 +129,66 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="ruckig__traj__smoothing_8cpp_source.html#l00087">87</a> of file <a class="el" href="ruckig__traj__smoothing_8cpp_source.html">ruckig_traj_smoothing.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classtrajectory__processing_1_1RuckigSmoothing_ad70304532097ece8d0820c567797ba46_cgraph.png" border="0" usemap="#classtrajectory__processing_1_1RuckigSmoothing_ad70304532097ece8d0820c567797ba46_cgraph" alt=""/></div>
+<map name="classtrajectory__processing_1_1RuckigSmoothing_ad70304532097ece8d0820c567797ba46_cgraph" id="classtrajectory__processing_1_1RuckigSmoothing_ad70304532097ece8d0820c567797ba46_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,264,80"/>
+<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#a6eaef50c3127c83dbc5ca393376435b1" title=" " alt="" coords="312,5,547,47"/>
+<area shape="rect" href="classrobot__trajectory_1_1RobotTrajectory.html#ababf812aa287c586d9ad0b190e1d2482" title=" " alt="" coords="312,71,547,112"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ada2b4f0d591239204c640b229ba716dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada2b4f0d591239204c640b229ba716dc">&#9670;&nbsp;</a></span>applySmoothing() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool trajectory_processing::RuckigSmoothing::applySmoothing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classrobot__trajectory_1_1RobotTrajectory.html">robot_trajectory::RobotTrajectory</a> &amp;&#160;</td>
+          <td class="paramname"><em>trajectory</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>velocity_limits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>acceleration_limits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>jerk_limits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ruckig__traj__smoothing_8cpp_source.html#l00117">117</a> of file <a class="el" href="ruckig__traj__smoothing_8cpp_source.html">ruckig_traj_smoothing.cpp</a>.</p>
 
 </div>
 </div>

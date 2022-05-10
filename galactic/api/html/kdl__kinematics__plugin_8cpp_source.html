@@ -161,11 +161,11 @@ $(function() {
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; active_names = joint_model_group_-&gt;getActiveJointModelNames();</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  std::vector&lt;std::string&gt; names;</div>
 <div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classkdl__kinematics__plugin_1_1KDLKinematicsPlugin.html#aa18064a90c94e000324d7dbb14a61f26">   90</a></span>&#160;  std::vector&lt;double&gt; weights;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordflow">if</span> (lookupParam(node_, <span class="stringliteral">&quot;joint_weights/weights&quot;</span>, weights, weights))</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordflow">if</span> (lookupParam(node_, <span class="stringliteral">&quot;joint_weights.weights&quot;</span>, weights, weights))</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span> (!lookupParam(node_, <span class="stringliteral">&quot;joint_weights/names&quot;</span>, names, names) || names.size() != weights.size())</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span> (!lookupParam(node_, <span class="stringliteral">&quot;joint_weights.names&quot;</span>, names, names) || (names.size() != weights.size()))</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;Expecting list parameter joint_weights/names of same size as list joint_weights/weights&quot;</span>);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;Expecting list parameter joint_weights.names of same size as list joint_weights.weights&quot;</span>);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="comment">// fall back to default weights</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      weights.clear();</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
