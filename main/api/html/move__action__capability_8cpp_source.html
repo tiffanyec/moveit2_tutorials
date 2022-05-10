@@ -142,7 +142,7 @@ $(function() {
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        RCLCPP_INFO(LOGGER, <span class="stringliteral">&quot;Received request to cancel goal&quot;</span>);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> rclcpp_action::CancelResponse::ACCEPT;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      },</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      std::bind(&amp;MoveGroupMoveAction::executeMoveCallback, <span class="keyword">this</span>, std::placeholders::_1));</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      [<span class="keyword">this</span>](std::shared_ptr&lt;MGActionGoal&gt; goal) { <span class="keywordflow">return</span> executeMoveCallback(goal); });</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> MoveGroupMoveAction::executeMoveCallback(std::shared_ptr&lt;MGActionGoal&gt; goal)</div>
@@ -217,148 +217,152 @@ $(function() {
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <a class="code" href="namespacemoveit__commander__cmdline.html#a76b84183c3f688c8a62245eac9b3d26c">opt</a>.replan_ = goal-&gt;get_goal()-&gt;planning_options.replan;</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <a class="code" href="namespacemoveit__commander__cmdline.html#a76b84183c3f688c8a62245eac9b3d26c">opt</a>.replan_attempts_ = goal-&gt;get_goal()-&gt;planning_options.replan_attempts;</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <a class="code" href="namespacemoveit__commander__cmdline.html#a76b84183c3f688c8a62245eac9b3d26c">opt</a>.replan_delay_ = goal-&gt;get_goal()-&gt;planning_options.replan_delay;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <a class="code" href="namespacemoveit__commander__cmdline.html#a76b84183c3f688c8a62245eac9b3d26c">opt</a>.before_execution_callback_ = std::bind(&amp;MoveGroupMoveAction::startMoveExecutionCallback, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <a class="code" href="namespacemoveit__commander__cmdline.html#a76b84183c3f688c8a62245eac9b3d26c">opt</a>.before_execution_callback_ = [<span class="keyword">this</span>] { startMoveExecutionCallback(); };</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <a class="code" href="namespacemoveit__commander__cmdline.html#a76b84183c3f688c8a62245eac9b3d26c">opt</a>.plan_callback_ = std::bind(&amp;MoveGroupMoveAction::planUsingPlanningPipeline, <span class="keyword">this</span>,</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                                 boost::cref(motion_plan_request), std::placeholders::_1);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keywordflow">if</span> (goal-&gt;get_goal()-&gt;planning_options.look_around &amp;&amp; <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a8210f1b13f0df86dac511ca96765382d">context_</a>-&gt;plan_with_sensing_)</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  {</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <a class="code" href="namespacemoveit__commander__cmdline.html#a76b84183c3f688c8a62245eac9b3d26c">opt</a>.plan_callback_ =</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        std::bind(&amp;<a class="code" href="classplan__execution_1_1PlanWithSensing.html#adbcdac3166ddb05a2f16c07a9f4e1ae5">plan_execution::PlanWithSensing::computePlan</a>, <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a8210f1b13f0df86dac511ca96765382d">context_</a>-&gt;plan_with_sensing_.get(),</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                  std::placeholders::_1, <a class="code" href="namespacemoveit__commander__cmdline.html#a76b84183c3f688c8a62245eac9b3d26c">opt</a>.plan_callback_, goal-&gt;get_goal()-&gt;planning_options.look_around_attempts,</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                  goal-&gt;get_goal()-&gt;planning_options.max_safe_execution_cost);</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a8210f1b13f0df86dac511ca96765382d">context_</a>-&gt;plan_with_sensing_-&gt;setBeforeLookCallback(std::bind(&amp;MoveGroupMoveAction::startMoveLookCallback, <span class="keyword">this</span>));</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  }</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <a class="code" href="structplan__execution_1_1ExecutableMotionPlan.html">plan_execution::ExecutableMotionPlan</a> <a class="code" href="namespaceplan__with__constraints.html#ad98040293eeabd17f40a72a60f1146c4">plan</a>;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <span class="keywordflow">if</span> (preempt_requested_)</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  {</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    RCLCPP_INFO(LOGGER, <span class="stringliteral">&quot;Preempt requested before the goal is planned and executed.&quot;</span>);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    action_res-&gt;error_code.val = moveit_msgs::msg::MoveItErrorCodes::PREEMPTED;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  }</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a8210f1b13f0df86dac511ca96765382d">context_</a>-&gt;plan_execution_-&gt;planAndExecute(<a class="code" href="namespaceplan.html">plan</a>, planning_scene_diff, <a class="code" href="namespacemoveit__commander__cmdline.html#a76b84183c3f688c8a62245eac9b3d26c">opt</a>);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a5bc0d92b709dfd7580bd62f469b1fcab">convertToMsg</a>(<a class="code" href="namespaceplan.html">plan</a>.plan_components_, action_res-&gt;trajectory_start, action_res-&gt;planned_trajectory);</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespaceplan.html">plan</a>.executed_trajectory_)</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <a class="code" href="namespaceplan.html">plan</a>.executed_trajectory_-&gt;getRobotTrajectoryMsg(action_res-&gt;executed_trajectory);</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  action_res-&gt;error_code = <a class="code" href="namespaceplan.html">plan</a>.error_code_;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keywordtype">void</span> MoveGroupMoveAction::executeMoveCallbackPlanOnly(<span class="keyword">const</span> std::shared_ptr&lt;MGActionGoal&gt;&amp; goal,</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                                                      std::shared_ptr&lt;MGAction::Result&gt;&amp; action_res)</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;{</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  RCLCPP_INFO(LOGGER, <span class="stringliteral">&quot;Planning request received for MoveGroup action. Forwarding to planning pipeline.&quot;</span>);</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <span class="comment">// lock the scene so that it does not modify the world representation while diff() is called</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html">planning_scene_monitor::LockedPlanningSceneRO</a> lscene(<a class="code" href="classmove__group_1_1MoveGroupCapability.html#a8210f1b13f0df86dac511ca96765382d">context_</a>-&gt;planning_scene_monitor_);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  <span class="keyword">const</span> planning_scene::PlanningSceneConstPtr&amp; the_scene =</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      (<a class="code" href="namespacemoveit_1_1core.html#a192b65b3ebc8eb7b6ccd155808c68aa1">moveit::core::isEmpty</a>(goal-&gt;get_goal()-&gt;planning_options.planning_scene_diff)) ?</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;          <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>planning_scene::PlanningSceneConstPtr&amp;<span class="keyword">&gt;</span>(lscene) :</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;          lscene-&gt;diff(goal-&gt;get_goal()-&gt;planning_options.planning_scene_diff);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <a class="code" href="structplanning__interface_1_1MotionPlanResponse.html">planning_interface::MotionPlanResponse</a> res;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  <span class="keywordflow">if</span> (preempt_requested_)</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  {</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    RCLCPP_INFO(LOGGER, <span class="stringliteral">&quot;Preempt requested before the goal is planned.&quot;</span>);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    action_res-&gt;error_code.val = moveit_msgs::msg::MoveItErrorCodes::PREEMPTED;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  }</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <span class="comment">// Select planning_pipeline to handle request</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  <span class="keyword">const</span> planning_pipeline::PlanningPipelinePtr <a class="code" href="namespaceplanning__pipeline.html">planning_pipeline</a> =</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      <a class="code" href="classmove__group_1_1MoveGroupCapability.html#af55454826ec2870f5a2be562730f83df">resolvePlanningPipeline</a>(goal-&gt;get_goal()-&gt;request.pipeline_id);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  <span class="keywordflow">if</span> (!<a class="code" href="namespaceplanning__pipeline.html">planning_pipeline</a>)</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  {</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    action_res-&gt;error_code.val = moveit_msgs::msg::MoveItErrorCodes::FAILURE;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  }</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  {</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <a class="code" href="namespaceplanning__pipeline.html">planning_pipeline</a>-&gt;generatePlan(the_scene, goal-&gt;get_goal()-&gt;request, res);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  }</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keywordflow">catch</span> (std::exception&amp; ex)</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <a class="code" href="namespacemoveit__commander__cmdline.html#a76b84183c3f688c8a62245eac9b3d26c">opt</a>.plan_callback_ = [<span class="keyword">this</span>, &amp;motion_plan_request](<a class="code" href="structplan__execution_1_1ExecutableMotionPlan.html">plan_execution::ExecutableMotionPlan</a>&amp; <a class="code" href="namespaceplan__with__constraints.html#ad98040293eeabd17f40a72a60f1146c4">plan</a>) {</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">return</span> planUsingPlanningPipeline(motion_plan_request, <a class="code" href="namespaceplan.html">plan</a>);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  };</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  <span class="keywordflow">if</span> (goal-&gt;get_goal()-&gt;planning_options.look_around &amp;&amp; <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a8210f1b13f0df86dac511ca96765382d">context_</a>-&gt;plan_with_sensing_)</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="namespacemoveit__commander__cmdline.html#a76b84183c3f688c8a62245eac9b3d26c">opt</a>.plan_callback_ = [plan_with_sensing = <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a8210f1b13f0df86dac511ca96765382d">context_</a>-&gt;plan_with_sensing_.get(), planner = <a class="code" href="namespacemoveit__commander__cmdline.html#a76b84183c3f688c8a62245eac9b3d26c">opt</a>.plan_callback_,</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                          attempts = goal-&gt;get_goal()-&gt;planning_options.look_around_attempts,</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                          safe_execution_cost = goal-&gt;get_goal()-&gt;planning_options.max_safe_execution_cost](</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                             <a class="code" href="structplan__execution_1_1ExecutableMotionPlan.html">plan_execution::ExecutableMotionPlan</a>&amp; <a class="code" href="namespaceplan__with__constraints.html#ad98040293eeabd17f40a72a60f1146c4">plan</a>) {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <span class="keywordflow">return</span> plan_with_sensing-&gt;computePlan(<a class="code" href="namespaceplan.html">plan</a>, planner, attempts, safe_execution_cost);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    };</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a8210f1b13f0df86dac511ca96765382d">context_</a>-&gt;plan_with_sensing_-&gt;setBeforeLookCallback([<span class="keyword">this</span>]() { <span class="keywordflow">return</span> startMoveLookCallback(); });</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  }</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  <a class="code" href="structplan__execution_1_1ExecutableMotionPlan.html">plan_execution::ExecutableMotionPlan</a> <a class="code" href="namespaceplan__with__constraints.html#ad98040293eeabd17f40a72a60f1146c4">plan</a>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="keywordflow">if</span> (preempt_requested_)</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  {</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    RCLCPP_INFO(LOGGER, <span class="stringliteral">&quot;Preempt requested before the goal is planned and executed.&quot;</span>);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    action_res-&gt;error_code.val = moveit_msgs::msg::MoveItErrorCodes::PREEMPTED;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a8210f1b13f0df86dac511ca96765382d">context_</a>-&gt;plan_execution_-&gt;planAndExecute(<a class="code" href="namespaceplan.html">plan</a>, planning_scene_diff, <a class="code" href="namespacemoveit__commander__cmdline.html#a76b84183c3f688c8a62245eac9b3d26c">opt</a>);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a5bc0d92b709dfd7580bd62f469b1fcab">convertToMsg</a>(<a class="code" href="namespaceplan.html">plan</a>.plan_components_, action_res-&gt;trajectory_start, action_res-&gt;planned_trajectory);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespaceplan.html">plan</a>.executed_trajectory_)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <a class="code" href="namespaceplan.html">plan</a>.executed_trajectory_-&gt;getRobotTrajectoryMsg(action_res-&gt;executed_trajectory);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  action_res-&gt;error_code = <a class="code" href="namespaceplan.html">plan</a>.error_code_;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keywordtype">void</span> MoveGroupMoveAction::executeMoveCallbackPlanOnly(<span class="keyword">const</span> std::shared_ptr&lt;MGActionGoal&gt;&amp; goal,</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                                                      std::shared_ptr&lt;MGAction::Result&gt;&amp; action_res)</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;{</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  RCLCPP_INFO(LOGGER, <span class="stringliteral">&quot;Planning request received for MoveGroup action. Forwarding to planning pipeline.&quot;</span>);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="comment">// lock the scene so that it does not modify the world representation while diff() is called</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html">planning_scene_monitor::LockedPlanningSceneRO</a> lscene(<a class="code" href="classmove__group_1_1MoveGroupCapability.html#a8210f1b13f0df86dac511ca96765382d">context_</a>-&gt;planning_scene_monitor_);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <span class="keyword">const</span> planning_scene::PlanningSceneConstPtr&amp; the_scene =</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      (<a class="code" href="namespacemoveit_1_1core.html#a192b65b3ebc8eb7b6ccd155808c68aa1">moveit::core::isEmpty</a>(goal-&gt;get_goal()-&gt;planning_options.planning_scene_diff)) ?</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;          <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>planning_scene::PlanningSceneConstPtr&amp;<span class="keyword">&gt;</span>(lscene) :</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;          lscene-&gt;diff(goal-&gt;get_goal()-&gt;planning_options.planning_scene_diff);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <a class="code" href="structplanning__interface_1_1MotionPlanResponse.html">planning_interface::MotionPlanResponse</a> res;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  <span class="keywordflow">if</span> (preempt_requested_)</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  {</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    RCLCPP_INFO(LOGGER, <span class="stringliteral">&quot;Preempt requested before the goal is planned.&quot;</span>);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    action_res-&gt;error_code.val = moveit_msgs::msg::MoveItErrorCodes::PREEMPTED;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  }</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  <span class="comment">// Select planning_pipeline to handle request</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="keyword">const</span> planning_pipeline::PlanningPipelinePtr <a class="code" href="namespaceplanning__pipeline.html">planning_pipeline</a> =</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      <a class="code" href="classmove__group_1_1MoveGroupCapability.html#af55454826ec2870f5a2be562730f83df">resolvePlanningPipeline</a>(goal-&gt;get_goal()-&gt;request.pipeline_id);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <span class="keywordflow">if</span> (!<a class="code" href="namespaceplanning__pipeline.html">planning_pipeline</a>)</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  {</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    action_res-&gt;error_code.val = moveit_msgs::msg::MoveItErrorCodes::FAILURE;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  }</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keywordflow">try</span></div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  {</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;Planning pipeline threw an exception: %s&quot;</span>, ex.what());</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#ae39168510db61336c31f10949a54444a">error_code_</a>.val = moveit_msgs::msg::MoveItErrorCodes::FAILURE;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  }</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a5bc0d92b709dfd7580bd62f469b1fcab">convertToMsg</a>(res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>, action_res-&gt;trajectory_start, action_res-&gt;planned_trajectory);</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  action_res-&gt;error_code = res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#ae39168510db61336c31f10949a54444a">error_code_</a>;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  action_res-&gt;planning_time = res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#a650d90c6d03969c1ff6410d6dfd69968">planning_time_</a>;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;}</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="keywordtype">bool</span> MoveGroupMoveAction::planUsingPlanningPipeline(<span class="keyword">const</span> <a class="code" href="namespaceplanning__interface.html#a1307e10a0a3b9ca03406d777b9a938a3">planning_interface::MotionPlanRequest</a>&amp; req,</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                                                    <a class="code" href="structplan__execution_1_1ExecutableMotionPlan.html">plan_execution::ExecutableMotionPlan</a>&amp; <a class="code" href="namespaceplan.html">plan</a>)</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;{</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  setMoveState(<a class="code" href="namespacemove__group.html#a4a295c26dbc5ac7780dfa7ae10350bfba5e64a5b48bd5741e8f5d32a005298f62">PLANNING</a>, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  <span class="keywordtype">bool</span> solved = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  <a class="code" href="structplanning__interface_1_1MotionPlanResponse.html">planning_interface::MotionPlanResponse</a> res;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="comment">// Select planning_pipeline to handle request</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <span class="keyword">const</span> planning_pipeline::PlanningPipelinePtr <a class="code" href="namespaceplanning__pipeline.html">planning_pipeline</a> = <a class="code" href="classmove__group_1_1MoveGroupCapability.html#af55454826ec2870f5a2be562730f83df">resolvePlanningPipeline</a>(req.pipeline_id);</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  <span class="keywordflow">if</span> (!<a class="code" href="namespaceplanning__pipeline.html">planning_pipeline</a>)</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  {</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#ae39168510db61336c31f10949a54444a">error_code_</a>.val = moveit_msgs::msg::MoveItErrorCodes::FAILURE;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordflow">return</span> solved;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  }</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html">planning_scene_monitor::LockedPlanningSceneRO</a> lscene(<a class="code" href="namespaceplan.html">plan</a>.planning_scene_monitor_);</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  {</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    solved = <a class="code" href="namespaceplanning__pipeline.html">planning_pipeline</a>-&gt;generatePlan(<a class="code" href="namespaceplan.html">plan</a>.planning_scene_, req, res);</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  }</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <span class="keywordflow">catch</span> (std::exception&amp; ex)</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <a class="code" href="namespaceplanning__pipeline.html">planning_pipeline</a>-&gt;generatePlan(the_scene, goal-&gt;get_goal()-&gt;request, res);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  }</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  <span class="keywordflow">catch</span> (std::exception&amp; ex)</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;Planning pipeline threw an exception: %s&quot;</span>, ex.what());</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#ae39168510db61336c31f10949a54444a">error_code_</a>.val = moveit_msgs::msg::MoveItErrorCodes::FAILURE;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a5bc0d92b709dfd7580bd62f469b1fcab">convertToMsg</a>(res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>, action_res-&gt;trajectory_start, action_res-&gt;planned_trajectory);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  action_res-&gt;error_code = res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#ae39168510db61336c31f10949a54444a">error_code_</a>;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  action_res-&gt;planning_time = res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#a650d90c6d03969c1ff6410d6dfd69968">planning_time_</a>;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;}</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="keywordtype">bool</span> MoveGroupMoveAction::planUsingPlanningPipeline(<span class="keyword">const</span> <a class="code" href="namespaceplanning__interface.html#a1307e10a0a3b9ca03406d777b9a938a3">planning_interface::MotionPlanRequest</a>&amp; req,</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                                                    <a class="code" href="structplan__execution_1_1ExecutableMotionPlan.html">plan_execution::ExecutableMotionPlan</a>&amp; <a class="code" href="namespaceplan.html">plan</a>)</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;{</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  setMoveState(<a class="code" href="namespacemove__group.html#a4a295c26dbc5ac7780dfa7ae10350bfba5e64a5b48bd5741e8f5d32a005298f62">PLANNING</a>, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <span class="keywordtype">bool</span> solved = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  <a class="code" href="structplanning__interface_1_1MotionPlanResponse.html">planning_interface::MotionPlanResponse</a> res;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  <span class="comment">// Select planning_pipeline to handle request</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <span class="keyword">const</span> planning_pipeline::PlanningPipelinePtr <a class="code" href="namespaceplanning__pipeline.html">planning_pipeline</a> = <a class="code" href="classmove__group_1_1MoveGroupCapability.html#af55454826ec2870f5a2be562730f83df">resolvePlanningPipeline</a>(req.pipeline_id);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  <span class="keywordflow">if</span> (!<a class="code" href="namespaceplanning__pipeline.html">planning_pipeline</a>)</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  {</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#ae39168510db61336c31f10949a54444a">error_code_</a>.val = moveit_msgs::msg::MoveItErrorCodes::FAILURE;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordflow">return</span> solved;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html">planning_scene_monitor::LockedPlanningSceneRO</a> lscene(<a class="code" href="namespaceplan.html">plan</a>.planning_scene_monitor_);</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <span class="keywordflow">try</span></div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  {</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;Planning pipeline threw an exception: %s&quot;</span>, ex.what());</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#ae39168510db61336c31f10949a54444a">error_code_</a>.val = moveit_msgs::msg::MoveItErrorCodes::FAILURE;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  }</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="keywordflow">if</span> (res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>)</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  {</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <a class="code" href="namespaceplan.html">plan</a>.plan_components_.resize(1);</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <a class="code" href="namespaceplan.html">plan</a>.plan_components_[0].trajectory_ = res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <a class="code" href="namespaceplan.html">plan</a>.plan_components_[0].description_ = <span class="stringliteral">&quot;plan&quot;</span>;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  }</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <a class="code" href="namespaceplan.html">plan</a>.error_code_ = res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#ae39168510db61336c31f10949a54444a">error_code_</a>;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  <span class="keywordflow">return</span> solved;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;}</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="keywordtype">void</span> MoveGroupMoveAction::startMoveExecutionCallback()</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;{</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  setMoveState(<a class="code" href="namespacemove__group.html#a4a295c26dbc5ac7780dfa7ae10350bfba589157783275192164d729a5f54a44a7">MONITOR</a>, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;}</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="keywordtype">void</span> MoveGroupMoveAction::startMoveLookCallback()</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;{</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  setMoveState(<a class="code" href="namespacemove__group.html#a4a295c26dbc5ac7780dfa7ae10350bfbaf7d957d4e30127337121ef3090e223ae">LOOK</a>, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;}</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keywordtype">void</span> MoveGroupMoveAction::preemptMoveCallback()</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;{</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  preempt_requested_ = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a8210f1b13f0df86dac511ca96765382d">context_</a>-&gt;plan_execution_-&gt;stop();</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;}</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="keywordtype">void</span> MoveGroupMoveAction::setMoveState(<a class="code" href="namespacemove__group.html#a4a295c26dbc5ac7780dfa7ae10350bfb">MoveGroupState</a> state, <span class="keyword">const</span> std::shared_ptr&lt;MGActionGoal&gt;&amp; goal)</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;{</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  move_state_ = state;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    solved = <a class="code" href="namespaceplanning__pipeline.html">planning_pipeline</a>-&gt;generatePlan(<a class="code" href="namespaceplan.html">plan</a>.planning_scene_, req, res);</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  }</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  <span class="keywordflow">catch</span> (std::exception&amp; ex)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  {</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;Planning pipeline threw an exception: %s&quot;</span>, ex.what());</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#ae39168510db61336c31f10949a54444a">error_code_</a>.val = moveit_msgs::msg::MoveItErrorCodes::FAILURE;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="keywordflow">if</span> (res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>)</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  {</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <a class="code" href="namespaceplan.html">plan</a>.plan_components_.resize(1);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <a class="code" href="namespaceplan.html">plan</a>.plan_components_[0].trajectory_ = res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">trajectory_</a>;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <a class="code" href="namespaceplan.html">plan</a>.plan_components_[0].description_ = <span class="stringliteral">&quot;plan&quot;</span>;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  }</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  <a class="code" href="namespaceplan.html">plan</a>.error_code_ = res.<a class="code" href="structplanning__interface_1_1MotionPlanResponse.html#ae39168510db61336c31f10949a54444a">error_code_</a>;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  <span class="keywordflow">return</span> solved;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;}</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="keywordtype">void</span> MoveGroupMoveAction::startMoveExecutionCallback()</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;{</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  setMoveState(<a class="code" href="namespacemove__group.html#a4a295c26dbc5ac7780dfa7ae10350bfba589157783275192164d729a5f54a44a7">MONITOR</a>, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;}</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="keywordtype">void</span> MoveGroupMoveAction::startMoveLookCallback()</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;{</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  setMoveState(<a class="code" href="namespacemove__group.html#a4a295c26dbc5ac7780dfa7ae10350bfbaf7d957d4e30127337121ef3090e223ae">LOOK</a>, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;}</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="keywordtype">void</span> MoveGroupMoveAction::preemptMoveCallback()</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;{</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  preempt_requested_ = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a8210f1b13f0df86dac511ca96765382d">context_</a>-&gt;plan_execution_-&gt;stop();</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;}</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  <span class="keywordflow">if</span> (goal)</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  {</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keyword">auto</span> move_feedback = std::make_shared&lt;MGAction::Feedback&gt;();</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    move_feedback-&gt;state = <a class="code" href="classmove__group_1_1MoveGroupCapability.html#ab1641110cc9b22e83b20b5df45663113">stateToStr</a>(state);</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    goal-&gt;publish_feedback(move_feedback);</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  }</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;}</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;}  <span class="comment">// namespace move_group</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="preprocessor">#include &lt;pluginlib/class_list_macros.hpp&gt;</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<a class="code" href="cached__ik__kinematics__plugin_8cpp.html#a884b04add2682e16aefe27c649c9bee1">PLUGINLIB_EXPORT_CLASS</a>(<a class="code" href="classmove__group_1_1MoveGroupMoveAction.html">move_group::MoveGroupMoveAction</a>, <a class="code" href="classmove__group_1_1MoveGroupCapability.html">move_group::MoveGroupCapability</a>)</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="keywordtype">void</span> MoveGroupMoveAction::setMoveState(<a class="code" href="namespacemove__group.html#a4a295c26dbc5ac7780dfa7ae10350bfb">MoveGroupState</a> state, <span class="keyword">const</span> std::shared_ptr&lt;MGActionGoal&gt;&amp; goal)</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;{</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  move_state_ = state;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  <span class="keywordflow">if</span> (goal)</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  {</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keyword">auto</span> move_feedback = std::make_shared&lt;MGAction::Feedback&gt;();</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    move_feedback-&gt;state = <a class="code" href="classmove__group_1_1MoveGroupCapability.html#ab1641110cc9b22e83b20b5df45663113">stateToStr</a>(state);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    goal-&gt;publish_feedback(move_feedback);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;}</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;}  <span class="comment">// namespace move_group</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="preprocessor">#include &lt;pluginlib/class_list_macros.hpp&gt;</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<a class="code" href="cached__ik__kinematics__plugin_8cpp.html#a884b04add2682e16aefe27c649c9bee1">PLUGINLIB_EXPORT_CLASS</a>(<a class="code" href="classmove__group_1_1MoveGroupMoveAction.html">move_group::MoveGroupMoveAction</a>, <a class="code" href="classmove__group_1_1MoveGroupCapability.html">move_group::MoveGroupCapability</a>)</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacemove__group_html_a4a295c26dbc5ac7780dfa7ae10350bfb"><div class="ttname"><a href="namespacemove__group.html#a4a295c26dbc5ac7780dfa7ae10350bfb">move_group::MoveGroupState</a></div><div class="ttdeci">MoveGroupState</div><div class="ttdef"><b>Definition:</b> <a href="move__group__capability_8h_source.html#l00079">move_group_capability.h:79</a></div></div>
 <div class="ttc" id="anamespacemove__group_html_a4a295c26dbc5ac7780dfa7ae10350bfbaf7d957d4e30127337121ef3090e223ae"><div class="ttname"><a href="namespacemove__group.html#a4a295c26dbc5ac7780dfa7ae10350bfbaf7d957d4e30127337121ef3090e223ae">move_group::LOOK</a></div><div class="ttdeci">@ LOOK</div><div class="ttdef"><b>Definition:</b> <a href="move__group__capability_8h_source.html#l00116">move_group_capability.h:116</a></div></div>
@@ -381,13 +385,12 @@ $(function() {
 <div class="ttc" id="aclassmove__group_1_1MoveGroupMoveAction_html"><div class="ttname"><a href="classmove__group_1_1MoveGroupMoveAction.html">move_group::MoveGroupMoveAction</a></div><div class="ttdef"><b>Definition:</b> <a href="move__action__capability_8h_source.html#l00081">move_action_capability.h:81</a></div></div>
 <div class="ttc" id="anamespacekinematic__constraints_html_ad949b9f0aa4e6b553bf4975cd6d81ad5"><div class="ttname"><a href="namespacekinematic__constraints.html#ad949b9f0aa4e6b553bf4975cd6d81ad5">kinematic_constraints::mergeConstraints</a></div><div class="ttdeci">moveit_msgs::msg::Constraints mergeConstraints(const moveit_msgs::msg::Constraints &amp;first, const moveit_msgs::msg::Constraints &amp;second)</div><div class="ttdoc">Merge two sets of constraints into one.</div><div class="ttdef"><b>Definition:</b> <a href="utils_8cpp_source.html#l00058">utils.cpp:58</a></div></div>
 <div class="ttc" id="astructplanning__interface_1_1MotionPlanResponse_html_aba269b9eb8f4d12cdc4fc62728cea619"><div class="ttname"><a href="structplanning__interface_1_1MotionPlanResponse.html#aba269b9eb8f4d12cdc4fc62728cea619">planning_interface::MotionPlanResponse::trajectory_</a></div><div class="ttdeci">robot_trajectory::RobotTrajectoryPtr trajectory_</div><div class="ttdef"><b>Definition:</b> <a href="planning__response_8h_source.html#l00118">planning_response.h:118</a></div></div>
-<div class="ttc" id="aclassplan__execution_1_1PlanWithSensing_html_adbcdac3166ddb05a2f16c07a9f4e1ae5"><div class="ttname"><a href="classplan__execution_1_1PlanWithSensing.html#adbcdac3166ddb05a2f16c07a9f4e1ae5">plan_execution::PlanWithSensing::computePlan</a></div><div class="ttdeci">bool computePlan(ExecutableMotionPlan &amp;plan, const ExecutableMotionPlanComputationFn &amp;motion_planner, unsigned int max_look_attempts, double max_safe_path_cost)</div><div class="ttdef"><b>Definition:</b> <a href="plan__with__sensing_8cpp_source.html#l00156">plan_with_sensing.cpp:156</a></div></div>
 <div class="ttc" id="aclassmove__group_1_1MoveGroupCapability_html_af55454826ec2870f5a2be562730f83df"><div class="ttname"><a href="classmove__group_1_1MoveGroupCapability.html#af55454826ec2870f5a2be562730f83df">move_group::MoveGroupCapability::resolvePlanningPipeline</a></div><div class="ttdeci">planning_pipeline::PlanningPipelinePtr resolvePlanningPipeline(const std::string &amp;pipeline_id) const</div><div class="ttdef"><b>Definition:</b> <a href="move__group__capability_8cpp_source.html#l00215">move_group_capability.cpp:215</a></div></div>
 <div class="ttc" id="anamespaceplan_html"><div class="ttname"><a href="namespaceplan.html">plan</a></div><div class="ttdef"><b>Definition:</b> <a href="plan_8py_source.html#l00001">plan.py:1</a></div></div>
 <div class="ttc" id="aplan__execution_8h_html"><div class="ttname"><a href="plan__execution_8h.html">plan_execution.h</a></div></div>
 <div class="ttc" id="anamespacemove__group_html"><div class="ttname"><a href="namespacemove__group.html">move_group</a></div><div class="ttdef"><b>Definition:</b> <a href="moveit__ros_2manipulation_2move__group__pick__place__capability_2include_2moveit_2move__group__p1b056d628d05eb4e49371d3e49c40101_source.html#l00041">capability_names.h:41</a></div></div>
 <div class="ttc" id="anamespacemove__group_html_a4a295c26dbc5ac7780dfa7ae10350bfba589157783275192164d729a5f54a44a7"><div class="ttname"><a href="namespacemove__group.html#a4a295c26dbc5ac7780dfa7ae10350bfba589157783275192164d729a5f54a44a7">move_group::MONITOR</a></div><div class="ttdeci">@ MONITOR</div><div class="ttdef"><b>Definition:</b> <a href="move__group__capability_8h_source.html#l00115">move_group_capability.h:115</a></div></div>
-<div class="ttc" id="anamespaceplanning__request__adapter_html_af64b3fa8ebc256d9c5133c6c80ade28f"><div class="ttname"><a href="namespaceplanning__request__adapter.html#af64b3fa8ebc256d9c5133c6c80ade28f">planning_request_adapter::LOGGER</a></div><div class="ttdeci">rclcpp::Logger LOGGER</div><div class="ttdef"><b>Definition:</b> <a href="planning__request__adapter_8cpp_source.html#l00078">planning_request_adapter.cpp:78</a></div></div>
+<div class="ttc" id="anamespaceplanning__request__adapter_html_af64b3fa8ebc256d9c5133c6c80ade28f"><div class="ttname"><a href="namespaceplanning__request__adapter.html#af64b3fa8ebc256d9c5133c6c80ade28f">planning_request_adapter::LOGGER</a></div><div class="ttdeci">rclcpp::Logger LOGGER</div><div class="ttdef"><b>Definition:</b> <a href="planning__request__adapter_8cpp_source.html#l00076">planning_request_adapter.cpp:76</a></div></div>
 <div class="ttc" id="amoveit__cpp_8h_html"><div class="ttname"><a href="moveit__cpp_8h.html">moveit_cpp.h</a></div></div>
 <div class="ttc" id="anamespaceplanning__pipeline_html"><div class="ttname"><a href="namespaceplanning__pipeline.html">planning_pipeline</a></div><div class="ttdoc">Planning pipeline.</div><div class="ttdef"><b>Definition:</b> <a href="move__group__context_8h_source.html#l00052">move_group_context.h:52</a></div></div>
 <div class="ttc" id="aclassmove__group_1_1MoveGroupCapability_html_aa98cf6f0e58607659ffb6f994aff6b0b"><div class="ttname"><a href="classmove__group_1_1MoveGroupCapability.html#aa98cf6f0e58607659ffb6f994aff6b0b">move_group::MoveGroupCapability::getActionResultString</a></div><div class="ttdeci">std::string getActionResultString(const moveit_msgs::msg::MoveItErrorCodes &amp;error_code, bool planned_trajectory_empty, bool plan_only)</div><div class="ttdef"><b>Definition:</b> <a href="move__group__capability_8cpp_source.html#l00124">move_group_capability.cpp:124</a></div></div>

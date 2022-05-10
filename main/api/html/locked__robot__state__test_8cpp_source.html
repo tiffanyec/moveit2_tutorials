@@ -392,7 +392,7 @@ $(function() {
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  <span class="comment">// helper function for modifyThreadFunc</span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  <span class="keywordtype">void</span> modifyFunc(<a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a>* state, <span class="keywordtype">double</span> val);</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  <span class="keywordtype">void</span> modifyFunc(<a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a>&amp; state, <span class="keywordtype">double</span> val);</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  <span class="comment">// Checks state for validity and self-consistancy.</span></div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <span class="keywordtype">void</span> checkState(<a class="code" href="classrobot__interaction_1_1LockedRobotState.html">robot_interaction::LockedRobotState</a>&amp; locked_state);</div>
@@ -488,11 +488,11 @@ $(function() {
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;}</div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160; </div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="comment">// modify the state in place.  Used by MyInfo::modifyThreadFunc()</span></div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="keywordtype">void</span> MyInfo::modifyFunc(<a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a>* state, <span class="keywordtype">double</span> val)</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="keywordtype">void</span> MyInfo::modifyFunc(<a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a>&amp; state, <span class="keywordtype">double</span> val)</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;{</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;  state-&gt;<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a54879052daa602ea0319cbe3ded82ff3">setVariablePosition</a>(<a class="code" href="locked__robot__state__test_8cpp.html#a726ca809ffd3d67ab4b8476646f26635a3ad635ae559002732db1752746a1a5ad">JOINT_A</a>, val + 0.00001);</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;  state-&gt;<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a54879052daa602ea0319cbe3ded82ff3">setVariablePosition</a>(<a class="code" href="locked__robot__state__test_8cpp.html#a726ca809ffd3d67ab4b8476646f26635a402c40af598d5968ef6b2e8a4c4df623">JOINT_C</a>, val + 0.00002);</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;  state-&gt;<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a54879052daa602ea0319cbe3ded82ff3">setVariablePosition</a>(<a class="code" href="locked__robot__state__test_8cpp.html#a726ca809ffd3d67ab4b8476646f26635a0caed1d0b8422608d024fc225d5606bc">JOINT_F</a>, val + 0.00003);</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;  state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a54879052daa602ea0319cbe3ded82ff3">setVariablePosition</a>(<a class="code" href="locked__robot__state__test_8cpp.html#a726ca809ffd3d67ab4b8476646f26635a3ad635ae559002732db1752746a1a5ad">JOINT_A</a>, val + 0.00001);</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;  state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a54879052daa602ea0319cbe3ded82ff3">setVariablePosition</a>(<a class="code" href="locked__robot__state__test_8cpp.html#a726ca809ffd3d67ab4b8476646f26635a402c40af598d5968ef6b2e8a4c4df623">JOINT_C</a>, val + 0.00002);</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;  state.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a54879052daa602ea0319cbe3ded82ff3">setVariablePosition</a>(<a class="code" href="locked__robot__state__test_8cpp.html#a726ca809ffd3d67ab4b8476646f26635a0caed1d0b8422608d024fc225d5606bc">JOINT_F</a>, val + 0.00003);</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;}</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160; </div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment">// spin, modifying the state to different values</span></div>
@@ -506,7 +506,7 @@ $(function() {
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    {</div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      val += 0.0001;</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; </div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      locked_state-&gt;<a class="code" href="classrobot__interaction_1_1LockedRobotState.html#a54e021aecfa80901c3569f5fd8588aa8">modifyState</a>(std::bind(&amp;MyInfo::modifyFunc, <span class="keyword">this</span>, std::placeholders::_1, val));</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      locked_state-&gt;<a class="code" href="classrobot__interaction_1_1LockedRobotState.html#a54e021aecfa80901c3569f5fd8588aa8">modifyState</a>([<span class="keyword">this</span>, val](<a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a>* state) { modifyFunc(*state, val); });</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    }</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160; </div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    cnt_lock_.lock();</div>

@@ -1372,8 +1372,8 @@ $(function() {
 <div class="line"><a name="l01300"></a><span class="lineno"> 1300</span>&#160;    initializing_constraints_ = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l01301"></a><span class="lineno"> 1301</span>&#160;    <span class="keywordflow">if</span> (constraints_init_thread_)</div>
 <div class="line"><a name="l01302"></a><span class="lineno"><a class="line" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1MoveGroupInterfaceImpl.html#a3e817980674f61dba7aef7d3625c6f85"> 1302</a></span>&#160;      constraints_init_thread_-&gt;join();</div>
-<div class="line"><a name="l01303"></a><span class="lineno"> 1303</span>&#160;    constraints_init_thread_ = std::make_unique&lt;boost::thread&gt;(</div>
-<div class="line"><a name="l01304"></a><span class="lineno"> 1304</span>&#160;        std::bind(&amp;MoveGroupInterfaceImpl::initializeConstraintsStorageThread, <span class="keyword">this</span>, host, port));</div>
+<div class="line"><a name="l01303"></a><span class="lineno"> 1303</span>&#160;    constraints_init_thread_ =</div>
+<div class="line"><a name="l01304"></a><span class="lineno"> 1304</span>&#160;        std::make_unique&lt;boost::thread&gt;([<span class="keyword">this</span>, host, port] { initializeConstraintsStorageThread(host, port); });</div>
 <div class="line"><a name="l01305"></a><span class="lineno"> 1305</span>&#160;  }</div>
 <div class="line"><a name="l01306"></a><span class="lineno"> 1306</span>&#160; </div>
 <div class="line"><a name="l01307"></a><span class="lineno"> 1307</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classmoveit_1_1planning__interface_1_1MoveGroupInterface_1_1MoveGroupInterfaceImpl.html#afde473456bf8e613734b639640392860">setWorkspace</a>(<span class="keywordtype">double</span> minx, <span class="keywordtype">double</span> miny, <span class="keywordtype">double</span> minz, <span class="keywordtype">double</span> maxx, <span class="keywordtype">double</span> maxy, <span class="keywordtype">double</span> maxz)</div>

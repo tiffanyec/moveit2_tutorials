@@ -126,7 +126,7 @@ $(function() {
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<a class="code" href="classcollision__detection_1_1WorldDiff.html#a3b4f7b7b8346fd6182d2725190bb6e9b">WorldDiff::WorldDiff</a>(<span class="keyword">const</span> WorldPtr&amp; world) : world_(world)</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  observer_handle_ =</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      world-&gt;addObserver(std::bind(&amp;WorldDiff::notify, <span class="keyword">this</span>, std::placeholders::_1, std::placeholders::_2));</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      world-&gt;addObserver([<span class="keyword">this</span>](<span class="keyword">const</span> World::ObjectConstPtr&amp; <span class="keywordtype">object</span>, World::Action <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>) { notify(<span class="keywordtype">object</span>, <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>); });</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<a class="code" href="classcollision__detection_1_1WorldDiff.html#a3b4f7b7b8346fd6182d2725190bb6e9b">WorldDiff::WorldDiff</a>(WorldDiff&amp; other)</div>
@@ -137,8 +137,8 @@ $(function() {
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    changes_ = other.changes_;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    WorldWeakPtr(world).swap(world_);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    observer_handle_ =</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        world-&gt;addObserver(std::bind(&amp;WorldDiff::notify, <span class="keyword">this</span>, std::placeholders::_1, std::placeholders::_2));</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    observer_handle_ = world-&gt;addObserver(</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        [<span class="keyword">this</span>](<span class="keyword">const</span> World::ObjectConstPtr&amp; <span class="keywordtype">object</span>, World::Action <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>) { notify(<span class="keywordtype">object</span>, <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>); });</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  }</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
@@ -163,7 +163,7 @@ $(function() {
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
 <div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classcollision__detection_1_1WorldDiff.html#afd75bf0e1a98ef2a65b00280cd738908">   91</a></span>&#160;  WorldWeakPtr(world).swap(world_);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  observer_handle_ =</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      world-&gt;addObserver(std::bind(&amp;WorldDiff::notify, <span class="keyword">this</span>, std::placeholders::_1, std::placeholders::_2));</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      world-&gt;addObserver([<span class="keyword">this</span>](<span class="keyword">const</span> World::ObjectConstPtr&amp; <span class="keywordtype">object</span>, <a class="code" href="classcollision__detection_1_1World_1_1Action.html">World::Action</a> <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>) { notify(<span class="keywordtype">object</span>, <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>); });</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classcollision__detection_1_1WorldDiff.html#aa27b6c4ed5a654e6ca9293c6a06e693e">WorldDiff::setWorld</a>(<span class="keyword">const</span> WorldPtr&amp; world)</div>
@@ -178,7 +178,7 @@ $(function() {
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  WorldWeakPtr(world).swap(world_);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  observer_handle_ =</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      world-&gt;addObserver(std::bind(&amp;WorldDiff::notify, <span class="keyword">this</span>, std::placeholders::_1, std::placeholders::_2));</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      world-&gt;addObserver([<span class="keyword">this</span>](<span class="keyword">const</span> World::ObjectConstPtr&amp; <span class="keywordtype">object</span>, <a class="code" href="classcollision__detection_1_1World_1_1Action.html">World::Action</a> <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>) { notify(<span class="keywordtype">object</span>, <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>); });</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  world-&gt;notifyObserverAllObjects(observer_handle_, <a class="code" href="classcollision__detection_1_1World.html#a027ceb8ec0713a62c3d7f3dcbbaff640aae06dd8079bfcabbc45aa5838d53057a">World::CREATE</a> | <a class="code" href="classcollision__detection_1_1World.html#a027ceb8ec0713a62c3d7f3dcbbaff640a58de80d79d03e039b80d6ac17b3685e7">World::ADD_SHAPE</a>);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>

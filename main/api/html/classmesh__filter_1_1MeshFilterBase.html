@@ -162,9 +162,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a035ebccc7942111d4563439095841c21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmesh__filter_1_1MeshFilterBase.html#a035ebccc7942111d4563439095841c21">doFilter</a> (const void *sensor_data, const int encoding) const</td></tr>
 <tr class="memdesc:a035ebccc7942111d4563439095841c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">the filter method that does the magic  <a href="classmesh__filter_1_1MeshFilterBase.html#a035ebccc7942111d4563439095841c21">More...</a><br /></td></tr>
 <tr class="separator:a035ebccc7942111d4563439095841c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0709974f4134d1fa42db2a7978bb0c90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmesh__filter_1_1MeshFilterBase.html#a0709974f4134d1fa42db2a7978bb0c90">addMeshHelper</a> (<a class="el" href="namespacemesh__filter.html#a07c4a34ccdc891a29719367f162c52a1">MeshHandle</a> handle, const shapes::Mesh *cmesh)</td></tr>
-<tr class="memdesc:a0709974f4134d1fa42db2a7978bb0c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">used within a <a class="el" href="classmesh__filter_1_1Job.html" title="This class is used to execute functions within the thread that holds the OpenGL context.">Job</a> to allow the main thread adding meshes  <a href="classmesh__filter_1_1MeshFilterBase.html#a0709974f4134d1fa42db2a7978bb0c90">More...</a><br /></td></tr>
-<tr class="separator:a0709974f4134d1fa42db2a7978bb0c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32f6af90710fcb46717a1cf8f12220b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmesh__filter_1_1MeshFilterBase.html#a32f6af90710fcb46717a1cf8f12220b1">addMeshHelper</a> (<a class="el" href="namespacemesh__filter.html#a07c4a34ccdc891a29719367f162c52a1">MeshHandle</a> handle, const shapes::Mesh &amp;cmesh)</td></tr>
+<tr class="memdesc:a32f6af90710fcb46717a1cf8f12220b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">used within a <a class="el" href="classmesh__filter_1_1Job.html" title="This class is used to execute functions within the thread that holds the OpenGL context.">Job</a> to allow the main thread adding meshes  <a href="classmesh__filter_1_1MeshFilterBase.html#a32f6af90710fcb46717a1cf8f12220b1">More...</a><br /></td></tr>
+<tr class="separator:a32f6af90710fcb46717a1cf8f12220b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a60b9e3531ddca293d5b777e7eadd47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmesh__filter_1_1MeshFilterBase.html#a1a60b9e3531ddca293d5b777e7eadd47">removeMeshHelper</a> (<a class="el" href="namespacemesh__filter.html#a07c4a34ccdc891a29719367f162c52a1">MeshHandle</a> handle)</td></tr>
 <tr class="memdesc:a1a60b9e3531ddca293d5b777e7eadd47"><td class="mdescLeft">&#160;</td><td class="mdescRight">used within a <a class="el" href="classmesh__filter_1_1Job.html" title="This class is used to execute functions within the thread that holds the OpenGL context.">Job</a> to allow the main thread removing meshes  <a href="classmesh__filter_1_1MeshFilterBase.html#a1a60b9e3531ddca293d5b777e7eadd47">More...</a><br /></td></tr>
 <tr class="separator:a1a60b9e3531ddca293d5b777e7eadd47"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -373,7 +373,7 @@ Here is the call graph for this function:</div>
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00121">121</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00123">123</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -410,7 +410,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00136">136</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00138">138</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -440,30 +440,12 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>handle to the mesh. This handle is used in the transform callback function to identify the mesh and retrieve the correct transformation. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00170">170</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmesh__filter_1_1MeshFilterBase_a85dc1295bee6cbc2bfde9a2d4e8c9127_cgraph.png" border="0" usemap="#classmesh__filter_1_1MeshFilterBase_a85dc1295bee6cbc2bfde9a2d4e8c9127_cgraph" alt=""/></div>
-<map name="classmesh__filter_1_1MeshFilterBase_a85dc1295bee6cbc2bfde9a2d4e8c9127_cgraph" id="classmesh__filter_1_1MeshFilterBase_a85dc1295bee6cbc2bfde9a2d4e8c9127_cgraph">
-<area shape="rect" title="adds a mesh to the filter object." alt="" coords="5,5,208,47"/>
-<area shape="rect" href="classmesh__filter_1_1MeshFilterBase.html#a0709974f4134d1fa42db2a7978bb0c90" title="used within a Job to allow the main thread adding meshes" alt="" coords="256,5,459,47"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmesh__filter_1_1MeshFilterBase_a85dc1295bee6cbc2bfde9a2d4e8c9127_icgraph.png" border="0" usemap="#classmesh__filter_1_1MeshFilterBase_a85dc1295bee6cbc2bfde9a2d4e8c9127_icgraph" alt=""/></div>
-<map name="classmesh__filter_1_1MeshFilterBase_a85dc1295bee6cbc2bfde9a2d4e8c9127_icgraph" id="classmesh__filter_1_1MeshFilterBase_a85dc1295bee6cbc2bfde9a2d4e8c9127_icgraph">
-<area shape="rect" title="adds a mesh to the filter object." alt="" coords="256,5,459,47"/>
-<area shape="rect" href="classmesh__filter__test_1_1MeshFilterTest.html#a414f77ed9dcf69f3e951d961b3dc36b7" title=" " alt="" coords="5,5,208,47"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00172">172</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a0709974f4134d1fa42db2a7978bb0c90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0709974f4134d1fa42db2a7978bb0c90">&#9670;&nbsp;</a></span>addMeshHelper()</h2>
+<a id="a32f6af90710fcb46717a1cf8f12220b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32f6af90710fcb46717a1cf8f12220b1">&#9670;&nbsp;</a></span>addMeshHelper()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -480,7 +462,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const shapes::Mesh *&#160;</td>
+          <td class="paramtype">const shapes::Mesh &amp;&#160;</td>
           <td class="paramname"><em>cmesh</em>&#160;</td>
         </tr>
         <tr>
@@ -505,17 +487,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00189">189</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmesh__filter_1_1MeshFilterBase_a0709974f4134d1fa42db2a7978bb0c90_icgraph.png" border="0" usemap="#classmesh__filter_1_1MeshFilterBase_a0709974f4134d1fa42db2a7978bb0c90_icgraph" alt=""/></div>
-<map name="classmesh__filter_1_1MeshFilterBase_a0709974f4134d1fa42db2a7978bb0c90_icgraph" id="classmesh__filter_1_1MeshFilterBase_a0709974f4134d1fa42db2a7978bb0c90_icgraph">
-<area shape="rect" title="used within a Job to allow the main thread adding meshes" alt="" coords="507,5,709,47"/>
-<area shape="rect" href="classmesh__filter_1_1MeshFilterBase.html#a85dc1295bee6cbc2bfde9a2d4e8c9127" title="adds a mesh to the filter object." alt="" coords="256,5,459,47"/>
-<area shape="rect" href="classmesh__filter__test_1_1MeshFilterTest.html#a414f77ed9dcf69f3e951d961b3dc36b7" title=" " alt="" coords="5,5,208,47"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00191">191</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -544,7 +516,7 @@ Here is the caller graph for this function:</div>
 
 <p>cleaning up </p>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00145">145</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00147">147</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -591,16 +563,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00305">305</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmesh__filter_1_1MeshFilterBase_a035ebccc7942111d4563439095841c21_icgraph.png" border="0" usemap="#classmesh__filter_1_1MeshFilterBase_a035ebccc7942111d4563439095841c21_icgraph" alt=""/></div>
-<map name="classmesh__filter_1_1MeshFilterBase_a035ebccc7942111d4563439095841c21_icgraph" id="classmesh__filter_1_1MeshFilterBase_a035ebccc7942111d4563439095841c21_icgraph">
-<area shape="rect" title="the filter method that does the magic" alt="" coords="256,5,459,47"/>
-<area shape="rect" href="classmesh__filter_1_1MeshFilterBase.html#a09a369ba6f3c51af013e83e993321e9c" title="label/remove pixels from input depth&#45;image" alt="" coords="5,5,208,47"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00308">308</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -646,16 +609,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>what is type? </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00290">290</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmesh__filter_1_1MeshFilterBase_a09a369ba6f3c51af013e83e993321e9c_cgraph.png" border="0" usemap="#classmesh__filter_1_1MeshFilterBase_a09a369ba6f3c51af013e83e993321e9c_cgraph" alt=""/></div>
-<map name="classmesh__filter_1_1MeshFilterBase_a09a369ba6f3c51af013e83e993321e9c_cgraph" id="classmesh__filter_1_1MeshFilterBase_a09a369ba6f3c51af013e83e993321e9c_cgraph">
-<area shape="rect" title="label/remove pixels from input depth&#45;image" alt="" coords="5,5,208,47"/>
-<area shape="rect" href="classmesh__filter_1_1MeshFilterBase.html#a035ebccc7942111d4563439095841c21" title="the filter method that does the magic" alt="" coords="256,5,459,47"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00293">293</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -684,17 +638,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00241">241</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmesh__filter_1_1MeshFilterBase_abd60c72488738ca4fd4de84aba6f24d3_cgraph.png" border="0" usemap="#classmesh__filter_1_1MeshFilterBase_abd60c72488738ca4fd4de84aba6f24d3_cgraph" alt=""/></div>
-<map name="classmesh__filter_1_1MeshFilterBase_abd60c72488738ca4fd4de84aba6f24d3_cgraph" id="classmesh__filter_1_1MeshFilterBase_abd60c72488738ca4fd4de84aba6f24d3_cgraph">
-<area shape="rect" title="retrieves the filtered depth values" alt="" coords="5,43,208,84"/>
-<area shape="rect" href="classmesh__filter_1_1GLRenderer.html#a277ac95d491ba30ee3d7a51a2938c7df" title="retrieves the depth buffer from OpenGL" alt="" coords="279,5,458,47"/>
-<area shape="rect" href="classmesh__filter_1_1SensorModel_1_1Parameters.html#ad2fdd1c2573166b134e3384f75d0c4ad" title="transforms depth values from filtered depth to metric depth values" alt="" coords="256,71,481,127"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00244">244</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -724,16 +668,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>labels are corresponding 1-1 to the mesh handles. 0 and 1 are reserved indicating either background (0) or shadow (1) The upper 8bit of a label is filled with the user given flag (see addMesh) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00256">256</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmesh__filter_1_1MeshFilterBase_aa32975ce113c4f9b8635680111c1d5d3_cgraph.png" border="0" usemap="#classmesh__filter_1_1MeshFilterBase_aa32975ce113c4f9b8635680111c1d5d3_cgraph" alt=""/></div>
-<map name="classmesh__filter_1_1MeshFilterBase_aa32975ce113c4f9b8635680111c1d5d3_cgraph" id="classmesh__filter_1_1MeshFilterBase_aa32975ce113c4f9b8635680111c1d5d3_cgraph">
-<area shape="rect" title="retrieves the labels of the input data" alt="" coords="5,5,208,47"/>
-<area shape="rect" href="classmesh__filter_1_1GLRenderer.html#ac2f283e1fd228485f6d8066d437bcbbe" title="retrieves the color buffer from OpenGL" alt="" coords="256,5,435,47"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00259">259</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -762,17 +697,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00226">226</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmesh__filter_1_1MeshFilterBase_a975fdfcbe99c6e91cd614eb1f41affc4_cgraph.png" border="0" usemap="#classmesh__filter_1_1MeshFilterBase_a975fdfcbe99c6e91cd614eb1f41affc4_cgraph" alt=""/></div>
-<map name="classmesh__filter_1_1MeshFilterBase_a975fdfcbe99c6e91cd614eb1f41affc4_cgraph" id="classmesh__filter_1_1MeshFilterBase_a975fdfcbe99c6e91cd614eb1f41affc4_cgraph">
-<area shape="rect" title="retrieves the depth values of the rendered model" alt="" coords="5,43,208,84"/>
-<area shape="rect" href="classmesh__filter_1_1GLRenderer.html#a277ac95d491ba30ee3d7a51a2938c7df" title="retrieves the depth buffer from OpenGL" alt="" coords="294,5,473,47"/>
-<area shape="rect" href="classmesh__filter_1_1SensorModel_1_1Parameters.html#a6833f16a7beb73bf31213d986946907a" title="transforms depth values from rendered model to metric depth values" alt="" coords="256,71,511,127"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00228">228</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -803,16 +728,7 @@ Here is the call graph for this function:</div>
 <dl class="section note"><dt>Note</dt><dd>labels are corresponding 1-1 to the mesh handles. 0 and 1 are reserved indicating either background (0) or shadow (1) The upper 8bit of a label is filled with the user given flag (see addMesh) </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>How is this data different from the filtered labels? </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00218">218</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmesh__filter_1_1MeshFilterBase_a03de6f4e13877cf9ffc83c5dc2901800_cgraph.png" border="0" usemap="#classmesh__filter_1_1MeshFilterBase_a03de6f4e13877cf9ffc83c5dc2901800_cgraph" alt=""/></div>
-<map name="classmesh__filter_1_1MeshFilterBase_a03de6f4e13877cf9ffc83c5dc2901800_cgraph" id="classmesh__filter_1_1MeshFilterBase_a03de6f4e13877cf9ffc83c5dc2901800_cgraph">
-<area shape="rect" title="retrieves the labels of the rendered model" alt="" coords="5,5,208,47"/>
-<area shape="rect" href="classmesh__filter_1_1GLRenderer.html#ac2f283e1fd228485f6d8066d437bcbbe" title="retrieves the color buffer from OpenGL" alt="" coords="256,5,435,47"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00220">220</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -864,7 +780,7 @@ Here is the call graph for this function:</div>
 
 <p>initializes OpenGL related things as well as renderers </p>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00073">73</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00075">75</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -893,15 +809,15 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00194">194</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00196">196</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmesh__filter_1_1MeshFilterBase_a36e28a4d7627e0441049f49ce2fd0659_cgraph.png" border="0" usemap="#classmesh__filter_1_1MeshFilterBase_a36e28a4d7627e0441049f49ce2fd0659_cgraph" alt=""/></div>
 <map name="classmesh__filter_1_1MeshFilterBase_a36e28a4d7627e0441049f49ce2fd0659_cgraph" id="classmesh__filter_1_1MeshFilterBase_a36e28a4d7627e0441049f49ce2fd0659_cgraph">
-<area shape="rect" title="removes a mesh given by its handle" alt="" coords="5,39,208,80"/>
-<area shape="rect" href="classmesh__filter_1_1FilterJob.html#aab9861e3e90d02300f106f8c76224c04" title=" " alt="" coords="279,5,435,47"/>
-<area shape="rect" href="classmesh__filter_1_1MeshFilterBase.html#a1a60b9e3531ddca293d5b777e7eadd47" title="used within a Job to allow the main thread removing meshes" alt="" coords="256,71,459,112"/>
+<area shape="rect" title="removes a mesh given by its handle" alt="" coords="5,35,208,76"/>
+<area shape="rect" href="classmesh__filter_1_1FilterJob.html#aab9861e3e90d02300f106f8c76224c04" title=" " alt="" coords="257,5,413,47"/>
+<area shape="rect" href="classmesh__filter_1_1Job.html#a8b3ac0dd1c6f88a580cd750406489195" title=" " alt="" coords="256,71,415,98"/>
 </map>
 </div>
 
@@ -939,16 +855,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00207">207</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmesh__filter_1_1MeshFilterBase_a1a60b9e3531ddca293d5b777e7eadd47_icgraph.png" border="0" usemap="#classmesh__filter_1_1MeshFilterBase_a1a60b9e3531ddca293d5b777e7eadd47_icgraph" alt=""/></div>
-<map name="classmesh__filter_1_1MeshFilterBase_a1a60b9e3531ddca293d5b777e7eadd47_icgraph" id="classmesh__filter_1_1MeshFilterBase_a1a60b9e3531ddca293d5b777e7eadd47_icgraph">
-<area shape="rect" title="used within a Job to allow the main thread removing meshes" alt="" coords="256,5,459,47"/>
-<area shape="rect" href="classmesh__filter_1_1MeshFilterBase.html#a36e28a4d7627e0441049f49ce2fd0659" title="removes a mesh given by its handle" alt="" coords="5,5,208,47"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00209">209</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -1000,7 +907,7 @@ Here is the caller graph for this function:</div>
 
 <p>filtering thread </p>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00264">264</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00267">267</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1038,16 +945,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00387">387</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmesh__filter_1_1MeshFilterBase_a95e4a5ee09c087c083e1ae8d1cc71965_icgraph.png" border="0" usemap="#classmesh__filter_1_1MeshFilterBase_a95e4a5ee09c087c083e1ae8d1cc71965_icgraph" alt=""/></div>
-<map name="classmesh__filter_1_1MeshFilterBase_a95e4a5ee09c087c083e1ae8d1cc71965_icgraph" id="classmesh__filter_1_1MeshFilterBase_a95e4a5ee09c087c083e1ae8d1cc71965_icgraph">
-<area shape="rect" title="set the offset component of padding. This value is added to the scaled sensor&#45;specific constant compo..." alt="" coords="256,5,459,47"/>
-<area shape="rect" href="classmesh__filter__test_1_1MeshFilterTest.html#a414f77ed9dcf69f3e951d961b3dc36b7" title=" " alt="" coords="5,5,208,47"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00390">390</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -1075,16 +973,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00392">392</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmesh__filter_1_1MeshFilterBase_ac25841b619542c32ed70b474124e2951_icgraph.png" border="0" usemap="#classmesh__filter_1_1MeshFilterBase_ac25841b619542c32ed70b474124e2951_icgraph" alt=""/></div>
-<map name="classmesh__filter_1_1MeshFilterBase_ac25841b619542c32ed70b474124e2951_icgraph" id="classmesh__filter_1_1MeshFilterBase_ac25841b619542c32ed70b474124e2951_icgraph">
-<area shape="rect" title="set the scale component of padding used to multiply with sensor&#45;specific padding coefficients to get ..." alt="" coords="256,5,459,47"/>
-<area shape="rect" href="classmesh__filter__test_1_1MeshFilterTest.html#a414f77ed9dcf69f3e951d961b3dc36b7" title=" " alt="" coords="5,5,208,47"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00395">395</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -1113,16 +1002,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00213">213</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classmesh__filter_1_1MeshFilterBase_a4933962abaa85732fb599554c666b967_icgraph.png" border="0" usemap="#classmesh__filter_1_1MeshFilterBase_a4933962abaa85732fb599554c666b967_icgraph" alt=""/></div>
-<map name="classmesh__filter_1_1MeshFilterBase_a4933962abaa85732fb599554c666b967_icgraph" id="classmesh__filter_1_1MeshFilterBase_a4933962abaa85732fb599554c666b967_icgraph">
-<area shape="rect" title="set the shadow threshold. points that are further away than the rendered model are filtered out...." alt="" coords="256,5,459,47"/>
-<area shape="rect" href="classmesh__filter__test_1_1MeshFilterTest.html#a414f77ed9dcf69f3e951d961b3dc36b7" title=" " alt="" coords="5,5,208,47"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00215">215</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -1170,7 +1050,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00155">155</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00157">157</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>
@@ -1199,7 +1079,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00164">164</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mesh__filter__base_8cpp_source.html#l00166">166</a> of file <a class="el" href="mesh__filter__base_8cpp_source.html">mesh_filter_base.cpp</a>.</p>
 
 </div>
 </div>

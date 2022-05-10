@@ -71,7 +71,6 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="classcollision__detection_1_1CollisionEnvDistanceField-members.html">List of all members</a>  </div>
@@ -305,11 +304,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a978a45e42b0194b01ba49b7f4f2f6664"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92e2d4912a6b53eed47aa84972dcfa71"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcollision__detection_1_1CollisionEnvDistanceField.html#a92e2d4912a6b53eed47aa84972dcfa71">getEnvironmentProximityGradients</a> (const distance_field::DistanceFieldConstPtr &amp;env_distance_field, GroupStateRepresentationPtr &amp;gsr) const</td></tr>
 <tr class="separator:a92e2d4912a6b53eed47aa84972dcfa71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
-Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:afe8f05fccbd1dd2414a3c60756f4e209"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcollision__detection_1_1CollisionEnvDistanceField.html#afe8f05fccbd1dd2414a3c60756f4e209">notifyObjectChange</a> (<a class="el" href="classcollision__detection_1_1CollisionEnvDistanceField.html">CollisionEnvDistanceField</a> *self, const <a class="el" href="classcollision__detection_1_1CollisionEnv.html#acadecbb63d4dd25cf943b42f14ceac47">ObjectConstPtr</a> &amp;obj, <a class="el" href="classcollision__detection_1_1World_1_1Action.html">World::Action</a> action)</td></tr>
-<tr class="separator:afe8f05fccbd1dd2414a3c60756f4e209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad38ce8277f2d0b4c54fd8c35f5209eef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcollision__detection_1_1CollisionEnvDistanceField.html#ad38ce8277f2d0b4c54fd8c35f5209eef">notifyObjectChange</a> (const <a class="el" href="classcollision__detection_1_1CollisionEnv.html#acadecbb63d4dd25cf943b42f14ceac47">ObjectConstPtr</a> &amp;obj, <a class="el" href="classcollision__detection_1_1World_1_1Action.html">World::Action</a> action)</td></tr>
+<tr class="separator:ad38ce8277f2d0b4c54fd8c35f5209eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -2161,7 +2157,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="collision__env__distance__field_8cpp_source.html#l01814">1814</a> of file <a class="el" href="collision__env__distance__field_8cpp_source.html">collision_env_distance_field.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="collision__env__distance__field_8cpp_source.html#l01813">1813</a> of file <a class="el" href="collision__env__distance__field_8cpp_source.html">collision_env_distance_field.cpp</a>.</p>
 
 </div>
 </div>
@@ -2902,8 +2898,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="afe8f05fccbd1dd2414a3c60756f4e209"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe8f05fccbd1dd2414a3c60756f4e209">&#9670;&nbsp;</a></span>notifyObjectChange()</h2>
+<a id="ad38ce8277f2d0b4c54fd8c35f5209eef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad38ce8277f2d0b4c54fd8c35f5209eef">&#9670;&nbsp;</a></span>notifyObjectChange()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2914,12 +2910,6 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void collision_detection::CollisionEnvDistanceField::notifyObjectChange </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classcollision__detection_1_1CollisionEnvDistanceField.html">CollisionEnvDistanceField</a> *&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const <a class="el" href="classcollision__detection_1_1CollisionEnv.html#acadecbb63d4dd25cf943b42f14ceac47">ObjectConstPtr</a> &amp;&#160;</td>
           <td class="paramname"><em>obj</em>, </td>
         </tr>
@@ -2937,7 +2927,7 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -3023,7 +3013,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="collision__env__distance__field_8cpp_source.html#l01762">1762</a> of file <a class="el" href="collision__env__distance__field_8cpp_source.html">collision_env_distance_field.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="collision__env__distance__field_8cpp_source.html#l01761">1761</a> of file <a class="el" href="collision__env__distance__field_8cpp_source.html">collision_env_distance_field.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

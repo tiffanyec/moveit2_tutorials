@@ -367,9 +367,9 @@ $(function() {
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;  }</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;  <span class="comment">// send goal using mocked callback methods</span></div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;  ac_.sendGoal(seq_goal, std::bind(&amp;IntegrationTestSequenceAction::done_callback, <span class="keyword">this</span>, ph::_1, ph::_2),</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;               std::bind(&amp;IntegrationTestSequenceAction::active_callback, <span class="keyword">this</span>),</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;               std::bind(&amp;IntegrationTestSequenceAction::feedback_callback, <span class="keyword">this</span>, ph::_1));</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;  ac_.sendGoal(</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;      seq_goal, [<span class="keyword">this</span>](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; state, <span class="keyword">const</span> <span class="keyword">auto</span>&amp; result) { done_callback(state, result); },</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;      [<span class="keyword">this</span>] { active_callback(); }, [<span class="keyword">this</span>](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; feedback) { feedback_callback(feedback); });</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;  <span class="comment">// wait for the ecpected events</span></div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;  <a class="code" href="async__test_8h.html#a2b751e6f7e36d7125bdac33f7a202f1b">BARRIER</a>({ <a class="code" href="integrationtest__sequence__action_8cpp.html#aa4d1228e49fc1a720b45e08af11e82d3">GOAL_SUCCEEDED_EVENT</a>, <a class="code" href="integrationtest__sequence__action_8cpp.html#a9845f8102bcbc4fffdf9f0dc72cf802a">SERVER_IDLE_EVENT</a> });</div>

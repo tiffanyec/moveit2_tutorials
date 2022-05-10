@@ -70,7 +70,6 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classompl__interface_1_1PlanningContextManager-members.html">List of all members</a>  </div>
@@ -148,11 +147,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a880cad20894127b13e2d1a6e68aac6b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceompl__interface.html#adbe6f0ac4d5c325d0216c0f76f7033f1">ConfiguredPlannerSelector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classompl__interface_1_1PlanningContextManager.html#a880cad20894127b13e2d1a6e68aac6b2">getPlannerSelector</a> () const</td></tr>
 <tr class="separator:a880cad20894127b13e2d1a6e68aac6b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr class="memitem:a41733fad59a1f20efd805f28404bc712"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; const ModelBasedStateSpaceFactoryPtr &amp;(const std::string &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classompl__interface_1_1PlanningContextManager.html#a41733fad59a1f20efd805f28404bc712">StateSpaceFactoryTypeSelector</a></td></tr>
-<tr class="separator:a41733fad59a1f20efd805f28404bc712"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ac3919ca171852cb12f762b55a645ac6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceompl__interface.html#a6a87d9918ca2726d56929054ce63980c">ConfiguredPlannerAllocator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classompl__interface_1_1PlanningContextManager.html#ac3919ca171852cb12f762b55a645ac6b">plannerSelector</a> (const std::string &amp;planner) const</td></tr>
@@ -164,13 +158,13 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:acea5698e823892502a93a233b5b7e2c6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:acea5698e823892502a93a233b5b7e2c6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classompl__interface_1_1PlanningContextManager.html#acea5698e823892502a93a233b5b7e2c6">registerPlannerAllocatorHelper</a> (const std::string &amp;planner_id)</td></tr>
 <tr class="separator:acea5698e823892502a93a233b5b7e2c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad52e84f359ebb977564939f8aef47178"><td class="memItemLeft" align="right" valign="top">ModelBasedPlanningContextPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classompl__interface_1_1PlanningContextManager.html#ad52e84f359ebb977564939f8aef47178">getPlanningContext</a> (const <a class="el" href="structplanning__interface_1_1PlannerConfigurationSettings.html">planning_interface::PlannerConfigurationSettings</a> &amp;config, const <a class="el" href="classompl__interface_1_1PlanningContextManager.html#a41733fad59a1f20efd805f28404bc712">StateSpaceFactoryTypeSelector</a> &amp;factory_selector, const moveit_msgs::msg::MotionPlanRequest &amp;req) const</td></tr>
-<tr class="memdesc:ad52e84f359ebb977564939f8aef47178"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the function that constructs new planning contexts if no previous ones exist that are suitable.  <a href="classompl__interface_1_1PlanningContextManager.html#ad52e84f359ebb977564939f8aef47178">More...</a><br /></td></tr>
-<tr class="separator:ad52e84f359ebb977564939f8aef47178"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf1d84d7746e744cf21589fd18a6ec2e"><td class="memItemLeft" align="right" valign="top">const ModelBasedStateSpaceFactoryPtr &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classompl__interface_1_1PlanningContextManager.html#abf1d84d7746e744cf21589fd18a6ec2e">getStateSpaceFactory1</a> (const std::string &amp;group_name, const std::string &amp;factory_type) const</td></tr>
-<tr class="separator:abf1d84d7746e744cf21589fd18a6ec2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e451ba9beb1663aebc82db2e8e93e58"><td class="memItemLeft" align="right" valign="top">const ModelBasedStateSpaceFactoryPtr &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classompl__interface_1_1PlanningContextManager.html#a3e451ba9beb1663aebc82db2e8e93e58">getStateSpaceFactory2</a> (const std::string &amp;group_name, const moveit_msgs::msg::MotionPlanRequest &amp;req) const</td></tr>
-<tr class="separator:a3e451ba9beb1663aebc82db2e8e93e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a245e9bbf2bae51dca8df2ac9bf2adee7"><td class="memItemLeft" align="right" valign="top">ModelBasedPlanningContextPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classompl__interface_1_1PlanningContextManager.html#a245e9bbf2bae51dca8df2ac9bf2adee7">getPlanningContext</a> (const <a class="el" href="structplanning__interface_1_1PlannerConfigurationSettings.html">planning_interface::PlannerConfigurationSettings</a> &amp;config, const ModelBasedStateSpaceFactoryPtr &amp;factory, const moveit_msgs::msg::MotionPlanRequest &amp;req) const</td></tr>
+<tr class="memdesc:a245e9bbf2bae51dca8df2ac9bf2adee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the function that constructs new planning contexts if no previous ones exist that are suitable.  <a href="classompl__interface_1_1PlanningContextManager.html#a245e9bbf2bae51dca8df2ac9bf2adee7">More...</a><br /></td></tr>
+<tr class="separator:a245e9bbf2bae51dca8df2ac9bf2adee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f8f067d6fea3352b8fcc5aeb60e0e20"><td class="memItemLeft" align="right" valign="top">const ModelBasedStateSpaceFactoryPtr &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classompl__interface_1_1PlanningContextManager.html#a1f8f067d6fea3352b8fcc5aeb60e0e20">getStateSpaceFactory</a> (const std::string &amp;factory_type) const</td></tr>
+<tr class="separator:a1f8f067d6fea3352b8fcc5aeb60e0e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a523a2e8116e66bb63f2e75033467e902"><td class="memItemLeft" align="right" valign="top">const ModelBasedStateSpaceFactoryPtr &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classompl__interface_1_1PlanningContextManager.html#a523a2e8116e66bb63f2e75033467e902">getStateSpaceFactory</a> (const std::string &amp;group_name, const moveit_msgs::msg::MotionPlanRequest &amp;req) const</td></tr>
+<tr class="separator:a523a2e8116e66bb63f2e75033467e902"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -208,32 +202,7 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00111">111</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a41733fad59a1f20efd805f28404bc712"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41733fad59a1f20efd805f28404bc712">&#9670;&nbsp;</a></span>StateSpaceFactoryTypeSelector</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::function&lt;const ModelBasedStateSpaceFactoryPtr&amp;(const std::string&amp;)&gt; <a class="el" href="classompl__interface_1_1PlanningContextManager.html#a41733fad59a1f20efd805f28404bc712">ompl_interface::PlanningContextManager::StateSpaceFactoryTypeSelector</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00242">242</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2c76cb0386c11d734a2498a308f741ec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2c76cb0386c11d734a2498a308f741ec">&#9670;&nbsp;</a></span>PlanningContextManager()</h2>
 
@@ -523,14 +492,14 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="classompl__interface_1_1PlanningContextManager_a880cad20894127b13e2d1a6e68aac6b2_icgraph.png" border="0" usemap="#classompl__interface_1_1PlanningContextManager_a880cad20894127b13e2d1a6e68aac6b2_icgraph" alt=""/></div>
 <map name="classompl__interface_1_1PlanningContextManager_a880cad20894127b13e2d1a6e68aac6b2_icgraph" id="classompl__interface_1_1PlanningContextManager_a880cad20894127b13e2d1a6e68aac6b2_icgraph">
 <area shape="rect" title=" " alt="" coords="320,5,581,47"/>
-<area shape="rect" href="classompl__interface_1_1PlanningContextManager.html#ad52e84f359ebb977564939f8aef47178" title="This is the function that constructs new planning contexts if no previous ones exist that are suitabl..." alt="" coords="5,5,272,47"/>
+<area shape="rect" href="classompl__interface_1_1PlanningContextManager.html#a245e9bbf2bae51dca8df2ac9bf2adee7" title="This is the function that constructs new planning contexts if no previous ones exist that are suitabl..." alt="" coords="5,5,272,47"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ad52e84f359ebb977564939f8aef47178"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad52e84f359ebb977564939f8aef47178">&#9670;&nbsp;</a></span>getPlanningContext() <span class="overload">[1/2]</span></h2>
+<a id="a245e9bbf2bae51dca8df2ac9bf2adee7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a245e9bbf2bae51dca8df2ac9bf2adee7">&#9670;&nbsp;</a></span>getPlanningContext() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -547,8 +516,8 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classompl__interface_1_1PlanningContextManager.html#a41733fad59a1f20efd805f28404bc712">StateSpaceFactoryTypeSelector</a> &amp;&#160;</td>
-          <td class="paramname"><em>factory_selector</em>, </td>
+          <td class="paramtype">const ModelBasedStateSpaceFactoryPtr &amp;&#160;</td>
+          <td class="paramname"><em>factory</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -575,8 +544,8 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classompl__interface_1_1PlanningContextManager_ad52e84f359ebb977564939f8aef47178_cgraph.png" border="0" usemap="#classompl__interface_1_1PlanningContextManager_ad52e84f359ebb977564939f8aef47178_cgraph" alt=""/></div>
-<map name="classompl__interface_1_1PlanningContextManager_ad52e84f359ebb977564939f8aef47178_cgraph" id="classompl__interface_1_1PlanningContextManager_ad52e84f359ebb977564939f8aef47178_cgraph">
+<div class="center"><img src="classompl__interface_1_1PlanningContextManager_a245e9bbf2bae51dca8df2ac9bf2adee7_cgraph.png" border="0" usemap="#classompl__interface_1_1PlanningContextManager_a245e9bbf2bae51dca8df2ac9bf2adee7_cgraph" alt=""/></div>
+<map name="classompl__interface_1_1PlanningContextManager_a245e9bbf2bae51dca8df2ac9bf2adee7_cgraph" id="classompl__interface_1_1PlanningContextManager_a245e9bbf2bae51dca8df2ac9bf2adee7_cgraph">
 <area shape="rect" title="This is the function that constructs new planning contexts if no previous ones exist that are suitabl..." alt="" coords="5,27,272,69"/>
 <area shape="rect" href="namespaceompl__interface.html#ac59c481ebfead520db9f3188f465ae6d" title="Factory to create constraints based on what is in the MoveIt constraint message." alt="" coords="320,5,593,32"/>
 <area shape="rect" href="classompl__interface_1_1PlanningContextManager.html#a880cad20894127b13e2d1a6e68aac6b2" title=" " alt="" coords="326,57,587,98"/>
@@ -633,15 +602,14 @@ Here is the call graph for this function:</div>
 <p>Returns a planning context to <a class="el" href="classompl__interface_1_1OMPLInterface.html">OMPLInterface</a>, which in turn passes it to <a class="el" href="classompl__interface_1_1OMPLPlannerManager.html">OMPLPlannerManager</a>. </p>
 <p>This function checks the input and reads planner specific configurations. Then it creates the planning context with PlanningContextManager::createPlanningContext. Finally, it puts the context into a state appropriate for planning. This last step involves setting the start, goal, and state validity checker using the method <a class="el" href="classompl__interface_1_1ModelBasedPlanningContext.html#a5dc2ec5f889efedb684a6ae2343377b9" title="Configure ompl_simple_setup_ and optionally the constraints_library_.">ModelBasedPlanningContext::configure</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8cpp_source.html#l00464">464</a> of file <a class="el" href="planning__context__manager_8cpp_source.html">planning_context_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8cpp_source.html#l00461">461</a> of file <a class="el" href="planning__context__manager_8cpp_source.html">planning_context_manager.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classompl__interface_1_1PlanningContextManager_a5c38b048a8cbbc11931d621f565eb7ce_cgraph.png" border="0" usemap="#classompl__interface_1_1PlanningContextManager_a5c38b048a8cbbc11931d621f565eb7ce_cgraph" alt=""/></div>
 <map name="classompl__interface_1_1PlanningContextManager_a5c38b048a8cbbc11931d621f565eb7ce_cgraph" id="classompl__interface_1_1PlanningContextManager_a5c38b048a8cbbc11931d621f565eb7ce_cgraph">
-<area shape="rect" title="Returns a planning context to OMPLInterface, which in turn passes it to OMPLPlannerManager." alt="" coords="5,53,272,94"/>
-<area shape="rect" href="classompl__interface_1_1PlanningContextManager.html#abf1d84d7746e744cf21589fd18a6ec2e" title=" " alt="" coords="320,5,552,61"/>
-<area shape="rect" href="classompl__interface_1_1PlanningContextManager.html#a3e451ba9beb1663aebc82db2e8e93e58" title=" " alt="" coords="320,85,552,141"/>
+<area shape="rect" title="Returns a planning context to OMPLInterface, which in turn passes it to OMPLPlannerManager." alt="" coords="5,13,272,54"/>
+<area shape="rect" href="classompl__interface_1_1PlanningContextManager.html#a1f8f067d6fea3352b8fcc5aeb60e0e20" title=" " alt="" coords="320,5,552,61"/>
 </map>
 </div>
 
@@ -728,8 +696,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="abf1d84d7746e744cf21589fd18a6ec2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf1d84d7746e744cf21589fd18a6ec2e">&#9670;&nbsp;</a></span>getStateSpaceFactory1()</h2>
+<a id="a1f8f067d6fea3352b8fcc5aeb60e0e20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f8f067d6fea3352b8fcc5aeb60e0e20">&#9670;&nbsp;</a></span>getStateSpaceFactory() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -738,21 +706,11 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const ModelBasedStateSpaceFactoryPtr &amp; ompl_interface::PlanningContextManager::getStateSpaceFactory1 </td>
+          <td class="memname">const ModelBasedStateSpaceFactoryPtr &amp; ompl_interface::PlanningContextManager::getStateSpaceFactory </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>group_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>factory_type</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
+          <td class="paramname"><em>factory_type</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -762,12 +720,12 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8cpp_source.html#l00417">417</a> of file <a class="el" href="planning__context__manager_8cpp_source.html">planning_context_manager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8cpp_source.html#l00414">414</a> of file <a class="el" href="planning__context__manager_8cpp_source.html">planning_context_manager.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classompl__interface_1_1PlanningContextManager_abf1d84d7746e744cf21589fd18a6ec2e_icgraph.png" border="0" usemap="#classompl__interface_1_1PlanningContextManager_abf1d84d7746e744cf21589fd18a6ec2e_icgraph" alt=""/></div>
-<map name="classompl__interface_1_1PlanningContextManager_abf1d84d7746e744cf21589fd18a6ec2e_icgraph" id="classompl__interface_1_1PlanningContextManager_abf1d84d7746e744cf21589fd18a6ec2e_icgraph">
+<div class="center"><img src="classompl__interface_1_1PlanningContextManager_a1f8f067d6fea3352b8fcc5aeb60e0e20_icgraph.png" border="0" usemap="#classompl__interface_1_1PlanningContextManager_a1f8f067d6fea3352b8fcc5aeb60e0e20_icgraph" alt=""/></div>
+<map name="classompl__interface_1_1PlanningContextManager_a1f8f067d6fea3352b8fcc5aeb60e0e20_icgraph" id="classompl__interface_1_1PlanningContextManager_a1f8f067d6fea3352b8fcc5aeb60e0e20_icgraph">
 <area shape="rect" title=" " alt="" coords="320,5,552,61"/>
 <area shape="rect" href="classompl__interface_1_1PlanningContextManager.html#a5c38b048a8cbbc11931d621f565eb7ce" title="Returns a planning context to OMPLInterface, which in turn passes it to OMPLPlannerManager." alt="" coords="5,13,272,54"/>
 </map>
@@ -775,8 +733,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a3e451ba9beb1663aebc82db2e8e93e58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e451ba9beb1663aebc82db2e8e93e58">&#9670;&nbsp;</a></span>getStateSpaceFactory2()</h2>
+<a id="a523a2e8116e66bb63f2e75033467e902"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a523a2e8116e66bb63f2e75033467e902">&#9670;&nbsp;</a></span>getStateSpaceFactory() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -785,7 +743,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const ModelBasedStateSpaceFactoryPtr &amp; ompl_interface::PlanningContextManager::getStateSpaceFactory2 </td>
+          <td class="memname">const ModelBasedStateSpaceFactoryPtr &amp; ompl_interface::PlanningContextManager::getStateSpaceFactory </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>group_name</em>, </td>
@@ -809,16 +767,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8cpp_source.html#l00434">434</a> of file <a class="el" href="planning__context__manager_8cpp_source.html">planning_context_manager.cpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classompl__interface_1_1PlanningContextManager_a3e451ba9beb1663aebc82db2e8e93e58_icgraph.png" border="0" usemap="#classompl__interface_1_1PlanningContextManager_a3e451ba9beb1663aebc82db2e8e93e58_icgraph" alt=""/></div>
-<map name="classompl__interface_1_1PlanningContextManager_a3e451ba9beb1663aebc82db2e8e93e58_icgraph" id="classompl__interface_1_1PlanningContextManager_a3e451ba9beb1663aebc82db2e8e93e58_icgraph">
-<area shape="rect" title=" " alt="" coords="320,5,552,61"/>
-<area shape="rect" href="classompl__interface_1_1PlanningContextManager.html#a5c38b048a8cbbc11931d621f565eb7ce" title="Returns a planning context to OMPLInterface, which in turn passes it to OMPLPlannerManager." alt="" coords="5,13,272,54"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8cpp_source.html#l00431">431</a> of file <a class="el" href="planning__context__manager_8cpp_source.html">planning_context_manager.cpp</a>.</p>
 
 </div>
 </div>
@@ -854,7 +803,7 @@ Here is the caller graph for this function:</div>
 <map name="classompl__interface_1_1PlanningContextManager_ac3919ca171852cb12f762b55a645ac6b_icgraph" id="classompl__interface_1_1PlanningContextManager_ac3919ca171852cb12f762b55a645ac6b_icgraph">
 <area shape="rect" title=" " alt="" coords="629,5,869,47"/>
 <area shape="rect" href="classompl__interface_1_1PlanningContextManager.html#a880cad20894127b13e2d1a6e68aac6b2" title=" " alt="" coords="320,5,581,47"/>
-<area shape="rect" href="classompl__interface_1_1PlanningContextManager.html#ad52e84f359ebb977564939f8aef47178" title="This is the function that constructs new planning contexts if no previous ones exist that are suitabl..." alt="" coords="5,5,272,47"/>
+<area shape="rect" href="classompl__interface_1_1PlanningContextManager.html#a245e9bbf2bae51dca8df2ac9bf2adee7" title="This is the function that constructs new planning contexts if no previous ones exist that are suitabl..." alt="" coords="5,5,272,47"/>
 </map>
 </div>
 
@@ -1285,7 +1234,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00265">265</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00262">262</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
 
 </div>
 </div>
@@ -1309,7 +1258,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00267">267</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00264">264</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
 
 </div>
 </div>
@@ -1335,7 +1284,7 @@ Here is the caller graph for this function:</div>
 
 <p>maximum number of states to sample in the goal region for any planning request (when such sampling is possible) </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00278">278</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00275">275</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
 
 </div>
 </div>
@@ -1361,7 +1310,7 @@ Here is the caller graph for this function:</div>
 
 <p>maximum number of attempts to be made at sampling goals </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00285">285</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00282">282</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
 
 </div>
 </div>
@@ -1387,7 +1336,7 @@ Here is the caller graph for this function:</div>
 
 <p>when planning in parallel, this is the maximum number of threads to use at one time </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00288">288</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00285">285</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
 
 </div>
 </div>
@@ -1412,7 +1361,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>the maximum length that is allowed for segments that make up the motion plan; by default this is 1% from the extent of the space </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00292">292</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00289">289</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
 
 </div>
 </div>
@@ -1437,7 +1386,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>maximum number of attempts to be made at sampling a state when attempting to find valid states that satisfy some set of constraints </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00282">282</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00279">279</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
 
 </div>
 </div>
@@ -1462,7 +1411,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>the minimum number of points to include on the solution path (interpolation is used to reach this number, if needed) </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00296">296</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00293">293</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
 
 </div>
 </div>
@@ -1488,7 +1437,7 @@ Here is the caller graph for this function:</div>
 
 <p>Multi-query planner allocator. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00299">299</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00296">296</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
 
 </div>
 </div>
@@ -1514,7 +1463,7 @@ Here is the caller graph for this function:</div>
 
 <p>All the existing planning configurations. The name of the configuration is the key of the map. This name can be of the form "group_name[config_name]" if there are particular configurations specified for a group, or of the form "group_name" if default settings are to be used. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00275">275</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00272">272</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
 
 </div>
 </div>
@@ -1540,7 +1489,7 @@ Here is the caller graph for this function:</div>
 
 <p>The kinematic model for which motion plans are computed. </p>
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00263">263</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00260">260</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
 
 </div>
 </div>
@@ -1564,7 +1513,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00268">268</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="planning__context__manager_8h_source.html#l00265">265</a> of file <a class="el" href="planning__context__manager_8h_source.html">planning_context_manager.h</a>.</p>
 
 </div>
 </div>

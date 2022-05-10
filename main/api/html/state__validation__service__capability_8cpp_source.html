@@ -122,12 +122,12 @@ $(function() {
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmove__group_1_1MoveGroupStateValidationService.html#af8486248911cfbdf3dfadd200afb9138">MoveGroupStateValidationService::initialize</a>()</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">using</span> std::placeholders::_1;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">using</span> std::placeholders::_2;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">using</span> std::placeholders::_3;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  validity_service_ = <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a8210f1b13f0df86dac511ca96765382d">context_</a>-&gt;moveit_cpp_-&gt;getNode()-&gt;create_service&lt;moveit_msgs::srv::GetStateValidity&gt;(</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      STATE_VALIDITY_SERVICE_NAME, std::bind(&amp;MoveGroupStateValidationService::computeService, <span class="keyword">this</span>, _1, _2, _3));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  validity_service_ = <a class="code" href="classmove__group_1_1MoveGroupCapability.html#a8210f1b13f0df86dac511ca96765382d">context_</a>-&gt;moveit_cpp_-&gt;getNode()-&gt;create_service&lt;moveit_msgs::srv::GetStateValidity&gt;(</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      STATE_VALIDITY_SERVICE_NAME, [<span class="keyword">this</span>](<span class="keyword">const</span> std::shared_ptr&lt;rmw_request_id_t&gt; request_header,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                                          <span class="keyword">const</span> std::shared_ptr&lt;moveit_msgs::srv::GetStateValidity::Request&gt; req,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                          std::shared_ptr&lt;moveit_msgs::srv::GetStateValidity::Response&gt; res) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> computeService(request_header, req, res);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      });</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">bool</span> MoveGroupStateValidationService::computeService(</div>

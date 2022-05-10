@@ -1,5 +1,5 @@
 <map id="moveit_ros/perception/depth_image_octomap_updater/src/depth_image_octomap_updater.cpp" name="moveit_ros/perception/depth_image_octomap_updater/src/depth_image_octomap_updater.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="3462,5,3653,76"/>
+<area shape="rect" id="node1" title=" " alt="" coords="3355,5,3546,76"/>
 <area shape="rect" id="node2" href="$depth__image__octomap__updater_8h.html" title=" " alt="" coords="1688,124,1891,180"/>
 <area shape="rect" id="node8" title=" " alt="" coords="2453,704,2531,731"/>
 <area shape="rect" id="node36" href="$occupancy__map__monitor_8h.html" title=" " alt="" coords="2381,228,2571,284"/>
@@ -9,7 +9,6 @@
 <area shape="rect" id="node45" title=" " alt="" coords="3789,131,3973,173"/>
 <area shape="rect" id="node46" title=" " alt="" coords="3997,139,4251,165"/>
 <area shape="rect" id="node47" title=" " alt="" coords="4275,139,4346,165"/>
-<area shape="rect" id="node48" title=" " alt="" coords="4370,139,4489,165"/>
 <area shape="rect" id="node3" title=" " alt="" coords="2187,443,2319,470"/>
 <area shape="rect" id="node4" title=" " alt="" coords="2096,347,2216,373"/>
 <area shape="rect" id="node5" href="$occupancy__map__updater_8h.html" title=" " alt="" coords="1832,332,2021,388"/>

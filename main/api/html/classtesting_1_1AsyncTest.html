@@ -134,7 +134,7 @@ Protected Attributes</h2></td></tr>
 <div class="line">{</div>
 <div class="line">    EXPECT_CALL(*<span class="keyword">this</span>, myMethod()).Times(1).WillOnce(<a class="code" href="async__test_8h.html#a05fc9a603aacee7206587615a0260ac9">ACTION_OPEN_BARRIER_VOID</a>(<span class="stringliteral">&quot;myMethod&quot;</span>));</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">int</span> timeout_ms {100};</div>
-<div class="line">    asyncCall(std::bind(&amp;MyTest::myMethod, <span class="keyword">this</span>));</div>
+<div class="line">    asyncCall([<span class="keyword">this</span>]{ myMethod(); });</div>
 <div class="line">    <a class="code" href="async__test_8h.html#a2b751e6f7e36d7125bdac33f7a202f1b">BARRIER</a>(<span class="stringliteral">&quot;myMethod&quot;</span>, timeout_ms) &lt;&lt; <span class="stringliteral">&quot;Timed-out waiting for myMethod call.&quot;</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment --> 

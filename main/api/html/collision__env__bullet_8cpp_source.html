@@ -125,7 +125,7 @@ $(function() {
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="comment">// request notifications about changes to new world</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  observer_handle_ = getWorld()-&gt;addObserver(</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      std::bind(&amp;CollisionEnvBullet::notifyObjectChange, <span class="keyword">this</span>, std::placeholders::_1, std::placeholders::_2));</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      [<span class="keyword">this</span>](<span class="keyword">const</span> World::ObjectConstPtr&amp; <span class="keywordtype">object</span>, World::Action <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>) { notifyObjectChange(<span class="keywordtype">object</span>, <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>); });</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">const</span> std::pair&lt;const std::string, urdf::LinkSharedPtr&gt;&amp; link : robot_model_-&gt;getURDF()-&gt;links_)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  {</div>
@@ -139,7 +139,7 @@ $(function() {
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="comment">// request notifications about changes to new world</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  observer_handle_ = getWorld()-&gt;addObserver(</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      std::bind(&amp;CollisionEnvBullet::notifyObjectChange, <span class="keyword">this</span>, std::placeholders::_1, std::placeholders::_2));</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      [<span class="keyword">this</span>](<span class="keyword">const</span> World::ObjectConstPtr&amp; <span class="keywordtype">object</span>, World::Action <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>) { notifyObjectChange(<span class="keywordtype">object</span>, <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>); });</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">const</span> std::pair&lt;const std::string, urdf::LinkSharedPtr&gt;&amp; link : robot_model_-&gt;getURDF()-&gt;links_)</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  {</div>
@@ -154,7 +154,7 @@ $(function() {
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
 <div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classcollision__detection_1_1CollisionEnvBullet.html#a1a54677bace8c4a6b96c3507ced8b3f3">   82</a></span>&#160;  <span class="comment">// request notifications about changes to new world</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  observer_handle_ = getWorld()-&gt;addObserver(</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      std::bind(&amp;CollisionEnvBullet::notifyObjectChange, <span class="keyword">this</span>, std::placeholders::_1, std::placeholders::_2));</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      [<span class="keyword">this</span>](<span class="keyword">const</span> World::ObjectConstPtr&amp; <span class="keywordtype">object</span>, <a class="code" href="classcollision__detection_1_1World_1_1Action.html">World::Action</a> <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>) { notifyObjectChange(<span class="keywordtype">object</span>, <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>); });</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">const</span> std::pair&lt;const std::string, urdf::LinkSharedPtr&gt;&amp; link : other.robot_model_-&gt;getURDF()-&gt;links_)</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  {</div>
@@ -378,13 +378,13 @@ $(function() {
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <span class="comment">// request notifications about changes to new world</span></div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  observer_handle_ = getWorld()-&gt;addObserver(</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      std::bind(&amp;CollisionEnvBullet::notifyObjectChange, <span class="keyword">this</span>, std::placeholders::_1, std::placeholders::_2));</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      [<span class="keyword">this</span>](<span class="keyword">const</span> World::ObjectConstPtr&amp; <span class="keywordtype">object</span>, <a class="code" href="classcollision__detection_1_1World_1_1Action.html">World::Action</a> <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>) { notifyObjectChange(<span class="keywordtype">object</span>, <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>); });</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <span class="comment">// get notifications any objects already in the new world</span></div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  getWorld()-&gt;notifyObserverAllObjects(observer_handle_, World::CREATE);</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;}</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="keywordtype">void</span> CollisionEnvBullet::notifyObjectChange(<span class="keyword">const</span> ObjectConstPtr&amp; obj, <a class="code" href="classcollision__detection_1_1World_1_1Action.html">World::Action</a> <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>)</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="keywordtype">void</span> CollisionEnvBullet::notifyObjectChange(<span class="keyword">const</span> ObjectConstPtr&amp; obj, World::Action <a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a>)</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;{</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  std::lock_guard&lt;std::mutex&gt; guard(collision_env_mutex_);</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespacemoveit__commander__cmdline.html#ad6c2becd1ee10122e24c356d89c2b91b">action</a> == World::DESTROY)</div>

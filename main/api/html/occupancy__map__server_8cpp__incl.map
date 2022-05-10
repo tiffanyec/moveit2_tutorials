@@ -1,12 +1,11 @@
 <map id="moveit_ros/occupancy_map_monitor/src/occupancy_map_server.cpp" name="moveit_ros/occupancy_map_monitor/src/occupancy_map_server.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="2093,5,2305,61"/>
+<area shape="rect" id="node1" title=" " alt="" coords="2020,5,2232,61"/>
 <area shape="rect" id="node2" href="$occupancy__map__monitor_8h.html" title=" " alt="" coords="694,109,883,165"/>
 <area shape="rect" id="node8" title=" " alt="" coords="1063,496,1141,523"/>
 <area shape="rect" id="node14" title=" " alt="" coords="1884,325,2016,351"/>
 <area shape="rect" id="node25" title=" " alt="" coords="2092,124,2307,151"/>
 <area shape="rect" id="node26" title=" " alt="" coords="2331,124,2534,151"/>
-<area shape="rect" id="node27" title=" " alt="" coords="2559,124,2677,151"/>
-<area shape="rect" id="node28" title=" " alt="" coords="2701,124,2775,151"/>
+<area shape="rect" id="node27" title=" " alt="" coords="2558,124,2633,151"/>
 <area shape="rect" id="node3" href="$occupancy__map_8h.html" title=" " alt="" coords="762,317,957,359"/>
 <area shape="rect" id="node9" title=" " alt="" coords="953,414,1011,441"/>
 <area shape="rect" id="node10" href="$occupancy__map__updater_8h.html" title=" " alt="" coords="1219,213,1409,269"/>

@@ -224,7 +224,7 @@ $(function() {
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    ps-&gt;getPlanningSceneMsg(msg);</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    planning_scene_publisher_-&gt;publish(msg);</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    setLocalSceneEdited(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>(std::bind(&amp;MotionPlanningFrame::populateCollisionObjectsList, <span class="keyword">this</span>));</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>([<span class="keyword">this</span>] { populateCollisionObjectsList(); });</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#abc9562b19cd09d4f37b005edefce5d22">queueRenderSceneGeometry</a>();</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  }</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;}</div>
@@ -306,7 +306,7 @@ $(function() {
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        ps-&gt;getCurrentStateNonConst().clearAttachedBody(sel[i]-&gt;<a class="code" href="namespaceround__collada__numbers.html#ac9e7c6037bfef6357cd8067931ad7ff7">text</a>().toStdString());</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a>.reset();</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    setLocalSceneEdited();</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>(std::bind(&amp;MotionPlanningFrame::populateCollisionObjectsList, <span class="keyword">this</span>));</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>([<span class="keyword">this</span>] { populateCollisionObjectsList(); });</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#abc9562b19cd09d4f37b005edefce5d22">queueRenderSceneGeometry</a>();</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  }</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;}</div>
@@ -584,7 +584,7 @@ $(function() {
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    RCLCPP_DEBUG(LOGGER, <span class="stringliteral">&quot;Copied collision object to &#39;%s&#39;&quot;</span>, <a class="code" href="namespacesetup.html#ab3a7a0638d76a01367c5bc3cc699447f">name</a>.c_str());</div>
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;  }</div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;  setLocalSceneEdited();</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>(std::bind(&amp;MotionPlanningFrame::populateCollisionObjectsList, <span class="keyword">this</span>));</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>([<span class="keyword">this</span>] { populateCollisionObjectsList(); });</div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;}</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160; </div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::computeSaveSceneButtonClicked()</div>
@@ -603,7 +603,7 @@ $(function() {
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;      RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;%s&quot;</span>, ex.what());</div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    }</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160; </div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>(std::bind(&amp;MotionPlanningFrame::populatePlanningSceneTreeView, <span class="keyword">this</span>));</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>([<span class="keyword">this</span>] { populatePlanningSceneTreeView(); });</div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;  }</div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;}</div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160; </div>
@@ -624,7 +624,7 @@ $(function() {
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;      RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;%s&quot;</span>, ex.what());</div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    }</div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160; </div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>(std::bind(&amp;MotionPlanningFrame::populatePlanningSceneTreeView, <span class="keyword">this</span>));</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>([<span class="keyword">this</span>] { populatePlanningSceneTreeView(); });</div>
 <div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;  }</div>
 <div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;}</div>
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160; </div>
@@ -661,7 +661,7 @@ $(function() {
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;          RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;%s&quot;</span>, ex.what());</div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;        }</div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;      }</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>(std::bind(&amp;MotionPlanningFrame::populatePlanningSceneTreeView, <span class="keyword">this</span>));</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>([<span class="keyword">this</span>] { populatePlanningSceneTreeView(); });</div>
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    }</div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;  }</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;}</div>
@@ -686,460 +686,459 @@ $(function() {
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;        {</div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;          RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;%s&quot;</span>, ex.what());</div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;        }</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;        <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>(</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;            std::bind(&amp;MotionPlanningFrame::computeDeleteQueryButtonClickedHelper, <span class="keyword">this</span>, s));</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;      }</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    }</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;  }</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;}</div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160; </div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::computeDeleteQueryButtonClickedHelper(QTreeWidgetItem* s)</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;{</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;planning_scene_tree-&gt;setUpdatesEnabled(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;  s-&gt;parent()-&gt;removeChild(s);</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;planning_scene_tree-&gt;setUpdatesEnabled(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;}</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160; </div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::checkPlanningSceneTreeEnabledButtons()</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;{</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;  QList&lt;QTreeWidgetItem*&gt; sel = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;planning_scene_tree-&gt;selectedItems();</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;  <span class="keywordflow">if</span> (sel.empty())</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;  {</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;load_scene_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;load_query_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;save_query_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;delete_scene_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;  }</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  {</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;save_query_button-&gt;setEnabled(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160; </div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    QTreeWidgetItem* s = sel.front();</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160; </div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    <span class="comment">// if the item is a PlanningScene</span></div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    <span class="keywordflow">if</span> (s-&gt;type() == <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0845b45f76cf28c89654964728408df7">ITEM_TYPE_SCENE</a>)</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    {</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;load_scene_button-&gt;setEnabled(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;load_query_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;delete_scene_button-&gt;setEnabled(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;delete_query_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;save_query_button-&gt;setEnabled(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    }</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    {</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;      <span class="comment">// if the item is a query</span></div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;load_scene_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;load_query_button-&gt;setEnabled(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;delete_scene_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;delete_query_button-&gt;setEnabled(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    }</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;  }</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;}</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160; </div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::computeLoadSceneButtonClicked()</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;{</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a022449cae7bf787455807d45a4452256">planning_scene_storage_</a>)</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;  {</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    QList&lt;QTreeWidgetItem*&gt; sel = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;planning_scene_tree-&gt;selectedItems();</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    <span class="keywordflow">if</span> (!sel.empty())</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    {</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;      QTreeWidgetItem* s = sel.front();</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;      <span class="keywordflow">if</span> (s-&gt;type() == <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0845b45f76cf28c89654964728408df7">ITEM_TYPE_SCENE</a>)</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;      {</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        std::string <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a> = s-&gt;text(0).toStdString();</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;        RCLCPP_DEBUG(LOGGER, <span class="stringliteral">&quot;Attempting to load scene &#39;%s&#39;&quot;</span>, <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a>.c_str());</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160; </div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;        <a class="code" href="namespacemoveit__warehouse.html#a27b8025d106e8cae5c30dd5fb61f0a05">moveit_warehouse::PlanningSceneWithMetadata</a> scene_m;</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;        <span class="keywordtype">bool</span> got_ps = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;        <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;        {</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;          got_ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a022449cae7bf787455807d45a4452256">planning_scene_storage_</a>-&gt;getPlanningScene(scene_m, <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a>);</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;        }</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;        <span class="keywordflow">catch</span> (std::exception&amp; ex)</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;        {</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;          RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;%s&quot;</span>, ex.what());</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;        }</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160; </div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;        <span class="keywordflow">if</span> (got_ps)</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        {</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;          RCLCPP_INFO(LOGGER, <span class="stringliteral">&quot;Loaded scene &#39;%s&#39;&quot;</span>, <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a>.c_str());</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#aedf581653799b312fbb554ff7110eeac">getPlanningSceneMonitor</a>())</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;          {</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;            <span class="keywordflow">if</span> (scene_m-&gt;robot_model_name != <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ab2d4befc925c6933f7f508bef69a67f3">getRobotModel</a>()-&gt;getName())</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;            {</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;              RCLCPP_INFO(LOGGER,</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;                          <span class="stringliteral">&quot;Scene &#39;%s&#39; was saved for robot &#39;%s&#39; but we are using robot &#39;%s&#39;. Using scene geometry only&quot;</span>,</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;                          <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a>.c_str(), scene_m-&gt;robot_model_name.c_str(),</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;                          <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ab2d4befc925c6933f7f508bef69a67f3">getRobotModel</a>()-&gt;getName().c_str());</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;              planning_scene_world_publisher_-&gt;publish(scene_m-&gt;world);</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;              <span class="comment">// publish the parts that are not in the world</span></div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;              moveit_msgs::msg::PlanningScene diff;</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;              diff.is_diff = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;              diff.name = scene_m-&gt;name;</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;              planning_scene_publisher_-&gt;publish(diff);</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;            }</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;              planning_scene_publisher_-&gt;publish(<span class="keyword">static_cast&lt;</span><span class="keyword">const </span>moveit_msgs::msg::PlanningScene&amp;<span class="keyword">&gt;</span>(*scene_m));</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;          }</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;          <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;            planning_scene_publisher_-&gt;publish(<span class="keyword">static_cast&lt;</span><span class="keyword">const </span>moveit_msgs::msg::PlanningScene&amp;<span class="keyword">&gt;</span>(*scene_m));</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;        }</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;          RCLCPP_WARN(LOGGER, <span class="stringliteral">&quot;Failed to load scene &#39;%s&#39;. Has the message format changed since the scene was saved?&quot;</span>,</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;                      <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a>.c_str());</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;      }</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    }</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;  }</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;}</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160; </div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::computeLoadQueryButtonClicked()</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;{</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a022449cae7bf787455807d45a4452256">planning_scene_storage_</a>)</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;  {</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;    QList&lt;QTreeWidgetItem*&gt; sel = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;planning_scene_tree-&gt;selectedItems();</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;    <span class="keywordflow">if</span> (!sel.empty())</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;    {</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;      QTreeWidgetItem* s = sel.front();</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;      <span class="keywordflow">if</span> (s-&gt;type() == <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a59ae6d54c2ca1d3efde5e00b5c22a15f">ITEM_TYPE_QUERY</a>)</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;      {</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;        std::string <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a> = s-&gt;parent()-&gt;text(0).toStdString();</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;        std::string query_name = s-&gt;text(0).toStdString();</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160; </div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;        <a class="code" href="namespacemoveit__warehouse.html#aef7ae2cdb77d30eb8747edd4f16c34b1">moveit_warehouse::MotionPlanRequestWithMetadata</a> mp;</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;        <span class="keywordtype">bool</span> got_q = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;        <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;        {</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;          got_q = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a022449cae7bf787455807d45a4452256">planning_scene_storage_</a>-&gt;getPlanningQuery(mp, <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a>, query_name);</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;        }</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;        <span class="keywordflow">catch</span> (std::exception&amp; ex)</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;        {</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;          RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;%s&quot;</span>, ex.what());</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;        }</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160; </div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;        <span class="keywordflow">if</span> (got_q)</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;        {</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;          moveit::core::RobotStatePtr start_state(</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;              <span class="keyword">new</span> <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a>(*<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a9fb7c74cc0554704dedb81ca155bd53a">getQueryStartState</a>()));</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;          <a class="code" href="namespacemoveit_1_1core.html#af616e81ab82b75721fdbfcd77892c92a">moveit::core::robotStateMsgToRobotState</a>(<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">getPlanningSceneRO</a>()-&gt;getTransforms(),</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;                                                  mp-&gt;start_state, *start_state);</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;          <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a5e915633ab6016b0bbccb71129e9f31a">setQueryStartState</a>(*start_state);</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160; </div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;          <span class="keyword">auto</span> goal_state = std::make_shared&lt;moveit::core::RobotState&gt;(*<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#afc14b220fd9f97a0691d054791e830ff">getQueryGoalState</a>());</div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;          <span class="keywordflow">for</span> (<span class="keyword">const</span> moveit_msgs::msg::Constraints&amp; goal_constraint : mp-&gt;goal_constraints)</div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;            <span class="keywordflow">if</span> (!goal_constraint.joint_constraints.empty())</div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;            {</div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;              std::map&lt;std::string, double&gt; vals;</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;              <span class="keywordflow">for</span> (<span class="keyword">const</span> moveit_msgs::msg::JointConstraint&amp; joint_constraint : goal_constraint.joint_constraints)</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;                vals[joint_constraint.joint_name] = joint_constraint.position;</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;              goal_state-&gt;setVariablePositions(vals);</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;              <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;            }</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;          <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a447ee983b88d0cde37bde0ae3e9ac92c">setQueryGoalState</a>(*goal_state);</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;        }</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;          RCLCPP_ERROR(LOGGER,</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;                       <span class="stringliteral">&quot;Failed to load planning query &#39;%s&#39;. Has the message format changed since the query was saved?&quot;</span>,</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;                       query_name.c_str());</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;      }</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;    }</div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;  }</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;}</div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160; </div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;visualization_msgs::msg::InteractiveMarker</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;MotionPlanningFrame::createObjectMarkerMsg(<span class="keyword">const</span> <a class="code" href="classcollision__detection_1_1CollisionEnv.html#acadecbb63d4dd25cf943b42f14ceac47">collision_detection::CollisionEnv::ObjectConstPtr</a>&amp; obj)</div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;{</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;  <a class="code" href="namespacefcl.html#a0288e6b07bc0c851a9503dbaea7a0f19">Eigen::Vector3d</a> center;</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;  <span class="keywordtype">double</span> scale;</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;  shapes::computeShapeBoundingSphere(obj-&gt;shapes_[0].get(), center, scale);</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;  geometry_msgs::msg::PoseStamped shape_pose = tf2::toMsg(tf2::Stamped&lt;Eigen::Isometry3d&gt;(</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;      obj-&gt;pose_, std::chrono::system_clock::now(), <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ab2d4befc925c6933f7f508bef69a67f3">getRobotModel</a>()-&gt;getModelFrame()));</div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;  <span class="comment">// TODO(felixvd): Consider where to place the object marker.</span></div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;  <span class="comment">//                obj-&gt;pose*obj-&gt;shape_poses_[0] is backwards compatible, sits on the visible part of</span></div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;  <span class="comment">//                the object, and is more difficult to implement now.</span></div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;  <span class="comment">//                obj-&gt;pose is easier to implement and makes more sense.</span></div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;  scale = (scale + center.cwiseAbs().maxCoeff()) * 2.0 * 1.2;  <span class="comment">// add padding of 20% size</span></div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160; </div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;  <span class="comment">// create an interactive marker msg for the given shape</span></div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;  visualization_msgs::msg::InteractiveMarker imarker =</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;      <a class="code" href="namespacerobot__interaction.html#a3d8648b259997dd8c2cfe560b2203108">robot_interaction::make6DOFMarker</a>(<span class="stringliteral">&quot;marker_scene_object&quot;</span>, shape_pose, scale);</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;  imarker.description = obj-&gt;id_;</div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;  interactive_markers::autoComplete(imarker);</div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;  <span class="keywordflow">return</span> imarker;</div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;}</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160; </div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::createSceneInteractiveMarker()</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;{</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;  QList&lt;QListWidgetItem*&gt; sel = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;selectedItems();</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;  <span class="keywordflow">if</span> (sel.empty())</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160; </div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;  <span class="keyword">const</span> <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html">planning_scene_monitor::LockedPlanningSceneRO</a>&amp; ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">getPlanningSceneRO</a>();</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;  <span class="keywordflow">if</span> (!ps)</div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160; </div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;  <span class="keyword">const</span> <a class="code" href="classcollision__detection_1_1CollisionEnv.html#acadecbb63d4dd25cf943b42f14ceac47">collision_detection::CollisionEnv::ObjectConstPtr</a>&amp; obj =</div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;      ps-&gt;getWorld()-&gt;getObject(sel[0]-&gt;<a class="code" href="namespaceround__collada__numbers.html#ac9e7c6037bfef6357cd8067931ad7ff7">text</a>().toStdString());</div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;  <span class="keywordflow">if</span> (obj &amp;&amp; obj-&gt;shapes_.size() == 1)</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;  {</div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a> = std::make_shared&lt;rviz_default_plugins::displays::InteractiveMarker&gt;(</div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;        <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;getSceneNode(), <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a184b3e8eb5322caac936e8bf6366f3dc">context_</a>);</div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a>-&gt;processMessage(createObjectMarkerMsg(obj));</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a>-&gt;setShowAxes(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160; </div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;    <span class="comment">// Connect signals</span></div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;    connect(<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a>.get(), SIGNAL(userFeedback(visualization_msgs::msg::InteractiveMarkerFeedback&amp;)), <span class="keyword">this</span>,</div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;            SLOT(imProcessFeedback(visualization_msgs::msg::InteractiveMarkerFeedback&amp;)));</div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;  }</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;  {</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a>.reset();</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;  }</div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;}</div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160; </div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::renameCollisionObject(QListWidgetItem* item)</div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;{</div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;  <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="namespacesetup.html#a2aa722b36a933088812b50ea79b97a5c">version</a> = known_collision_objects_version_;</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;  <span class="keywordflow">if</span> (item-&gt;text().isEmpty())</div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;  {</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;    QMessageBox::warning(<span class="keyword">this</span>, <span class="stringliteral">&quot;Invalid object name&quot;</span>, <span class="stringliteral">&quot;Cannot set an empty object name.&quot;</span>);</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacesetup.html#a2aa722b36a933088812b50ea79b97a5c">version</a> == known_collision_objects_version_)</div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;      item-&gt;setText(QString::fromStdString(known_collision_objects_[item-&gt;type()].first));</div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;  }</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160; </div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;  std::string item_text = item-&gt;text().toStdString();</div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;  <span class="keywordtype">bool</span> already_exists = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">getPlanningSceneRO</a>()-&gt;getWorld()-&gt;hasObject(item_text);</div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;  <span class="keywordflow">if</span> (!already_exists)</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;    already_exists = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">getPlanningSceneRO</a>()-&gt;getCurrentState().hasAttachedBody(item_text);</div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;  <span class="keywordflow">if</span> (already_exists)</div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;  {</div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;    QMessageBox::warning(<span class="keyword">this</span>, <span class="stringliteral">&quot;Duplicate object name&quot;</span>,</div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;                         QString(<span class="stringliteral">&quot;The name &#39;&quot;</span>)</div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;                             .<a class="code" href="namespacerclcpp_1_1names.html#a4c3e21517afd9a6909de322da95c5e81">append</a>(item-&gt;text())</div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;                             .append(<span class="stringliteral">&quot;&#39; already exists. Not renaming object &quot;</span>)</div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;                             .append((known_collision_objects_[item-&gt;type()].first.c_str())));</div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacesetup.html#a2aa722b36a933088812b50ea79b97a5c">version</a> == known_collision_objects_version_)</div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;      item-&gt;setText(QString::fromStdString(known_collision_objects_[item-&gt;type()].first));</div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;  }</div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160; </div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;  <span class="keywordflow">if</span> (item-&gt;checkState() == Qt::Unchecked)</div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;  {</div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;    <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRW.html">planning_scene_monitor::LockedPlanningSceneRW</a> ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a332e91816296f14bf7735d61749e89ef">getPlanningSceneRW</a>();</div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;    <a class="code" href="classcollision__detection_1_1CollisionEnv.html#acadecbb63d4dd25cf943b42f14ceac47">collision_detection::CollisionEnv::ObjectConstPtr</a> obj =</div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;        ps-&gt;getWorld()-&gt;getObject(known_collision_objects_[item-&gt;type()].first);</div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;    <span class="keywordflow">if</span> (obj)</div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;    {</div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;      known_collision_objects_[item-&gt;type()].first = item_text;</div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;      ps-&gt;getWorldNonConst()-&gt;removeObject(obj-&gt;id_);</div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;      ps-&gt;getWorldNonConst()-&gt;addToObject(known_collision_objects_[item-&gt;type()].first, obj-&gt;pose_, obj-&gt;shapes_,</div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;                                          obj-&gt;shape_poses_);</div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;      ps-&gt;getWorldNonConst()-&gt;setSubframesOfObject(obj-&gt;id_, obj-&gt;subframe_poses_);</div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a>)</div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;      {</div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;        <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a>.reset();</div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;        <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>(std::bind(&amp;MotionPlanningFrame::createSceneInteractiveMarker, <span class="keyword">this</span>));</div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;      }</div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;    }</div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;  }</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;  {</div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;    <span class="comment">// rename attached body</span></div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;    <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRW.html">planning_scene_monitor::LockedPlanningSceneRW</a> ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a332e91816296f14bf7735d61749e89ef">getPlanningSceneRW</a>();</div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;    <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a>&amp; cs = ps-&gt;getCurrentStateNonConst();</div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;    <span class="keyword">const</span> <a class="code" href="classmoveit_1_1core_1_1AttachedBody.html">moveit::core::AttachedBody</a>* ab = cs.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#ab67fb64eb7f7b59e4d6e940bb79f8d8e">getAttachedBody</a>(known_collision_objects_[item-&gt;type()].first);</div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;    <span class="keywordflow">if</span> (ab)</div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;    {</div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;      known_collision_objects_[item-&gt;type()].first = item_text;</div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;      <span class="keyword">auto</span> new_ab = std::make_unique&lt;moveit::core::AttachedBody&gt;(</div>
-<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;          ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a88861172146386df7197f08eee50b1a7">getAttachedLink</a>(), known_collision_objects_[item-&gt;type()].first, ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#ad6ba631b74e575e53a07b333a4054a15">getPose</a>(), ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a8832405dda038c3e28a7969cb63993d1">getShapes</a>(),</div>
-<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;          ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#ad7e41060467df2a8db42540d86cfbcf6">getShapePoses</a>(), ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a1added4f50dd7c18b8559e160885cbf1">getTouchLinks</a>(), ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a1b5208f4d6c74fd1c31d89015f153d93">getDetachPosture</a>(), ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a6b79d5b6840236f1a14735c16bcbede8">getSubframes</a>());</div>
-<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;      cs.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a5c3129e7624ffe8c47dfaffee5c85560">clearAttachedBody</a>(ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a857be05cdda0157e486176c034105426">getName</a>());</div>
-<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;      cs.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a2efa6e38a215fda851f987bed33e1a7a">attachBody</a>(std::move(new_ab));</div>
-<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;    }</div>
-<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;  }</div>
-<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;  setLocalSceneEdited();</div>
-<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;}</div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160; </div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::attachDetachCollisionObject(QListWidgetItem* item)</div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;{</div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;  <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="namespacesetup.html#a2aa722b36a933088812b50ea79b97a5c">version</a> = known_collision_objects_version_;</div>
-<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;  <span class="keywordtype">bool</span> checked = item-&gt;checkState() == Qt::Checked;</div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;  std::pair&lt;std::string, bool&gt; data = known_collision_objects_[item-&gt;type()];</div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;  moveit_msgs::msg::AttachedCollisionObject aco;</div>
-<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160; </div>
-<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;  <span class="keywordflow">if</span> (checked)  <span class="comment">// we need to attach a known collision object</span></div>
-<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;  {</div>
-<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;    QStringList links;</div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;    <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; links_std = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ab2d4befc925c6933f7f508bef69a67f3">getRobotModel</a>()-&gt;getLinkModelNames();</div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> std::string&amp; link : links_std)</div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;      links.append(QString::fromStdString(link));</div>
-<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;    <span class="keywordtype">bool</span> ok = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;    QString response =</div>
-<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;        QInputDialog::getItem(<span class="keyword">this</span>, tr(<span class="stringliteral">&quot;Select Link Name&quot;</span>), tr(<span class="stringliteral">&quot;Choose the link to attach to:&quot;</span>), links, 0, <span class="keyword">false</span>, &amp;ok);</div>
-<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;    <span class="keywordflow">if</span> (!ok)</div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;    {</div>
-<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="namespacesetup.html#a2aa722b36a933088812b50ea79b97a5c">version</a> == known_collision_objects_version_)</div>
-<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;        item-&gt;setCheckState(Qt::Unchecked);</div>
-<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;      <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;    }</div>
-<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;    aco.link_name = response.toStdString();</div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;    aco.object.id = data.first;</div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;    aco.object.operation = moveit_msgs::msg::CollisionObject::ADD;</div>
-<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;  }</div>
-<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;  <span class="keywordflow">else</span>  <span class="comment">// we need to detach an attached object</span></div>
-<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;  {</div>
-<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;    <span class="keyword">const</span> <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html">planning_scene_monitor::LockedPlanningSceneRO</a>&amp; ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">getPlanningSceneRO</a>();</div>
-<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;    <span class="keyword">const</span> <a class="code" href="classmoveit_1_1core_1_1AttachedBody.html">moveit::core::AttachedBody</a>* attached_body = ps-&gt;getCurrentState().getAttachedBody(data.first);</div>
-<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;    <span class="keywordflow">if</span> (attached_body)</div>
-<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;    {</div>
-<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;      aco.link_name = attached_body-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a11d6a3b22ff5b6be47352f9621783f22">getAttachedLinkName</a>();</div>
-<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;      aco.object.id = attached_body-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a857be05cdda0157e486176c034105426">getName</a>();</div>
-<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;      aco.object.operation = moveit_msgs::msg::CollisionObject::REMOVE;</div>
-<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;    }</div>
-<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;  }</div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160; </div>
-<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a> rs(<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ab2d4befc925c6933f7f508bef69a67f3">getRobotModel</a>());</div>
-<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;  {</div>
-<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;    <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRW.html">planning_scene_monitor::LockedPlanningSceneRW</a> ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a332e91816296f14bf7735d61749e89ef">getPlanningSceneRW</a>();</div>
-<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;    <span class="comment">// we loop through the list in case updates were received since the start of the function</span></div>
-<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;    <span class="keywordflow">for</span> (std::pair&lt;std::string, bool&gt;&amp; known_collision_object : known_collision_objects_)</div>
-<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;      <span class="keywordflow">if</span> (known_collision_object.first == data.first)</div>
-<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;      {</div>
-<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;        known_collision_object.second = checked;</div>
-<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;      }</div>
-<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;    ps-&gt;processAttachedCollisionObjectMsg(aco);</div>
-<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;    rs = ps-&gt;getCurrentState();</div>
-<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;  }</div>
-<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160; </div>
-<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;  selectedCollisionObjectChanged();</div>
-<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;  setLocalSceneEdited();</div>
-<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a8ac31289287a8b25017c8fefa5212e15">updateQueryStates</a>(rs);</div>
-<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#abc9562b19cd09d4f37b005edefce5d22">queueRenderSceneGeometry</a>();</div>
-<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;}</div>
-<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160; </div>
-<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::populateCollisionObjectsList()</div>
-<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;{</div>
-<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;setUpdatesEnabled(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;  <span class="keywordtype">bool</span> old_state = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;blockSignals(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;  <span class="keywordtype">bool</span> octomap_in_scene = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160; </div>
-<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;  {</div>
-<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;    QList&lt;QListWidgetItem*&gt; sel = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;selectedItems();</div>
-<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;    std::set&lt;std::string&gt; to_select;</div>
-<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;    <span class="keywordflow">for</span> (QListWidgetItem* item : sel)</div>
-<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;      to_select.insert(item-&gt;text().toStdString());</div>
-<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;clear();</div>
-<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;    known_collision_objects_.clear();</div>
-<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;    known_collision_objects_version_++;</div>
-<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160; </div>
-<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;    <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html">planning_scene_monitor::LockedPlanningSceneRO</a> ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">getPlanningSceneRO</a>();</div>
-<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160;    <span class="keywordflow">if</span> (ps)</div>
-<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;    {</div>
-<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;      <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; collision_object_names = ps-&gt;getWorld()-&gt;getObjectIds();</div>
-<div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;      <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; collision_object_names.size(); ++i)</div>
-<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;      {</div>
-<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;        <span class="keywordflow">if</span> (collision_object_names[i] == <a class="code" href="classplanning__scene_1_1PlanningScene.html#af340f5d463d211e95da6c18b37dad9c0">planning_scene::PlanningScene::OCTOMAP_NS</a>)</div>
-<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;        {</div>
-<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;          octomap_in_scene = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;          <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;        }</div>
-<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160; </div>
-<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;        QListWidgetItem* item = <span class="keyword">new</span> QListWidgetItem(QString::fromStdString(collision_object_names[i]),</div>
-<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;                                                    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list, <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(i));</div>
-<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;        item-&gt;setFlags(item-&gt;flags() | Qt::ItemIsEditable);</div>
-<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;        item-&gt;setToolTip(item-&gt;text());</div>
-<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;        item-&gt;setCheckState(Qt::Unchecked);</div>
-<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;        <span class="keywordflow">if</span> (to_select.find(collision_object_names[i]) != to_select.end())</div>
-<div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;          item-&gt;setSelected(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;        <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;addItem(item);</div>
-<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;        known_collision_objects_.push_back(std::make_pair(collision_object_names[i], <span class="keyword">false</span>));</div>
-<div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;      }</div>
-<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160; </div>
-<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;      <span class="keyword">const</span> <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a>&amp; cs = ps-&gt;getCurrentState();</div>
-<div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;      std::vector&lt;const moveit::core::AttachedBody*&gt; attached_bodies;</div>
-<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;      cs.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a449158e2e8aeba947bbc1a4473400ff7">getAttachedBodies</a>(attached_bodies);</div>
-<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;      <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; attached_bodies.size(); ++i)</div>
-<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;      {</div>
-<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;        QListWidgetItem* item =</div>
-<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;            <span class="keyword">new</span> QListWidgetItem(QString::fromStdString(attached_bodies[i]-&gt;getName()), <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list,</div>
-<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;                                <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(i + collision_object_names.size()));</div>
-<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;        item-&gt;setFlags(item-&gt;flags() | Qt::ItemIsEditable);</div>
-<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;        item-&gt;setToolTip(item-&gt;text());</div>
-<div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160;        item-&gt;setCheckState(Qt::Checked);</div>
-<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;        <span class="keywordflow">if</span> (to_select.find(attached_bodies[i]-&gt;getName()) != to_select.end())</div>
-<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;          item-&gt;setSelected(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;        <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;addItem(item);</div>
-<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;        known_collision_objects_.push_back(std::make_pair(attached_bodies[i]-&gt;getName(), <span class="keyword">true</span>));</div>
-<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;      }</div>
-<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;    }</div>
-<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;  }</div>
-<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160; </div>
-<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;clear_octomap_button-&gt;setEnabled(octomap_in_scene);</div>
-<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;blockSignals(old_state);</div>
-<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;setUpdatesEnabled(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;  selectedCollisionObjectChanged();</div>
-<div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;}</div>
-<div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160; </div>
-<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::exportGeometryAsTextButtonClicked()</div>
-<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;{</div>
-<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;  QString path =</div>
-<div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;      QFileDialog::getSaveFileName(<span class="keyword">this</span>, tr(<span class="stringliteral">&quot;Export Scene Geometry&quot;</span>), tr(<span class="stringliteral">&quot;&quot;</span>), tr(<span class="stringliteral">&quot;Scene Geometry (*.scene)&quot;</span>));</div>
-<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;  <span class="keywordflow">if</span> (!path.isEmpty())</div>
-<div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a5f866683f45f26cbd278d50e92c93f52">addBackgroundJob</a>(</div>
-<div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160;        std::bind(&amp;MotionPlanningFrame::computeExportGeometryAsText, <span class="keyword">this</span>, path.toStdString()), <span class="stringliteral">&quot;export as text&quot;</span>);</div>
-<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160;}</div>
-<div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160; </div>
-<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::computeExportGeometryAsText(<span class="keyword">const</span> std::string&amp; path)</div>
-<div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;{</div>
-<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;  <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html">planning_scene_monitor::LockedPlanningSceneRO</a> ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">getPlanningSceneRO</a>();</div>
-<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;  <span class="keywordflow">if</span> (ps)</div>
-<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;  {</div>
-<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;    std::string <a class="code" href="namespacepick.html#a40e85b309b8813e4f17a4c3242b98c34">p</a> = (path.length() &lt; 7 || path.substr(path.length() - 6) != <span class="stringliteral">&quot;.scene&quot;</span>) ? path + <span class="stringliteral">&quot;.scene&quot;</span> : path;</div>
-<div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;    std::ofstream fout(<a class="code" href="namespacepick.html#a40e85b309b8813e4f17a4c3242b98c34">p</a>.c_str());</div>
-<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;    <span class="keywordflow">if</span> (fout.good())</div>
-<div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;    {</div>
-<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;      ps-&gt;saveGeometryToStream(fout);</div>
-<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;      fout.close();</div>
-<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;      RCLCPP_INFO(LOGGER, <span class="stringliteral">&quot;Saved current scene geometry to &#39;%s&#39;&quot;</span>, <a class="code" href="namespacepick.html#a40e85b309b8813e4f17a4c3242b98c34">p</a>.c_str());</div>
-<div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;    }</div>
-<div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;      RCLCPP_WARN(LOGGER, <span class="stringliteral">&quot;Unable to save current scene geometry to &#39;%s&#39;&quot;</span>, <a class="code" href="namespacepick.html#a40e85b309b8813e4f17a4c3242b98c34">p</a>.c_str());</div>
-<div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;  }</div>
-<div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160;}</div>
-<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160; </div>
-<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::computeImportGeometryFromText(<span class="keyword">const</span> std::string&amp; path)</div>
-<div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;{</div>
-<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;  <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRW.html">planning_scene_monitor::LockedPlanningSceneRW</a> ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a332e91816296f14bf7735d61749e89ef">getPlanningSceneRW</a>();</div>
-<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;  <span class="keywordflow">if</span> (ps)</div>
-<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;  {</div>
-<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;    std::ifstream fin(path.c_str());</div>
-<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;    <span class="keywordflow">if</span> (ps-&gt;loadGeometryFromStream(fin))</div>
-<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;    {</div>
-<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;      RCLCPP_INFO(LOGGER, <span class="stringliteral">&quot;Loaded scene geometry from &#39;%s&#39;&quot;</span>, path.c_str());</div>
-<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>(std::bind(&amp;MotionPlanningFrame::populateCollisionObjectsList, <span class="keyword">this</span>));</div>
-<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#abc9562b19cd09d4f37b005edefce5d22">queueRenderSceneGeometry</a>();</div>
-<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;      setLocalSceneEdited();</div>
-<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;    }</div>
-<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;    {</div>
-<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;      QMessageBox::warning(<span class="keyword">nullptr</span>, <span class="stringliteral">&quot;Loading scene geometry&quot;</span>,</div>
-<div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;                           <span class="stringliteral">&quot;Failed to load scene geometry.\n&quot;</span></div>
-<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;                           <span class="stringliteral">&quot;See console output for more details.&quot;</span>);</div>
-<div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160;    }</div>
-<div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;  }</div>
-<div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;}</div>
-<div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160; </div>
-<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::importGeometryFromTextButtonClicked()</div>
-<div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;{</div>
-<div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;  QString path =</div>
-<div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;      QFileDialog::getOpenFileName(<span class="keyword">this</span>, tr(<span class="stringliteral">&quot;Import Scene Geometry&quot;</span>), tr(<span class="stringliteral">&quot;&quot;</span>), tr(<span class="stringliteral">&quot;Scene Geometry (*.scene)&quot;</span>));</div>
-<div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;  <span class="keywordflow">if</span> (!path.isEmpty())</div>
-<div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a5f866683f45f26cbd278d50e92c93f52">addBackgroundJob</a>(</div>
-<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;        std::bind(&amp;MotionPlanningFrame::computeImportGeometryFromText, <span class="keyword">this</span>, path.toStdString()), <span class="stringliteral">&quot;import from text&quot;</span>);</div>
-<div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;}</div>
-<div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;}  <span class="comment">// namespace moveit_rviz_plugin</span></div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;        <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>([<span class="keyword">this</span>, s] { computeDeleteQueryButtonClickedHelper(s); });</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;      }</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    }</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;  }</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;}</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160; </div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::computeDeleteQueryButtonClickedHelper(QTreeWidgetItem* s)</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;{</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;planning_scene_tree-&gt;setUpdatesEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;  s-&gt;parent()-&gt;removeChild(s);</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;planning_scene_tree-&gt;setUpdatesEnabled(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;}</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160; </div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::checkPlanningSceneTreeEnabledButtons()</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;{</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;  QList&lt;QTreeWidgetItem*&gt; sel = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;planning_scene_tree-&gt;selectedItems();</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;  <span class="keywordflow">if</span> (sel.empty())</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;  {</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;load_scene_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;load_query_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;save_query_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;delete_scene_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;  }</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;  <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;  {</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;save_query_button-&gt;setEnabled(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160; </div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    QTreeWidgetItem* s = sel.front();</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160; </div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    <span class="comment">// if the item is a PlanningScene</span></div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    <span class="keywordflow">if</span> (s-&gt;type() == <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0845b45f76cf28c89654964728408df7">ITEM_TYPE_SCENE</a>)</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    {</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;load_scene_button-&gt;setEnabled(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;load_query_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;delete_scene_button-&gt;setEnabled(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;delete_query_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;save_query_button-&gt;setEnabled(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    }</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    {</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;      <span class="comment">// if the item is a query</span></div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;load_scene_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;load_query_button-&gt;setEnabled(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;delete_scene_button-&gt;setEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;delete_query_button-&gt;setEnabled(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    }</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;  }</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;}</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160; </div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::computeLoadSceneButtonClicked()</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;{</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a022449cae7bf787455807d45a4452256">planning_scene_storage_</a>)</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;  {</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    QList&lt;QTreeWidgetItem*&gt; sel = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;planning_scene_tree-&gt;selectedItems();</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    <span class="keywordflow">if</span> (!sel.empty())</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    {</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;      QTreeWidgetItem* s = sel.front();</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;      <span class="keywordflow">if</span> (s-&gt;type() == <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0845b45f76cf28c89654964728408df7">ITEM_TYPE_SCENE</a>)</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;      {</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;        std::string <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a> = s-&gt;text(0).toStdString();</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        RCLCPP_DEBUG(LOGGER, <span class="stringliteral">&quot;Attempting to load scene &#39;%s&#39;&quot;</span>, <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a>.c_str());</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160; </div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;        <a class="code" href="namespacemoveit__warehouse.html#a27b8025d106e8cae5c30dd5fb61f0a05">moveit_warehouse::PlanningSceneWithMetadata</a> scene_m;</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;        <span class="keywordtype">bool</span> got_ps = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;        <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;        {</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;          got_ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a022449cae7bf787455807d45a4452256">planning_scene_storage_</a>-&gt;getPlanningScene(scene_m, <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a>);</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;        }</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;        <span class="keywordflow">catch</span> (std::exception&amp; ex)</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;        {</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;          RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;%s&quot;</span>, ex.what());</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;        }</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160; </div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;        <span class="keywordflow">if</span> (got_ps)</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;        {</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;          RCLCPP_INFO(LOGGER, <span class="stringliteral">&quot;Loaded scene &#39;%s&#39;&quot;</span>, <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a>.c_str());</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#aedf581653799b312fbb554ff7110eeac">getPlanningSceneMonitor</a>())</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;          {</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;            <span class="keywordflow">if</span> (scene_m-&gt;robot_model_name != <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ab2d4befc925c6933f7f508bef69a67f3">getRobotModel</a>()-&gt;getName())</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;            {</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;              RCLCPP_INFO(LOGGER,</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;                          <span class="stringliteral">&quot;Scene &#39;%s&#39; was saved for robot &#39;%s&#39; but we are using robot &#39;%s&#39;. Using scene geometry only&quot;</span>,</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;                          <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a>.c_str(), scene_m-&gt;robot_model_name.c_str(),</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;                          <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ab2d4befc925c6933f7f508bef69a67f3">getRobotModel</a>()-&gt;getName().c_str());</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;              planning_scene_world_publisher_-&gt;publish(scene_m-&gt;world);</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;              <span class="comment">// publish the parts that are not in the world</span></div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;              moveit_msgs::msg::PlanningScene diff;</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;              diff.is_diff = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;              diff.name = scene_m-&gt;name;</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;              planning_scene_publisher_-&gt;publish(diff);</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;            }</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;              planning_scene_publisher_-&gt;publish(<span class="keyword">static_cast&lt;</span><span class="keyword">const </span>moveit_msgs::msg::PlanningScene&amp;<span class="keyword">&gt;</span>(*scene_m));</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;          }</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;          <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;            planning_scene_publisher_-&gt;publish(<span class="keyword">static_cast&lt;</span><span class="keyword">const </span>moveit_msgs::msg::PlanningScene&amp;<span class="keyword">&gt;</span>(*scene_m));</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;        }</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;          RCLCPP_WARN(LOGGER, <span class="stringliteral">&quot;Failed to load scene &#39;%s&#39;. Has the message format changed since the scene was saved?&quot;</span>,</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;                      <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a>.c_str());</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;      }</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    }</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;  }</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;}</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160; </div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::computeLoadQueryButtonClicked()</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;{</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a022449cae7bf787455807d45a4452256">planning_scene_storage_</a>)</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;  {</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;    QList&lt;QTreeWidgetItem*&gt; sel = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;planning_scene_tree-&gt;selectedItems();</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;    <span class="keywordflow">if</span> (!sel.empty())</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;    {</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;      QTreeWidgetItem* s = sel.front();</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;      <span class="keywordflow">if</span> (s-&gt;type() == <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a59ae6d54c2ca1d3efde5e00b5c22a15f">ITEM_TYPE_QUERY</a>)</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;      {</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;        std::string <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a> = s-&gt;parent()-&gt;text(0).toStdString();</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;        std::string query_name = s-&gt;text(0).toStdString();</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160; </div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;        <a class="code" href="namespacemoveit__warehouse.html#aef7ae2cdb77d30eb8747edd4f16c34b1">moveit_warehouse::MotionPlanRequestWithMetadata</a> mp;</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;        <span class="keywordtype">bool</span> got_q = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;        <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;        {</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;          got_q = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a022449cae7bf787455807d45a4452256">planning_scene_storage_</a>-&gt;getPlanningQuery(mp, <a class="code" href="namespacepick.html#a2ee00a4cb697b06d098335ade68b33ae">scene</a>, query_name);</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;        }</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;        <span class="keywordflow">catch</span> (std::exception&amp; ex)</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;        {</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;          RCLCPP_ERROR(LOGGER, <span class="stringliteral">&quot;%s&quot;</span>, ex.what());</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;        }</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160; </div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;        <span class="keywordflow">if</span> (got_q)</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;        {</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;          moveit::core::RobotStatePtr start_state(</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;              <span class="keyword">new</span> <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a>(*<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a9fb7c74cc0554704dedb81ca155bd53a">getQueryStartState</a>()));</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;          <a class="code" href="namespacemoveit_1_1core.html#af616e81ab82b75721fdbfcd77892c92a">moveit::core::robotStateMsgToRobotState</a>(<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">getPlanningSceneRO</a>()-&gt;getTransforms(),</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;                                                  mp-&gt;start_state, *start_state);</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;          <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a5e915633ab6016b0bbccb71129e9f31a">setQueryStartState</a>(*start_state);</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160; </div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;          <span class="keyword">auto</span> goal_state = std::make_shared&lt;moveit::core::RobotState&gt;(*<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#afc14b220fd9f97a0691d054791e830ff">getQueryGoalState</a>());</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;          <span class="keywordflow">for</span> (<span class="keyword">const</span> moveit_msgs::msg::Constraints&amp; goal_constraint : mp-&gt;goal_constraints)</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;            <span class="keywordflow">if</span> (!goal_constraint.joint_constraints.empty())</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;            {</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;              std::map&lt;std::string, double&gt; vals;</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;              <span class="keywordflow">for</span> (<span class="keyword">const</span> moveit_msgs::msg::JointConstraint&amp; joint_constraint : goal_constraint.joint_constraints)</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;                vals[joint_constraint.joint_name] = joint_constraint.position;</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;              goal_state-&gt;setVariablePositions(vals);</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;              <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;            }</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;          <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a447ee983b88d0cde37bde0ae3e9ac92c">setQueryGoalState</a>(*goal_state);</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;        }</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;          RCLCPP_ERROR(LOGGER,</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;                       <span class="stringliteral">&quot;Failed to load planning query &#39;%s&#39;. Has the message format changed since the query was saved?&quot;</span>,</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;                       query_name.c_str());</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;      }</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;    }</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;  }</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;}</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160; </div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;visualization_msgs::msg::InteractiveMarker</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;MotionPlanningFrame::createObjectMarkerMsg(<span class="keyword">const</span> <a class="code" href="classcollision__detection_1_1CollisionEnv.html#acadecbb63d4dd25cf943b42f14ceac47">collision_detection::CollisionEnv::ObjectConstPtr</a>&amp; obj)</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;{</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;  <a class="code" href="namespacefcl.html#a0288e6b07bc0c851a9503dbaea7a0f19">Eigen::Vector3d</a> center;</div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;  <span class="keywordtype">double</span> scale;</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;  shapes::computeShapeBoundingSphere(obj-&gt;shapes_[0].get(), center, scale);</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;  geometry_msgs::msg::PoseStamped shape_pose = tf2::toMsg(tf2::Stamped&lt;Eigen::Isometry3d&gt;(</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;      obj-&gt;pose_, std::chrono::system_clock::now(), <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ab2d4befc925c6933f7f508bef69a67f3">getRobotModel</a>()-&gt;getModelFrame()));</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;  <span class="comment">// TODO(felixvd): Consider where to place the object marker.</span></div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;  <span class="comment">//                obj-&gt;pose*obj-&gt;shape_poses_[0] is backwards compatible, sits on the visible part of</span></div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;  <span class="comment">//                the object, and is more difficult to implement now.</span></div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;  <span class="comment">//                obj-&gt;pose is easier to implement and makes more sense.</span></div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;  scale = (scale + center.cwiseAbs().maxCoeff()) * 2.0 * 1.2;  <span class="comment">// add padding of 20% size</span></div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160; </div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;  <span class="comment">// create an interactive marker msg for the given shape</span></div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;  visualization_msgs::msg::InteractiveMarker imarker =</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;      <a class="code" href="namespacerobot__interaction.html#a3d8648b259997dd8c2cfe560b2203108">robot_interaction::make6DOFMarker</a>(<span class="stringliteral">&quot;marker_scene_object&quot;</span>, shape_pose, scale);</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;  imarker.description = obj-&gt;id_;</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;  interactive_markers::autoComplete(imarker);</div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;  <span class="keywordflow">return</span> imarker;</div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;}</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160; </div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::createSceneInteractiveMarker()</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;{</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;  QList&lt;QListWidgetItem*&gt; sel = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;selectedItems();</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;  <span class="keywordflow">if</span> (sel.empty())</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160; </div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;  <span class="keyword">const</span> <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html">planning_scene_monitor::LockedPlanningSceneRO</a>&amp; ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">getPlanningSceneRO</a>();</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;  <span class="keywordflow">if</span> (!ps)</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160; </div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;  <span class="keyword">const</span> <a class="code" href="classcollision__detection_1_1CollisionEnv.html#acadecbb63d4dd25cf943b42f14ceac47">collision_detection::CollisionEnv::ObjectConstPtr</a>&amp; obj =</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;      ps-&gt;getWorld()-&gt;getObject(sel[0]-&gt;<a class="code" href="namespaceround__collada__numbers.html#ac9e7c6037bfef6357cd8067931ad7ff7">text</a>().toStdString());</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;  <span class="keywordflow">if</span> (obj &amp;&amp; obj-&gt;shapes_.size() == 1)</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;  {</div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a> = std::make_shared&lt;rviz_default_plugins::displays::InteractiveMarker&gt;(</div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;        <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;getSceneNode(), <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a184b3e8eb5322caac936e8bf6366f3dc">context_</a>);</div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a>-&gt;processMessage(createObjectMarkerMsg(obj));</div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a>-&gt;setShowAxes(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160; </div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;    <span class="comment">// Connect signals</span></div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;    connect(<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a>.get(), SIGNAL(userFeedback(visualization_msgs::msg::InteractiveMarkerFeedback&amp;)), <span class="keyword">this</span>,</div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;            SLOT(imProcessFeedback(visualization_msgs::msg::InteractiveMarkerFeedback&amp;)));</div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;  }</div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;  <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;  {</div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a>.reset();</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;  }</div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;}</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160; </div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::renameCollisionObject(QListWidgetItem* item)</div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;{</div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;  <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="namespacesetup.html#a2aa722b36a933088812b50ea79b97a5c">version</a> = known_collision_objects_version_;</div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;  <span class="keywordflow">if</span> (item-&gt;text().isEmpty())</div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;  {</div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;    QMessageBox::warning(<span class="keyword">this</span>, <span class="stringliteral">&quot;Invalid object name&quot;</span>, <span class="stringliteral">&quot;Cannot set an empty object name.&quot;</span>);</div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacesetup.html#a2aa722b36a933088812b50ea79b97a5c">version</a> == known_collision_objects_version_)</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;      item-&gt;setText(QString::fromStdString(known_collision_objects_[item-&gt;type()].first));</div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;  }</div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160; </div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;  std::string item_text = item-&gt;text().toStdString();</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;  <span class="keywordtype">bool</span> already_exists = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">getPlanningSceneRO</a>()-&gt;getWorld()-&gt;hasObject(item_text);</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;  <span class="keywordflow">if</span> (!already_exists)</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;    already_exists = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">getPlanningSceneRO</a>()-&gt;getCurrentState().hasAttachedBody(item_text);</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;  <span class="keywordflow">if</span> (already_exists)</div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;  {</div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;    QMessageBox::warning(<span class="keyword">this</span>, <span class="stringliteral">&quot;Duplicate object name&quot;</span>,</div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;                         QString(<span class="stringliteral">&quot;The name &#39;&quot;</span>)</div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;                             .<a class="code" href="namespacerclcpp_1_1names.html#a4c3e21517afd9a6909de322da95c5e81">append</a>(item-&gt;text())</div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;                             .append(<span class="stringliteral">&quot;&#39; already exists. Not renaming object &quot;</span>)</div>
+<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;                             .append((known_collision_objects_[item-&gt;type()].first.c_str())));</div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespacesetup.html#a2aa722b36a933088812b50ea79b97a5c">version</a> == known_collision_objects_version_)</div>
+<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;      item-&gt;setText(QString::fromStdString(known_collision_objects_[item-&gt;type()].first));</div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;  }</div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160; </div>
+<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;  <span class="keywordflow">if</span> (item-&gt;checkState() == Qt::Unchecked)</div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;  {</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;    <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRW.html">planning_scene_monitor::LockedPlanningSceneRW</a> ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a332e91816296f14bf7735d61749e89ef">getPlanningSceneRW</a>();</div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;    <a class="code" href="classcollision__detection_1_1CollisionEnv.html#acadecbb63d4dd25cf943b42f14ceac47">collision_detection::CollisionEnv::ObjectConstPtr</a> obj =</div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;        ps-&gt;getWorld()-&gt;getObject(known_collision_objects_[item-&gt;type()].first);</div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;    <span class="keywordflow">if</span> (obj)</div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;    {</div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;      known_collision_objects_[item-&gt;type()].first = item_text;</div>
+<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;      ps-&gt;getWorldNonConst()-&gt;removeObject(obj-&gt;id_);</div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;      ps-&gt;getWorldNonConst()-&gt;addToObject(known_collision_objects_[item-&gt;type()].first, obj-&gt;pose_, obj-&gt;shapes_,</div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;                                          obj-&gt;shape_poses_);</div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;      ps-&gt;getWorldNonConst()-&gt;setSubframesOfObject(obj-&gt;id_, obj-&gt;subframe_poses_);</div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a>)</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;      {</div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;        <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">scene_marker_</a>.reset();</div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;        <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>([<span class="keyword">this</span>] { createSceneInteractiveMarker(); });</div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;      }</div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;    }</div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;  }</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;  <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;  {</div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;    <span class="comment">// rename attached body</span></div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;    <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRW.html">planning_scene_monitor::LockedPlanningSceneRW</a> ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a332e91816296f14bf7735d61749e89ef">getPlanningSceneRW</a>();</div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;    <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a>&amp; cs = ps-&gt;getCurrentStateNonConst();</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;    <span class="keyword">const</span> <a class="code" href="classmoveit_1_1core_1_1AttachedBody.html">moveit::core::AttachedBody</a>* ab = cs.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#ab67fb64eb7f7b59e4d6e940bb79f8d8e">getAttachedBody</a>(known_collision_objects_[item-&gt;type()].first);</div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;    <span class="keywordflow">if</span> (ab)</div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;    {</div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;      known_collision_objects_[item-&gt;type()].first = item_text;</div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;      <span class="keyword">auto</span> new_ab = std::make_unique&lt;moveit::core::AttachedBody&gt;(</div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;          ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a88861172146386df7197f08eee50b1a7">getAttachedLink</a>(), known_collision_objects_[item-&gt;type()].first, ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#ad6ba631b74e575e53a07b333a4054a15">getPose</a>(), ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a8832405dda038c3e28a7969cb63993d1">getShapes</a>(),</div>
+<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;          ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#ad7e41060467df2a8db42540d86cfbcf6">getShapePoses</a>(), ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a1added4f50dd7c18b8559e160885cbf1">getTouchLinks</a>(), ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a1b5208f4d6c74fd1c31d89015f153d93">getDetachPosture</a>(), ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a6b79d5b6840236f1a14735c16bcbede8">getSubframes</a>());</div>
+<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;      cs.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a5c3129e7624ffe8c47dfaffee5c85560">clearAttachedBody</a>(ab-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a857be05cdda0157e486176c034105426">getName</a>());</div>
+<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;      cs.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a2efa6e38a215fda851f987bed33e1a7a">attachBody</a>(std::move(new_ab));</div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;    }</div>
+<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;  }</div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;  setLocalSceneEdited();</div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;}</div>
+<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160; </div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::attachDetachCollisionObject(QListWidgetItem* item)</div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;{</div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;  <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="namespacesetup.html#a2aa722b36a933088812b50ea79b97a5c">version</a> = known_collision_objects_version_;</div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;  <span class="keywordtype">bool</span> checked = item-&gt;checkState() == Qt::Checked;</div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;  std::pair&lt;std::string, bool&gt; data = known_collision_objects_[item-&gt;type()];</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;  moveit_msgs::msg::AttachedCollisionObject aco;</div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160; </div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;  <span class="keywordflow">if</span> (checked)  <span class="comment">// we need to attach a known collision object</span></div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;  {</div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;    QStringList links;</div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;    <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; links_std = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ab2d4befc925c6933f7f508bef69a67f3">getRobotModel</a>()-&gt;getLinkModelNames();</div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> std::string&amp; link : links_std)</div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;      links.append(QString::fromStdString(link));</div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;    <span class="keywordtype">bool</span> ok = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;    QString response =</div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;        QInputDialog::getItem(<span class="keyword">this</span>, tr(<span class="stringliteral">&quot;Select Link Name&quot;</span>), tr(<span class="stringliteral">&quot;Choose the link to attach to:&quot;</span>), links, 0, <span class="keyword">false</span>, &amp;ok);</div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;    <span class="keywordflow">if</span> (!ok)</div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;    {</div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="namespacesetup.html#a2aa722b36a933088812b50ea79b97a5c">version</a> == known_collision_objects_version_)</div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;        item-&gt;setCheckState(Qt::Unchecked);</div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;      <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;    }</div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;    aco.link_name = response.toStdString();</div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;    aco.object.id = data.first;</div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;    aco.object.operation = moveit_msgs::msg::CollisionObject::ADD;</div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;  }</div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;  <span class="keywordflow">else</span>  <span class="comment">// we need to detach an attached object</span></div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;  {</div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;    <span class="keyword">const</span> <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html">planning_scene_monitor::LockedPlanningSceneRO</a>&amp; ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">getPlanningSceneRO</a>();</div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;    <span class="keyword">const</span> <a class="code" href="classmoveit_1_1core_1_1AttachedBody.html">moveit::core::AttachedBody</a>* attached_body = ps-&gt;getCurrentState().getAttachedBody(data.first);</div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;    <span class="keywordflow">if</span> (attached_body)</div>
+<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;    {</div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;      aco.link_name = attached_body-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a11d6a3b22ff5b6be47352f9621783f22">getAttachedLinkName</a>();</div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;      aco.object.id = attached_body-&gt;<a class="code" href="classmoveit_1_1core_1_1AttachedBody.html#a857be05cdda0157e486176c034105426">getName</a>();</div>
+<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;      aco.object.operation = moveit_msgs::msg::CollisionObject::REMOVE;</div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;    }</div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;  }</div>
+<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160; </div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;  <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a> rs(<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ab2d4befc925c6933f7f508bef69a67f3">getRobotModel</a>());</div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;  {</div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;    <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRW.html">planning_scene_monitor::LockedPlanningSceneRW</a> ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a332e91816296f14bf7735d61749e89ef">getPlanningSceneRW</a>();</div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;    <span class="comment">// we loop through the list in case updates were received since the start of the function</span></div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;    <span class="keywordflow">for</span> (std::pair&lt;std::string, bool&gt;&amp; known_collision_object : known_collision_objects_)</div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;      <span class="keywordflow">if</span> (known_collision_object.first == data.first)</div>
+<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;      {</div>
+<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;        known_collision_object.second = checked;</div>
+<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;      }</div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;    ps-&gt;processAttachedCollisionObjectMsg(aco);</div>
+<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;    rs = ps-&gt;getCurrentState();</div>
+<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;  }</div>
+<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160; </div>
+<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;  selectedCollisionObjectChanged();</div>
+<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;  setLocalSceneEdited();</div>
+<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a8ac31289287a8b25017c8fefa5212e15">updateQueryStates</a>(rs);</div>
+<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#abc9562b19cd09d4f37b005edefce5d22">queueRenderSceneGeometry</a>();</div>
+<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;}</div>
+<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160; </div>
+<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::populateCollisionObjectsList()</div>
+<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;{</div>
+<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;setUpdatesEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;  <span class="keywordtype">bool</span> old_state = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;blockSignals(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;  <span class="keywordtype">bool</span> octomap_in_scene = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160; </div>
+<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;  {</div>
+<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;    QList&lt;QListWidgetItem*&gt; sel = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;selectedItems();</div>
+<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;    std::set&lt;std::string&gt; to_select;</div>
+<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;    <span class="keywordflow">for</span> (QListWidgetItem* item : sel)</div>
+<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;      to_select.insert(item-&gt;text().toStdString());</div>
+<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;clear();</div>
+<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;    known_collision_objects_.clear();</div>
+<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;    known_collision_objects_version_++;</div>
+<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160; </div>
+<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;    <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html">planning_scene_monitor::LockedPlanningSceneRO</a> ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">getPlanningSceneRO</a>();</div>
+<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;    <span class="keywordflow">if</span> (ps)</div>
+<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160;    {</div>
+<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;      <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; collision_object_names = ps-&gt;getWorld()-&gt;getObjectIds();</div>
+<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;      <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; collision_object_names.size(); ++i)</div>
+<div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;      {</div>
+<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;        <span class="keywordflow">if</span> (collision_object_names[i] == <a class="code" href="classplanning__scene_1_1PlanningScene.html#af340f5d463d211e95da6c18b37dad9c0">planning_scene::PlanningScene::OCTOMAP_NS</a>)</div>
+<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;        {</div>
+<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;          octomap_in_scene = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;          <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;        }</div>
+<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160; </div>
+<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;        QListWidgetItem* item = <span class="keyword">new</span> QListWidgetItem(QString::fromStdString(collision_object_names[i]),</div>
+<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;                                                    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list, <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(i));</div>
+<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;        item-&gt;setFlags(item-&gt;flags() | Qt::ItemIsEditable);</div>
+<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;        item-&gt;setToolTip(item-&gt;text());</div>
+<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;        item-&gt;setCheckState(Qt::Unchecked);</div>
+<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;        <span class="keywordflow">if</span> (to_select.find(collision_object_names[i]) != to_select.end())</div>
+<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;          item-&gt;setSelected(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;        <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;addItem(item);</div>
+<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;        known_collision_objects_.push_back(std::make_pair(collision_object_names[i], <span class="keyword">false</span>));</div>
+<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;      }</div>
+<div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160; </div>
+<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;      <span class="keyword">const</span> <a class="code" href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a>&amp; cs = ps-&gt;getCurrentState();</div>
+<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;      std::vector&lt;const moveit::core::AttachedBody*&gt; attached_bodies;</div>
+<div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;      cs.<a class="code" href="classmoveit_1_1core_1_1RobotState.html#a449158e2e8aeba947bbc1a4473400ff7">getAttachedBodies</a>(attached_bodies);</div>
+<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;      <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; attached_bodies.size(); ++i)</div>
+<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;      {</div>
+<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;        QListWidgetItem* item =</div>
+<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;            <span class="keyword">new</span> QListWidgetItem(QString::fromStdString(attached_bodies[i]-&gt;getName()), <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list,</div>
+<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;                                <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(i + collision_object_names.size()));</div>
+<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;        item-&gt;setFlags(item-&gt;flags() | Qt::ItemIsEditable);</div>
+<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;        item-&gt;setToolTip(item-&gt;text());</div>
+<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;        item-&gt;setCheckState(Qt::Checked);</div>
+<div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160;        <span class="keywordflow">if</span> (to_select.find(attached_bodies[i]-&gt;getName()) != to_select.end())</div>
+<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;          item-&gt;setSelected(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;        <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;addItem(item);</div>
+<div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;        known_collision_objects_.push_back(std::make_pair(attached_bodies[i]-&gt;getName(), <span class="keyword">true</span>));</div>
+<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;      }</div>
+<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;    }</div>
+<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;  }</div>
+<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160; </div>
+<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;clear_octomap_button-&gt;setEnabled(octomap_in_scene);</div>
+<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;blockSignals(old_state);</div>
+<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;  <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a25a7515d663096e88ed7ae7af647a5fa">ui_</a>-&gt;collision_objects_list-&gt;setUpdatesEnabled(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;  selectedCollisionObjectChanged();</div>
+<div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;}</div>
+<div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160; </div>
+<div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::exportGeometryAsTextButtonClicked()</div>
+<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;{</div>
+<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;  QString path =</div>
+<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;      QFileDialog::getSaveFileName(<span class="keyword">this</span>, tr(<span class="stringliteral">&quot;Export Scene Geometry&quot;</span>), tr(<span class="stringliteral">&quot;&quot;</span>), tr(<span class="stringliteral">&quot;Scene Geometry (*.scene)&quot;</span>));</div>
+<div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;  <span class="keywordflow">if</span> (!path.isEmpty())</div>
+<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a5f866683f45f26cbd278d50e92c93f52">addBackgroundJob</a>([<span class="keyword">this</span>, path = path.toStdString()] { computeExportGeometryAsText(path); },</div>
+<div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160;                                        <span class="stringliteral">&quot;export as text&quot;</span>);</div>
+<div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160;}</div>
+<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160; </div>
+<div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::computeExportGeometryAsText(<span class="keyword">const</span> std::string&amp; path)</div>
+<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;{</div>
+<div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;  <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html">planning_scene_monitor::LockedPlanningSceneRO</a> ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">getPlanningSceneRO</a>();</div>
+<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;  <span class="keywordflow">if</span> (ps)</div>
+<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;  {</div>
+<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;    std::string <a class="code" href="namespacepick.html#a40e85b309b8813e4f17a4c3242b98c34">p</a> = (path.length() &lt; 7 || path.substr(path.length() - 6) != <span class="stringliteral">&quot;.scene&quot;</span>) ? path + <span class="stringliteral">&quot;.scene&quot;</span> : path;</div>
+<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;    std::ofstream fout(<a class="code" href="namespacepick.html#a40e85b309b8813e4f17a4c3242b98c34">p</a>.c_str());</div>
+<div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;    <span class="keywordflow">if</span> (fout.good())</div>
+<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;    {</div>
+<div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;      ps-&gt;saveGeometryToStream(fout);</div>
+<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;      fout.close();</div>
+<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;      RCLCPP_INFO(LOGGER, <span class="stringliteral">&quot;Saved current scene geometry to &#39;%s&#39;&quot;</span>, <a class="code" href="namespacepick.html#a40e85b309b8813e4f17a4c3242b98c34">p</a>.c_str());</div>
+<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;    }</div>
+<div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;      RCLCPP_WARN(LOGGER, <span class="stringliteral">&quot;Unable to save current scene geometry to &#39;%s&#39;&quot;</span>, <a class="code" href="namespacepick.html#a40e85b309b8813e4f17a4c3242b98c34">p</a>.c_str());</div>
+<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;  }</div>
+<div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;}</div>
+<div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160; </div>
+<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::computeImportGeometryFromText(<span class="keyword">const</span> std::string&amp; path)</div>
+<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;{</div>
+<div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;  <a class="code" href="classplanning__scene__monitor_1_1LockedPlanningSceneRW.html">planning_scene_monitor::LockedPlanningSceneRW</a> ps = <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a332e91816296f14bf7735d61749e89ef">getPlanningSceneRW</a>();</div>
+<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;  <span class="keywordflow">if</span> (ps)</div>
+<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;  {</div>
+<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;    std::ifstream fin(path.c_str());</div>
+<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;    <span class="keywordflow">if</span> (ps-&gt;loadGeometryFromStream(fin))</div>
+<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;    {</div>
+<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;      RCLCPP_INFO(LOGGER, <span class="stringliteral">&quot;Loaded scene geometry from &#39;%s&#39;&quot;</span>, path.c_str());</div>
+<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">addMainLoopJob</a>([<span class="keyword">this</span>] { populateCollisionObjectsList(); });</div>
+<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;      <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#abc9562b19cd09d4f37b005edefce5d22">queueRenderSceneGeometry</a>();</div>
+<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;      setLocalSceneEdited();</div>
+<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;    }</div>
+<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;    {</div>
+<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;      QMessageBox::warning(<span class="keyword">nullptr</span>, <span class="stringliteral">&quot;Loading scene geometry&quot;</span>,</div>
+<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;                           <span class="stringliteral">&quot;Failed to load scene geometry.\n&quot;</span></div>
+<div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;                           <span class="stringliteral">&quot;See console output for more details.&quot;</span>);</div>
+<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;    }</div>
+<div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160;  }</div>
+<div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;}</div>
+<div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160; </div>
+<div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::importGeometryFromTextButtonClicked()</div>
+<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;{</div>
+<div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;  QString path =</div>
+<div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;      QFileDialog::getOpenFileName(<span class="keyword">this</span>, tr(<span class="stringliteral">&quot;Import Scene Geometry&quot;</span>), tr(<span class="stringliteral">&quot;&quot;</span>), tr(<span class="stringliteral">&quot;Scene Geometry (*.scene)&quot;</span>));</div>
+<div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;  <span class="keywordflow">if</span> (!path.isEmpty())</div>
+<div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;    <a class="code" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">planning_display_</a>-&gt;<a class="code" href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a5f866683f45f26cbd278d50e92c93f52">addBackgroundJob</a>([<span class="keyword">this</span>, path = path.toStdString()] { computeImportGeometryFromText(path); },</div>
+<div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;                                        <span class="stringliteral">&quot;import from text&quot;</span>);</div>
+<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;}</div>
+<div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;}  <span class="comment">// namespace moveit_rviz_plugin</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacerobot__interaction_html_a3d8648b259997dd8c2cfe560b2203108"><div class="ttname"><a href="namespacerobot__interaction.html#a3d8648b259997dd8c2cfe560b2203108">robot_interaction::make6DOFMarker</a></div><div class="ttdeci">visualization_msgs::msg::InteractiveMarker make6DOFMarker(const std::string &amp;name, const geometry_msgs::msg::PoseStamped &amp;stamped, double scale, bool orientation_fixed=false)</div><div class="ttdef"><b>Definition:</b> <a href="interactive__marker__helpers_8cpp_source.html#l00307">interactive_marker_helpers.cpp:307</a></div></div>
 <div class="ttc" id="amotion__planning__display_8h_html"><div class="ttname"><a href="motion__planning__display_8h.html">motion_planning_display.h</a></div></div>
@@ -1151,7 +1150,7 @@ $(function() {
 <div class="ttc" id="aclassmoveit_1_1core_1_1RobotState_html"><div class="ttname"><a href="classmoveit_1_1core_1_1RobotState.html">moveit::core::RobotState</a></div><div class="ttdoc">Representation of a robot's state. This includes position, velocity, acceleration and effort.</div><div class="ttdef"><b>Definition:</b> <a href="robot__state_8h_source.html#l00155">robot_state.h:155</a></div></div>
 <div class="ttc" id="aclassmoveit__rviz__plugin_1_1PlanningSceneDisplay_html_ac344944cbfba1da5059fd336d72ba4ae"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ac344944cbfba1da5059fd336d72ba4ae">moveit_rviz_plugin::PlanningSceneDisplay::addMainLoopJob</a></div><div class="ttdeci">void addMainLoopJob(const boost::function&lt; void()&gt; &amp;job)</div><div class="ttdoc">queue the execution of this function for the next time the main update() loop gets called</div><div class="ttdef"><b>Definition:</b> <a href="planning__scene__display_8cpp_source.html#l00277">planning_scene_display.cpp:277</a></div></div>
 <div class="ttc" id="aconversions_8h_html"><div class="ttname"><a href="conversions_8h.html">conversions.h</a></div></div>
-<div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningDisplay_html_a8ac31289287a8b25017c8fefa5212e15"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a8ac31289287a8b25017c8fefa5212e15">moveit_rviz_plugin::MotionPlanningDisplay::updateQueryStates</a></div><div class="ttdeci">void updateQueryStates(const moveit::core::RobotState &amp;current_state)</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__display_8cpp_source.html#l01263">motion_planning_display.cpp:1263</a></div></div>
+<div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningDisplay_html_a8ac31289287a8b25017c8fefa5212e15"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a8ac31289287a8b25017c8fefa5212e15">moveit_rviz_plugin::MotionPlanningDisplay::updateQueryStates</a></div><div class="ttdeci">void updateQueryStates(const moveit::core::RobotState &amp;current_state)</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__display_8cpp_source.html#l01265">motion_planning_display.cpp:1265</a></div></div>
 <div class="ttc" id="aclassmoveit_1_1core_1_1AttachedBody_html"><div class="ttname"><a href="classmoveit_1_1core_1_1AttachedBody.html">moveit::core::AttachedBody</a></div><div class="ttdoc">Object defining bodies that can be attached to robot links.</div><div class="ttdef"><b>Definition:</b> <a href="attached__body_8h_source.html#l00121">attached_body.h:121</a></div></div>
 <div class="ttc" id="aclassplanning__scene__monitor_1_1LockedPlanningSceneRW_html"><div class="ttname"><a href="classplanning__scene__monitor_1_1LockedPlanningSceneRW.html">planning_scene_monitor::LockedPlanningSceneRW</a></div><div class="ttdoc">This is a convenience class for obtaining access to an instance of a locked PlanningScene.</div><div class="ttdef"><b>Definition:</b> <a href="planning__scene__monitor_8h_source.html#l00759">planning_scene_monitor.h:759</a></div></div>
 <div class="ttc" id="aclassmoveit__rviz__plugin_1_1PlanningSceneDisplay_html_a13fce732c3b9f3f8010e5a5988048afe"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a13fce732c3b9f3f8010e5a5988048afe">moveit_rviz_plugin::PlanningSceneDisplay::getPlanningSceneRO</a></div><div class="ttdeci">planning_scene_monitor::LockedPlanningSceneRO getPlanningSceneRO() const</div><div class="ttdoc">get read-only access to planning scene</div><div class="ttdef"><b>Definition:</b> <a href="planning__scene__display_8cpp_source.html#l00340">planning_scene_display.cpp:340</a></div></div>
@@ -1172,14 +1171,14 @@ $(function() {
 <div class="ttc" id="aclassmoveit__rviz__plugin_1_1PlanningSceneDisplay_html_a5f866683f45f26cbd278d50e92c93f52"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a5f866683f45f26cbd278d50e92c93f52">moveit_rviz_plugin::PlanningSceneDisplay::addBackgroundJob</a></div><div class="ttdeci">void addBackgroundJob(const boost::function&lt; void()&gt; &amp;job, const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> <a href="planning__scene__display_8cpp_source.html#l00267">planning_scene_display.cpp:267</a></div></div>
 <div class="ttc" id="anamespacerclcpp_1_1names_html_a4c3e21517afd9a6909de322da95c5e81"><div class="ttname"><a href="namespacerclcpp_1_1names.html#a4c3e21517afd9a6909de322da95c5e81">rclcpp::names::append</a></div><div class="ttdeci">std::string append(const std::string &amp;left, const std::string &amp;right)</div><div class="ttdef"><b>Definition:</b> <a href="rclcpp__utils_8cpp_source.html#l00053">rclcpp_utils.cpp:53</a></div></div>
 <div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningFrame_html_a0a565b8edea542d02b061cc1e8268ab4"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0a565b8edea542d02b061cc1e8268ab4">moveit_rviz_plugin::MotionPlanningFrame::scene_marker_</a></div><div class="ttdeci">std::shared_ptr&lt; rviz_default_plugins::displays::InteractiveMarker &gt; scene_marker_</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__frame_8h_source.html#l00142">motion_planning_frame.h:142</a></div></div>
-<div class="ttc" id="anamespaceplanning__request__adapter_html_af64b3fa8ebc256d9c5133c6c80ade28f"><div class="ttname"><a href="namespaceplanning__request__adapter.html#af64b3fa8ebc256d9c5133c6c80ade28f">planning_request_adapter::LOGGER</a></div><div class="ttdeci">rclcpp::Logger LOGGER</div><div class="ttdef"><b>Definition:</b> <a href="planning__request__adapter_8cpp_source.html#l00078">planning_request_adapter.cpp:78</a></div></div>
+<div class="ttc" id="anamespaceplanning__request__adapter_html_af64b3fa8ebc256d9c5133c6c80ade28f"><div class="ttname"><a href="namespaceplanning__request__adapter.html#af64b3fa8ebc256d9c5133c6c80ade28f">planning_request_adapter::LOGGER</a></div><div class="ttdeci">rclcpp::Logger LOGGER</div><div class="ttdef"><b>Definition:</b> <a href="planning__request__adapter_8cpp_source.html#l00076">planning_request_adapter.cpp:76</a></div></div>
 <div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningFrame_html_a0845b45f76cf28c89654964728408df7"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a0845b45f76cf28c89654964728408df7">moveit_rviz_plugin::MotionPlanningFrame::ITEM_TYPE_SCENE</a></div><div class="ttdeci">static const int ITEM_TYPE_SCENE</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__frame_8h_source.html#l00118">motion_planning_frame.h:118</a></div></div>
 <div class="ttc" id="anamespaceround__collada__numbers_html_ac9e7c6037bfef6357cd8067931ad7ff7"><div class="ttname"><a href="namespaceround__collada__numbers.html#ac9e7c6037bfef6357cd8067931ad7ff7">round_collada_numbers.text</a></div><div class="ttdeci">text</div><div class="ttdef"><b>Definition:</b> <a href="round__collada__numbers_8py_source.html#l00090">round_collada_numbers.py:90</a></div></div>
 <div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningFrame_html_a59ae6d54c2ca1d3efde5e00b5c22a15f"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a59ae6d54c2ca1d3efde5e00b5c22a15f">moveit_rviz_plugin::MotionPlanningFrame::ITEM_TYPE_QUERY</a></div><div class="ttdeci">static const int ITEM_TYPE_QUERY</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__frame_8h_source.html#l00119">motion_planning_frame.h:119</a></div></div>
 <div class="ttc" id="anamespacemoveit__rviz__plugin_html"><div class="ttname"><a href="namespacemoveit__rviz__plugin.html">moveit_rviz_plugin</a></div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__display_8h_source.html#l00095">motion_planning_display.h:95</a></div></div>
 <div class="ttc" id="anamespacemoveit__warehouse_html_aef7ae2cdb77d30eb8747edd4f16c34b1"><div class="ttname"><a href="namespacemoveit__warehouse.html#aef7ae2cdb77d30eb8747edd4f16c34b1">moveit_warehouse::MotionPlanRequestWithMetadata</a></div><div class="ttdeci">warehouse_ros::MessageWithMetadata&lt; moveit_msgs::msg::MotionPlanRequest &gt;::ConstPtr MotionPlanRequestWithMetadata</div><div class="ttdef"><b>Definition:</b> <a href="planning__scene__storage_8h_source.html#l00082">planning_scene_storage.h:82</a></div></div>
 <div class="ttc" id="anamespaceplanning__interface_html_a1307e10a0a3b9ca03406d777b9a938a3"><div class="ttname"><a href="namespaceplanning__interface.html#a1307e10a0a3b9ca03406d777b9a938a3">planning_interface::MotionPlanRequest</a></div><div class="ttdeci">moveit_msgs::msg::MotionPlanRequest MotionPlanRequest</div><div class="ttdef"><b>Definition:</b> <a href="planning__request_8h_source.html#l00077">planning_request.h:77</a></div></div>
-<div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningDisplay_html_a5e915633ab6016b0bbccb71129e9f31a"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a5e915633ab6016b0bbccb71129e9f31a">moveit_rviz_plugin::MotionPlanningDisplay::setQueryStartState</a></div><div class="ttdeci">void setQueryStartState(const moveit::core::RobotState &amp;start)</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__display_8cpp_source.html#l00975">motion_planning_display.cpp:975</a></div></div>
+<div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningDisplay_html_a5e915633ab6016b0bbccb71129e9f31a"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a5e915633ab6016b0bbccb71129e9f31a">moveit_rviz_plugin::MotionPlanningDisplay::setQueryStartState</a></div><div class="ttdeci">void setQueryStartState(const moveit::core::RobotState &amp;start)</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__display_8cpp_source.html#l00972">motion_planning_display.cpp:972</a></div></div>
 <div class="ttc" id="ainteractive__marker__helpers_8h_html"><div class="ttname"><a href="interactive__marker__helpers_8h.html">interactive_marker_helpers.h</a></div></div>
 <div class="ttc" id="aclassplanning__scene__monitor_1_1LockedPlanningSceneRO_html"><div class="ttname"><a href="classplanning__scene__monitor_1_1LockedPlanningSceneRO.html">planning_scene_monitor::LockedPlanningSceneRO</a></div><div class="ttdoc">This is a convenience class for obtaining access to an instance of a locked PlanningScene.</div><div class="ttdef"><b>Definition:</b> <a href="planning__scene__monitor_8h_source.html#l00667">planning_scene_monitor.h:667</a></div></div>
 <div class="ttc" id="aclassmoveit_1_1core_1_1RobotState_html_a5c3129e7624ffe8c47dfaffee5c85560"><div class="ttname"><a href="classmoveit_1_1core_1_1RobotState.html#a5c3129e7624ffe8c47dfaffee5c85560">moveit::core::RobotState::clearAttachedBody</a></div><div class="ttdeci">bool clearAttachedBody(const std::string &amp;id)</div><div class="ttdoc">Remove the attached body named id. Return false if the object was not found (and thus not removed)....</div><div class="ttdef"><b>Definition:</b> <a href="robot__state_8cpp_source.html#l01149">robot_state.cpp:1149</a></div></div>
@@ -1190,16 +1189,16 @@ $(function() {
 <div class="ttc" id="aclassplanning__scene_1_1PlanningScene_html_af340f5d463d211e95da6c18b37dad9c0"><div class="ttname"><a href="classplanning__scene_1_1PlanningScene.html#af340f5d463d211e95da6c18b37dad9c0">planning_scene::PlanningScene::OCTOMAP_NS</a></div><div class="ttdeci">static const std::string OCTOMAP_NS</div><div class="ttdef"><b>Definition:</b> <a href="planning__scene_8h_source.html#l00135">planning_scene.h:135</a></div></div>
 <div class="ttc" id="aclassmoveit__rviz__plugin_1_1PlanningSceneDisplay_html_ab2d4befc925c6933f7f508bef69a67f3"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#ab2d4befc925c6933f7f508bef69a67f3">moveit_rviz_plugin::PlanningSceneDisplay::getRobotModel</a></div><div class="ttdeci">const moveit::core::RobotModelConstPtr &amp; getRobotModel() const</div><div class="ttdef"><b>Definition:</b> <a href="planning__scene__display_8cpp_source.html#l00322">planning_scene_display.cpp:322</a></div></div>
 <div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningFrame_html_ac26d099c6725780cb726b1be95667bc6"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">moveit_rviz_plugin::MotionPlanningFrame::planning_display_</a></div><div class="ttdeci">MotionPlanningDisplay * planning_display_</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__frame_8h_source.html#l00128">motion_planning_frame.h:128</a></div></div>
-<div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningDisplay_html_a447ee983b88d0cde37bde0ae3e9ac92c"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a447ee983b88d0cde37bde0ae3e9ac92c">moveit_rviz_plugin::MotionPlanningDisplay::setQueryGoalState</a></div><div class="ttdeci">void setQueryGoalState(const moveit::core::RobotState &amp;goal)</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__display_8cpp_source.html#l00981">motion_planning_display.cpp:981</a></div></div>
+<div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningDisplay_html_a447ee983b88d0cde37bde0ae3e9ac92c"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#a447ee983b88d0cde37bde0ae3e9ac92c">moveit_rviz_plugin::MotionPlanningDisplay::setQueryGoalState</a></div><div class="ttdeci">void setQueryGoalState(const moveit::core::RobotState &amp;goal)</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__display_8cpp_source.html#l00978">motion_planning_display.cpp:978</a></div></div>
 <div class="ttc" id="amotion__planning__frame_8h_html"><div class="ttname"><a href="motion__planning__frame_8h.html">motion_planning_frame.h</a></div></div>
 <div class="ttc" id="aclassmoveit_1_1core_1_1AttachedBody_html_ad6ba631b74e575e53a07b333a4054a15"><div class="ttname"><a href="classmoveit_1_1core_1_1AttachedBody.html#ad6ba631b74e575e53a07b333a4054a15">moveit::core::AttachedBody::getPose</a></div><div class="ttdeci">const Eigen::Isometry3d &amp; getPose() const</div><div class="ttdoc">Get the pose of the attached body relative to the parent link.</div><div class="ttdef"><b>Definition:</b> <a href="attached__body_8h_source.html#l00144">attached_body.h:144</a></div></div>
 <div class="ttc" id="aclassmoveit_1_1core_1_1AttachedBody_html_ad7e41060467df2a8db42540d86cfbcf6"><div class="ttname"><a href="classmoveit_1_1core_1_1AttachedBody.html#ad7e41060467df2a8db42540d86cfbcf6">moveit::core::AttachedBody::getShapePoses</a></div><div class="ttdeci">const EigenSTL::vector_Isometry3d &amp; getShapePoses() const</div><div class="ttdoc">Get the shape poses (the transforms to the shapes of this body, relative to the pose)....</div><div class="ttdef"><b>Definition:</b> <a href="attached__body_8h_source.html#l00175">attached_body.h:175</a></div></div>
 <div class="ttc" id="aclassmoveit_1_1core_1_1AttachedBody_html_a857be05cdda0157e486176c034105426"><div class="ttname"><a href="classmoveit_1_1core_1_1AttachedBody.html#a857be05cdda0157e486176c034105426">moveit::core::AttachedBody::getName</a></div><div class="ttdeci">const std::string &amp; getName() const</div><div class="ttdoc">Get the name of the attached body.</div><div class="ttdef"><b>Definition:</b> <a href="attached__body_8h_source.html#l00138">attached_body.h:138</a></div></div>
-<div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningFrame_html_aa6b4592edb828e4d84963a83120de945"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#aa6b4592edb828e4d84963a83120de945">moveit_rviz_plugin::MotionPlanningFrame::constructPlanningRequest</a></div><div class="ttdeci">void constructPlanningRequest(moveit_msgs::msg::MotionPlanRequest &amp;mreq)</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__frame__planning_8cpp_source.html#l00516">motion_planning_frame_planning.cpp:516</a></div></div>
+<div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningFrame_html_aa6b4592edb828e4d84963a83120de945"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#aa6b4592edb828e4d84963a83120de945">moveit_rviz_plugin::MotionPlanningFrame::constructPlanningRequest</a></div><div class="ttdeci">void constructPlanningRequest(moveit_msgs::msg::MotionPlanRequest &amp;mreq)</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__frame__planning_8cpp_source.html#l00515">motion_planning_frame_planning.cpp:515</a></div></div>
 <div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningDisplay_html_afc14b220fd9f97a0691d054791e830ff"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#afc14b220fd9f97a0691d054791e830ff">moveit_rviz_plugin::MotionPlanningDisplay::getQueryGoalState</a></div><div class="ttdeci">moveit::core::RobotStateConstPtr getQueryGoalState() const</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__display_8h_source.html#l00117">motion_planning_display.h:117</a></div></div>
 <div class="ttc" id="aclassmoveit__rviz__plugin_1_1PlanningSceneDisplay_html_a332e91816296f14bf7735d61749e89ef"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a332e91816296f14bf7735d61749e89ef">moveit_rviz_plugin::PlanningSceneDisplay::getPlanningSceneRW</a></div><div class="ttdeci">planning_scene_monitor::LockedPlanningSceneRW getPlanningSceneRW()</div><div class="ttdoc">get write access to planning scene</div><div class="ttdef"><b>Definition:</b> <a href="planning__scene__display_8cpp_source.html#l00345">planning_scene_display.cpp:345</a></div></div>
 <div class="ttc" id="anamespacefcl_html_a0288e6b07bc0c851a9503dbaea7a0f19"><div class="ttname"><a href="namespacefcl.html#a0288e6b07bc0c851a9503dbaea7a0f19">fcl::Vector3d</a></div><div class="ttdeci">Vec3fX&lt; details::Vec3Data&lt; double &gt; &gt; Vector3d</div><div class="ttdef"><b>Definition:</b> <a href="fcl__compat_8h_source.html#l00089">fcl_compat.h:89</a></div></div>
-<div class="ttc" id="aclassmoveit__rviz__plugin_1_1PlanningSceneDisplay_html_abc9562b19cd09d4f37b005edefce5d22"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#abc9562b19cd09d4f37b005edefce5d22">moveit_rviz_plugin::PlanningSceneDisplay::queueRenderSceneGeometry</a></div><div class="ttdeci">void queueRenderSceneGeometry()</div><div class="ttdef"><b>Definition:</b> <a href="planning__scene__display_8cpp_source.html#l00676">planning_scene_display.cpp:676</a></div></div>
+<div class="ttc" id="aclassmoveit__rviz__plugin_1_1PlanningSceneDisplay_html_abc9562b19cd09d4f37b005edefce5d22"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#abc9562b19cd09d4f37b005edefce5d22">moveit_rviz_plugin::PlanningSceneDisplay::queueRenderSceneGeometry</a></div><div class="ttdeci">void queueRenderSceneGeometry()</div><div class="ttdef"><b>Definition:</b> <a href="planning__scene__display_8cpp_source.html#l00678">planning_scene_display.cpp:678</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
