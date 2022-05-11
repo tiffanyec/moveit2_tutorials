@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/override.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="canonical" href="https://moveit.picknik.ai/rolling//galactic/doc/examples/realtime_servo/realtime_servo_tutorial.html" />
+    <link rel="canonical" href="https://moveit.picknik.ai/galactic//galactic/doc/examples/realtime_servo/realtime_servo_tutorial.html" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -216,9 +216,8 @@
 </div>
 <p>Create the planning_scene_monitor. We need to pass this to Servo’s constructor, and we should set it up first
 before initializing any collision objects</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">tf_buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">tf2_ros</span><span class="o">::</span><span class="n">Buffer</span><span class="o">&gt;</span><span class="p">(</span><span class="n">node_</span><span class="o">-&gt;</span><span class="n">get_clock</span><span class="p">());</span><span class="w"></span>
-<span class="k">auto</span><span class="w"> </span><span class="n">planning_scene_monitor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">planning_scene_monitor</span><span class="o">::</span><span class="n">PlanningSceneMonitor</span><span class="o">&gt;</span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="n">node_</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;robot_description&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tf_buffer</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;planning_scene_monitor&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">planning_scene_monitor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">planning_scene_monitor</span><span class="o">::</span><span class="n">PlanningSceneMonitor</span><span class="o">&gt;</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">node_</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;robot_description&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;planning_scene_monitor&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Here we make sure the planning_scene_monitor is updating in real time from the joint states topic</p>
