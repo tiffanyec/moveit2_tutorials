@@ -692,62 +692,65 @@ $(function() {
 <div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;  planning_scene_world_publisher_ =</div>
 <div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;      node_-&gt;create_publisher&lt;moveit_msgs::msg::PlanningSceneWorld&gt;(<span class="stringliteral">&quot;planning_scene_world&quot;</span>, 1);</div>
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160; </div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;  <span class="comment">// Set initial velocity and acceleration scaling factors from ROS parameters</span></div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;  <span class="keywordtype">double</span> factor;</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;  node_-&gt;get_parameter_or(<span class="stringliteral">&quot;robot_description_planning.default_velocity_scaling_factor&quot;</span>, factor, 0.1);</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;  ui_-&gt;velocity_scaling_factor-&gt;setValue(factor);</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;  node_-&gt;get_parameter_or(<span class="stringliteral">&quot;robot_description_planning.default_acceleration_scaling_factor&quot;</span>, factor, 0.1);</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;  ui_-&gt;acceleration_scaling_factor-&gt;setValue(factor);</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;  <span class="comment">// Declare parameter for default planning pipeline</span></div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;  <span class="keywordflow">if</span> (!node_-&gt;has_parameter(planning_display_-&gt;getMoveGroupNS() + <span class="stringliteral">&quot;default_planning_pipeline&quot;</span>))</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    node_-&gt;declare_parameter&lt;std::string&gt;(planning_display_-&gt;getMoveGroupNS() + <span class="stringliteral">&quot;default_planning_pipeline&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160; </div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;  <span class="comment">// Query default planning pipeline id</span></div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;  node_-&gt;get_parameter(planning_display_-&gt;getMoveGroupNS() + <span class="stringliteral">&quot;default_planning_pipeline&quot;</span>, default_planning_pipeline_);</div>
 <div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160; </div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;  <span class="comment">// Fetch parameters from private move_group sub space</span></div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;  std::string host_param;</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;  <span class="keywordflow">if</span> (node_-&gt;get_parameter(<span class="stringliteral">&quot;warehouse_host&quot;</span>, host_param))</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;  {</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    ui_-&gt;database_host-&gt;setText(QString::fromStdString(host_param));</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;  }</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;  <span class="comment">// Set initial velocity and acceleration scaling factors from ROS parameters</span></div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;  <span class="keywordtype">double</span> factor;</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;  node_-&gt;get_parameter_or(<span class="stringliteral">&quot;robot_description_planning.default_velocity_scaling_factor&quot;</span>, factor, 0.1);</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;  ui_-&gt;velocity_scaling_factor-&gt;setValue(factor);</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;  node_-&gt;get_parameter_or(<span class="stringliteral">&quot;robot_description_planning.default_acceleration_scaling_factor&quot;</span>, factor, 0.1);</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;  ui_-&gt;acceleration_scaling_factor-&gt;setValue(factor);</div>
 <div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160; </div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;  <span class="keywordtype">int</span> port;</div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;  <span class="keywordflow">if</span> (node_-&gt;get_parameter(<span class="stringliteral">&quot;warehouse_port&quot;</span>, port))</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;  {</div>
-<div class="line"><a name="l00639"></a><span class="lineno"><a class="line" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a06b1b6ce861ba1ca9d6f357a968bfd06">  639</a></span>&#160;    ui_-&gt;database_port-&gt;setValue(port);</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;  }</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160; </div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;  <span class="comment">// Query default planning pipeline id</span></div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;  node_-&gt;get_parameter(planning_display_-&gt;getMoveGroupNS() + <span class="stringliteral">&quot;/move_group/default_planning_pipeline&quot;</span>,</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;                       default_planning_pipeline_);</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;}</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160; </div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::disable()</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;{</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;  move_group_.reset();</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;  scene_marker_.reset();</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;  <span class="keywordflow">if</span> (parentWidget())</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    parentWidget()-&gt;hide();</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;}</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160; </div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::tabChanged(<span class="keywordtype">int</span> index)</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;{</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;  <span class="keywordflow">if</span> (scene_marker_ &amp;&amp; ui_-&gt;tabWidget-&gt;tabText(index).toStdString() != TAB_OBJECTS)</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    scene_marker_.reset();</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ui_-&gt;tabWidget-&gt;tabText(index).toStdString() == TAB_OBJECTS)</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    selectedCollisionObjectChanged();</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;}</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160; </div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::updateSceneMarkers(<span class="keywordtype">float</span> <span class="comment">/*wall_dt*/</span>, <span class="keywordtype">float</span> <span class="comment">/*ros_dt*/</span>)</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;{</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;  <span class="keywordflow">if</span> (scene_marker_)</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;    scene_marker_-&gt;update();</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;}</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160; </div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::updateExternalCommunication()</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;{</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;  <span class="keywordflow">if</span> (ui_-&gt;allow_external_program-&gt;isChecked())</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;  {</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    planning_display_-&gt;getRobotInteraction()-&gt;toggleMoveInteractiveMarkerTopic(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;  }</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;}</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160; </div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;}  <span class="comment">// namespace moveit_rviz_plugin</span></div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;  <span class="comment">// Fetch parameters from private move_group sub space</span></div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;  std::string host_param;</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;  <span class="keywordflow">if</span> (node_-&gt;get_parameter(<span class="stringliteral">&quot;warehouse_host&quot;</span>, host_param))</div>
+<div class="line"><a name="l00639"></a><span class="lineno"><a class="line" href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#a06b1b6ce861ba1ca9d6f357a968bfd06">  639</a></span>&#160;  {</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    ui_-&gt;database_host-&gt;setText(QString::fromStdString(host_param));</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  }</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160; </div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;  <span class="keywordtype">int</span> port;</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;  <span class="keywordflow">if</span> (node_-&gt;get_parameter(<span class="stringliteral">&quot;warehouse_port&quot;</span>, port))</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;  {</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    ui_-&gt;database_port-&gt;setValue(port);</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;  }</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;}</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160; </div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::disable()</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;{</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;  move_group_.reset();</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;  scene_marker_.reset();</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;  <span class="keywordflow">if</span> (parentWidget())</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    parentWidget()-&gt;hide();</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;}</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160; </div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::tabChanged(<span class="keywordtype">int</span> index)</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;{</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;  <span class="keywordflow">if</span> (scene_marker_ &amp;&amp; ui_-&gt;tabWidget-&gt;tabText(index).toStdString() != TAB_OBJECTS)</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    scene_marker_.reset();</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ui_-&gt;tabWidget-&gt;tabText(index).toStdString() == TAB_OBJECTS)</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    selectedCollisionObjectChanged();</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;}</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160; </div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::updateSceneMarkers(<span class="keywordtype">float</span> <span class="comment">/*wall_dt*/</span>, <span class="keywordtype">float</span> <span class="comment">/*ros_dt*/</span>)</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;{</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;  <span class="keywordflow">if</span> (scene_marker_)</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    scene_marker_-&gt;update();</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;}</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160; </div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="keywordtype">void</span> MotionPlanningFrame::updateExternalCommunication()</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;{</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;  <span class="keywordflow">if</span> (ui_-&gt;allow_external_program-&gt;isChecked())</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;  {</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    planning_display_-&gt;getRobotInteraction()-&gt;toggleMoveInteractiveMarkerTopic(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;  }</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;}</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160; </div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;}  <span class="comment">// namespace moveit_rviz_plugin</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassmoveit__rviz__plugin_1_1PlanningSceneDisplay_html_a1f6f2daf42341b2ad058a233d3c78b47"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1PlanningSceneDisplay.html#a1f6f2daf42341b2ad058a233d3c78b47">moveit_rviz_plugin::PlanningSceneDisplay::node_</a></div><div class="ttdeci">rclcpp::Node::SharedPtr node_</div><div class="ttdef"><b>Definition:</b> <a href="planning__scene__display_8h_source.html#l00223">planning_scene_display.h:223</a></div></div>
 <div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningDisplay_html_adf823e3c73b8dc5f9705c5e65b7ba991"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningDisplay.html#adf823e3c73b8dc5f9705c5e65b7ba991">moveit_rviz_plugin::MotionPlanningDisplay::getRobotInteraction</a></div><div class="ttdeci">const robot_interaction::RobotInteractionPtr &amp; getRobotInteraction() const</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__display_8h_source.html#l00127">motion_planning_display.h:127</a></div></div>
@@ -781,7 +784,7 @@ $(function() {
 <div class="ttc" id="aclassplanning__scene__monitor_1_1PlanningSceneMonitor_html_a97d046ac6573578fc63521717a013268ad258253b25e0ef67dd508b4938fd7a16"><div class="ttname"><a href="classplanning__scene__monitor_1_1PlanningSceneMonitor.html#a97d046ac6573578fc63521717a013268ad258253b25e0ef67dd508b4938fd7a16">planning_scene_monitor::PlanningSceneMonitor::UPDATE_GEOMETRY</a></div><div class="ttdeci">@ UPDATE_GEOMETRY</div><div class="ttdoc">The geometry of the scene was updated. This includes receiving new octomaps, collision objects,...</div><div class="ttdef"><b>Definition:</b> <a href="planning__scene__monitor_8h_source.html#l00113">planning_scene_monitor.h:113</a></div></div>
 <div class="ttc" id="amotion__planning__frame__joints__widget_8h_html"><div class="ttname"><a href="motion__planning__frame__joints__widget_8h.html">motion_planning_frame_joints_widget.h</a></div></div>
 <div class="ttc" id="aclassmoveit__rviz__plugin_1_1MotionPlanningFrame_html_ac26d099c6725780cb726b1be95667bc6"><div class="ttname"><a href="classmoveit__rviz__plugin_1_1MotionPlanningFrame.html#ac26d099c6725780cb726b1be95667bc6">moveit_rviz_plugin::MotionPlanningFrame::planning_display_</a></div><div class="ttdeci">MotionPlanningDisplay * planning_display_</div><div class="ttdef"><b>Definition:</b> <a href="motion__planning__frame_8h_source.html#l00128">motion_planning_frame.h:128</a></div></div>
-<div class="ttc" id="anamespacemoveit__benchmark__statistics_html_a58ab75da1849da9e6478ad259ef99803"><div class="ttname"><a href="namespacemoveit__benchmark__statistics.html#a58ab75da1849da9e6478ad259ef99803">moveit_benchmark_statistics.view</a></div><div class="ttdeci">view</div><div class="ttdef"><b>Definition:</b> <a href="moveit__benchmark__statistics_8py_source.html#l00777">moveit_benchmark_statistics.py:777</a></div></div>
+<div class="ttc" id="anamespacemoveit__benchmark__statistics_html_a58ab75da1849da9e6478ad259ef99803"><div class="ttname"><a href="namespacemoveit__benchmark__statistics.html#a58ab75da1849da9e6478ad259ef99803">moveit_benchmark_statistics.view</a></div><div class="ttdeci">view</div><div class="ttdef"><b>Definition:</b> <a href="moveit__benchmark__statistics_8py_source.html#l00780">moveit_benchmark_statistics.py:780</a></div></div>
 <div class="ttc" id="amotion__planning__frame_8h_html"><div class="ttname"><a href="motion__planning__frame_8h.html">motion_planning_frame.h</a></div></div>
 <div class="ttc" id="amoveit__ros_2move__group_2include_2moveit_2move__group_2capability__names_8h_html"><div class="ttname"><a href="moveit__ros_2move__group_2include_2moveit_2move__group_2capability__names_8h.html">capability_names.h</a></div></div>
 <div class="ttc" id="anamespacetest__cleanup_html_a121623a04b6c3260c0e3e9c8cb74d9f9"><div class="ttname"><a href="namespacetest__cleanup.html#a121623a04b6c3260c0e3e9c8cb74d9f9">test_cleanup.group</a></div><div class="ttdeci">group</div><div class="ttdef"><b>Definition:</b> <a href="test__cleanup_8py_source.html#l00008">test_cleanup.py:8</a></div></div>

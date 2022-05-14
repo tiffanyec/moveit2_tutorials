@@ -325,65 +325,61 @@ $(function() {
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;}</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment">// define a fallback comparison operator for QVariants</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="preprocessor">#if (QT_VERSION &lt; QT_VERSION_CHECK(5, 0, 0))</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="keyword">namespace</span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;{</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> QVariant&amp; left, <span class="keyword">const</span> QVariant&amp; right)</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;{</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  <span class="keywordflow">if</span> (left.userType() == QVariant::Type::Int)</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordflow">return</span> left.toInt() &lt; right.toInt();</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">return</span> left.toString() &lt; right.toString();</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;}</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;}  <span class="comment">// namespace</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
-<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="classSortFilterProxyModel.html#a48eab37609626be1d75197ce2988d2ea">  268</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSortFilterProxyModel.html#a48eab37609626be1d75197ce2988d2ea">SortFilterProxyModel::lessThan</a>(<span class="keyword">const</span> QModelIndex&amp; src_left, <span class="keyword">const</span> QModelIndex&amp; src_right)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  <span class="keywordtype">int</span> row_left = src_left.row();</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  <span class="keywordtype">int</span> row_right = src_right.row();</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  QAbstractItemModel* m = sourceModel();</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0, end = sort_columns_.size(); i &lt; end &amp;&amp; sort_columns_[i] &gt;= 0; ++i)</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  {</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordtype">int</span> sc = sort_columns_[i];</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordtype">int</span> role = sc == 2 ? Qt::CheckStateRole : Qt::DisplayRole;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    QVariant value_left = m-&gt;data(m-&gt;index(row_left, sc), role);</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    QVariant value_right = m-&gt;data(m-&gt;index(row_right, sc), role);</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordflow">if</span> (value_left == value_right)</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keywordtype">bool</span> smaller = (value_left &lt; value_right);</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordflow">if</span> (sort_orders_[i] == Qt::DescendingOrder)</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      smaller = !smaller;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordflow">return</span> smaller;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  }</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;}</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
-<div class="line"><a name="l00292"></a><span class="lineno"><a class="line" href="classSortFilterProxyModel.html#a52e49ea1f089d8d34b79a774f2fcdbc2">  292</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSortFilterProxyModel.html#a52e49ea1f089d8d34b79a774f2fcdbc2">SortFilterProxyModel::sort</a>(<span class="keywordtype">int</span> column, Qt::SortOrder order)</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;{</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  beginResetModel();</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  <span class="keywordflow">if</span> (column &lt; 0)</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    initSorting();</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  {</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="comment">// remember sorting history</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keywordtype">int</span> prev_idx = sort_columns_.indexOf(column);</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordflow">if</span> (prev_idx &lt; 0)</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      prev_idx = sort_columns_.size() - 1;</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="comment">// remove old entries</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    sort_columns_.remove(prev_idx);</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    sort_orders_.remove(prev_idx);</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="comment">// add new entries at front</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    sort_columns_.insert(0, column);</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    sort_orders_.insert(0, order);</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  }</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  QSortFilterProxyModel::sort(column, Qt::AscendingOrder);</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  endResetModel();</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;}</div>
+<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="collision__linear__model_8cpp.html#a0fa1483a1b785228739b8387d56a22c1">  255</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="collision__linear__model_8cpp.html#a0fa1483a1b785228739b8387d56a22c1">compareVariants</a>(<span class="keyword">const</span> QVariant&amp; left, <span class="keyword">const</span> QVariant&amp; right)</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;{</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  <span class="keywordflow">if</span> (left.userType() == QVariant::Type::Int)</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordflow">return</span> left.toInt() &lt; right.toInt();</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordflow">return</span> left.toString() &lt; right.toString();</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;}</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
+<div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="classSortFilterProxyModel.html#a48eab37609626be1d75197ce2988d2ea">  263</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classSortFilterProxyModel.html#a48eab37609626be1d75197ce2988d2ea">SortFilterProxyModel::lessThan</a>(<span class="keyword">const</span> QModelIndex&amp; src_left, <span class="keyword">const</span> QModelIndex&amp; src_right)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  <span class="keywordtype">int</span> row_left = src_left.row();</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  <span class="keywordtype">int</span> row_right = src_right.row();</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  QAbstractItemModel* m = sourceModel();</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0, end = sort_columns_.size(); i &lt; end &amp;&amp; sort_columns_[i] &gt;= 0; ++i)</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  {</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordtype">int</span> sc = sort_columns_[i];</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordtype">int</span> role = sc == 2 ? Qt::CheckStateRole : Qt::DisplayRole;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    QVariant value_left = m-&gt;data(m-&gt;index(row_left, sc), role);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    QVariant value_right = m-&gt;data(m-&gt;index(row_right, sc), role);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordflow">if</span> (value_left == value_right)</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordtype">bool</span> smaller = <a class="code" href="collision__linear__model_8cpp.html#a0fa1483a1b785228739b8387d56a22c1">compareVariants</a>(value_left, value_right);</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordflow">if</span> (sort_orders_[i] == Qt::DescendingOrder)</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      smaller = !smaller;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">return</span> smaller;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  }</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;}</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
+<div class="line"><a name="l00287"></a><span class="lineno"><a class="line" href="classSortFilterProxyModel.html#a52e49ea1f089d8d34b79a774f2fcdbc2">  287</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classSortFilterProxyModel.html#a52e49ea1f089d8d34b79a774f2fcdbc2">SortFilterProxyModel::sort</a>(<span class="keywordtype">int</span> column, Qt::SortOrder order)</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;{</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  beginResetModel();</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  <span class="keywordflow">if</span> (column &lt; 0)</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    initSorting();</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  {</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="comment">// remember sorting history</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keywordtype">int</span> prev_idx = sort_columns_.indexOf(column);</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordflow">if</span> (prev_idx &lt; 0)</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      prev_idx = sort_columns_.size() - 1;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="comment">// remove old entries</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    sort_columns_.remove(prev_idx);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    sort_orders_.remove(prev_idx);</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="comment">// add new entries at front</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    sort_columns_.insert(0, column);</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    sort_orders_.insert(0, order);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  }</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  QSortFilterProxyModel::sort(column, Qt::AscendingOrder);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  endResetModel();</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="acollision__linear__model_8cpp_html_a0fa1483a1b785228739b8387d56a22c1"><div class="ttname"><a href="collision__linear__model_8cpp.html#a0fa1483a1b785228739b8387d56a22c1">compareVariants</a></div><div class="ttdeci">bool compareVariants(const QVariant &amp;left, const QVariant &amp;right)</div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8cpp_source.html#l00255">collision_linear_model.cpp:255</a></div></div>
 <div class="ttc" id="aclassCollisionLinearModel_html_afb1f2cdacebbfe056a72c9a64872db86"><div class="ttname"><a href="classCollisionLinearModel.html#afb1f2cdacebbfe056a72c9a64872db86">CollisionLinearModel::~CollisionLinearModel</a></div><div class="ttdeci">~CollisionLinearModel() override</div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8cpp_source.html#l00050">collision_linear_model.cpp:50</a></div></div>
 <div class="ttc" id="aclassCollisionMatrixModel_html"><div class="ttname"><a href="classCollisionMatrixModel.html">CollisionMatrixModel</a></div><div class="ttdef"><b>Definition:</b> <a href="collision__matrix__model_8h_source.html#l00047">collision_matrix_model.h:47</a></div></div>
 <div class="ttc" id="aclassSortFilterProxyModel_html_ae39471ff77785e8e7a842015bae0ae22"><div class="ttname"><a href="classSortFilterProxyModel.html#ae39471ff77785e8e7a842015bae0ae22">SortFilterProxyModel::setEnabled</a></div><div class="ttdeci">void setEnabled(const QItemSelection &amp;selection, bool value)</div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8cpp_source.html#l00213">collision_linear_model.cpp:213</a></div></div>
@@ -394,7 +390,7 @@ $(function() {
 <div class="ttc" id="aclassCollisionLinearModel_html"><div class="ttname"><a href="classCollisionLinearModel.html">CollisionLinearModel</a></div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8h_source.html#l00049">collision_linear_model.h:49</a></div></div>
 <div class="ttc" id="aclassCollisionLinearModel_html_aaad238f2be8564dd574e5b109661e64d"><div class="ttname"><a href="classCollisionLinearModel.html#aaad238f2be8564dd574e5b109661e64d">CollisionLinearModel::setEnabled</a></div><div class="ttdeci">void setEnabled(const QItemSelection &amp;selection, bool value)</div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8cpp_source.html#l00150">collision_linear_model.cpp:150</a></div></div>
 <div class="ttc" id="anamespaceplan__with__constraints_html_a945577a94b97d84b5fb0e116f2db732a"><div class="ttname"><a href="namespaceplan__with__constraints.html#a945577a94b97d84b5fb0e116f2db732a">plan_with_constraints.c</a></div><div class="ttdeci">c</div><div class="ttdef"><b>Definition:</b> <a href="plan__with__constraints_8py_source.html#l00056">plan_with_constraints.py:56</a></div></div>
-<div class="ttc" id="aclassSortFilterProxyModel_html_a48eab37609626be1d75197ce2988d2ea"><div class="ttname"><a href="classSortFilterProxyModel.html#a48eab37609626be1d75197ce2988d2ea">SortFilterProxyModel::lessThan</a></div><div class="ttdeci">bool lessThan(const QModelIndex &amp;src_left, const QModelIndex &amp;src_right) const override</div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8cpp_source.html#l00268">collision_linear_model.cpp:268</a></div></div>
+<div class="ttc" id="aclassSortFilterProxyModel_html_a48eab37609626be1d75197ce2988d2ea"><div class="ttname"><a href="classSortFilterProxyModel.html#a48eab37609626be1d75197ce2988d2ea">SortFilterProxyModel::lessThan</a></div><div class="ttdeci">bool lessThan(const QModelIndex &amp;src_left, const QModelIndex &amp;src_right) const override</div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8cpp_source.html#l00263">collision_linear_model.cpp:263</a></div></div>
 <div class="ttc" id="acollision__matrix__model_8h_html"><div class="ttname"><a href="collision__matrix__model_8h.html">collision_matrix_model.h</a></div></div>
 <div class="ttc" id="anamespaceplan_html_ab9a5624d048e6b841d11a5f223f02870"><div class="ttname"><a href="namespaceplan.html#ab9a5624d048e6b841d11a5f223f02870">plan.r</a></div><div class="ttdeci">r</div><div class="ttdef"><b>Definition:</b> <a href="plan_8py_source.html#l00056">plan.py:56</a></div></div>
 <div class="ttc" id="aclassSortFilterProxyModel_html_aa152d371be05780d3172696123592f97"><div class="ttname"><a href="classSortFilterProxyModel.html#aa152d371be05780d3172696123592f97">SortFilterProxyModel::SortFilterProxyModel</a></div><div class="ttdeci">SortFilterProxyModel(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8cpp_source.html#l00194">collision_linear_model.cpp:194</a></div></div>
@@ -411,7 +407,7 @@ $(function() {
 <div class="ttc" id="aclassSortFilterProxyModel_html_a97a7cbfdef46dc012a364a97f9cca3f5"><div class="ttname"><a href="classSortFilterProxyModel.html#a97a7cbfdef46dc012a364a97f9cca3f5">SortFilterProxyModel::filterAcceptsRow</a></div><div class="ttdeci">bool filterAcceptsRow(int source_row, const QModelIndex &amp;source_parent) const override</div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8cpp_source.html#l00239">collision_linear_model.cpp:239</a></div></div>
 <div class="ttc" id="aclassSortFilterProxyModel_html_a5617032723edf9de5f35378fe614d2da"><div class="ttname"><a href="classSortFilterProxyModel.html#a5617032723edf9de5f35378fe614d2da">SortFilterProxyModel::headerData</a></div><div class="ttdeci">QVariant headerData(int section, Qt::Orientation orientation, int role) const override</div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8cpp_source.html#l00205">collision_linear_model.cpp:205</a></div></div>
 <div class="ttc" id="aclassCollisionLinearModel_html_aced4d1c3a91f6f1252b60edb5cdc98a9"><div class="ttname"><a href="classCollisionLinearModel.html#aced4d1c3a91f6f1252b60edb5cdc98a9">CollisionLinearModel::data</a></div><div class="ttdeci">QVariant data(const QModelIndex &amp;index, int role) const override</div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8cpp_source.html#l00102">collision_linear_model.cpp:102</a></div></div>
-<div class="ttc" id="aclassSortFilterProxyModel_html_a52e49ea1f089d8d34b79a774f2fcdbc2"><div class="ttname"><a href="classSortFilterProxyModel.html#a52e49ea1f089d8d34b79a774f2fcdbc2">SortFilterProxyModel::sort</a></div><div class="ttdeci">void sort(int column, Qt::SortOrder order) override</div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8cpp_source.html#l00292">collision_linear_model.cpp:292</a></div></div>
+<div class="ttc" id="aclassSortFilterProxyModel_html_a52e49ea1f089d8d34b79a774f2fcdbc2"><div class="ttname"><a href="classSortFilterProxyModel.html#a52e49ea1f089d8d34b79a774f2fcdbc2">SortFilterProxyModel::sort</a></div><div class="ttdeci">void sort(int column, Qt::SortOrder order) override</div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8cpp_source.html#l00287">collision_linear_model.cpp:287</a></div></div>
 <div class="ttc" id="aclassSortFilterProxyModel_html_a887a249d39cdc2be9813e1ca7bff12c8"><div class="ttname"><a href="classSortFilterProxyModel.html#a887a249d39cdc2be9813e1ca7bff12c8">SortFilterProxyModel::setShowAll</a></div><div class="ttdeci">void setShowAll(bool show_all)</div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8cpp_source.html#l00230">collision_linear_model.cpp:230</a></div></div>
 <div class="ttc" id="aclassCollisionLinearModel_html_a27699b04186cbb44e52f43dc0636ea56"><div class="ttname"><a href="classCollisionLinearModel.html#a27699b04186cbb44e52f43dc0636ea56">CollisionLinearModel::columnCount</a></div><div class="ttdeci">int columnCount(const QModelIndex &amp;parent) const override</div><div class="ttdef"><b>Definition:</b> <a href="collision__linear__model_8cpp_source.html#l00087">collision_linear_model.cpp:87</a></div></div>
 <!-- start footer part -->

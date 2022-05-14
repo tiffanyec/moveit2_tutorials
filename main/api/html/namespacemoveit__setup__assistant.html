@@ -76,6 +76,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmoveit__setup__assistant_1_1Attribute.html">Attribute</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__setup__assistant_1_1AuthorInformationWidget.html">AuthorInformationWidget</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__setup__assistant_1_1ConfigurationFilesWidget.html">ConfigurationFilesWidget</a></td></tr>
@@ -209,6 +211,8 @@ Functions</h2></td></tr>
 <tr class="separator:abd3690c209f9198cb7545c209d6ed216"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f5fcd781528ace774417917dae893a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemoveit__setup__assistant.html#a3f5fcd781528ace774417917dae893a1">MOVEIT_CLASS_FORWARD</a> (<a class="el" href="classmoveit__setup__assistant_1_1MoveItConfigData.html">MoveItConfigData</a>)</td></tr>
 <tr class="separator:a3f5fcd781528ace774417917dae893a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a393f95b593dbc48b7e8e5aaa6aa2e714"><td class="memItemLeft" align="right" valign="top">TiXmlElement *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemoveit__setup__assistant.html#a393f95b593dbc48b7e8e5aaa6aa2e714">uniqueInsert</a> (TiXmlElement &amp;element, const char *tag, const std::vector&lt; <a class="el" href="structmoveit__setup__assistant_1_1Attribute.html">Attribute</a> &gt; &amp;attributes={}, const char *text=nullptr)</td></tr>
+<tr class="separator:a393f95b593dbc48b7e8e5aaa6aa2e714"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad257fca3c7dfcf73ae4434b210ccafc7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ad257fca3c7dfcf73ae4434b210ccafc7"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemoveit__setup__assistant.html#ad257fca3c7dfcf73ae4434b210ccafc7">parse</a> (const YAML::Node &amp;node, const std::string &amp;key, T &amp;storage, const T &amp;default_value=T())</td></tr>
 <tr class="separator:ad257fca3c7dfcf73ae4434b210ccafc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -219,8 +223,6 @@ Variables</h2></td></tr>
 <tr class="separator:a43b9337eb09e963a6551be8abc8527cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac576c77a77cb0bcde03c47395b0c0232"><td class="memItemLeft" align="right" valign="top">const boost::unordered_map&lt; std::string, <a class="el" href="namespacemoveit__setup__assistant.html#a8102790a31e41396f7fa9c5e99482e39">DisabledReason</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemoveit__setup__assistant.html#ac576c77a77cb0bcde03c47395b0c0232">REASONS_FROM_STRING</a></td></tr>
 <tr class="separator:ac576c77a77cb0bcde03c47395b0c0232"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21c6757031c3d02f483d85818911017a"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemoveit__setup__assistant.html#a21c6757031c3d02f483d85818911017a">SETUP_ASSISTANT_FILE</a> = &quot;.setup_assistant&quot;</td></tr>
-<tr class="separator:a21c6757031c3d02f483d85818911017a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a7084ef61757e964005f702ccd3617dfa"></a>
@@ -579,7 +581,51 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="moveit__config__data_8cpp_source.html#l01376">1376</a> of file <a class="el" href="moveit__config__data_8cpp_source.html">moveit_config_data.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="moveit__config__data_8cpp_source.html#l01288">1288</a> of file <a class="el" href="moveit__config__data_8cpp_source.html">moveit_config_data.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a393f95b593dbc48b7e8e5aaa6aa2e714"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a393f95b593dbc48b7e8e5aaa6aa2e714">&#9670;&nbsp;</a></span>uniqueInsert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TiXmlElement * moveit_setup_assistant::uniqueInsert </td>
+          <td>(</td>
+          <td class="paramtype">TiXmlElement &amp;&#160;</td>
+          <td class="paramname"><em>element</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>tag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structmoveit__setup__assistant_1_1Attribute.html">Attribute</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>attributes</em> = <code>{}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>text</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Insert a new XML element with given tag, attributes and text value</p>
+<p>If a corresponding element already exists (and has required attribute values), it is just reused. All attributes are created or overwritten with given values. <a class="el" href="classA.html">A</a> text value is created or overwritten with given value (if not NULL). The element is returned </p>
+
+<p class="definition">Definition at line <a class="el" href="xml__manipulation_8cpp_source.html#l00091">91</a> of file <a class="el" href="xml__manipulation_8cpp_source.html">xml_manipulation.cpp</a>.</p>
 
 </div>
 </div>
@@ -618,22 +664,6 @@ template&lt;typename T &gt; </div>
 <div class="line">    <a class="code" href="namespacemoveit__setup__assistant.html#a8102790a31e41396f7fa9c5e99482e39a6047696b54e8dff47cc0fb5349e715e8">DEFAULT</a>, <span class="stringliteral">&quot;Default&quot;</span>)(<a class="code" href="namespacemoveit__setup__assistant.html#a8102790a31e41396f7fa9c5e99482e39a6293371c6d77e70dea7b203330e993aa">ADJACENT</a>, <span class="stringliteral">&quot;Adjacent&quot;</span>)(<a class="code" href="namespacecollision__detection_1_1AllowedCollision.html#a8f4b01d9c2bf6843a65389a35296d93baf0f44fbcf1e0f51dd8319483e4d0cfc5">ALWAYS</a>, <span class="stringliteral">&quot;Always&quot;</span>)(<a class="code" href="namespacemoveit__setup__assistant.html#a8102790a31e41396f7fa9c5e99482e39ac7b8b4c0a86db0e8eab4bac23286122e">USER</a>, <span class="stringliteral">&quot;User&quot;</span>)(<a class="code" href="namespacemoveit__setup__assistant.html#a8102790a31e41396f7fa9c5e99482e39a9039d97b5dcb4917a91d254f4dbac59b">NOT_DISABLED</a>, <span class="stringliteral">&quot;Not Disabled&quot;</span>)</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="compute__default__collisions_8cpp_source.html#l00083">83</a> of file <a class="el" href="compute__default__collisions_8cpp_source.html">compute_default_collisions.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a21c6757031c3d02f483d85818911017a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21c6757031c3d02f483d85818911017a">&#9670;&nbsp;</a></span>SETUP_ASSISTANT_FILE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::string moveit_setup_assistant::SETUP_ASSISTANT_FILE = &quot;.setup_assistant&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="configuration__files__widget_8cpp_source.html#l00099">99</a> of file <a class="el" href="configuration__files__widget_8cpp_source.html">configuration_files_widget.cpp</a>.</p>
 
 </div>
 </div>

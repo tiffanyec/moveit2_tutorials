@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/override.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="canonical" href="https://moveit.picknik.ai/galactic//rolling/doc/examples/mobile_base_arm/mobile_base_arm_tutorial.html" />
+    <link rel="canonical" href="https://moveit.picknik.ai/rolling//rolling/doc/examples/mobile_base_arm/mobile_base_arm_tutorial.html" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -144,14 +144,14 @@
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
 <p>Install the dependencies:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">ws_moveit</span><span class="o">/</span><span class="n">src</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">ws_moveit2</span><span class="o">/</span><span class="n">src</span>
 <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">PickNikRobotics</span><span class="o">/</span><span class="n">stretch_ros</span><span class="o">/</span><span class="n">ros2</span><span class="o">/</span><span class="n">stretch_ros</span><span class="o">.</span><span class="n">repos</span>
 <span class="n">vcs</span> <span class="kn">import</span> <span class="o">&lt;</span> <span class="n">stretch_ros</span><span class="o">.</span><span class="n">repos</span>
 <span class="n">rosdep</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="o">--</span><span class="n">from</span><span class="o">-</span><span class="n">paths</span> <span class="o">.</span> <span class="o">--</span><span class="n">ignore</span><span class="o">-</span><span class="n">src</span> <span class="o">--</span><span class="n">rosdistro</span> <span class="n">rolling</span> <span class="o">-</span><span class="n">y</span>
 </pre></div>
 </div>
 <p>Build the colcon workspace:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">ws_moveit</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">ws_moveit2</span>
 <span class="n">colcon</span> <span class="n">build</span> <span class="o">--</span><span class="n">event</span><span class="o">-</span><span class="n">handlers</span> <span class="n">desktop_notification</span><span class="o">-</span> <span class="n">status</span><span class="o">-</span> <span class="o">--</span><span class="n">cmake</span><span class="o">-</span><span class="n">args</span> <span class="o">-</span><span class="n">DCMAKE_BUILD_TYPE</span><span class="o">=</span><span class="n">Release</span>
 </pre></div>
 </div>

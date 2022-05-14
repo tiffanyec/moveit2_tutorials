@@ -114,8 +114,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8b68cd08729011046364e6208fb4739f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb66a20ee1b7c8b72b70660f04660aaa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__rviz__plugin_1_1TrajectoryVisualization.html#adb66a20ee1b7c8b72b70660f04660aaa">~TrajectoryVisualization</a> () override</td></tr>
 <tr class="separator:adb66a20ee1b7c8b72b70660f04660aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d63a1207757b7c5b541178830bf8ea7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__rviz__plugin_1_1TrajectoryVisualization.html#a4d63a1207757b7c5b541178830bf8ea7">update</a> (float wall_dt, float ros_dt)</td></tr>
-<tr class="separator:a4d63a1207757b7c5b541178830bf8ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6782e3408492c04f95ab9b8db2fbe5f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__rviz__plugin_1_1TrajectoryVisualization.html#ae6782e3408492c04f95ab9b8db2fbe5f">update</a> (float wall_dt, float sim_dt)</td></tr>
+<tr class="separator:ae6782e3408492c04f95ab9b8db2fbe5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95947c2f7b47953260eea2a8ef5ae99e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__rviz__plugin_1_1TrajectoryVisualization.html#a95947c2f7b47953260eea2a8ef5ae99e">reset</a> ()</td></tr>
 <tr class="separator:a95947c2f7b47953260eea2a8ef5ae99e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a576b9af1c11d3dc9aae1facf1b211a8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__rviz__plugin_1_1TrajectoryVisualization.html#a576b9af1c11d3dc9aae1facf1b211a8a">onInitialize</a> (const rclcpp::Node::SharedPtr &amp;node, Ogre::SceneNode *scene_node, rviz_common::DisplayContext *context)</td></tr>
@@ -202,6 +202,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:aee60bd002c57aed6ada2f497572e379f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5f3684df7d464fff4acdba4faef0c03"><td class="memItemLeft" align="right" valign="top">rviz_common::properties::BoolProperty *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__rviz__plugin_1_1TrajectoryVisualization.html#aa5f3684df7d464fff4acdba4faef0c03">loop_display_property_</a></td></tr>
 <tr class="separator:aa5f3684df7d464fff4acdba4faef0c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85b8c2ba1bac0f8f35a8c64f8080895e"><td class="memItemLeft" align="right" valign="top">rviz_common::properties::BoolProperty *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__rviz__plugin_1_1TrajectoryVisualization.html#a85b8c2ba1bac0f8f35a8c64f8080895e">use_sim_time_property_</a></td></tr>
+<tr class="separator:a85b8c2ba1bac0f8f35a8c64f8080895e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a594b0e851bb6f5e8f6c8227d3a327994"><td class="memItemLeft" align="right" valign="top">rviz_common::properties::BoolProperty *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__rviz__plugin_1_1TrajectoryVisualization.html#a594b0e851bb6f5e8f6c8227d3a327994">trail_display_property_</a></td></tr>
 <tr class="separator:a594b0e851bb6f5e8f6c8227d3a327994"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34ec34384d68f2363f2ef206b7647f7b"><td class="memItemLeft" align="right" valign="top">rviz_common::properties::BoolProperty *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__rviz__plugin_1_1TrajectoryVisualization.html#a34ec34384d68f2363f2ef206b7647f7b">interrupt_display_property_</a></td></tr>
@@ -280,7 +282,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00136">136</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00140">140</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -309,7 +311,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00628">628</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00639">639</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 
 </div>
 </div>
@@ -336,7 +338,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00228">228</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00232">232</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -365,7 +367,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00408">408</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00412">412</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 
 </div>
 </div>
@@ -395,14 +397,14 @@ Here is the caller graph for this function:</div>
 <p>get time to show each single robot state </p>
 <dl class="section return"><dt>Returns</dt><dd>Positive values indicate a fixed time per state Negative values indicate a realtime-factor </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00361">361</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00365">365</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classmoveit__rviz__plugin_1_1TrajectoryVisualization_ab4f527bbe232f3a7a11c499761fd205c_icgraph.png" border="0" usemap="#classmoveit__rviz__plugin_1_1TrajectoryVisualization_ab4f527bbe232f3a7a11c499761fd205c_icgraph" alt=""/></div>
 <map name="classmoveit__rviz__plugin_1_1TrajectoryVisualization_ab4f527bbe232f3a7a11c499761fd205c_icgraph" id="classmoveit__rviz__plugin_1_1TrajectoryVisualization_ab4f527bbe232f3a7a11c499761fd205c_icgraph">
 <area shape="rect" title="get time to show each single robot state" alt="" coords="232,5,411,61"/>
-<area shape="rect" href="classmoveit__rviz__plugin_1_1TrajectoryVisualization.html#a4d63a1207757b7c5b541178830bf8ea7" title=" " alt="" coords="5,5,184,61"/>
+<area shape="rect" href="classmoveit__rviz__plugin_1_1TrajectoryVisualization.html#ae6782e3408492c04f95ab9b8db2fbe5f" title=" " alt="" coords="5,5,184,61"/>
 </map>
 </div>
 
@@ -434,7 +436,7 @@ Here is the caller graph for this function:</div>
 
 <p>ROS callback for an incoming path message. </p>
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00527">527</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00538">538</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -481,7 +483,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00352">352</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00356">356</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -510,7 +512,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00341">341</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00345">345</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -538,7 +540,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00324">324</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00328">328</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 
 </div>
 </div>
@@ -574,7 +576,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00147">147</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00151">151</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -607,7 +609,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00192">192</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00196">196</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 
 </div>
 </div>
@@ -634,7 +636,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00216">216</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00220">220</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -671,7 +673,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00595">595</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00606">606</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 
 </div>
 </div>
@@ -691,7 +693,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00186">186</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00190">190</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 
 </div>
 </div>
@@ -729,7 +731,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00611">611</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00622">622</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 
 </div>
 </div>
@@ -757,12 +759,12 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00589">589</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00600">600</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a4d63a1207757b7c5b541178830bf8ea7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d63a1207757b7c5b541178830bf8ea7">&#9670;&nbsp;</a></span>update()</h2>
+<a id="ae6782e3408492c04f95ab9b8db2fbe5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6782e3408492c04f95ab9b8db2fbe5f">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -780,7 +782,7 @@ Here is the call graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>ros_dt</em>&#160;</td>
+          <td class="paramname"><em>sim_dt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -795,12 +797,12 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00413">413</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8cpp_source.html#l00417">417</a> of file <a class="el" href="trajectory__visualization_8cpp_source.html">trajectory_visualization.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classmoveit__rviz__plugin_1_1TrajectoryVisualization_a4d63a1207757b7c5b541178830bf8ea7_cgraph.png" border="0" usemap="#classmoveit__rviz__plugin_1_1TrajectoryVisualization_a4d63a1207757b7c5b541178830bf8ea7_cgraph" alt=""/></div>
-<map name="classmoveit__rviz__plugin_1_1TrajectoryVisualization_a4d63a1207757b7c5b541178830bf8ea7_cgraph" id="classmoveit__rviz__plugin_1_1TrajectoryVisualization_a4d63a1207757b7c5b541178830bf8ea7_cgraph">
+<div class="center"><img src="classmoveit__rviz__plugin_1_1TrajectoryVisualization_ae6782e3408492c04f95ab9b8db2fbe5f_cgraph.png" border="0" usemap="#classmoveit__rviz__plugin_1_1TrajectoryVisualization_ae6782e3408492c04f95ab9b8db2fbe5f_cgraph" alt=""/></div>
+<map name="classmoveit__rviz__plugin_1_1TrajectoryVisualization_ae6782e3408492c04f95ab9b8db2fbe5f_cgraph" id="classmoveit__rviz__plugin_1_1TrajectoryVisualization_ae6782e3408492c04f95ab9b8db2fbe5f_cgraph">
 <area shape="rect" title=" " alt="" coords="5,192,184,248"/>
 <area shape="rect" href="classmoveit__rviz__plugin_1_1TrajectoryPanel.html#a8a805819a366d116f82e389679d97e15" title=" " alt="" coords="244,5,439,61"/>
 <area shape="rect" href="classmoveit__rviz__plugin_1_1TrajectoryVisualization.html#ab4f527bbe232f3a7a11c499761fd205c" title="get time to show each single robot state" alt="" coords="252,85,431,141"/>
@@ -1098,7 +1100,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8h_source.html#l00178">178</a> of file <a class="el" href="trajectory__visualization_8h_source.html">trajectory_visualization.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8h_source.html#l00179">179</a> of file <a class="el" href="trajectory__visualization_8h_source.html">trajectory_visualization.h</a>.</p>
 
 </div>
 </div>
@@ -1122,7 +1124,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8h_source.html#l00176">176</a> of file <a class="el" href="trajectory__visualization_8h_source.html">trajectory_visualization.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8h_source.html#l00177">177</a> of file <a class="el" href="trajectory__visualization_8h_source.html">trajectory_visualization.h</a>.</p>
 
 </div>
 </div>
@@ -1194,7 +1196,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8h_source.html#l00177">177</a> of file <a class="el" href="trajectory__visualization_8h_source.html">trajectory_visualization.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8h_source.html#l00178">178</a> of file <a class="el" href="trajectory__visualization_8h_source.html">trajectory_visualization.h</a>.</p>
 
 </div>
 </div>
@@ -1338,7 +1340,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8h_source.html#l00175">175</a> of file <a class="el" href="trajectory__visualization_8h_source.html">trajectory_visualization.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8h_source.html#l00176">176</a> of file <a class="el" href="trajectory__visualization_8h_source.html">trajectory_visualization.h</a>.</p>
 
 </div>
 </div>
@@ -1362,7 +1364,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8h_source.html#l00179">179</a> of file <a class="el" href="trajectory__visualization_8h_source.html">trajectory_visualization.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8h_source.html#l00180">180</a> of file <a class="el" href="trajectory__visualization_8h_source.html">trajectory_visualization.h</a>.</p>
 
 </div>
 </div>
@@ -1531,6 +1533,30 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="trajectory__visualization_8h_source.html#l00154">154</a> of file <a class="el" href="trajectory__visualization_8h_source.html">trajectory_visualization.h</a>.</p>
+
+</div>
+</div>
+<a id="a85b8c2ba1bac0f8f35a8c64f8080895e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85b8c2ba1bac0f8f35a8c64f8080895e">&#9670;&nbsp;</a></span>use_sim_time_property_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">rviz_common::properties::BoolProperty* moveit_rviz_plugin::TrajectoryVisualization::use_sim_time_property_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="trajectory__visualization_8h_source.html#l00175">175</a> of file <a class="el" href="trajectory__visualization_8h_source.html">trajectory_visualization.h</a>.</p>
 
 </div>
 </div>

@@ -111,62 +111,70 @@ $(function() {
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">// Qt</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">class </span>QLabel;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">class </span>QTextEdit;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// SA</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#ifndef Q_MOC_RUN</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &lt;moveit/setup_assistant/tools/moveit_config_data.h&gt;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="setup__screen__widget_8h.html">setup_screen_widget.h</a>&quot;</span>  <span class="comment">// a base class for screens in the setup assistant</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacemoveit__setup__assistant.html">moveit_setup_assistant</a></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">class </span>QPushButton;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">// SA</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#ifndef Q_MOC_RUN</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &lt;moveit/setup_assistant/tools/moveit_config_data.h&gt;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="setup__screen__widget_8h.html">setup_screen_widget.h</a>&quot;</span>  <span class="comment">// a base class for screens in the setup assistant</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacemoveit__setup__assistant.html">moveit_setup_assistant</a></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">// Class for showing changes needed to help user bring his robot into gazebo simulation</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">// Class for showing changes needed to help user bring his robot into gazebo simulation</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classmoveit__setup__assistant_1_1SimulationWidget.html">   56</a></span>&#160;<span class="keyword">class </span><a class="code" href="classmoveit__setup__assistant_1_1SimulationWidget.html">SimulationWidget</a> : <span class="keyword">public</span> <a class="code" href="classSetupScreenWidget.html">SetupScreenWidget</a></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  Q_OBJECT</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">// Public Functions</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="classmoveit__setup__assistant_1_1SimulationWidget.html#ac5fb6538c06a072b4b9c39fd2a5916fe">SimulationWidget</a>(QWidget* parent, <span class="keyword">const</span> MoveItConfigDataPtr&amp; config_data);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="comment">// Slot Event Functions</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="comment">// Called the copy to clipboard button is clicked</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keywordtype">void</span> copyURDF(<span class="keyword">const</span> QString&amp; link);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordtype">void</span> generateURDFClick();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classmoveit__setup__assistant_1_1SimulationWidget.html">   57</a></span>&#160;<span class="keyword">class </span><a class="code" href="classmoveit__setup__assistant_1_1SimulationWidget.html">SimulationWidget</a> : <span class="keyword">public</span> <a class="code" href="classSetupScreenWidget.html">SetupScreenWidget</a></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  Q_OBJECT</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="comment">// Public Functions</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <a class="code" href="classmoveit__setup__assistant_1_1SimulationWidget.html#ac5fb6538c06a072b4b9c39fd2a5916fe">SimulationWidget</a>(QWidget* parent, <span class="keyword">const</span> MoveItConfigDataPtr&amp; config_data);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classmoveit__setup__assistant_1_1SimulationWidget.html#a85163401026cf3108dde7e28b3b089f3">focusGiven</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classmoveit__setup__assistant_1_1SimulationWidget.html#a1ac9e25421ea479df3fed5390b1b5c9d">focusLost</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  std::string generateGazeboCompatibleURDF() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="comment">// Slot Event Functions</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="comment">// ******************************************************************************************</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="comment">// Qt Components</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  QTextEdit* simulation_text_;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  QLabel* no_changes_label_;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  QLabel* copy_urdf_;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  moveit_setup_assistant::MoveItConfigDataPtr config_data_;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}  <span class="comment">// namespace moveit_setup_assistant</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordtype">void</span> overwriteURDF();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">void</span> openURDF();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keywordtype">void</span> copyURDF();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="comment">// Qt Components</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="comment">// ******************************************************************************************</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  QTextEdit* simulation_text_;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  QLabel* no_changes_label_;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  QPushButton* btn_overwrite_;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  QPushButton* btn_open_;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  QLabel* copy_urdf_;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  moveit_setup_assistant::MoveItConfigDataPtr config_data_;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;};</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}  <span class="comment">// namespace moveit_setup_assistant</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassmoveit__setup__assistant_1_1SimulationWidget_html"><div class="ttname"><a href="classmoveit__setup__assistant_1_1SimulationWidget.html">moveit_setup_assistant::SimulationWidget</a></div><div class="ttdef"><b>Definition:</b> <a href="simulation__widget_8h_source.html#l00056">simulation_widget.h:56</a></div></div>
-<div class="ttc" id="aclassmoveit__setup__assistant_1_1SimulationWidget_html_ac5fb6538c06a072b4b9c39fd2a5916fe"><div class="ttname"><a href="classmoveit__setup__assistant_1_1SimulationWidget.html#ac5fb6538c06a072b4b9c39fd2a5916fe">moveit_setup_assistant::SimulationWidget::SimulationWidget</a></div><div class="ttdeci">SimulationWidget(QWidget *parent, const MoveItConfigDataPtr &amp;config_data)</div><div class="ttdef"><b>Definition:</b> <a href="simulation__widget_8cpp_source.html#l00089">simulation_widget.cpp:89</a></div></div>
+<div class="ttc" id="aclassmoveit__setup__assistant_1_1SimulationWidget_html_a85163401026cf3108dde7e28b3b089f3"><div class="ttname"><a href="classmoveit__setup__assistant_1_1SimulationWidget.html#a85163401026cf3108dde7e28b3b089f3">moveit_setup_assistant::SimulationWidget::focusGiven</a></div><div class="ttdeci">void focusGiven() override</div><div class="ttdoc">function called when widget is activated, allows to update/initialize GUI</div><div class="ttdef"><b>Definition:</b> <a href="simulation__widget_8cpp_source.html#l00160">simulation_widget.cpp:160</a></div></div>
+<div class="ttc" id="aclassmoveit__setup__assistant_1_1SimulationWidget_html"><div class="ttname"><a href="classmoveit__setup__assistant_1_1SimulationWidget.html">moveit_setup_assistant::SimulationWidget</a></div><div class="ttdef"><b>Definition:</b> <a href="simulation__widget_8h_source.html#l00057">simulation_widget.h:57</a></div></div>
+<div class="ttc" id="aclassmoveit__setup__assistant_1_1SimulationWidget_html_ac5fb6538c06a072b4b9c39fd2a5916fe"><div class="ttname"><a href="classmoveit__setup__assistant_1_1SimulationWidget.html#ac5fb6538c06a072b4b9c39fd2a5916fe">moveit_setup_assistant::SimulationWidget::SimulationWidget</a></div><div class="ttdeci">SimulationWidget(QWidget *parent, const MoveItConfigDataPtr &amp;config_data)</div><div class="ttdef"><b>Definition:</b> <a href="simulation__widget_8cpp_source.html#l00092">simulation_widget.cpp:92</a></div></div>
 <div class="ttc" id="aclassSetupScreenWidget_html"><div class="ttname"><a href="classSetupScreenWidget.html">SetupScreenWidget</a></div><div class="ttdef"><b>Definition:</b> <a href="setup__screen__widget_8h_source.html#l00044">setup_screen_widget.h:44</a></div></div>
 <div class="ttc" id="anamespacemoveit__setup__assistant_html"><div class="ttname"><a href="namespacemoveit__setup__assistant.html">moveit_setup_assistant</a></div><div class="ttdef"><b>Definition:</b> <a href="compute__default__collisions_8hpp_source.html#l00046">compute_default_collisions.hpp:46</a></div></div>
 <div class="ttc" id="asetup__screen__widget_8h_html"><div class="ttname"><a href="setup__screen__widget_8h.html">setup_screen_widget.h</a></div></div>
+<div class="ttc" id="aclassmoveit__setup__assistant_1_1SimulationWidget_html_a1ac9e25421ea479df3fed5390b1b5c9d"><div class="ttname"><a href="classmoveit__setup__assistant_1_1SimulationWidget.html#a1ac9e25421ea479df3fed5390b1b5c9d">moveit_setup_assistant::SimulationWidget::focusLost</a></div><div class="ttdeci">bool focusLost() override</div><div class="ttdoc">function called when widget lost focus, allows to accept/reject changes and to reject switching (retu...</div><div class="ttdef"><b>Definition:</b> <a href="simulation__widget_8cpp_source.html#l00197">simulation_widget.cpp:197</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
