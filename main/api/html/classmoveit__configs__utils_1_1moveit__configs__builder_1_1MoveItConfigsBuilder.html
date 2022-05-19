@@ -109,8 +109,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af05b36a08241cdc0ec15b2d0b7472ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5202c84c6a45c60ba6da1087ea8cfd44"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#a5202c84c6a45c60ba6da1087ea8cfd44">trajectory_execution</a> (self, Optional[str] file_path=None, bool moveit_manage_controllers=True)</td></tr>
 <tr class="separator:a5202c84c6a45c60ba6da1087ea8cfd44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa49450f8dde9f9a8aff118149eca0d85"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#aa49450f8dde9f9a8aff118149eca0d85">planning_scene_monitor</a> (self, bool publish_planning_scene=True, bool publish_geometry_updates=True, bool publish_state_updates=True, bool publish_transforms_updates=True)</td></tr>
-<tr class="separator:aa49450f8dde9f9a8aff118149eca0d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44c20c8cf9a1a9821113de4622ad9615"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#a44c20c8cf9a1a9821113de4622ad9615">planning_scene_monitor</a> (self, bool publish_planning_scene=True, bool publish_geometry_updates=True, bool publish_state_updates=True, bool publish_transforms_updates=True, bool publish_robot_description=False, bool publish_robot_description_semantic=False)</td></tr>
+<tr class="separator:a44c20c8cf9a1a9821113de4622ad9615"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3e25fbd54972847d153357943591d02"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#ab3e25fbd54972847d153357943591d02">planning_pipelines</a> (self, str default_planning_pipeline=None, List[str] pipelines=None, bool load_all=True)</td></tr>
 <tr class="separator:ab3e25fbd54972847d153357943591d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9f15160ef055aa993694012ad1e6263"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#ac9f15160ef055aa993694012ad1e6263">cartesian_limits</a> (self, Optional[str] file_path=None)</td></tr>
@@ -207,7 +207,7 @@ Here is the call graph for this function:</div>
 :param file_path: Absolute or relative path to the cartesian limits file (w.r.t. robot_name_moveit_config).
 :return: Instance of MoveItConfigsBuilder with cartesian_limits loaded.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00492">492</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00501">501</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -261,7 +261,7 @@ Here is the caller graph for this function:</div>
 :param file_path: Absolute or relative path to the joint limits yaml file (w.r.t. robot_name_moveit_config).
 :return: Instance of MoveItConfigsBuilder with robot_description_planning loaded.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00337">337</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00342">342</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -315,7 +315,7 @@ Here is the caller graph for this function:</div>
 :param file_path: Absolute or relative path to the MoveItCpp yaml file (w.r.t. robot_name_moveit_config).
 :return: Instance of MoveItConfigsBuilder with moveit_cpp loaded.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00352">352</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00357">357</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -375,7 +375,7 @@ Here is the call graph for this function:</div>
          If false, only loads the pipelines defined in config package.
 :return: Instance of MoveItConfigsBuilder with planning_pipelines loaded.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00433">433</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00442">442</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -400,8 +400,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aa49450f8dde9f9a8aff118149eca0d85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa49450f8dde9f9a8aff118149eca0d85">&#9670;&nbsp;</a></span>planning_scene_monitor()</h2>
+<a id="a44c20c8cf9a1a9821113de4622ad9615"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44c20c8cf9a1a9821113de4622ad9615">&#9670;&nbsp;</a></span>planning_scene_monitor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -434,7 +434,19 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool &#160;</td>
-          <td class="paramname"><em>publish_transforms_updates</em> = <code>True</code>&#160;</td>
+          <td class="paramname"><em>publish_transforms_updates</em> = <code>True</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &#160;</td>
+          <td class="paramname"><em>publish_robot_description</em> = <code>False</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &#160;</td>
+          <td class="paramname"><em>publish_robot_description_semantic</em> = <code>False</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -444,12 +456,12 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00415">415</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00420">420</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder_aa49450f8dde9f9a8aff118149eca0d85_icgraph.png" border="0" usemap="#classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder_aa49450f8dde9f9a8aff118149eca0d85_icgraph" alt=""/></div>
-<map name="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder_aa49450f8dde9f9a8aff118149eca0d85_icgraph" id="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder_aa49450f8dde9f9a8aff118149eca0d85_icgraph">
+<div class="center"><img src="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder_a44c20c8cf9a1a9821113de4622ad9615_icgraph.png" border="0" usemap="#classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder_a44c20c8cf9a1a9821113de4622ad9615_icgraph" alt=""/></div>
+<map name="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder_a44c20c8cf9a1a9821113de4622ad9615_icgraph" id="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder_a44c20c8cf9a1a9821113de4622ad9615_icgraph">
 <area shape="rect" title=" " alt="" coords="703,5,1031,61"/>
 <area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#a21d33c88c183bd0ecd3130f03ce36cdb" title=" " alt="" coords="369,5,655,61"/>
 <area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#a8e0528569b3c84261a1292c0b979a634" title=" " alt="" coords="5,13,321,54"/>
@@ -495,7 +507,7 @@ Here is the caller graph for this function:</div>
 :param mappings: mappings to be passed when loading the xacro file.
 :return: Instance of MoveItConfigsBuilder with robot_description loaded.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00286">286</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00291">291</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -539,7 +551,7 @@ Here is the caller graph for this function:</div>
 :param file_path: Absolute or relative path to the kinematics yaml file (w.r.t. robot_name_moveit_config).
 :return: Instance of MoveItConfigsBuilder with robot_description_kinematics loaded.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00322">322</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00327">327</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -600,7 +612,7 @@ Here is the caller graph for this function:</div>
 :param mappings: mappings to be passed when loading the xacro file.
 :return: Instance of MoveItConfigsBuilder with robot_description_semantic loaded.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00304">304</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00309">309</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -645,7 +657,7 @@ Here is the caller graph for this function:</div>
                        only the ones from ParameterBuilder
 :return: Dictionary with all parameters loaded.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00533">533</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00542">542</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -656,7 +668,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#ac9f15160ef055aa993694012ad1e6263" title=" " alt="" coords="703,5,1079,47"/>
 <area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#a69de9e3d7419139d7dbb5baf06c899d9" title=" " alt="" coords="718,71,1063,112"/>
 <area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#ab3e25fbd54972847d153357943591d02" title=" " alt="" coords="727,217,1055,273"/>
-<area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#aa49450f8dde9f9a8aff118149eca0d85" title=" " alt="" coords="727,377,1055,433"/>
+<area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#a44c20c8cf9a1a9821113de4622ad9615" title=" " alt="" coords="727,377,1055,433"/>
 <area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#a5a77c368a4c9a9f5145c60666960dc16" title=" " alt="" coords="737,457,1044,513"/>
 <area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#ad3996007e18246ca21b215a7b465d6ca" title=" " alt="" coords="737,137,1044,193"/>
 <area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#a7d8dd92f1c004146aba50aa36b926699" title=" " alt="" coords="737,537,1044,593"/>
@@ -688,7 +700,7 @@ Here is the call graph for this function:</div>
 
 :return: An MoveItConfigs instance with all parameters loaded.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00507">507</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00516">516</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -698,7 +710,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#ac9f15160ef055aa993694012ad1e6263" title=" " alt="" coords="339,5,715,47"/>
 <area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#a69de9e3d7419139d7dbb5baf06c899d9" title=" " alt="" coords="354,71,699,112"/>
 <area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#ab3e25fbd54972847d153357943591d02" title=" " alt="" coords="363,217,691,273"/>
-<area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#aa49450f8dde9f9a8aff118149eca0d85" title=" " alt="" coords="363,377,691,433"/>
+<area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#a44c20c8cf9a1a9821113de4622ad9615" title=" " alt="" coords="363,377,691,433"/>
 <area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#a5a77c368a4c9a9f5145c60666960dc16" title=" " alt="" coords="373,457,680,513"/>
 <area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#ad3996007e18246ca21b215a7b465d6ca" title=" " alt="" coords="373,137,680,193"/>
 <area shape="rect" href="classmoveit__configs__utils_1_1moveit__configs__builder_1_1MoveItConfigsBuilder.html#a7d8dd92f1c004146aba50aa36b926699" title=" " alt="" coords="373,537,680,593"/>
@@ -757,7 +769,7 @@ Here is the caller graph for this function:</div>
 :param moveit_manage_controllers: Whether trajectory execution manager is allowed to switch controllers' states.
 :return: Instance of MoveItConfigsBuilder with trajectory_execution loaded.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00364">364</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="moveit__configs__builder_8py_source.html#l00369">369</a> of file <a class="el" href="moveit__configs__builder_8py_source.html">moveit_configs_builder.py</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
