@@ -74,6 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#visualizing-with-rviz">Visualizing with RViz</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#debugging-from-terminal">Debugging from terminal</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#various-hints">Various hints</a></li>
 </ul>
 </li>
@@ -930,9 +931,25 @@ ament_package()
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ros2</span> <span class="n">launch</span> <span class="n">moveit2_tutorials</span> <span class="n">pick_place_demo</span><span class="o">.</span><span class="n">launch</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
+<div class="section" id="debugging-from-terminal">
+<h3>Debugging from terminal<a class="headerlink" href="#debugging-from-terminal" title="Permalink to this headline"></a></h3>
+<p>When running MTC, it prints a diagram like this to terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>demo_node-1<span class="o">]</span>     <span class="m">1</span>  - ←   <span class="m">1</span> →   -  <span class="m">0</span> / initial_state
+<span class="o">[</span>demo_node-1<span class="o">]</span>     -  <span class="m">0</span> →   <span class="m">0</span> →   -  <span class="m">0</span> / move_to_home
+</pre></div>
+</div>
+<p>This example^ shows two stages. The first stage (“initial_state”) is a <code class="docutils literal notranslate"><span class="pre">CurrentState</span></code> type of stage, which initializes a PlanningScene and captures any collision objects that are present at that moment. A pointer to this stage can be used to retrieve the state of the robot. Since CurrentState inherits from  <code class="docutils literal notranslate"><span class="pre">Generator</span></code>, it propagates solutions both forward and backward. This is denoted by the arrows in both directions. The first <code class="docutils literal notranslate"><span class="pre">1</span></code> indicates that one solution was successfully propagated backwards to the previous stage. The second <code class="docutils literal notranslate"><span class="pre">1</span></code>, between the arrows, indicates that one solution was generated. The <code class="docutils literal notranslate"><span class="pre">0</span></code> indicates that a solution was not propagated forward successfully to the next stage, because the next stage failed.</p>
+<p>The second stage (“move_to_home”) is a <code class="docutils literal notranslate"><span class="pre">MoveTo</span></code> type of stage. It inherits its propagation direction from the previous stage, so both arrows point forward. The <code class="docutils literal notranslate"><span class="pre">0</span></code>’s indicate that this stage failed completely. From left to right, the <code class="docutils literal notranslate"><span class="pre">0</span></code>’s mean:</p>
+<ul class="simple">
+<li><p>The stage did not receive a solution from the previous stage</p></li>
+<li><p>The stage did not generate a solution</p></li>
+<li><p>The stage did not propagate a solution forward to the next stage</p></li>
+</ul>
+<p>In this case, we could tell that “move_to_home” was the root cause of the failure. The problem was a home state that was in collision. Defining a new, collision-free home position fixed the issue.</p>
+</div>
 <div class="section" id="various-hints">
 <h3>Various hints<a class="headerlink" href="#various-hints" title="Permalink to this headline"></a></h3>
-<p>Information about individual stages can be retrieved like this. For example, here we retrieve a unique ID for a stage:</p>
+<p>Information about individual stages can be retrieved from the task. For example, here we retrieve the unique ID for a stage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">const</span> <span class="n">unique_stage_id</span> <span class="o">=</span> <span class="n">task_</span><span class="o">.</span><span class="n">stages</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">findChild</span><span class="p">(</span><span class="n">stage_name</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">introspectionId</span><span class="p">();</span>
 </pre></div>
 </div>
