@@ -113,6 +113,20 @@
              
 
 
+<div class="admonition note">
+  <p class="first admonition-title">Documentation Version</p>
+  <p class="last">
+      
+      You're reading the documentation for an older, but still supported, version of MoveIt 2.
+      For information on the recommended stable version, please have a look at
+      <a href="../../../../humble/doc/examples/planning_adapters/planning_adapters_tutorial.html">Humble</a>.
+
+      
+  </p>
+</div>
+
+
+
   <div class="section" id="planning-adapter-tutorials">
 <h1>Planning Adapter Tutorials<a class="headerlink" href="#planning-adapter-tutorials" title="Permalink to this headline"></a></h1>
 <p>Planning Request Adapters is a concept in MoveIt which can be used to modify the trajectory (pre-processing and/or post-processing) for a motion planner. Some examples of existing planning adapters in MoveIt include AddTimeParameterization, FixWorkspaceBounds, FixStartBounds, FixStartStateCollision, FixStartStatePathConstraints, CHOMPOptimizerAdapter, etc. ! Using the concepts of Planning Adapters, multiple motion planning algorithms can be used in a pipeline to produce robust motion plans. For example, a sample pipeline of motion plans might include an initial plan produced by OMPL which can then be optimized by CHOMP to produce a motion plan which would likely be better than a path produced by OMPL or CHOMP alone. Similarly, using the concept of Planning Adapters, other motion planners can be mixed and matched depending on the environment the robot is operating in. This section provides a step by step tutorial on using a mix and match of different motion planners and also provides insights on when to use which particular motion planners.</p>
@@ -367,7 +381,8 @@ To achieve this, follow the steps:</p>
     </dl>
     <dl>
       <dt>MoveIt 2 - Stable</dt>
-        <dd><a href="planning_adapters_tutorial.html">Galactic (recommended)</a></dd>
+        <dd><a href="../../../../humble/doc/examples/planning_adapters/planning_adapters_tutorial.html">Humble (recommended)</a></dd>
+        <dd><a href="planning_adapters_tutorial.html">Galactic</a></dd>
         <dd><a href="../../../../foxy/index.html">Foxy</a></dd>
    </dl>
     <dl>
