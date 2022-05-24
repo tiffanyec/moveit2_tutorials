@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/override.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="canonical" href="https://moveit.picknik.ai/galactic//humble/doc/tutorials/visualizing_in_rviz/visualizing_in_rviz.html" />
+    <link rel="canonical" href="https://moveit.picknik.ai/humble//humble/doc/tutorials/visualizing_in_rviz/visualizing_in_rviz.html" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -33,7 +33,8 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> MoveIt Documentation: Humble
+            <a href="../../../index.html">
+            <img src="../../../_static/humble-small.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -271,7 +272,7 @@ Update your code for planning and executing to include these new features:</p>
 The reason for this is that messages sent to RViz are batched up and sent when you call <code class="docutils literal notranslate"><span class="pre">trigger</span></code> to reduce bandwidth of the marker topics.</p>
 <p>Lastly, build your project again to make sure all the code additions are correct.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/ws_moveit2
-<span class="nb">source</span> /opt/ros/rolling/setup.bash
+<span class="nb">source</span> /opt/ros/humble/setup.bash
 colcon build --mixin debug
 </pre></div>
 </div>
