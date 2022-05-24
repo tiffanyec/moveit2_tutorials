@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/override.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="canonical" href="https://moveit.picknik.ai/rolling//rolling/doc/tutorials/pick_and_place_with_moveit_task_constructor/pick_and_place_with_moveit_task_constructor.html" />
+    <link rel="canonical" href="https://moveit.picknik.ai/foxy//rolling/doc/tutorials/pick_and_place_with_moveit_task_constructor/pick_and_place_with_moveit_task_constructor.html" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -122,7 +122,7 @@
       
       You're reading the documentation for the non-stable development version of MoveIt 2.
       For the stable, released version, please have a look at
-      <a href="../../../../humble/doc/tutorials/pick_and_place_with_moveit_task_constructor/pick_and_place_with_moveit_task_constructor.html">Humble</a>.
+      <a href="../../../../galactic/index.html">Galactic</a>.
       
   </p>
 </div>
@@ -552,7 +552,7 @@ ament_package()
 <span class="n">cartesian_planner</span><span class="o">-&gt;</span><span class="n">setStepSize</span><span class="p">(</span><span class="mf">.01</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Now that we added in the planners, we can add a stage that will move the robot. The following lines use a <code class="docutils literal notranslate"><span class="pre">MoveTo</span></code> stage (a propagator stage). Since opening the hand is a relatively simple movement, we can use the joint interpolation planner. This stage plans a move to the “open hand” pose, which is a named pose defined in the <a class="reference external" href="https://github.com/ros-planning/moveit_resources/tree/ros2/panda_moveit_config/config/panda.srdf">SRDF</a> for the panda robot. We return the task and finish with the createTask() function.</p>
+<p>Now that we added in the planners, we can add a stage that will move the robot. The following lines use a <code class="docutils literal notranslate"><span class="pre">MoveTo</span></code> stage (a propagator stage). Since opening the hand is a relatively simple movement, we can use the joint interpolation planner. This stage plans a move to the “open hand” pose, which is a named pose defined in the <a href="#id1"><span class="problematic" id="id2">:moveit_resources_codedir:`SRDF&lt;panda_moveit_config/config/panda.srdf&gt;`</span></a> for the panda robot. We return the task and finish with the createTask() function.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">stage_open_hand</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">mtc</span><span class="o">::</span><span class="n">stages</span><span class="o">::</span><span class="n">MoveTo</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;open hand&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">interpolation_planner</span><span class="p">);</span><span class="w"></span>
 <span class="w">  </span><span class="n">stage_open_hand</span><span class="o">-&gt;</span><span class="n">setGroup</span><span class="p">(</span><span class="n">hand_group_name</span><span class="p">);</span><span class="w"></span>
@@ -595,7 +595,7 @@ ament_package()
 <h2>Running the Demo<a class="headerlink" href="#running-the-demo" title="Permalink to this headline"></a></h2>
 <div class="section" id="launch-files">
 <h3>Launch files<a class="headerlink" href="#launch-files" title="Permalink to this headline"></a></h3>
-<p>We will need a launch file to launch <code class="docutils literal notranslate"><span class="pre">move_group</span></code>, <code class="docutils literal notranslate"><span class="pre">ros2_control</span></code>, <code class="docutils literal notranslate"><span class="pre">static_tf</span></code>, <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code>, and <code class="docutils literal notranslate"><span class="pre">rviz</span></code>. <a class="reference external" href="https://github.com/ros-planning/moveit2_tutorials/blob/main/doc/tutorials/pick_and_place_with_moveit_task_constructor/launch/pick_place_demo.launch.py">Here</a> is the launch file we use in the tutorials package. Put this in the launch directory of your package.</p>
+<p>We will need a launch file to launch <code class="docutils literal notranslate"><span class="pre">move_group</span></code>, <code class="docutils literal notranslate"><span class="pre">ros2_control</span></code>, <code class="docutils literal notranslate"><span class="pre">static_tf</span></code>, <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code>, and <code class="docutils literal notranslate"><span class="pre">rviz</span></code>. <a class="reference external" href="https://github.com/ros-planning/moveit2_tutorials/blob/foxy/doc/tutorials/pick_and_place_with_moveit_task_constructor/launch/pick_place_demo.launch.py">Here</a> is the launch file we use in the tutorials package. Put this in the launch directory of your package.</p>
 <p>To run the MoveIt Task Constructor node, we need a second launch file to start the <code class="docutils literal notranslate"><span class="pre">mtc_tutorial</span></code> executable with the proper parameters. Either load your URDF, SRDF, and OMPL parameters, or use MoveIt Configs Utils to do so. Your launch file should look something like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">launch</span> <span class="kn">import</span> <span class="n">LaunchDescription</span>
 <span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">Node</span>
@@ -998,8 +998,7 @@ ament_package()
     </dl>
     <dl>
       <dt>MoveIt 2 - Stable</dt>
-        <dd><a href="../../../../humble/doc/tutorials/pick_and_place_with_moveit_task_constructor/pick_and_place_with_moveit_task_constructor.html">Humble (recommended)</a></dd>
-        <dd><a href="../../../../galactic/index.html">Galactic</a></dd>
+        <dd><a href="../../../../galactic/index.html">Galactic (recommended)</a></dd>
         <dd><a href="../../../../foxy/index.html">Foxy</a></dd>
    </dl>
     <dl>

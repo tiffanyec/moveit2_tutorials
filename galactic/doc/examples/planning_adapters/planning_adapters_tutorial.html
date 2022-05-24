@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/override.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="canonical" href="https://moveit.picknik.ai/rolling//galactic/doc/examples/planning_adapters/planning_adapters_tutorial.html" />
+    <link rel="canonical" href="https://moveit.picknik.ai/foxy//galactic/doc/examples/planning_adapters/planning_adapters_tutorial.html" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -113,20 +113,6 @@
              
 
 
-<div class="admonition note">
-  <p class="first admonition-title">Documentation Version</p>
-  <p class="last">
-      
-      You're reading the documentation for an older, but still supported, version of MoveIt 2.
-      For information on the recommended stable version, please have a look at
-      <a href="../../../../humble/doc/examples/planning_adapters/planning_adapters_tutorial.html">Humble</a>.
-
-      
-  </p>
-</div>
-
-
-
   <div class="section" id="planning-adapter-tutorials">
 <h1>Planning Adapter Tutorials<a class="headerlink" href="#planning-adapter-tutorials" title="Permalink to this headline"></a></h1>
 <p>Planning Request Adapters is a concept in MoveIt which can be used to modify the trajectory (pre-processing and/or post-processing) for a motion planner. Some examples of existing planning adapters in MoveIt include AddTimeParameterization, FixWorkspaceBounds, FixStartBounds, FixStartStateCollision, FixStartStatePathConstraints, CHOMPOptimizerAdapter, etc. ! Using the concepts of Planning Adapters, multiple motion planning algorithms can be used in a pipeline to produce robust motion plans. For example, a sample pipeline of motion plans might include an initial plan produced by OMPL which can then be optimized by CHOMP to produce a motion plan which would likely be better than a path produced by OMPL or CHOMP alone. Similarly, using the concept of Planning Adapters, other motion planners can be mixed and matched depending on the environment the robot is operating in. This section provides a step by step tutorial on using a mix and match of different motion planners and also provides insights on when to use which particular motion planners.</p>
@@ -176,7 +162,7 @@ To achieve this, follow the steps:</p>
 </pre></div>
 </div>
 </li>
-<li><p>The values of the <code class="docutils literal notranslate"><span class="pre">planning_adapters</span></code> is the order in which the mentioned adapters are called / invoked. Order here matters. Inside the CHOMP adapter, a <a class="reference external" href="https://github.com/ros-planning/moveit2/blob/main/moveit_planners/chomp/chomp_optimizer_adapter/src/chomp_optimizer_adapter.cpp#L169">call</a> to OMPL is made before invoking the CHOMP optimization solver, so CHOMP takes the initial path computed by OMPL as the starting point to further optimize it.</p></li>
+<li><p>The values of the <code class="docutils literal notranslate"><span class="pre">planning_adapters</span></code> is the order in which the mentioned adapters are called / invoked. Order here matters. Inside the CHOMP adapter, a <a class="reference external" href="https://github.com/ros-planning/moveit2/blob/foxy/moveit_planners/chomp/chomp_optimizer_adapter/src/chomp_optimizer_adapter.cpp#L169">call</a> to OMPL is made before invoking the CHOMP optimization solver, so CHOMP takes the initial path computed by OMPL as the starting point to further optimize it.</p></li>
 <li><p>Find the line where <code class="docutils literal notranslate"><span class="pre">&lt;rosparam</span> <span class="pre">command=&quot;load&quot;</span> <span class="pre">file=&quot;$(find</span> <span class="pre">panda_moveit_config)/config/ompl_planning.yaml&quot;/&gt;</span></code> is mentioned and after this line, add the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">rosparam</span> <span class="n">command</span><span class="o">=</span><span class="s2">&quot;load&quot;</span> <span class="n">file</span><span class="o">=</span><span class="s2">&quot;$(find panda_moveit_config)/config/chomp_planning.yaml&quot;</span><span class="o">/&gt;</span>
 </pre></div>
@@ -381,8 +367,7 @@ To achieve this, follow the steps:</p>
     </dl>
     <dl>
       <dt>MoveIt 2 - Stable</dt>
-        <dd><a href="../../../../humble/doc/examples/planning_adapters/planning_adapters_tutorial.html">Humble (recommended)</a></dd>
-        <dd><a href="planning_adapters_tutorial.html">Galactic</a></dd>
+        <dd><a href="planning_adapters_tutorial.html">Galactic (recommended)</a></dd>
         <dd><a href="../../../../foxy/index.html">Foxy</a></dd>
    </dl>
     <dl>
