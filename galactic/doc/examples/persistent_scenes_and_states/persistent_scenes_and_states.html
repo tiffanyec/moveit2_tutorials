@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/override.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="canonical" href="https://moveit.picknik.ai/foxy//galactic/doc/examples/persistent_scenes_and_states/persistent_scenes_and_states.html" />
+    <link rel="canonical" href="https://moveit.picknik.ai/galactic//galactic/doc/examples/persistent_scenes_and_states/persistent_scenes_and_states.html" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -166,13 +166,7 @@ If the database file does not exist yet, an empty database will be created.</p>
     <span class="n">executable</span><span class="o">=</span><span class="s2">&quot;move_group&quot;</span><span class="p">,</span>
     <span class="n">output</span><span class="o">=</span><span class="s2">&quot;screen&quot;</span><span class="p">,</span>
     <span class="n">parameters</span><span class="o">=</span><span class="p">[</span>
-        <span class="n">robot_description</span><span class="p">,</span>
-        <span class="n">robot_description_semantic</span><span class="p">,</span>
-        <span class="n">kinematics_yaml</span><span class="p">,</span>
-        <span class="n">ompl_planning_pipeline_config</span><span class="p">,</span>
-        <span class="n">trajectory_execution</span><span class="p">,</span>
-        <span class="n">moveit_controllers</span><span class="p">,</span>
-        <span class="n">planning_scene_monitor_parameters</span><span class="p">,</span>
+        <span class="n">moveit_config</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span>
         <span class="c1"># here</span>
         <span class="n">warehouse_ros_config</span><span class="p">,</span>
     <span class="p">],</span>
@@ -189,10 +183,11 @@ If the database file does not exist yet, an empty database will be created.</p>
     <span class="n">output</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
     <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;-d&quot;</span><span class="p">,</span> <span class="n">rviz_config_file</span><span class="p">],</span>
     <span class="n">parameters</span><span class="o">=</span><span class="p">[</span>
-        <span class="n">robot_description</span><span class="p">,</span>
-        <span class="n">robot_description_semantic</span><span class="p">,</span>
-        <span class="n">ompl_planning_pipeline_config</span><span class="p">,</span>
-        <span class="n">kinematics_yaml</span><span class="p">,</span>
+        <span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description</span><span class="p">,</span>
+        <span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description_semantic</span><span class="p">,</span>
+        <span class="n">moveit_config</span><span class="o">.</span><span class="n">robot_description_kinematics</span><span class="p">,</span>
+        <span class="n">moveit_config</span><span class="o">.</span><span class="n">planning_pipelines</span><span class="p">,</span>
+        <span class="n">moveit_config</span><span class="o">.</span><span class="n">joint_limits</span><span class="p">,</span>
         <span class="c1"># here</span>
         <span class="n">warehouse_ros_config</span><span class="p">,</span>
     <span class="p">],</span>

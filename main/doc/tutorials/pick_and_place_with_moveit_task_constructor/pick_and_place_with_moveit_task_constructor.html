@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/override.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="canonical" href="https://moveit.picknik.ai/foxy//rolling/doc/tutorials/pick_and_place_with_moveit_task_constructor/pick_and_place_with_moveit_task_constructor.html" />
+    <link rel="canonical" href="https://moveit.picknik.ai/galactic//rolling/doc/tutorials/pick_and_place_with_moveit_task_constructor/pick_and_place_with_moveit_task_constructor.html" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -595,7 +595,7 @@ ament_package()
 <h2>Running the Demo<a class="headerlink" href="#running-the-demo" title="Permalink to this headline"></a></h2>
 <div class="section" id="launch-files">
 <h3>Launch files<a class="headerlink" href="#launch-files" title="Permalink to this headline"></a></h3>
-<p>We will need a launch file to launch <code class="docutils literal notranslate"><span class="pre">move_group</span></code>, <code class="docutils literal notranslate"><span class="pre">ros2_control</span></code>, <code class="docutils literal notranslate"><span class="pre">static_tf</span></code>, <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code>, and <code class="docutils literal notranslate"><span class="pre">rviz</span></code>. <a class="reference external" href="https://github.com/ros-planning/moveit2_tutorials/blob/foxy/doc/tutorials/pick_and_place_with_moveit_task_constructor/launch/pick_place_demo.launch.py">Here</a> is the launch file we use in the tutorials package. Put this in the launch directory of your package.</p>
+<p>We will need a launch file to launch <code class="docutils literal notranslate"><span class="pre">move_group</span></code>, <code class="docutils literal notranslate"><span class="pre">ros2_control</span></code>, <code class="docutils literal notranslate"><span class="pre">static_tf</span></code>, <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code>, and <code class="docutils literal notranslate"><span class="pre">rviz</span></code>. <a class="reference external" href="https://github.com/ros-planning/moveit2_tutorials/blob/main/doc/tutorials/pick_and_place_with_moveit_task_constructor/launch/pick_place_demo.launch.py">Here</a> is the launch file we use in the tutorials package. Put this in the launch directory of your package.</p>
 <p>To run the MoveIt Task Constructor node, we need a second launch file to start the <code class="docutils literal notranslate"><span class="pre">mtc_tutorial</span></code> executable with the proper parameters. Either load your URDF, SRDF, and OMPL parameters, or use MoveIt Configs Utils to do so. Your launch file should look something like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">launch</span> <span class="kn">import</span> <span class="n">LaunchDescription</span>
 <span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">Node</span>
