@@ -1,12 +1,13 @@
 <map id="moveit::core::RobotState::copyJointGroupPositions" name="moveit::core::RobotState::copyJointGroupPositions">
-<area shape="rect" id="node1" title="For a given group, copy the position values of the variables that make up the group into another loca..." alt="" coords="1129,989,1317,1030"/>
+<area shape="rect" id="node1" title="For a given group, copy the position values of the variables that make up the group into another loca..." alt="" coords="1129,1022,1317,1063"/>
 <area shape="rect" id="node2" href="$namespacekinematic__constraints.html#a449c87b5d209ba3b9a62d73b4278da77" title="Generates a constraint message intended to be used as a goal constraint for a joint group...." alt="" coords="875,451,1069,493"/>
 <area shape="rect" id="node21" href="$namespacetrajopt__interface.html#af930b3d04376991573e60f489daaaca4" title=" " alt="" coords="903,858,1041,899"/>
 <area shape="rect" id="node22" href="$classompl__interface_1_1ModelBasedStateSpace.html#adad78278f75811db856ccf9d334de0ee" title="Copy the data from a set of joint states to an OMPL state." alt="" coords="863,923,1081,965"/>
 <area shape="rect" id="node24" href="$namespacepilz__industrial__motion__planner.html#af67e0fa074dd44691f84cfdb63c10798" title="Check if the two robot states have the same joint position/velocity/acceleration." alt="" coords="869,989,1075,1030"/>
 <area shape="rect" id="node26" href="$classmoveit_1_1core_1_1RobotState.html#ab4fa76fc793c057a393723f9fd803005" title="Given positions for the variables that make up a group, in the order found in the group (including va..." alt="" coords="880,1054,1064,1095"/>
-<area shape="rect" id="node27" href="$robot__state__test_8cpp.html#adb3b487fd2559db6519d52dec17ab77d" title=" " alt="" coords="937,1120,1007,1147"/>
-<area shape="rect" id="node28" href="$classTestConstrainedStateSpace.html#ac198f32011feba35df006da6336011b8" title=" " alt="" coords="873,1171,1071,1213"/>
+<area shape="rect" id="node27" href="$test__time__optimal__trajectory__generation_8cpp.html#add348b9a8f52246d2c196d97ba97ebe8" title=" " alt="" coords="945,1120,999,1147"/>
+<area shape="rect" id="node28" href="$robot__state__test_8cpp.html#adb3b487fd2559db6519d52dec17ab77d" title=" " alt="" coords="937,1171,1007,1197"/>
+<area shape="rect" id="node29" href="$classTestConstrainedStateSpace.html#ac198f32011feba35df006da6336011b8" title=" " alt="" coords="873,1222,1071,1263"/>
 <area shape="rect" id="node3" href="$generate__state__database_8cpp.html#a82b7d814b7d1e65af86a269fc31283c3" title=" " alt="" coords="636,5,735,32"/>
 <area shape="rect" id="node4" href="$namespacekinematic__constraints.html#a14a9d99caa1840e95ccd1c01b08966e7" title="Generates a constraint message intended to be used as a goal constraint for a joint group...." alt="" coords="588,57,783,98"/>
 <area shape="rect" id="node5" href="$namespacetestutils.html#ae6f9c0bb1d0c74b4321a6a419f892a57" title=" " alt="" coords="585,123,786,149"/>
